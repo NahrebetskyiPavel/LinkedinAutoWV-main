@@ -53,6 +53,7 @@ public class GetData extends Base{
                 String personName = personNamearr[0] + " " + personNamearr[1];
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
+                //TODO replace with api request  get link to person page
                 Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
                 Thread.sleep(randomResult*3);
                 Selenide.switchTo().window(1);
@@ -68,6 +69,7 @@ public class GetData extends Base{
                     System.out.println(about);
                     woks.stream().map(SelenideElement::text).forEach(System.out::println);
                     System.out.println(location.text());
+                    //TODO add POST rqst post person data
                     Selenide.closeWindow();
                     switchTo().window(0);
                 }
