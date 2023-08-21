@@ -58,7 +58,8 @@ public class ZohoCrmHelper {
         System.out.println(responseBody);
         return responseBodyJsonObject;
     }
-@SneakyThrows
+
+    @SneakyThrows
     public JSONObject AddLeadToCRM(String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();

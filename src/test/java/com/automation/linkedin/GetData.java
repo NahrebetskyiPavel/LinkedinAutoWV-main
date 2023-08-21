@@ -1,5 +1,6 @@
 package com.automation.linkedin;
 
+import api.helpers.WiseVisionApiHelper;
 import api.helpers.ZohoCrmHelper;
 import com.automation.linkedin.pages.PersonPage;
 import com.automation.linkedin.pages.login.SignInPage;
@@ -9,15 +10,12 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import lombok.SneakyThrows;
-import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.Random;
 
 import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class GetData extends Base{
@@ -31,8 +29,8 @@ public class GetData extends Base{
     SelenideElement aboutBody = $("div[id='about'] +div +div");
     SelenideElement seeMoreBtn = $("div[id='about'] +div +div button");
     SelenideElement location = $("div.pv-text-details__left-panel.mt2 span");
-    ElementsCollection woks = $$("#experience +div +div ul li");
-
+    ElementsCollection works = $$("#experience +div +div ul li");
+    WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
     @SneakyThrows
     @Test(description = "Get data from person page", dataProvider = "dataProviderPeopleSearch")
     public void getData (String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId){
@@ -41,16 +39,11 @@ public class GetData extends Base{
         signInPage.signIn(randomResult, email, password);
         Selenide.open(searchLink);
         WebDriverRunner.getWebDriver().manage().window().maximize();
-        for (int i = 0; i < 5; i++) {
             Thread.sleep(randomResult);
-            for (SelenideElement person:searchPeoplePage.PersonPages
-            ) {
                 Thread.sleep(200);
-                String personRef = person.getAttribute("href");
-                if (person.text().contains("LinkedIn Member")) continue;
-
-                String[] personNamearr = person.find(By.cssSelector("span")).text().split("\\s");
-                String personName = personNamearr[0] + " " + personNamearr[1];
+                while (true){
+                String personRef = wiseVisionApiHelper.getUnprocessedLinks();
+                    System.out.println(personRef);
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 //TODO replace with api request  get link to person page
@@ -59,6 +52,7 @@ public class GetData extends Base{
                 Selenide.switchTo().window(1);
                 Thread.sleep(randomResult);
                 String link = WebDriverRunner.getWebDriver().getCurrentUrl();
+                String personName = $("div.pv-text-details__left-panel H1").text();
                 System.out.println( "\n Peron name: " + personName + "\n Peron link: " + link );
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
@@ -67,22 +61,23 @@ public class GetData extends Base{
                 if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
                 String about = aboutBody.text();
                     System.out.println(about);
-                    woks.stream().map(SelenideElement::text).forEach(System.out::println);
+                    String workHistory = "";
+                    for (SelenideElement wok : works) {
+                        workHistory = wok.text() + "\n";
+                        System.out.println(workHistory);
+                    }
+
                     System.out.println(location.text());
-                    //TODO add POST rqst post person data
+                    wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory);
                     Selenide.closeWindow();
                     switchTo().window(0);
                 }
                 else {
                     Selenide.closeWindow();
                     switchTo().window(0);
-                    continue;
                 };
-            }
             Thread.sleep(randomResult);
-            searchPeoplePage.previousPageBtn.shouldBe(visible).click();
-            Thread.sleep(randomResult);
-        }
+                }
     }
 
 
