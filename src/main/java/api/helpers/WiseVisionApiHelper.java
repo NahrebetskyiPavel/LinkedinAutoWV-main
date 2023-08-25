@@ -18,7 +18,7 @@ public class WiseVisionApiHelper {
         return response.body().string();
     }
     @SneakyThrows
-    public void postLinkedinPersonData(String linkedinUrl, String personName, String aboutPerson, String workHistory){
+    public void postLinkedinPersonData(String linkedinUrl, String personName, String aboutPerson, String workHistory,String location){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
@@ -26,6 +26,7 @@ public class WiseVisionApiHelper {
                 "\"linkedinUrl\": \""+linkedinUrl.replace("\n","")+"\",\n    " +
                 "\"personName\": \""+personName.replace("\n","")+"\",\n    " +
                 "\"aboutPerson\": \""+aboutPerson.replace("\n","")+"\",\n    " +
+                "\"location\": \""+location.replace("\n","")+"\",\n    " +
                 "\"workHistory\": \""+workHistory.replace("\n","")+"\"\n}");
         Request request = new Request.Builder()
                 .url("https://zoho.wisevision.pp.ua/linkedin")

@@ -66,9 +66,9 @@ public class GetData extends Base{
                         workHistory = wok.text() + "\n";
                         System.out.println(workHistory);
                     }
-
-                    System.out.println(location.text());
-                    wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory);
+                    String locationData = location.text();
+                    System.out.println(locationData);
+                    wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
                     Selenide.closeWindow();
                     switchTo().window(0);
                 }

@@ -1,13 +1,13 @@
 package com.automation.linkedin;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+
+import static com.codeborne.selenide.Selenide.$$x;
 
 public class Base {
 
@@ -49,5 +49,15 @@ public class Base {
         Selenide.open("https://www.linkedin.com/login");
         WebDriverRunner.getWebDriver().quit();
         Selenide.open("https://www.linkedin.com/login");
+    }
+
+    public static void closeMsgPopups(){
+        ElementsCollection msgPopUpClose = $$x("//div[@aria-label='Messaging']//button[3]");
+        if (msgPopUpClose.first().exists()){
+            for (SelenideElement closeMsgPopUp:msgPopUpClose
+            ) {
+                closeMsgPopUp.click();
+            }
+        }
     }
 }
