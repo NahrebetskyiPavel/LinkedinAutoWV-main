@@ -29,6 +29,7 @@ public class PersonPage {
     public SelenideElement inMailSubject = $x("//div[@aria-label='Messaging']//input[@placeholder='Subject (optional)']");
     public SelenideElement inMailMessege= $x("//div[@aria-label='Messaging']//div[@aria-label='Write a message…']");
     public SelenideElement inMailMessegeBtnSubmit= $x("//div[@aria-label='Messaging']//button[@type='submit']");
+    private int count = 0;
    String JS_ADD_TEXT_TO_INPUT = "var elm = arguments[0], txt = arguments[1];\n" +
            "  elm.value += txt;\n" +
            "  elm.dispatchEvent(new Event('change'));\n";
@@ -60,7 +61,8 @@ public class PersonPage {
                     inMailMessegeBtnSubmit.shouldBe(interactable).click();
                     Thread.sleep(randomResult);
                     clickCloseMessageWindow();
-
+                count += 1;
+                System.out.println("In maild sent = " + count);
         }
             if (premiumUpsellLink.exists()){
                 Thread.sleep(3000);

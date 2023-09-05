@@ -61,15 +61,18 @@ public class Messaging extends Base{
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-                {       "Денис Australia CTO",
+                {       "Денис",
                         clientName,
                         "basdenisphytontm@gmail.com",
                         "asd321qq",
                         "https://www.linkedin.com/messaging",
-                        "Hello there, As a full-stack web, mobile, and software development company based in western Ukraine, we specialize in providing customized solutions to businesses like yours.\n" +
-                                " We have a team of highly skilled developers who can help take your business to the next level. Whether you need a website, mobile app, or software solution, we have the expertise to deliver exceptional results.\n" +
-                                " If you currently have a specific request or problem that needs solving, I'd be happy to help. \n" +
-                                " Best regards,\n",
+                        "Thanks for connecting, .\n" +
+                                "\n" +
+                                "How are you on this nice day? :)\n" +
+                                "\n" +
+                                "I was hoping that you would enlighten me if there is a demand for web development services in the Saudi Arabian market. The thing is: I represent a team of creative web developers of a Ukrainian IT company WiseVision. If you have some demand for custom soft dev we’ll be happy to coop with you, as we have experts in many different fields of IT.\n" +
+                                "\n" +
+                                "Just let me know if you are interested.\n",
                         "Pavlo",
                         "Australia Linkedin",
                         leadCompanyAustraliaId

@@ -11,6 +11,8 @@ import org.openqa.selenium.By;
 import java.util.Random;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$$x;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class SearchPeoplePage {
     AddPeoplePopupPage addPeoplePopupPage = new AddPeoplePopupPage();
@@ -18,7 +20,7 @@ public class SearchPeoplePage {
 
     public SelenideElement addBtn = Selenide.$(By.xpath("//*[text()='Connect']"));
 
-    public ElementsCollection PersonPages = Selenide.$$(By.xpath("//ul[contains(@class,'reusable-search__entity-result-list list-style-none')]//li//span[contains(@class,'entity-result__title-text')]/a[contains(@class,'app-aware-link ')]"));
+    public ElementsCollection PersonPages = $$x("//ul[contains(@class,'reusable-search__entity-result-list list-style-none')]//li//span[contains(@class,'entity-result__title-text')]/a[contains(@class,'app-aware-link ')]");
     public ElementsCollection addButtons = Selenide.$$(By.xpath("//*[text()='Connect']"));
 
     public SelenideElement nextPageBtn = Selenide.$("li-icon[type='chevron-right-icon']");
