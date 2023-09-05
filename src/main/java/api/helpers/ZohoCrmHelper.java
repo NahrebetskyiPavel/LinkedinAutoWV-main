@@ -58,8 +58,9 @@ public class ZohoCrmHelper {
         System.out.println(responseBody);
         return responseBodyJsonObject;
     }
-@SneakyThrows
-    public JSONObject AddLeadToCRM(String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname){
+
+    @SneakyThrows
+    public String AddLeadToCRM(String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("text/plain;charset=UTF-8");
@@ -104,13 +105,14 @@ public class ZohoCrmHelper {
                 .build();
         Response response = client.newCall(request).execute();
         responseBody = response.body().string();
-        JSONObject responseBodyJsonObject = new JSONObject(responseBody);
+        //JSONObject responseBodyJsonObject = new JSONObject(responseBody);
         System.out.println(responseBody);
-        return responseBodyJsonObject;
+
+        return responseBody;
     }
 
-@SneakyThrows
-public String renewAccessToken(){
+    @SneakyThrows
+    public String renewAccessToken(){
     OkHttpClient client = new OkHttpClient().newBuilder().build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
@@ -131,8 +133,45 @@ public String renewAccessToken(){
     return (String) responseBodyJsonObject.get("access_token");
 }
 
-@Test
-public void getToken(){
-    System.out.println(    renewAccessToken() );;
-}
+    @SneakyThrows
+    public void changeLeadStatus(String leadId, String token, String transition_id){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "\n{\n    \"blueprint\": [\n       {\n            \"transition_id\": \"" + transition_id + "\"\n        }\n    ]\n}\n");
+        Request request = new Request.Builder()
+                .url("https://crm.zoho.eu/crm/v2/Leads/"+leadId+"/actions/blueprint")
+                .method("PUT", body)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer " + token)
+                .addHeader("Cookie", "5ad188d5f9=6292d2984ef0821bee3338d1fd76c022; JSESSIONID=3CE4C543322B328AA0D63C186786DDB3; _zcsr_tmp=c3665641-3d33-48e0-90e7-b87732b42ac0; crmcsr=c3665641-3d33-48e0-90e7-b87732b42ac0")
+                .build();
+        Response response = client.newCall(request).execute();
+        System.out.println(response.body().string());
+    }
+    @SneakyThrows
+    public String getLeadInfoByFullName(String token, String fullName){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://crm.zoho.eu/crm/v2/Leads/search?criteria=((Full_Name:equals:"+fullName+"))&=")
+                .method("GET", null)
+                .addHeader("Authorization", "Bearer " + token)
+                .addHeader("Cookie", "5ad188d5f9=6292d2984ef0821bee3338d1fd76c022; JSESSIONID=39CD4FB255DE759F7C10D7D57D4912B3; _zcsr_tmp=c3665641-3d33-48e0-90e7-b87732b42ac0; crmcsr=c3665641-3d33-48e0-90e7-b87732b42ac0")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseBody = response.body().string();
+
+        System.out.println(responseBody);
+        return responseBody;
+    }
+
+    @Test
+    public void getToken(){
+        String token = this.renewAccessToken();
+        JSONObject responseBodyJsonObject = new JSONObject( this.getLeadInfoByFullName(token,"Naif Alsayari,") );
+        System.out.println(responseBodyJsonObject.getJSONArray("data").getJSONObject(0).getString("id"));
+        }
 }
