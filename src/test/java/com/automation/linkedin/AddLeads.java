@@ -82,17 +82,17 @@ public class AddLeads extends Base {
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-                {       "Анастасия ",
+/*                {       "Анастасия ",
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=70&sid=2zm&titleFreeText=CEO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=60&sid=2zm&titleFreeText=CEO",
                         "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
-                        "Yurij",
+                        "Pavlo",
                         "Sweden (LinkedIn)",
                         "421659000004662167"
-                },
-               {       "Маша ",
+                },*/
+/*               {       "Маша ",
                         clientName,
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
@@ -101,7 +101,7 @@ public class AddLeads extends Base {
                         "Yurij",
                         "Saudi Arabia",
                         "421659000006238011"
-                },
+                },*/
 /*                {       "Михайло",
                         clientName,
                         "michael.salo1995@gmail.com",
@@ -112,7 +112,7 @@ public class AddLeads extends Base {
                         "Saudi Arabia",
                         "421659000006238011"
                 },*/
-                {       "Максим",
+/*                {       "Максим",
                         clientName,
                         "kotokmaksym@gmail.com",
                         "r4E3w2q1",
@@ -122,32 +122,32 @@ public class AddLeads extends Base {
                         "Yurij",
                         "Automotive Apollo",
                         "421659000005684017"
-                },
-                {       "Наталья",
+                },*/
+/*                {       "Наталья",
                         clientName,
                         "natalia.marcoon@gmail.com ",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=70&sid=1R7&titleFreeText=Owner",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=60&sid=1R7&titleFreeText=Owner",
                         "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
                         "Valeriia",
                         "Sweden (LinkedIn)",
                         "421659000004662167"
-                },
-                {       "Александра",
+                },*/
+/*                {       "Александра",
                         clientName,
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                         "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&origin=FACETED_SEARCH&page=5&sid=Snt&titleFreeText=founder",
                         "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
-                        "Valeriia",
+                        "Yurij",
                         "Saudi Arabia",
                         "421659000006238011"
-                },
+                },*/
                {       "Роксолана ",
                         clientName,
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=70&sid=Nw9&titleFreeText=founder",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=60&sid=Nw9&titleFreeText=founder",
                         "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
                         "Alex",
                         "Sweden (LinkedIn)",
@@ -157,7 +157,7 @@ public class AddLeads extends Base {
                         clientName,
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104853962%22%2C%22100907646%22%5D&origin=FACETED_SEARCH&page=70&sid=z8-&titleFreeText=cto",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104853962%22%2C%22100907646%22%5D&origin=FACETED_SEARCH&page=60&sid=z8-&titleFreeText=cto",
                         "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
                         "Alex",
                         "Sweden (LinkedIn)",
@@ -167,7 +167,7 @@ public class AddLeads extends Base {
                         clientName,
                         "anastasiiakuntii@gmail.com",
                         "nastya4141",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101452733%22%5D&industry=%5B%2296%22%2C%221594%22%2C%2211%22%5D&origin=FACETED_SEARCH&page=15&sid=KYk&titleFreeText=Founder",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101452733%22%5D&industry=%5B%2296%22%2C%221594%22%2C%2211%22%5D&origin=FACETED_SEARCH&page=5&sid=KYk&titleFreeText=Founder",
                         "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)\n",
                         "Alex",
                         "Australia Outstaff",
@@ -179,7 +179,7 @@ public class AddLeads extends Base {
                         "asd321qq",
                         "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&origin=FACETED_SEARCH&page=5&sid=*b*&titleFreeText=Director%20of%20Human%20Resources",
                         "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
-                        "Pavlo",
+                        "Valeriia",
                         "Saudi Arabia",
                         "421659000006238011"
                 },*/
