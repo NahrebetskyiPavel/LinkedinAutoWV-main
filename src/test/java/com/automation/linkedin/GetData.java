@@ -37,7 +37,6 @@ public class GetData extends Base{
         setupBrowser(true, name);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
-        Selenide.open(searchLink);
         WebDriverRunner.getWebDriver().manage().window().maximize();
             Thread.sleep(randomResult);
                 Thread.sleep(200);
