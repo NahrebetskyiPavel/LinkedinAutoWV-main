@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import static com.codeborne.selenide.AssertionMode.SOFT;
 import static com.codeborne.selenide.Selenide.$$x;
 
 public class Base {
@@ -43,6 +44,7 @@ public class Base {
             }});
 
             Configuration.browserCapabilities = options;
+            Configuration.assertionMode = SOFT;
         }
     }
     public static void openLinkedInLoginPage(){

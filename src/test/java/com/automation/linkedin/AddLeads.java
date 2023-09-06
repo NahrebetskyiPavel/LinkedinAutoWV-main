@@ -29,7 +29,7 @@ public class AddLeads extends Base {
     int randomResult = random.nextInt(high-low) + low;
 
     @SneakyThrows
-    @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch")
+    @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true)
     public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId){
         setupBrowser(true, name);
         Thread.sleep(randomResult*3);
@@ -143,7 +143,7 @@ public class AddLeads extends Base {
                         "Saudi Arabia",
                         "421659000006238011"
                 },*/
-               {       "Роксолана ",
+/*               {       "Роксолана ",
                         clientName,
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
@@ -152,7 +152,7 @@ public class AddLeads extends Base {
                         "Alex",
                         "Sweden (LinkedIn)",
                         "421659000004662167"
-                },
+                },*/
                 {       "Марьян",
                         clientName,
                         "reshetunmaryanwv@gmail.com",
