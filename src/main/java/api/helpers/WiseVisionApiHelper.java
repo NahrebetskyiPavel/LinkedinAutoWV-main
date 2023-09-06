@@ -3,11 +3,10 @@ package api.helpers;
 
 import lombok.SneakyThrows;
 import okhttp3.*;
-import org.json.JSONObject;
 import org.testng.annotations.Test;
 public class WiseVisionApiHelper {
     @SneakyThrows
-    public String getUnprocessedLinks(){
+    public Response getUnprocessedLinks(){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
@@ -15,7 +14,7 @@ public class WiseVisionApiHelper {
                 .method("GET", null)
                 .build();
         Response response = client.newCall(request).execute();
-        return response.body().string();
+        return response;
     }
     @SneakyThrows
     public void postLinkedinPersonData(String linkedinUrl, String personName, String aboutPerson, String workHistory,String location){

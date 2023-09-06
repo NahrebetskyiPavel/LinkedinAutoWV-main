@@ -10,6 +10,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import lombok.SneakyThrows;
+import okhttp3.Response;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -41,8 +42,9 @@ public class GetData extends Base{
             Thread.sleep(randomResult);
                 Thread.sleep(200);
                 while (true){
-                String personRef = wiseVisionApiHelper.getUnprocessedLinks();
-                if (personRef.length() == 0) break;
+                Response getUnprocessedLinksResponse= wiseVisionApiHelper.getUnprocessedLinks();
+                String personRef = wiseVisionApiHelper.getUnprocessedLinks().body().string();
+                if (getUnprocessedLinksResponse.code() == 400 && getUnprocessedLinksResponse.body().string().contains("No unprocessed linkedin URLs found.")) break;
                     System.out.println(personRef);
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
