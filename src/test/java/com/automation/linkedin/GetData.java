@@ -44,7 +44,10 @@ public class GetData extends Base{
                 while (true){
                 Response getUnprocessedLinksResponse= wiseVisionApiHelper.getUnprocessedLinks();
                 String personRef = wiseVisionApiHelper.getUnprocessedLinks().body().string();
-                if (getUnprocessedLinksResponse.code() == 400 && getUnprocessedLinksResponse.body().string().contains("No unprocessed linkedin URLs found.")) break;
+                if (getUnprocessedLinksResponse.code() == 400 && getUnprocessedLinksResponse.body().string().contains("No unprocessed linkedin URLs found.")) {
+                    System.out.println("No unprocessed linkedin URLs found");
+                    break;
+                }
                     System.out.println(personRef);
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
