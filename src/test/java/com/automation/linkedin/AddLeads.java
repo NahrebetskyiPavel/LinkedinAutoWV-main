@@ -9,9 +9,9 @@ import com.codeborne.selenide.*;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
+
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 import java.util.Random;
 
 import static com.codeborne.selenide.Condition.*;
@@ -31,6 +31,9 @@ public class AddLeads extends Base {
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true)
     public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId){
+        System.out.println("-------------------------------------------------------\n" +
+                "START: "+name+"\n" +
+                "-------------------------------------------------------");
         setupBrowser(true, name);
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();

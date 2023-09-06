@@ -44,7 +44,6 @@ public class Base {
             }});
 
             Configuration.browserCapabilities = options;
-            Configuration.assertionMode = SOFT;
         }
     }
     public static void openLinkedInLoginPage(){
