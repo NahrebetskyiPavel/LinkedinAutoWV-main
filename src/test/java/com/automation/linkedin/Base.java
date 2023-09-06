@@ -43,6 +43,7 @@ public class Base {
             }});
 
             Configuration.browserCapabilities = options;
+            Configuration.screenshots = false;
         }
     }
     public static void openLinkedInLoginPage(){

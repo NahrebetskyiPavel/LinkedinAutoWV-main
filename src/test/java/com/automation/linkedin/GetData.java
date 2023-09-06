@@ -42,6 +42,7 @@ public class GetData extends Base{
                 Thread.sleep(200);
                 while (true){
                 String personRef = wiseVisionApiHelper.getUnprocessedLinks();
+                if ()
                     System.out.println(personRef);
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
