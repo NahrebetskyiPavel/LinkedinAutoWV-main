@@ -41,9 +41,7 @@ public class GetData extends Base{
             Thread.sleep(randomResult);
                 Thread.sleep(200);
                 while (true){
-                String personRef = wiseVisionApiHelper.getUnprocessedLinks();
-                    System.out.println(personRef);
-                Thread.sleep(randomResult);
+                String personRef = wiseVisionApiHelper.getUnprocessedLinks();Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 //TODO replace with api request  get link to person page
                 Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
@@ -52,21 +50,17 @@ public class GetData extends Base{
                 Thread.sleep(randomResult);
                 String link = WebDriverRunner.getWebDriver().getCurrentUrl();
                 String personName = $("div.pv-text-details__left-panel H1").text();
-                System.out.println( "\n Peron name: " + personName + "\n Peron link: " + link );
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 if (aboutHeader.exists()){
                     Selenide.executeJavaScript("document.getElementById(\"about\").scrollIntoView();");
                 if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
                 String about = aboutBody.text();
-                    System.out.println(about);
                     String workHistory = "";
                     for (SelenideElement wok : works) {
                         workHistory = wok.text() + "\n";
-                        System.out.println(workHistory);
                     }
                     String locationData = location.text();
-                    System.out.println(locationData);
                     wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
                     Selenide.closeWindow();
                     switchTo().window(0);

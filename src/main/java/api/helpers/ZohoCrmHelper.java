@@ -55,7 +55,6 @@ public class ZohoCrmHelper {
         Response response = client.newCall(request).execute();
         responseBody = response.body().string();
         JSONObject responseBodyJsonObject = new JSONObject(responseBody);
-        System.out.println(responseBody);
         return responseBodyJsonObject;
     }
 
@@ -106,7 +105,6 @@ public class ZohoCrmHelper {
         Response response = client.newCall(request).execute();
         responseBody = response.body().string();
         //JSONObject responseBodyJsonObject = new JSONObject(responseBody);
-        System.out.println(responseBody);
 
         return responseBody;
     }
@@ -129,7 +127,6 @@ public class ZohoCrmHelper {
     Response response = client.newCall(request).execute();
     String responseBody = response.body().string();
     JSONObject responseBodyJsonObject = new JSONObject(responseBody);
-    System.out.println(responseBody);
     return (String) responseBodyJsonObject.get("access_token");
 }
 
@@ -147,7 +144,6 @@ public class ZohoCrmHelper {
                 .addHeader("Cookie", "5ad188d5f9=6292d2984ef0821bee3338d1fd76c022; JSESSIONID=3CE4C543322B328AA0D63C186786DDB3; _zcsr_tmp=c3665641-3d33-48e0-90e7-b87732b42ac0; crmcsr=c3665641-3d33-48e0-90e7-b87732b42ac0")
                 .build();
         Response response = client.newCall(request).execute();
-        System.out.println(response.body().string());
     }
     @SneakyThrows
     public String getLeadInfoByFullName(String token, String fullName){
@@ -164,7 +160,6 @@ public class ZohoCrmHelper {
         Response response = client.newCall(request).execute();
         String responseBody = response.body().string();
 
-        System.out.println(responseBody);
         return responseBody;
     }
 
@@ -172,6 +167,6 @@ public class ZohoCrmHelper {
     public void getToken(){
         String token = this.renewAccessToken();
         JSONObject responseBodyJsonObject = new JSONObject( this.getLeadInfoByFullName(token,"Naif Alsayari,") );
-        System.out.println(responseBodyJsonObject.getJSONArray("data").getJSONObject(0).getString("id"));
+        //System.out.println(responseBodyJsonObject.getJSONArray("data").getJSONObject(0).getString("id"));
         }
 }

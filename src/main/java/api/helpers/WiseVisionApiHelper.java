@@ -34,14 +34,13 @@ public class WiseVisionApiHelper {
                 .addHeader("Content-Type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
-        System.out.println();
-        System.out.println(response);
+
     }
 
 
 
     @Test
     public void teest(){
-        System.out.println(this.getUnprocessedLinks());
+
     }
 }

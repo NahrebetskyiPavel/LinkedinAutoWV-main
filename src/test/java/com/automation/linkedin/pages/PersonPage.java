@@ -54,14 +54,13 @@ public class PersonPage {
                     Thread.sleep(randomResult);
                     inMailMessege.shouldBe(interactable).click();
                     Thread.sleep(randomResult);
-                    System.out.println(message);
                     try {inMailMessege.shouldBe(interactable).sendKeys(message);}catch (WebDriverException ignore){}
                     Thread.sleep(randomResult);
                     inMailMessegeBtnSubmit.shouldBe(interactable).click();
                     Thread.sleep(randomResult);
                     clickCloseMessageWindow();
                 count += 1;
-                System.out.println("In maild sent = " + count);
+                //System.out.println("In maild sent = " + count);
         }
             if (premiumUpsellLink.exists()){
                 Thread.sleep(3000);

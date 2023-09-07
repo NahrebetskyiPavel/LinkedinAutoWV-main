@@ -51,7 +51,6 @@ public class AddLeads extends Base {
 
                 String[] personNamearr = person.find(By.cssSelector("span")).text().split("\\s");
                 String personName = personNamearr[0] + " " + personNamearr[1];
-                System.out.println(personName);
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
 
@@ -69,7 +68,6 @@ public class AddLeads extends Base {
                 Selenide.closeWindow();
                 switchTo().window(0);
                 //if (zohoCrmHelper.responseBody.contains("DUPLICATE_DATA")){break;}
-                System.out.println("\n" + WebDriverRunner.getWebDriver().getCurrentUrl() );
             }
             Thread.sleep(randomResult);
             searchPeoplePage.previousPageBtn.shouldBe(visible).click();

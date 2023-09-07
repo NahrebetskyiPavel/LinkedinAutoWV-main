@@ -50,7 +50,6 @@ public class AddLeads {
                 if (person.find(By.cssSelector(".mn-connection-card__name")).text().contains("LinkedIn Member")) continue;
                 String[] personNamearr = person.find(By.cssSelector(".mn-connection-card__name")).text().split("\\s");
                 String personName = personNamearr[0] + " " + personNamearr[1];
-                System.out.println(personName);
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 if ($x("//span[normalize-space()='Show more results']").exists()) {
@@ -69,8 +68,6 @@ public class AddLeads {
                 if (leadInfoResponseBody.length() > 0 && leadInfoResponseBody.contains("data")) {
                     JSONObject responseBodyJsonObjectLeadInfo = new JSONObject(leadInfoResponseBody);
                     String LeadId = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("id");
-
-                    System.out.println("==============="+LeadId+"===============");
                     zohoCrmHelper.changeLeadStatus(LeadId, token,"421659000001302293");
                 }
                 else continue;
