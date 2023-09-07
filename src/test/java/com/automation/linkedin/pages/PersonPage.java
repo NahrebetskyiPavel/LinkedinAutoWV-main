@@ -48,7 +48,6 @@ public class PersonPage {
             clickCloseMessageWindow();
             clickMessageBtn();
             Thread.sleep(randomResult);
-
             if (inMailSubject.exists()){
                 closeInMailPopUp();
                 inMailSubject.shouldBe(visible).shouldBe(interactable).setValue("Cooperation");
@@ -70,9 +69,7 @@ public class PersonPage {
                 addToFriends(message);
                 return;
             }
-
-if (isPremiumTrue){ sendInMailMsgPremium(message); }
-
+            if (isPremiumTrue){ sendInMailMsgPremium(message); }
         }
         else {
             addToFriends(message);
