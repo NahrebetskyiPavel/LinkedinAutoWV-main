@@ -188,7 +188,7 @@ public class AddLeads extends Base {
                         clientName,
                         "basdenisphytontm@gmail.com",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=L_B&titleFreeText=Director%20of%20Human%20Resources",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=60&sid=L_B&titleFreeText=Director%20of%20Human%20Resources",
                         "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
                         "Valeriia",
                         "Saudi Arabia",
