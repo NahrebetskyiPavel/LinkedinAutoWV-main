@@ -40,7 +40,7 @@ public class PersonPage {
     int high = 4000;
     int randomResult = random.nextInt(high-low) + low;
     @SneakyThrows
-    public void addLead(String message){
+    public void addLead(String message, boolean isPremiumTrue){
 
         Thread.sleep(randomResult);
         clickMoreBtn();
@@ -71,8 +71,7 @@ public class PersonPage {
                 return;
             }
 
-
-            //sendInMailMsgPremium(message);
+if (isPremiumTrue){ sendInMailMsgPremium(message); }
 
         }
         else {

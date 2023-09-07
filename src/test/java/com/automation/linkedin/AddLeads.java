@@ -30,7 +30,7 @@ public class AddLeads extends Base {
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true)
-    public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId){
+    public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId, boolean premium){
         System.out.println("-------------------------------------------------------\n" +
                 "START: "+name+"\n" +
                 "-------------------------------------------------------");
@@ -60,7 +60,7 @@ public class AddLeads extends Base {
             Selenide.switchTo().window(1);
                 Thread.sleep(randomResult);
                 closeMsgPopups();
-                personPage.addLead(msg.replace("NAME", personNamearr[0]));
+                personPage.addLead(msg.replace("NAME", personNamearr[0]), premium);
                String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
                if (response.contains("INVALID_TOKEN")) {
                    token = zohoCrmHelper.renewAccessToken();
@@ -89,62 +89,68 @@ public class AddLeads extends Base {
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290010409%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=8Ms&titleFreeText=CEO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290010409%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=8Ms&titleFreeText=CEO",
                         "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
                         "Pavlo",
                         "Sweden (LinkedIn)",
-                        "421659000004662167"
+                        "421659000004662167",
+                        false
                 },
                 {       "Маша ",
                         clientName,
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=EPb&titleFreeText=ceo",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=EPb&titleFreeText=ceo",
                         "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
                         "Yurij",
                         "Saudi Arabia",
-                        "421659000006238011"
+                        "421659000006238011",
+                        false
                 },
                 {       "Михайло",
                         clientName,
                         "michael.salo1995@gmail.com",
                         "newman1996",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=5fq&titleFreeText=co-founder",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=5fq&titleFreeText=co-founder",
                         "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
                         "Yurij",
                         "Saudi Arabia",
-                        "421659000006238011"
+                        "421659000006238011",
+                        false
                 },
                 {       "Максим",
                         clientName,
                         "kotokmaksym@gmail.com",
                         "r4E3w2q1",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=30&sid=a5e&titleFreeText=Dealer%20General%20Manager",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=20&sid=a5e&titleFreeText=Dealer%20General%20Manager",
                         "Hi, my name is Maks. I am VP of engineering at software company Wise Vision. We help dealership companies improve business metrics via modern IT solutions.\n" +
                                 "Will be appreciated a lot for accepting this invite.",
                         "Yurij",
                         "Automotive Apollo",
-                        "421659000005684017"
+                        "421659000005684017",
+                        false
                 },
                 {       "Наталья",
                         clientName,
                         "natalia.marcoon@gmail.com ",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=1fm&titleFreeText=Owner",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=1fm&titleFreeText=Owner",
                         "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
                         "Valeriia",
                         "Sweden (LinkedIn)",
-                        "421659000004662167"
+                        "421659000004662167",
+                        false
                 },
                 {       "Александра",
                         clientName,
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=45A&titleFreeText=founder",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=45A&titleFreeText=founder",
                         "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
                         "Yurij",
                         "Saudi Arabia",
-                        "421659000006238011"
+                        "421659000006238011",
+                        false
                 },
 /*               {       "Роксолана ",
                         clientName,
@@ -160,41 +166,45 @@ public class AddLeads extends Base {
                         clientName,
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104853962%22%2C%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=~2(&titleFreeText=cto",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104853962%22%2C%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=~2(&titleFreeText=cto",
                         "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
                         "Alex",
                         "Sweden (LinkedIn)",
-                        "421659000004662167"
+                        "421659000004662167",
+                        false
                 },
                 {       "Настя ",
                         clientName,
                         "anastasiiakuntii@gmail.com",
                         "nastya4141",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101452733%22%5D&industry=%5B%2296%22%2C%221594%22%2C%2211%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=i0b&titleFreeText=Founder",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101452733%22%5D&industry=%5B%2296%22%2C%221594%22%2C%2211%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=i0b&titleFreeText=Founder",
                         "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)\n",
                         "Alex",
                         "Australia Outstaff",
-                        "421659000006238006"
+                        "421659000006238006",
+                        false
                 },
                 {       "Денис ",
                         clientName,
                         "basdenisphytontm@gmail.com",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=L_B&titleFreeText=Director%20of%20Human%20Resources",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=L_B&titleFreeText=Director%20of%20Human%20Resources",
                         "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
                         "Valeriia",
                         "Saudi Arabia",
-                        "421659000006238011"
+                        "421659000006238011",
+                        false
                 },
                 {       "Nikita ",
                         clientName,
                         "kni2012@ukr.net",
                         "33222200s",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%2C%2290010409%22%5D&industry=%5B%2296%22%2C%224%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=52&sid=vto&titleFreeText=CTO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%2C%2290010409%22%5D&industry=%5B%2296%22%2C%224%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=50&sid=vto&titleFreeText=CTO",
                         "Hi, there. I happened upon your account and was really impressed with your work. I will be in Stockholm between 19 and 24 of September. I was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies :)",
                         "Valeriia",
                         "Munich",
-                        "421659000006238021"
+                        "421659000006238021",
+                        true
                 },
 
 /* ==================================================================================================================================================================== */
