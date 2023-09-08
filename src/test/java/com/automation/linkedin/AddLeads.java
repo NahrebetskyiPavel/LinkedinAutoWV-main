@@ -41,7 +41,7 @@ public class AddLeads extends Base {
         Selenide.open(searchLink);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Thread.sleep(randomResult);
             for (SelenideElement person:searchPeoplePage.PersonPages
             ) {
