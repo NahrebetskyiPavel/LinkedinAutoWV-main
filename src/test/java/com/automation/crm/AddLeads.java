@@ -31,6 +31,7 @@ public class AddLeads {
     int low = 2000;
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
+    private static final String Contacted  = "421659000001302293";
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleAddToCRM")
@@ -68,7 +69,7 @@ public class AddLeads {
                 if (leadInfoResponseBody.length() > 0 && leadInfoResponseBody.contains("data")) {
                     JSONObject responseBodyJsonObjectLeadInfo = new JSONObject(leadInfoResponseBody);
                     String LeadId = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("id");
-                    zohoCrmHelper.changeLeadStatus(LeadId, token,"421659000001302293");
+                    zohoCrmHelper.changeLeadStatus(LeadId, token, Contacted);
                 }
                 else continue;
             }
