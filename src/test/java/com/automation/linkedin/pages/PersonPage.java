@@ -44,7 +44,7 @@ public class PersonPage {
 
         Thread.sleep(randomResult);
         clickMoreBtn();
-        if (inMailMsgBtn.exists()) {
+/*        if (inMailMsgBtn.exists()) {
             clickCloseMessageWindow();
             clickMessageBtn();
             Thread.sleep(randomResult);
@@ -72,14 +72,16 @@ public class PersonPage {
         }
         else {
             addToFriends(message);
-        }
+        }*/
+
+        addToFriends(message);
+
 
     }
 
     public void closeInMailPopUp(){
         if ( inMailWindow.is(visible) && inMailSubject.is(not(visible)) ) {
             $x("//div[@aria-label='Messaging']//button[2]").click();
-            return;
         }
     }
 
@@ -118,11 +120,7 @@ public class PersonPage {
         inMailMsgBtn.click();
 
     }
-    public void closePremiumAd(){
-        if (premiumUpsellLink.is(visible) && premiumUpsellLinkCloseBtn.is(interactable)){
-            premiumUpsellLinkCloseBtn.shouldBe(interactable, Duration.ofSeconds(30)).click();
-        }
-    }
+    public void closePremiumAd(){ premiumUpsellLinkCloseBtn.shouldBe(interactable, Duration.ofSeconds(30)).click(); }
     @SneakyThrows
     public void addToFriends(String message){
     if (!addBtn.is(visible)) clickMoreBtn();

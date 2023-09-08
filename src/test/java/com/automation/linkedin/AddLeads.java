@@ -116,18 +116,6 @@ public class AddLeads extends Base {
                         "421659000006238011",
                         false
                 },
-                {       "Максим",
-                        clientName,
-                        "kotokmaksym@gmail.com",
-                        "r4E3w2q1",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=10&sid=a5e&titleFreeText=Dealer%20General%20Manager",
-                        "Hi, my name is Maks. I am VP of engineering at software company Wise Vision. We help dealership companies improve business metrics via modern IT solutions.\n" +
-                                "Will be appreciated a lot for accepting this invite.",
-                        "Yurij",
-                        "Automotive Apollo",
-                        "421659000005684017",
-                        false
-                },
                 {       "Наталья",
                         clientName,
                         "natalia.marcoon@gmail.com ",
@@ -150,16 +138,7 @@ public class AddLeads extends Base {
                         "421659000006238011",
                         false
                 },
-/*                {       "Роксолана ",
-                        clientName,
-                        "roksolanatrofim@gmail.com ",
-                        "89fcmTT88V",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=60&sid=Nw9&titleFreeText=founder",
-                        "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
-                        "Alex",
-                        "Sweden (LinkedIn)",
-                        "421659000004662167"
-                },*/
+
                 {       "Марьян",
                         clientName,
                         "reshetunmaryanwv@gmail.com",
@@ -215,8 +194,8 @@ public class AddLeads extends Base {
                         "Alex",
                         "Saudi Arabia",
                         "421659000006238011"
-                },*/
-/*                {       "Test",
+                },
+                {       "Test",
                         clientName,
                         "wisevision1985@gmail.com",
                         "33222200Shin",
@@ -225,8 +204,8 @@ public class AddLeads extends Base {
                         "Pavlo",
                         "Test",
                         "421659000007355929"
-                },*/
-/*                {       "Test",
+                },
+                {       "Test",
                         clientName,
                         "wisevision1986@gmail.com",
                         "33222200Shin",
@@ -235,8 +214,33 @@ public class AddLeads extends Base {
                         "Pavlo",
                         "Test",
                         "421659000007355929"
-                },*/
+                },
+<==============================================================================================================================================================>
 
+               {       "Роксолана ",
+                        clientName,
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=60&sid=Nw9&titleFreeText=founder",
+                        "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies",
+                        "Alex",
+                        "Sweden (LinkedIn)",
+                        "421659000004662167"
+                },
+               {       "Максим",
+                        clientName,
+                        "kotokmaksym@gmail.com",
+                        "r4E3w2q1",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=10&sid=a5e&titleFreeText=Dealer%20General%20Manager",
+                        "Hi, my name is Maks. I am VP of engineering at software company Wise Vision. We help dealership companies improve business metrics via modern IT solutions.\n" +
+                                "Will be appreciated a lot for accepting this invite.",
+                        "Yurij",
+                        "Automotive Apollo",
+                        "421659000005684017",
+                        false
+                },
+
+               */
         };
     }
 }

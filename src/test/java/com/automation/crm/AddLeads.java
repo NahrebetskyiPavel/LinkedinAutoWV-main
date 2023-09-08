@@ -43,7 +43,7 @@ public class AddLeads {
         Selenide.open("https://www.linkedin.com/mynetwork/invite-connect/connections/");
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-        for (int i = 0; i < 3; i++) {
+
             Thread.sleep(randomResult);
             for (SelenideElement person:$$x("//div[@class='mn-connection-card__details']/a")
             ) {
@@ -75,7 +75,7 @@ public class AddLeads {
             }
 
             Thread.sleep(randomResult);
-        }
+
     }
 
 
