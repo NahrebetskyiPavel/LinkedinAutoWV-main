@@ -181,7 +181,7 @@ public class AddLeads extends Base {
                         "Australia Outstaff",
                         "421659000006238006",
                         false
-                }
+                },
                 {       "Денис ",
                         clientName,
                         "basdenisphytontm@gmail.com",
