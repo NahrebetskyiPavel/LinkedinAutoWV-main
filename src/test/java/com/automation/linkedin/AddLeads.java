@@ -39,6 +39,7 @@ public class AddLeads extends Base {
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         Selenide.open(searchLink);
+        Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
         for (int i = 0; i < 5; i++) {
