@@ -29,7 +29,7 @@ public class AddLeads extends Base {
     int randomResult = random.nextInt(high-low) + low;
 
     @SneakyThrows
-    @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true)
+    @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId, boolean premium){
         System.out.println("-------------------------------------------------------\n" +
                 "START: "+name+"\n" +
@@ -84,7 +84,7 @@ public class AddLeads extends Base {
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-                {       "Анастасия ",
+/*                {       "Анастасия ",
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
@@ -138,7 +138,7 @@ public class AddLeads extends Base {
                         "Saudi Arabia",
                         "421659000006238011",
                         false
-                },
+                },*/
 
                 {       "Марьян",
                         clientName,
@@ -173,7 +173,7 @@ public class AddLeads extends Base {
                         "421659000006238011",
                         false
                 },
-                {       "Nikita ",
+/*                {       "Nikita ",
                         clientName,
                         "kni2012@ukr.net",
                         "33222200s",
@@ -183,7 +183,7 @@ public class AddLeads extends Base {
                         "Munich",
                         "421659000006238021",
                         true
-                },
+                },*/
 
 /* ==================================================================================================================================================================== */
 /*                {       "Софія",
