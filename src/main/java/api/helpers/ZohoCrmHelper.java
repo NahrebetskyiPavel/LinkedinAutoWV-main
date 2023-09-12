@@ -131,7 +131,7 @@ public class ZohoCrmHelper {
 }
 
     @SneakyThrows
-    public void changeLeadStatus(String leadId, String token, String transition_id){
+    public Response changeLeadStatus(String leadId, String token, String transition_id){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
@@ -142,6 +142,35 @@ public class ZohoCrmHelper {
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Authorization", "Bearer " + token)
                 .addHeader("Cookie", "5ad188d5f9=6292d2984ef0821bee3338d1fd76c022; JSESSIONID=3CE4C543322B328AA0D63C186786DDB3; _zcsr_tmp=c3665641-3d33-48e0-90e7-b87732b42ac0; crmcsr=c3665641-3d33-48e0-90e7-b87732b42ac0")
+                .build();
+        Response response = client.newCall(request).execute();
+        System.out.println(response.body().string());
+        return response;
+    }
+
+    @SneakyThrows
+    public void changeLeadStatus(String leadId, String token){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"data\":[{\"Lead_Status\":\"Contacted\"}],\"formruleValue\":{\"mandatoryInputNeededElem\":[],\"lrMandatoryElem\":[],\"LayoutRuleHiddenElem\":[]}}");
+        Request request = new Request.Builder()
+                .url("https://crm.zoho.eu/crm/v2/Leads/"+leadId+"?affected_data=true")
+                .method("PUT", body)
+                .addHeader("sec-ch-ua", "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\"")
+                .addHeader("sec-ch-ua-mobile", "?0")
+                .addHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36")
+                .addHeader("Content-Type", "application/json")
+                .addHeader("X-CRM-ORG", "20080256708")
+                .addHeader("Accept", "*/*")
+                .addHeader("X-ZCSRF-TOKEN", "crmcsrfparam=0beba5d8274d7941d891187c60526803d62a97b4c0c21d8d1ccecfa5a0aea3bcacae8ec358fffd0a3f94a1f360e85d50bd87ed0a98496a3adad4b6f3b5ef3ebb")
+                .addHeader("X-Client-SubVersion", "35140cbf0cd282bcd24017da374dae75")
+                .addHeader("X-Requested-With", "XMLHttpRequest, XMLHttpRequest")
+                .addHeader("X-Static-Version", "6999993")
+                .addHeader("sec-ch-ua-platform", "\"macOS\"")
+                .addHeader("host", "crm.zoho.eu")
+                .addHeader("Authorization", "Bearer " + token)
+                .addHeader("Cookie", "5ad188d5f9=602c68540f2fb9aa8d48ce31dfa8d025; _zcsr_tmp=34c9ebdd-e968-441c-9fae-a3a56dd240bb; crmcsr=34c9ebdd-e968-441c-9fae-a3a56dd240bb")
                 .build();
         Response response = client.newCall(request).execute();
         System.out.println(response.body().string());
@@ -166,8 +195,6 @@ public class ZohoCrmHelper {
 
     @Test
     public void getToken(){
-        String token = this.renewAccessToken();
-        JSONObject responseBodyJsonObject = new JSONObject( this.getLeadInfoByFullName(token,"Naif Alsayari,") );
-        //System.out.println(responseBodyJsonObject.getJSONArray("data").getJSONObject(0).getString("id"));
+        System.out.println(this.renewAccessToken());
         }
 }

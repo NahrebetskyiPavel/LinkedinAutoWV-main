@@ -45,6 +45,7 @@ public class AddLeads {
         Selenide.open("https://www.linkedin.com/mynetwork/invite-connect/connections/");
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
+
         for (int i = 0; i < 5; i++) {
             Thread.sleep(randomResult);
             Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
@@ -74,7 +75,8 @@ public class AddLeads {
                     String leadId = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("id");
                     System.out.println(leadId);
                     System.out.println(personName);
-                    zohoCrmHelper.changeLeadStatus(leadId, token, Contacted);
+                    String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(leadId, token, Contacted).body().string();
+                    if (changeLeadStatusResponse.contains("record not in process")) zohoCrmHelper.changeLeadStatus(leadId, token);
                 }
                 else continue;
             Thread.sleep(randomResult);
