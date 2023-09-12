@@ -149,7 +149,7 @@ public class ZohoCrmHelper {
     }
 
     @SneakyThrows
-    public void changeLeadStatus(String leadId, String token){
+    public void c(String leadId, String token){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
