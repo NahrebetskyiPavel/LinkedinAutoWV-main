@@ -131,7 +131,7 @@ public class ZohoCrmHelper {
 }
 
     @SneakyThrows
-    public Response changeLeadStatus(String leadId, String token, String transition_id){
+    public String changeLeadStatus(String leadId, String token, String transition_id){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
@@ -144,12 +144,11 @@ public class ZohoCrmHelper {
                 .addHeader("Cookie", "5ad188d5f9=6292d2984ef0821bee3338d1fd76c022; JSESSIONID=3CE4C543322B328AA0D63C186786DDB3; _zcsr_tmp=c3665641-3d33-48e0-90e7-b87732b42ac0; crmcsr=c3665641-3d33-48e0-90e7-b87732b42ac0")
                 .build();
         Response response = client.newCall(request).execute();
-        System.out.println(response.body().string());
-        return response;
+        return response.body().string();
     }
 
     @SneakyThrows
-    public void changeLeadStatus(String leadId, String token){
+    public String changeLeadStatus(String leadId, String token){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
@@ -173,7 +172,7 @@ public class ZohoCrmHelper {
                 .addHeader("Cookie", "5ad188d5f9=602c68540f2fb9aa8d48ce31dfa8d025; _zcsr_tmp=34c9ebdd-e968-441c-9fae-a3a56dd240bb; crmcsr=34c9ebdd-e968-441c-9fae-a3a56dd240bb")
                 .build();
         Response response = client.newCall(request).execute();
-        System.out.println(response.body().string());
+        return response.body().string();
     }
     @SneakyThrows
     public String getLeadInfoByFullName(String token, String fullName){
