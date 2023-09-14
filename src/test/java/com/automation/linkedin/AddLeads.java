@@ -64,6 +64,7 @@ public class AddLeads extends Base {
                 closeMsgPopups();
             if (personPage.addLead(msg.replace("NAME", personNamearr[0]), premium) ){
                 leadsRequestCount = leadsRequestCount + 1;
+                if (leadsRequestCount == 49) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
                 System.out.println("leadsRequestCount: " + leadsRequestCount);
                 String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
                 if (response.contains("INVALID_TOKEN")) {
@@ -77,6 +78,10 @@ public class AddLeads extends Base {
                 //if (zohoCrmHelper.responseBody.contains("DUPLICATE_DATA")){break;}
             }
             Thread.sleep(randomResult);
+            if (!searchPeoplePage.previousPageBtn.is(interactable)){
+                System.out.println("=========== OUT OF SEARCH ===========");
+                break;
+            }
             searchPeoplePage.previousPageBtn.shouldBe(visible).click();
             Thread.sleep(randomResult);
         }
