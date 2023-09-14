@@ -193,7 +193,8 @@ public class AddLeads extends Base {
                         "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with him and talk about your business development and possible cooperation between our companies",
                         "Alex",
                         "Sweden (LinkedIn)",
-                        "421659000004662167"
+                        "421659000004662167",
+                        false
                 },
                 {       "Максим",
                         clientName,
