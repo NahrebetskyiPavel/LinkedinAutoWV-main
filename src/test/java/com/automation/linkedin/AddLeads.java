@@ -31,6 +31,7 @@ public class AddLeads extends Base {
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId, boolean premium){
+        int leadsRequestCount = 0;
         Thread.sleep(randomResult);
         System.out.println("-------------------------------------------------------\n" +
                 "START: "+name+"\n" +
@@ -43,7 +44,7 @@ public class AddLeads extends Base {
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-        for (int i = 0; i < 5; i++) {
+        while (leadsRequestCount != 50){
             Thread.sleep(randomResult);
             for (SelenideElement person:searchPeoplePage.PersonPages
             ) {
@@ -61,12 +62,16 @@ public class AddLeads extends Base {
             Selenide.switchTo().window(1);
                 Thread.sleep(randomResult);
                 closeMsgPopups();
-                personPage.addLead(msg.replace("NAME", personNamearr[0]), premium);
-               String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
-               if (response.contains("INVALID_TOKEN")) {
-                   token = zohoCrmHelper.renewAccessToken();
-                   zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
-               }
+            if (personPage.addLead(msg.replace("NAME", personNamearr[0]), premium) ){
+                leadsRequestCount = leadsRequestCount + 1;
+                System.out.println("leadsRequestCount: " + leadsRequestCount);
+                String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
+                if (response.contains("INVALID_TOKEN")) {
+                    token = zohoCrmHelper.renewAccessToken();
+                    zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
+                }
+                }
+
                 Selenide.closeWindow();
                 switchTo().window(0);
                 //if (zohoCrmHelper.responseBody.contains("DUPLICATE_DATA")){break;}

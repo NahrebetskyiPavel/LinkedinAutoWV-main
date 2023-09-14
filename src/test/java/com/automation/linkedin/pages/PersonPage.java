@@ -1,14 +1,11 @@
 package com.automation.linkedin.pages;
 
 import com.automation.linkedin.pages.search.popup.AddPeoplePopupPage;
-import com.automation.linkedin.pages.search.popup.MsgPopUpPage;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.SetValueOptions;
 import com.codeborne.selenide.WebDriverRunner;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriverException;
 
 import java.time.Duration;
 import java.util.Random;
@@ -39,8 +36,9 @@ public class PersonPage {
     int low = 1000;
     int high = 4000;
     int randomResult = random.nextInt(high-low) + low;
+
     @SneakyThrows
-    public void addLead(String message, boolean isPremiumTrue){
+    public boolean addLead(String message, boolean isPremiumTruem){
 
         Thread.sleep(randomResult);
         clickMoreBtn();
@@ -74,7 +72,7 @@ public class PersonPage {
             addToFriends(message);
         }*/
 
-        addToFriends(message);
+       return addToFriends(message);
 
 
     }
@@ -120,9 +118,11 @@ public class PersonPage {
         inMailMsgBtn.click();
 
     }
+
     public void closePremiumAd(){ premiumUpsellLinkCloseBtn.shouldBe(interactable, Duration.ofSeconds(30)).click(); }
     @SneakyThrows
-    public void addToFriends(String message){
+    public boolean addToFriends(String message){
+
     if (!addBtn.is(visible)) clickMoreBtn();
         if (addBtn.exists())
         {
@@ -159,6 +159,8 @@ public class PersonPage {
                     WebDriverRunner.getWebDriver().quit(); }
             }
             if (cannotAddLeadPopUp.isDisplayed()){ getCannotAddLeadPopUpClose.click(); Selenide.refresh(); }
+            return true;
         }
+        return false;
     }
 }
