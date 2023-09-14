@@ -79,6 +79,7 @@ public class AddLeads extends Base {
             }
             Thread.sleep(randomResult);
             if (!searchPeoplePage.previousPageBtn.is(interactable)){
+                System.out.println( WebDriverRunner.getWebDriver().getCurrentUrl() );
                 System.out.println("=========== OUT OF SEARCH ===========");
                 break;
             }
