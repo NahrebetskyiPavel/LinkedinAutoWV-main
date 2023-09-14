@@ -96,7 +96,7 @@ public class AddLeads extends Base {
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-/*                {       "Анастасия ",
+                {       "Анастасия ",
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
@@ -206,7 +206,7 @@ public class AddLeads extends Base {
                         "Sweden (LinkedIn)",
                         "421659000004662167",
                         false
-                },*/
+                },
                 {       "Максим",
                         clientName,
                         "kotokmaksym@gmail.com",
