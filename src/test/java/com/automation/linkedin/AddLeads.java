@@ -31,6 +31,7 @@ public class AddLeads extends Base {
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId, boolean premium){
+        Thread.sleep(randomResult);
         System.out.println("-------------------------------------------------------\n" +
                 "START: "+name+"\n" +
                 "-------------------------------------------------------");
