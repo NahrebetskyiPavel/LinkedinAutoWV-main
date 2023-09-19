@@ -63,7 +63,7 @@ public class AddLeads extends Base {
                 Thread.sleep(randomResult);
                 closeMsgPopups();
             if (personPage.addLead(msg.replace("NAME", personNamearr[0]), premium) ){
-                if (leadsRequestCount == 50) break;
+                if (leadsRequestCount == 30) break;
                 leadsRequestCount = leadsRequestCount + 1;
                 if (leadsRequestCount == 49) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
                 System.out.println("leadsRequestCount: " + leadsRequestCount);
