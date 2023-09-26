@@ -55,7 +55,6 @@ public class GetData extends Base{
                     System.out.println(personRef);
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
-                //TODO replace with api request  get link to person page
                 Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
                 Thread.sleep(randomResult*3);
                 Selenide.switchTo().window(1);
