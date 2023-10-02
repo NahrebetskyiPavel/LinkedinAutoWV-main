@@ -16,6 +16,7 @@ import java.util.Random;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static utils.Utils.readCSV;
 
 public class AddLeads extends Base {
     SignInPage signInPage = new SignInPage();
@@ -30,7 +31,7 @@ public class AddLeads extends Base {
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
-    public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId, boolean premium){
+    public void addLeads(String name,  String email, String password, String msg, String pickList, String leadCompany, String leadCompanyId, boolean premium){
         int leadsRequestCount = 0;
         Thread.sleep(randomResult);
         System.out.println("-------------------------------------------------------\n" +
@@ -40,52 +41,37 @@ public class AddLeads extends Base {
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
-        Selenide.open(searchLink);
+        Selenide.open("http://www.linkedin.com");
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
         while (leadsRequestCount != 50){
             Thread.sleep(randomResult);
-            for (SelenideElement person:searchPeoplePage.PersonPages
+            for (String personRef:readCSV(5)
             ) {
-                Thread.sleep(200);
-                String personRef = person.getAttribute("href");
-                if (person.text().contains("LinkedIn Member")) continue;
+                if (personRef.contains("http://www.linkedin.com")) {
+                    System.out.println("ref: " + personRef);
+                    Thread.sleep(200);
+                    Thread.sleep(randomResult);
+                    Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
 
-                String[] personNamearr = person.find(By.cssSelector("span")).text().split("\\s");
-                String personName = personNamearr[0] + " " + personNamearr[1];
+                    Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
+                    Thread.sleep(randomResult * 3);
+                    Selenide.switchTo().window(1);
+                    Thread.sleep(randomResult);
+                    if (WebDriverRunner.getWebDriver().getCurrentUrl().equals("https://www.linkedin.com/404/")) {
+                        Selenide.closeWindow();
+                        switchTo().window(0);
+                        continue;
+                    }
+                    personPage.addLead(msg, premium);
+                    Selenide.closeWindow();
+                    switchTo().window(0);
+                    //if (zohoCrmHelper.responseBody.contains("DUPLICATE_DATA")){break;}
+                } else continue;
                 Thread.sleep(randomResult);
-                Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
-
-            Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
-                Thread.sleep(randomResult*3);
-            Selenide.switchTo().window(1);
-                Thread.sleep(randomResult);
-                closeMsgPopups();
-            if (personPage.addLead(msg.replace("NAME", personNamearr[0]), premium) ){
-                if (leadsRequestCount == 30) break;
-                leadsRequestCount = leadsRequestCount + 1;
-                if (leadsRequestCount == 49) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
-                System.out.println("leadsRequestCount: " + leadsRequestCount);
-                String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
-                if (response.contains("INVALID_TOKEN")) {
-                    token = zohoCrmHelper.renewAccessToken();
-                    zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
-                }
-                }
-
-                Selenide.closeWindow();
-                switchTo().window(0);
-                //if (zohoCrmHelper.responseBody.contains("DUPLICATE_DATA")){break;}
             }
-            Thread.sleep(randomResult);
-            if (!searchPeoplePage.previousPageBtn.is(interactable)){
-                System.out.println( WebDriverRunner.getWebDriver().getCurrentUrl() );
-                System.out.println("=========== OUT OF SEARCH ===========");
-                break;
-            }
-            searchPeoplePage.previousPageBtn.shouldBe(visible).click();
-            Thread.sleep(randomResult);
+
         }
     }
 
@@ -98,17 +84,15 @@ public class AddLeads extends Base {
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
                 {       "Анастасия CEO",
-                        clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103710677%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=%40Yx&titleFreeText=CEO",
                         "Hello. I work at an outsource/out-staff IT company, if you are interested in such services let's have a chat.",
                         "Pavlo",
                         "Jordan",
                         "421659000008722001",
                         false
                 },
-                {       "Маша ",
+/*                {       "Маша ",
                         clientName,
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
@@ -219,7 +203,7 @@ public class AddLeads extends Base {
                         "Automotive Apollo",
                         "421659000005684017",
                         false
-                },
+                },*/
 /* ==================================================================================================================================================================== */
 /*                {       "Софія",
                         clientName,
