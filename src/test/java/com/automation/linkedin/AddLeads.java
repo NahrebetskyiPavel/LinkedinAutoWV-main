@@ -97,12 +97,12 @@ public class AddLeads extends Base {
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-                {       "Анастасия ",
+                {       "Анастасия CEO",
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
                         "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103710677%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=%40Yx&titleFreeText=CEO",
-                        "Hello. I came across your account and was impressed with your expertise. Would you mind talking some more about the opportunities web development companies have to offer for the Jordan market?",
+                        "Hello. I work at an outsource/out-staff IT company, if you are interested in such services let's have a chat.",
                         "Pavlo",
                         "Jordan",
                         "421659000008722001",
@@ -112,11 +112,11 @@ public class AddLeads extends Base {
                         clientName,
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=GwK&titleFreeText=ceo",
-                        "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103710677%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=V3I&titleFreeText=Owner",
+                        "Hello. I came across your account and was impressed with your expertise. Would you mind talking some more about the opportunities web development companies have to offer for the Jordan market?",
                         "Yurij",
-                        "Saudi Arabia",
-                        "421659000006238011",
+                        "Jordan",
+                        "421659000008722001",
                         false
                 },
                 {       "Михайло",
