@@ -12,7 +12,7 @@ public class Utils {
 
     @SneakyThrows
     public static ArrayList<String> readCSV(int colum) {
-        String path = "/Users/michaelsalo/Documents/LinkedinAutoWV-main/src/main/resources/upsala83stockholm-alex-7.csv";
+        String path = "src/main/resources/upsala83stockholm-alex-7.csv";
         String line = "";
         BufferedReader br;
         ArrayList <String> data = new ArrayList<String>();
