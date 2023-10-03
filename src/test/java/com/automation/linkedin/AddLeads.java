@@ -179,7 +179,7 @@ public class AddLeads extends Base {
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                         "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290009617%22%5D&origin=FACETED_SEARCH&page=100&sid=l(c&titleFreeText=CEO",
-                        "Hi, NAME. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Alex",
                         "Copenhagen",
                         "421659000009084015",
