@@ -207,7 +207,7 @@ public class AddLeads extends Base {
                         "421659000009084010",
                         false
                 },
-                {       "Анастасия - Gothenburg CTO",
+/*                {       "Анастасия - Gothenburg CTO",
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
@@ -217,7 +217,7 @@ public class AddLeads extends Base {
                         "Gothenburg",
                         "421659000009084030",
                         false
-                }
+                }*/
 
 /* ==================================================================================================================================================================== */
 /*                {       "Софія",
