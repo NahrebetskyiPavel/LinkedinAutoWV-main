@@ -43,7 +43,7 @@ public class GetData extends Base{
                 Thread.sleep(200);
                 while (true){
                     Thread.sleep(randomResult);
-                Response getUnprocessedLinksResponse= wiseVisionApiHelper.getUnprocessedLinks();
+                Response getUnprocessedLinksResponse = wiseVisionApiHelper.getUnprocessedLinks();
                 String personRef = getUnprocessedLinksResponse.body().string();
                     Thread.sleep(randomResult);
                 if (personRef.contains("No unprocessed linkedin URLs found.")) {
@@ -60,21 +60,24 @@ public class GetData extends Base{
                 Selenide.switchTo().window(1);
                 Thread.sleep(randomResult);
                 String link = WebDriverRunner.getWebDriver().getCurrentUrl();
-                String personName = $("div.pv-text-details__left-panel H1").text();
+                    String personName = " ";
+                    personName = $("div.pv-text-details__left-panel H1").text();
                 System.out.println( "\n Peron name: " + personName + "\n Peron link: " + link );
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 if (aboutHeader.exists()){
                     Selenide.executeJavaScript("document.getElementById(\"about\").scrollIntoView();");
                 if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
-                String about = aboutBody.text();
+                String about = " ";
+                if (aboutBody.isDisplayed()) about = aboutBody.text();
                     System.out.println(about);
-                    String workHistory = "";
+                    String workHistory = " ";
                     for (SelenideElement wok : works) {
                         workHistory = wok.text() + "\n";
                         System.out.println(workHistory);
                     }
-                    String locationData = location.text();
+                    String locationData = " ";
+                    if (location.isDisplayed()) locationData = location.text();
                     System.out.println(locationData);
                     wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
                     Selenide.closeWindow();
