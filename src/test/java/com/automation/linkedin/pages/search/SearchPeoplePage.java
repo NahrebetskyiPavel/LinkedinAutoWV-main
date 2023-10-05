@@ -50,6 +50,7 @@ public class SearchPeoplePage {
                     addPeoplePopupPage.requireEmailField.setValue("info@wisevisionllc.com");
                     addPeoplePopupPage.sendRequestBtn.shouldBe(visible).click();
                     Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
+                    Thread.sleep(randomResult);
                     previousPageBtn.shouldBe(visible).click();
                 }else {
                     addPeoplePopupPage.sendRequestBtn.shouldBe(visible).click();
@@ -61,6 +62,7 @@ public class SearchPeoplePage {
             if (addBtn.exists()) return;
             if (msgPopUpPage.closeMsgPopUp.exists()) {msgPopUpPage.closeMsgPopUp.click(); return;}
             Thread.sleep(1000);
+            Thread.sleep(randomResult);
             previousPageBtn.shouldBe(visible).click();
             Thread.sleep( 2000);
         }

@@ -84,6 +84,7 @@ public class AddLeads extends Base {
                 System.out.println("=========== OUT OF SEARCH ===========");
                 break;
             }
+            Thread.sleep(randomResult);
             searchPeoplePage.previousPageBtn.shouldBe(visible).click();
             Thread.sleep(randomResult);
         }
