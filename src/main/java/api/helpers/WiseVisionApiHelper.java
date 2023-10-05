@@ -37,6 +37,7 @@ public class WiseVisionApiHelper {
         System.out.println("linkedinUrl: " + linkedinUrl);
         System.out.println("personName: " + personName);
         System.out.println("aboutPerson: " + aboutPerson);
+        System.out.println("workHistory: " + workHistory);
         System.out.println("location: " + location);
         System.out.println(response);
     }
