@@ -18,13 +18,14 @@ public class WiseVisionApiHelper {
     }
     @SneakyThrows
     public void postLinkedinPersonData(String linkedinUrl, String personName, String aboutPerson, String workHistory, String location){
+    String aboutPersonReplace = aboutPerson.replace("\n","").replace("\"","");
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "{\n    " +
                 "\"linkedinUrl\": \""+linkedinUrl.replace("\n","")+"\",\n    " +
                 "\"personName\": \""+personName.replace("\n","")+"\",\n    " +
-                "\"aboutPerson\": \""+aboutPerson.replace("\n","")+"\",\n    " +
+                "\"aboutPerson\": \""+aboutPersonReplace+"\",\n    " +
                 "\"location\": \""+location.replace("\n","")+"\",\n    " +
                 "\"workHistory\": \""+workHistory.replace("\n","")+"\"\n}");
         Request request = new Request.Builder()
@@ -36,7 +37,7 @@ public class WiseVisionApiHelper {
         System.out.printf("");
         System.out.println("linkedinUrl: " + linkedinUrl);
         System.out.println("personName: " + personName);
-        System.out.println("aboutPerson: " + aboutPerson);
+        System.out.println("aboutPerson: " + aboutPersonReplace);
         System.out.println("workHistory: " + workHistory);
         System.out.println("location: " + location);
         System.out.println(response);
