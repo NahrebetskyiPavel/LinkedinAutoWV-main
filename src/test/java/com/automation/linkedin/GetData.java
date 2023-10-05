@@ -39,7 +39,7 @@ public class GetData extends Base{
 
     @SneakyThrows
     @Test(description = "Get data from person page", dataProvider = "dataProviderPeopleSearch")
-    public void getData (String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId){
+    public void getData (String name, String email, String password){
         setupBrowser(true, name);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
@@ -72,20 +72,19 @@ public class GetData extends Base{
                     Selenide.executeJavaScript("document.getElementById(\"about\").scrollIntoView();");
                 if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
                 if (aboutBody.isDisplayed()) about = aboutBody.text();
+                }
+                if ($("#experience +div +div ul li").exists()){
+                    Selenide.executeJavaScript("document.getElementById(\"experience\").scrollIntoView();");
                     for (SelenideElement wok : works) {
                         workHistory = wok.text() + "\n";
                     }
-
+                }
                     if (location.isDisplayed()) locationData = location.text();
                     wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
                     Selenide.closeWindow();
                     switchTo().window(0);
-                }
-                else {
-                    wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
-                    Selenide.closeWindow();
-                    switchTo().window(0);
-                };
+
+
             Thread.sleep(randomResult);
                 }
     }
@@ -94,21 +93,10 @@ public class GetData extends Base{
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
-        String clientName = "";
-        String leadCompanyGamblingId ="421659000005125089";
-        String leadCompanyAmsterdamId ="421659000005261283";
-        String leadCompanyAustraliaId ="421659000005261273";
-        String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
                 {       "Анастасия - Amsterdam Head of",
-                        clientName,
                         "vozniakanastasia52@gmail.com",
-                        "zdHXF5bf",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102011674%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=85&sid=_xY&titleFreeText=Head%20of",
-                        "Hello! \n I've reached out to invite you to explore our services for your gambling company. My team is skilled in web and app development and can provide tailored solutions to suit your needs. Let's chat and see how we can help!",
-                        "Yurij",
-                        leadCompanyName,
-                        leadCompanyGamblingId
+                        "zdHXF5bf"
                 },
         };
     }
