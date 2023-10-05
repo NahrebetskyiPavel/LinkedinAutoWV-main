@@ -59,6 +59,7 @@ public class GetData extends Base{
                 Thread.sleep(randomResult*3);
                 Selenide.switchTo().window(1);
                 Thread.sleep(randomResult);
+                Thread.sleep(randomResult);
                 String link = WebDriverRunner.getWebDriver().getCurrentUrl();
                     String personName = " ";
                     personName = $("div.pv-text-details__left-panel H1").text();
