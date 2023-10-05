@@ -61,21 +61,23 @@ public class GetData extends Base{
                 Thread.sleep(randomResult);
                 Thread.sleep(randomResult);
                 String link = WebDriverRunner.getWebDriver().getCurrentUrl();
-                    String personName = " ";
-                    personName = $("div.pv-text-details__left-panel H1").text();
+                    String personName = "No data";
+                    if ( $("div.pv-text-details__left-panel H1").isDisplayed() ) personName = $("div.pv-text-details__left-panel H1").text();
                 System.out.println( "\n Peron name: " + personName + "\n Peron link: " + link );
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 if (aboutHeader.exists()){
                     Selenide.executeJavaScript("document.getElementById(\"about\").scrollIntoView();");
                 if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
-                String about = " ";
+                String about = "No data";
                 if (aboutBody.isDisplayed()) about = aboutBody.text();
                     System.out.println(about);
-                    String workHistory = " ";
-                    for (SelenideElement wok : works) {
-                        workHistory = wok.text() + "\n";
+                    String workHistory = "No data";
+                    if (works.get(0).isDisplayed()){
+                    for (SelenideElement work : works) {
+                        workHistory = work.text() + "\n";
                         System.out.println(workHistory);
+                     }
                     }
                     String locationData = " ";
                     if (location.isDisplayed()) locationData = location.text();
