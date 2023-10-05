@@ -33,10 +33,9 @@ public class GetData extends Base{
     ElementsCollection works = $$("#experience +div +div ul li");
     WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
     String personName = "No data";
-    String about = "No data";
-    String workHistory = "No data";
-    String locationData = "No data";
-
+    String about = " ";
+    String workHistory = " ";
+    String locationData = " ";
 
     @SneakyThrows
     @Test(description = "Get data from person page", dataProvider = "dataProviderPeopleSearch")
@@ -66,28 +65,27 @@ public class GetData extends Base{
                 Thread.sleep(randomResult);
                 Thread.sleep(randomResult);
                 String link = WebDriverRunner.getWebDriver().getCurrentUrl();
-
-                    if ( $("div.pv-text-details__left-panel H1").isDisplayed() ) personName = $("div.pv-text-details__left-panel H1").text();
-                System.out.println( "\n Peron name: " + personName + "\n Peron link: " + link );
+                    personName = $("div.pv-text-details__left-panel H1").text();
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 if (aboutHeader.exists()){
                     Selenide.executeJavaScript("document.getElementById(\"about\").scrollIntoView();");
-                    if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
-                    if (aboutBody.isDisplayed()) about = aboutBody.text();
-                }
-                    System.out.println(about);
-                    if (works.get(0).isDisplayed()){
-                    for (SelenideElement work : works) {
-                        workHistory = work.text() + "\n";
-                        System.out.println(workHistory);
-                     }
+                if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
+                if (aboutBody.isDisplayed()) about = aboutBody.text();
+                    for (SelenideElement wok : works) {
+                        workHistory = wok.text() + "\n";
                     }
+
                     if (location.isDisplayed()) locationData = location.text();
-                    System.out.println(locationData);
                     wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
                     Selenide.closeWindow();
                     switchTo().window(0);
+                }
+                else {
+                    wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
+                    Selenide.closeWindow();
+                    switchTo().window(0);
+                };
             Thread.sleep(randomResult);
                 }
     }
