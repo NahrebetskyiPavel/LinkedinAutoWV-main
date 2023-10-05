@@ -32,6 +32,12 @@ public class GetData extends Base{
     SelenideElement location = $("div.pv-text-details__left-panel.mt2 span");
     ElementsCollection works = $$("#experience +div +div ul li");
     WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
+    String personName = "No data";
+    String about = "No data";
+    String workHistory = "No data";
+    String locationData = "No data";
+
+
     @SneakyThrows
     @Test(description = "Get data from person page", dataProvider = "dataProviderPeopleSearch")
     public void getData (String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId){
@@ -52,7 +58,6 @@ public class GetData extends Base{
                             "-------------------------------------------------------");
                     break;
                 }
-                    System.out.println(personRef);
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
@@ -61,35 +66,28 @@ public class GetData extends Base{
                 Thread.sleep(randomResult);
                 Thread.sleep(randomResult);
                 String link = WebDriverRunner.getWebDriver().getCurrentUrl();
-                    String personName = "No data";
+
                     if ( $("div.pv-text-details__left-panel H1").isDisplayed() ) personName = $("div.pv-text-details__left-panel H1").text();
                 System.out.println( "\n Peron name: " + personName + "\n Peron link: " + link );
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 if (aboutHeader.exists()){
                     Selenide.executeJavaScript("document.getElementById(\"about\").scrollIntoView();");
-                if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
-                String about = "No data";
-                if (aboutBody.isDisplayed()) about = aboutBody.text();
+                    if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
+                    if (aboutBody.isDisplayed()) about = aboutBody.text();
+                }
                     System.out.println(about);
-                    String workHistory = "No data";
                     if (works.get(0).isDisplayed()){
                     for (SelenideElement work : works) {
                         workHistory = work.text() + "\n";
                         System.out.println(workHistory);
                      }
                     }
-                    String locationData = " ";
                     if (location.isDisplayed()) locationData = location.text();
                     System.out.println(locationData);
                     wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
                     Selenide.closeWindow();
                     switchTo().window(0);
-                }
-                else {
-                    Selenide.closeWindow();
-                    switchTo().window(0);
-                };
             Thread.sleep(randomResult);
                 }
     }

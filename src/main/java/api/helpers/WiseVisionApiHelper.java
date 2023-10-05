@@ -32,6 +32,8 @@ public class WiseVisionApiHelper {
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
                 .build();
+        System.out.println(request.body());
+        System.out.println(request.url());
         Response response = client.newCall(request).execute();
         System.out.println();
         System.out.println(response);
