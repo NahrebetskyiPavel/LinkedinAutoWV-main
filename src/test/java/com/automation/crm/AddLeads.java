@@ -66,6 +66,7 @@ public class AddLeads {
                 Thread.sleep(randomResult);
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
+                System.out.println(leadInfoResponseBody);
                 if (leadInfoResponseBody.contains("INVALID_TOKEN")) {
                     token = zohoCrmHelper.renewAccessToken();
                     leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
@@ -93,46 +94,9 @@ public class AddLeads {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Маша ",
-                        "deynekamariawv@gmail.com",
-                        "3N2wbnsw",
-                },
-                {       "Денис",
-                        "basdenisphytontm@gmail.com",
-                        "asd321qq",
-                },
                 {       "Анастасия ",
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
-                },
-
-                {       "Максим",
-                        "kotokmaksym@gmail.com",
-                        "r4E3w2q1",
-                },
-                {       "Наталья",
-                        "natalia.marcoon@gmail.com ",
-                        "asd321qq",
-                },
-                {       "Александра",
-                        "alexandra.sternenko@gmail.com",
-                        "asd321qq",
-                },
-                {       "Роксолана ",
-                        "roksolanatrofim@gmail.com ",
-                        "89fcmTT88V",
-                },
-                {       "Марьян",
-                        "reshetunmaryanwv@gmail.com",
-                        "rSbnGaRS",
-                },
-                {       "Настя ",
-                        "anastasiiakuntii@gmail.com",
-                        "nastya4141",
-                },
-                {       "Nikita ",
-                        "kni2012@ukr.net",
-                        "33222200s",
                 },
         };
     }
