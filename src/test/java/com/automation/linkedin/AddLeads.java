@@ -44,7 +44,7 @@ public class AddLeads extends Base {
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-        while (leadsRequestCount != 50){
+        while (leadsRequestCount != 20){
             Thread.sleep(randomResult);
             for (SelenideElement person:searchPeoplePage.PersonPages
             ) {
@@ -63,9 +63,9 @@ public class AddLeads extends Base {
                 Thread.sleep(randomResult);
                 closeMsgPopups();
             if (personPage.addLead(msg.replace("NAME", personNamearr[0]), premium) ){
-                if (leadsRequestCount == 30) break;
+                if (leadsRequestCount == 20) break;
                 leadsRequestCount = leadsRequestCount + 1;
-                if (leadsRequestCount == 49) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
+                if (leadsRequestCount == 19) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
                 System.out.println("leadsRequestCount: " + leadsRequestCount);
                 String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
                 if (response.contains("INVALID_TOKEN")) {
@@ -98,55 +98,55 @@ public class AddLeads extends Base {
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-                {       "Александра - Malmo CTO",
+                {       "Александра - South AFRICA CTO",
                         clientName,
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&origin=FACETED_SEARCH&page=21&sid=uy(&titleFreeText=CTO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=60&sid=)v!&titleFreeText=CTO",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Yurij",
-                        "Malmo",
-                        "421659000009084010",
+                        "Yura Test",
+                        "421659000009264001",
                         false
                 },
                 {       "Маша - Malmo Founder ",
                         clientName,
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&origin=FACETED_SEARCH&page=70&sid=i2S&titleFreeText=Founder",
+                        "https://linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=umO&titleFreeText=Founder",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Yurij",
                         "Malmo",
                         "421659000009084010",
                         false
                 },
-                {       "Михайло - Stuttgart CTO",
+                {       "Михайло - South AFRICA irectors",
                         clientName,
                         "michael.salo1995@gmail.com",
                         "newman1996",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102473731%22%5D&origin=FACETED_SEARCH&page=10&sid=VuW&titleFreeText=CTO",
+                        "https://linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=50&sid=1Tj&titleFreeText=board%20of%20directors",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
                         "Yurij",
-                        "Stuttgart",
-                        "421659000009084020",
+                        "Yura Test",
+                        "421659000009264001",
                         false
                 },
-                {       "Nikita - Saudi Arabia CTO",
+                {       "Nikita - africa ceo",
                         clientName,
                         "kni2012@ukr.net",
                         "33222200s",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&origin=FACETED_SEARCH&page=32&sid=CYh&titleFreeText=CTO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=NEF&titleFreeText=ceo",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
                         "Valeriia",
-                        "Saudi Arabia",
-                        "421659000006238011",
+                        "Yura Test",
+                        "421659000009264001",
                         true
                 },
                 {       "Наталья- Malmo CEO",
                         clientName,
                         "natalia.marcoon@gmail.com ",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=b0S&titleFreeText=CEO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=s9k&titleFreeText=CEO",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Valeriia",
                         "Malmo",
@@ -157,7 +157,7 @@ public class AddLeads extends Base {
                         clientName,
                         "basdenisphytontm@gmail.com",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&origin=FACETED_SEARCH&page=100&sid=yEu&titleFreeText=CEO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=50&sid=_p%3B&titleFreeText=CEO",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
                         "Valeriia",
                         "Saudi Arabia",
@@ -179,7 +179,7 @@ public class AddLeads extends Base {
                         clientName,
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290009617%22%5D&origin=FACETED_SEARCH&page=100&sid=l(c&titleFreeText=CEO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290009617%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=50&sid=h1Y&titleFreeText=CEO",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Alex",
                         "Copenhagen",
@@ -190,7 +190,7 @@ public class AddLeads extends Base {
                         clientName,
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290009617%22%5D&origin=FACETED_SEARCH&page=100&sid=jXF&titleFreeText=CTO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290009617%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=80&sid=U0V&titleFreeText=CTO",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Alex",
                         "Copenhagen",
@@ -201,22 +201,22 @@ public class AddLeads extends Base {
                         clientName,
                         "kotokmaksym@gmail.com",
                         "r4E3w2q1",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&origin=FACETED_SEARCH&page=100&sid=lLC&titleFreeText=co-founder",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=vbu&titleFreeText=co-founder",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Yurij",
                         "Malmo",
                         "421659000009084010",
                         false
                 },
-                {       "Анастасия - Gothenburg CTO",
+                {       "Анастасия - AFRICA",
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290010413%22%2C%22104114836%22%5D&origin=FACETED_SEARCH&page=40&sid=5ca&titleFreeText=CTO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=60&sid=jxp&titleFreeText=owner",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Pavlo",
-                        "Gothenburg",
-                        "421659000009084030",
+                        "Yura Test",
+                        "421659000009264001",
                         false
                 }
 
