@@ -63,7 +63,13 @@ public class AddLeads extends Base {
                 Thread.sleep(randomResult);
                 closeMsgPopups();
             if (personPage.addLead(msg.replace("NAME", personNamearr[0]), premium) ){
-                if (leadsRequestCount == 20) break;
+                if (leadsRequestCount == 20) {
+                    Selenide.closeWindow();
+                    switchTo().window(0);
+
+                    WebDriverRunner.getWebDriver().quit();
+                    break;
+                };
                 leadsRequestCount = leadsRequestCount + 1;
                 if (leadsRequestCount == 19) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
                 System.out.println("leadsRequestCount: " + leadsRequestCount);
@@ -80,10 +86,12 @@ public class AddLeads extends Base {
             }
             Thread.sleep(randomResult);
             if (!searchPeoplePage.previousPageBtn.is(interactable)){
+                if (leadsRequestCount == 20) break;
                 System.out.println( WebDriverRunner.getWebDriver().getCurrentUrl() );
                 System.out.println("=========== OUT OF SEARCH ===========");
                 break;
             }
+            Thread.sleep(randomResult);
             Thread.sleep(randomResult);
             searchPeoplePage.previousPageBtn.shouldBe(visible).click();
             Thread.sleep(randomResult);
@@ -98,18 +106,18 @@ public class AddLeads extends Base {
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-                {       "Александра - South AFRICA CTO",
+/*                {       "Александра - South AFRICA CTO",
                         clientName,
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=60&sid=)v!&titleFreeText=CTO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=45&sid=)v!&titleFreeText=CTO",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Yurij",
                         "Yura Test",
                         "421659000009264001",
                         false
-                },
-                {       "Маша - Malmo Founder ",
+                },*/
+/*                {       "Маша - Malmo Founder ",
                         clientName,
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
@@ -119,34 +127,34 @@ public class AddLeads extends Base {
                         "Malmo",
                         "421659000009084010",
                         false
-                },
-                {       "Михайло - South AFRICA irectors",
+                },*/
+/*                {       "Михайло - South AFRICA irectors",
                         clientName,
                         "michael.salo1995@gmail.com",
                         "newman1996",
-                        "https://linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=50&sid=1Tj&titleFreeText=board%20of%20directors",
+                        "https://linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=45&sid=1Tj&titleFreeText=board%20of%20directors",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
                         "Yurij",
                         "Yura Test",
                         "421659000009264001",
                         false
-                },
-                {       "Nikita - africa ceo",
+                },*/
+/*                {       "Nikita - africa ceo",
                         clientName,
                         "kni2012@ukr.net",
                         "33222200s",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=NEF&titleFreeText=ceo",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=80&sid=NEF&titleFreeText=ceo",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
                         "Valeriia",
                         "Yura Test",
                         "421659000009264001",
                         true
-                },
+                },*/
                 {       "Наталья- Malmo CEO",
                         clientName,
                         "natalia.marcoon@gmail.com ",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=s9k&titleFreeText=CEO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=30&sid=s9k&titleFreeText=CEO",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Valeriia",
                         "Malmo",

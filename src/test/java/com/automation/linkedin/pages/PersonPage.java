@@ -26,6 +26,7 @@ public class PersonPage {
     public SelenideElement inMailSubject = $x("//div[@aria-label='Messaging']//input[@placeholder='Subject (optional)']");
     public SelenideElement inMailMessege= $x("//div[@aria-label='Messaging']//div[@aria-label='Write a message…']");
     public SelenideElement inMailMessegeBtnSubmit= $x("//div[@aria-label='Messaging']//button[@type='submit']");
+    public SelenideElement errorMsg= $x("//div[@data-test-artdeco-toast-item-type='error']//p//span");
     private int count = 0;
    String JS_ADD_TEXT_TO_INPUT = "var elm = arguments[0], txt = arguments[1];\n" +
            "  elm.value += txt;\n" +
@@ -72,7 +73,7 @@ public class PersonPage {
             addToFriends(message);
         }*/
 
-       return addToFriends(message);
+       return addToFriends(message,false);
 
 
     }
@@ -121,7 +122,7 @@ public class PersonPage {
 
     public void closePremiumAd(){ premiumUpsellLinkCloseBtn.shouldBe(interactable, Duration.ofSeconds(30)).click(); }
     @SneakyThrows
-    public boolean addToFriends(String message){
+    public boolean addToFriends(String message, boolean withMassage){
 
     if (!addBtn.is(visible)) clickMoreBtn();
         if (addBtn.exists())
@@ -134,10 +135,12 @@ public class PersonPage {
                 Thread.sleep(randomResult);
                 $(By.xpath("//*[text()='Connect']")).click();
             }
+            if (withMassage){
             Thread.sleep(randomResult);
             addPeoplePopupPage.addNote.shouldBe(visible);
             addPeoplePopupPage.addNote.shouldBe(interactable).click();
             Thread.sleep(randomResult);
+
             addPeoplePopupPage.addNoteTextField
                     .shouldBe(visible, Duration.ofSeconds(30))
                     .setValue(message);
@@ -147,18 +150,25 @@ public class PersonPage {
                 Thread.sleep(randomResult);
                 addPeoplePopupPage.sendRequestBtn.shouldBe(visible).click();
                 Thread.sleep(randomResult);
+            }
                 if (limitAlertHeader.isDisplayed()){
                     System.out.println("\n========================================================================\n" +"Out of requests"+ "\n========================================================================\n");
                     WebDriverRunner.getWebDriver().quit(); }
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
             }else {
                 Thread.sleep(randomResult);
-                addPeoplePopupPage.sendRequestBtn.shouldBe(visible,Duration.ofSeconds(40)).click();
+                if (addPeoplePopupPage.requireEmailField.isDisplayed()) {
+                    Thread.sleep(randomResult);
+                    addPeoplePopupPage.requireEmailField.setValue("info@wisevisionllc.com");
+                    Thread.sleep(randomResult);
+                }
+                if (this.errorMsg.exists()) return false;
+                if (addPeoplePopupPage.sendRequestBtn.is(visible)){addPeoplePopupPage.sendRequestBtn.shouldBe(interactable).click();}
+                else addPeoplePopupPage.sendRequestBtnWithoutNote.shouldBe(visible,Duration.ofSeconds(40)).click();
                 if (limitAlertHeader.isDisplayed()){
                     System.out.println("\n========================================================================\n" +"Out of requests"+ "\n========================================================================\n");
                     WebDriverRunner.getWebDriver().quit(); }
             }
-            if (cannotAddLeadPopUp.isDisplayed()){ getCannotAddLeadPopUpClose.click(); Selenide.refresh(); }
             return true;
         }
         return false;

@@ -39,7 +39,7 @@ public class Base {
                 }});
 
                 // How to enable video recording
-                put("enableVideo", false);
+                put("enableVideo", true);
                 put("enableVNC", true);
             }});
 
@@ -47,7 +47,8 @@ public class Base {
         }
     }
     public static void openLinkedInLoginPage(){
-        Selenide.open("https://www.linkedin.com/login");
+        Selenide.open("https://www.linkedin.com/");
+        Selenide.closeWindow();
         WebDriverRunner.getWebDriver().quit();
         Selenide.open("https://www.linkedin.com/login");
     }
