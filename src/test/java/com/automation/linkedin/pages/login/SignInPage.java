@@ -14,7 +14,7 @@ public class SignInPage {
     public void signIn(int wait, String email, String password) {
         Thread.sleep(10*1000);
         this.loginField.shouldBe(visible).setValue(email);
-        this.passwordField.shouldBe(visible).setValue(password).pressEnter();
+        if (passwordField.is(visible)) this.passwordField.shouldBe(visible).setValue(password).pressEnter();
         Thread.sleep(wait);
     }
 }
