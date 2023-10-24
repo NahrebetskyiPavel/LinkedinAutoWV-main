@@ -4,6 +4,9 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import lombok.SneakyThrows;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Condition.visible;
 
 public class SignInPage {
@@ -14,7 +17,7 @@ public class SignInPage {
     public void signIn(int wait, String email, String password) {
         Thread.sleep(10*1000);
         this.loginField.shouldBe(visible).setValue(email);
-        if (passwordField.is(visible)) this.passwordField.shouldBe(visible).setValue(password).pressEnter();
+        this.passwordField.shouldBe(visible).setValue(password).pressEnter();
         Thread.sleep(wait);
     }
 }

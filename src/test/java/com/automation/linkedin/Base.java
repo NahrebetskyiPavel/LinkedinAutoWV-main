@@ -1,6 +1,7 @@
 package com.automation.linkedin;
 
 import com.codeborne.selenide.*;
+import lombok.SneakyThrows;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.ArrayList;
@@ -39,17 +40,19 @@ public class Base {
                 }});
 
                 // How to enable video recording
-                put("enableVideo", true);
+                put("enableVideo", false);
                 put("enableVNC", true);
             }});
 
             Configuration.browserCapabilities = options;
         }
     }
+    @SneakyThrows
     public static void openLinkedInLoginPage(){
-        Selenide.open("https://www.linkedin.com/");
-        Selenide.closeWindow();
+        Selenide.open("https://www.linkedin.com/login");
+        Thread.sleep(10000);
         WebDriverRunner.getWebDriver().quit();
+        Thread.sleep(10000);
         Selenide.open("https://www.linkedin.com/login");
     }
 
