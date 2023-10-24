@@ -124,7 +124,7 @@ public class AddLeads extends Base {
                         "https://linkedin.com/search/results/people/?geoUrn=%5B%22101759788%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=50&sid=umO&titleFreeText=Founder",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Yurij",
-                        "Malmo",    git
+                        "Malmo",
                         "421659000009084010",
                         false
                 },
