@@ -64,7 +64,6 @@ public class GetData extends Base{
                 Selenide.switchTo().window(1);
                 Thread.sleep(randomResult);
                 Thread.sleep(randomResult);
-                String link = WebDriverRunner.getWebDriver().getCurrentUrl();
                     personName = $("div.pv-text-details__left-panel H1").text();
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
