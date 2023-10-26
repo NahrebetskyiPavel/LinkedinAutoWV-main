@@ -38,7 +38,7 @@ public class Base {
                 }});
 
                 // How to enable video recording
-                put("enableVideo", false);
+                    put("enableVideo", false);
                 put("enableVNC", true);
             }});
 
