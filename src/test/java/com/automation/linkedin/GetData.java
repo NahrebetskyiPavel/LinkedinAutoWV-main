@@ -64,7 +64,7 @@ public class GetData extends Base{
                 Selenide.switchTo().window(1);
                 Thread.sleep(randomResult);
                 Thread.sleep(randomResult);
-                    if ($x("//p[@class='artdeco-empty-state__message']").text().contains("Please check your URL or return to LinkedIn home."))
+                    if ($x("//*[text()='Please check your URL or return to LinkedIn home.']").exists())
                     {
                         System.out.println(personRef);
                         wiseVisionApiHelper.postLinkedinPersonData(personRef, "404", "404", "404", "404");
