@@ -64,6 +64,14 @@ public class GetData extends Base{
                 Selenide.switchTo().window(1);
                 Thread.sleep(randomResult);
                 Thread.sleep(randomResult);
+                    if ($x("//p[@class='artdeco-empty-state__message']").text().contains("Please check your URL or return to LinkedIn home."))
+                    {
+                        System.out.println(personRef);
+                        wiseVisionApiHelper.postLinkedinPersonData(personRef, "404", "404", "404", "404");
+                        Selenide.closeWindow();
+                        switchTo().window(0);
+                        continue;
+                    }
                     personName = $("div.pv-text-details__left-panel H1").text();
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
