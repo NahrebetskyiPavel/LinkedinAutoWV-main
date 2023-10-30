@@ -187,7 +187,7 @@ public class AddLeads extends Base {
                         clientName,
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290009617%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=25&sid=h1Y&titleFreeText=CEO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290009617%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=20&sid=h1Y&titleFreeText=CEO",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Alex",
                         "Copenhagen",
