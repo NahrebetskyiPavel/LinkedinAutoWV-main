@@ -106,15 +106,15 @@ public class AddLeads extends Base {
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-                {       "Александра - South AFRICA CTO",
+                {       "Александра - Saudi Arabia Board of directors",
                         clientName,
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=20&sid=)v!&titleFreeText=CTO",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=jWc&titleFreeText=Board%20of%20directors",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Yurij",
-                        "Yura Test",
-                        "421659000009264001",
+                        "Saudi Arabia",
+                        "421659000006238011",
                         false
                 },
                 {       "Маша - Stockholm Founder ",
@@ -128,15 +128,15 @@ public class AddLeads extends Base {
                         "421659000006238021",
                         false
                 },
-                {       "Михайло - South AFRICA board of directors",
+                {       "Михайло - Saudi Arabia CFO",
                         clientName,
                         "michael.salo1995@gmail.com",
                         "newman1996",
-                        "https://linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=20&sid=1Tj&titleFreeText=board%20of%20directors",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=0Ue&titleFreeText=CFO",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
                         "Yurij",
-                        "Yura Test",
-                        "421659000009264001",
+                        "Saudi Arabia",
+                        "421659000006238011",
                         false
                 },
                 {       "Nikita - Stockholm board of directors",
@@ -216,17 +216,17 @@ public class AddLeads extends Base {
                         "421659000006238021",
                         false
                 },
-/*                {       "Анастасия - AFRICA",
+               {       "Анастасия - Saudi Arabia owner",
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104035573%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=50&sid=jxp&titleFreeText=owner",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=HY4&titleFreeText=owner",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Pavlo",
-                        "Yura Test",
-                        "421659000009264001",
+                       "Saudi Arabia",
+                       "421659000006238011",
                         false
-                }*/
+                }
 
 /* ==================================================================================================================================================================== */
 /*                {       "Софія",
