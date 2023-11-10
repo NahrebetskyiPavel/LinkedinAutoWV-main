@@ -72,7 +72,7 @@ public class GetData extends Base{
                         switchTo().window(0);
                         continue;
                     }
-                    personName = $("section.$(\"section.pv-top-card H1\") H1").text();
+                    personName = $("section.pv-top-card H1").text();
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 if (aboutHeader.exists()){
