@@ -72,7 +72,7 @@ public class GetData extends Base{
                         switchTo().window(0);
                         continue;
                     }
-                    personName = $("div.pv-text-details__left-panel H1").text();
+                    personName = $("div.pv-text-details__left-panel--full-width H1").text();
                 personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
                 if (aboutHeader.exists()){
