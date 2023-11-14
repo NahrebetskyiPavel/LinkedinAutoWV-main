@@ -24,7 +24,7 @@ public class SearchPeoplePage {
     public ElementsCollection addButtons = Selenide.$$(By.xpath("//*[text()='Connect']"));
 
     public SelenideElement nextPageBtn = Selenide.$("li-icon[type='chevron-right-icon']");
-    public SelenideElement previousPageBtn = Selenide.$("li-icon[type='chevron-left-icon']");
+    public SelenideElement previousPageBtn = $x("//button[@aria-label='Previous']");
     public SelenideElement cannotAddLeadPopUp = Selenide.$("#artdeco-toasts [role='alert']");
     public SelenideElement getCannotAddLeadPopUpClose = Selenide.$("#artdeco-toasts li-icon[type='cancel-icon']");
     Random random = new Random();
