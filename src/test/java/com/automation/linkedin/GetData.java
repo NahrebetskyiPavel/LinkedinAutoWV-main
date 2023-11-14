@@ -44,10 +44,56 @@ public class GetData extends Base{
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
-        Thread.sleep(randomResult);
-        Selenide.open("https://www.linkedin.com/mynetwork/invite-connect/connections/");
-        Thread.sleep(randomResult);
+            Thread.sleep(randomResult);
+                Thread.sleep(200);
+                while (true){
+                    Thread.sleep(randomResult);
+                Response getUnprocessedLinksResponse = wiseVisionApiHelper.getUnprocessedLinks();
+                String personRef = getUnprocessedLinksResponse.body().string();
+                    Thread.sleep(randomResult);
+                if (personRef.contains("No unprocessed linkedin URLs found.")) {
+                    System.out.println("-------------------------------------------------------\n" +
+                            " No unprocessed linkedin URLs found\n" +
+                            "-------------------------------------------------------");
+                    break;
+                }
+                Thread.sleep(randomResult);
+                Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
+                Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
+                Thread.sleep(randomResult*3);
+                Selenide.switchTo().window(1);
+                Thread.sleep(randomResult);
+                Thread.sleep(randomResult);
+                    if ($x("//*[text()='Please check your URL or return to LinkedIn home.']").exists())
+                    {
+                        System.out.println(personRef);
+                        wiseVisionApiHelper.postLinkedinPersonData(personRef, "404", "404", "404", "404");
+                        Selenide.closeWindow();
+                        switchTo().window(0);
+                        continue;
+                    }
+                    personName = $("section.pv-top-card H1").text();
+                personPage.moreBtn.shouldBe(interactable, Duration.ofSeconds(15));
+                Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
+                if (aboutHeader.exists()){
+                    Selenide.executeJavaScript("document.getElementById(\"about\").scrollIntoView();");
+                if (seeMoreBtn.exists()) { seeMoreBtn.shouldBe(interactable,Duration.ofSeconds(10)).click(); }
+                if (aboutBody.isDisplayed()) about = aboutBody.text();
+                }
+                if ($("#experience +div +div ul li").exists()){
+                    Selenide.executeJavaScript("document.getElementById(\"experience\").scrollIntoView();");
+                    for (SelenideElement wok : works) {
+                        workHistory = wok.text() + "\n";
+                    }
+                }
+                    if (location.isDisplayed()) locationData = location.text();
+                    wiseVisionApiHelper.postLinkedinPersonData(personRef, personName, about, workHistory, locationData);
+                    Selenide.closeWindow();
+                    switchTo().window(0);
 
+
+            Thread.sleep(randomResult);
+                }
     }
 
 
