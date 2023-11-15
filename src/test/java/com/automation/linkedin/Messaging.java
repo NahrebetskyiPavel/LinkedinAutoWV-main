@@ -26,31 +26,6 @@ public class Messaging extends Base{
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         Selenide.open(msgLink);
-        messagingPage.writeAMessageField.shouldBe(visible,Duration.ofSeconds(10));
-        for (int i = 0; i < 100; i++) {
-            for (SelenideElement msgCard:messagingPage.msgCards)
-            {
-                msgCard.shouldBe(interactable, Duration.ofSeconds(20));
-                Thread.sleep(1000*2);
-                if (msgCard.text().contains("Ahoj!"))
-                {
-                    msgCard.click();
-                    Thread.sleep(randomResult*3);
-                    messagingPage.writeAMessageField.shouldBe(visible,Duration.ofSeconds(10)).shouldBe(interactable);
-                    messagingPage.writeAMessageField.click();
-                    messagingPage.writeAMessageField.setValue(msg);
-                    messagingPage.writeAMessageField.click();
-                    Thread.sleep(randomResult*3);
-                    $x("//button[normalize-space()='Send']").shouldBe(interactable).click();
-                }
-                if ($x("//*[text()='Load more conversations']").is(visible)){
-                    $x("//*[text()='Load more conversations']").shouldBe(interactable).click();
-                    Thread.sleep(5000);
-                }
-            }
-            messagingPage.msgCards.get(6+i).scrollIntoView(true);
-        }
-
     }
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
