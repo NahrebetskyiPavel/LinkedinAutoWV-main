@@ -7,6 +7,6 @@ import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class Connections {
-ElementsCollection MessageBtn = $$x("//div[@class='entry-point']/button");
+    public ElementsCollection messageBtns = $$x("//div[@class='entry-point']/button");
 SelenideElement messageOverlayConversationBubbleItem = $x("//div[@data-view-name='message-overlay-conversation-bubble-item']");
 }
