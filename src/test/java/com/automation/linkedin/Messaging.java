@@ -57,18 +57,62 @@ public class Messaging extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-                {       "roksolanatrofim",
-                        "roksolanatrofim@gmail.com ",
-                        "89fcmTT88V",
-                        "Thanks for connecting, .\n" +
-                                "\n" +
-                                "How are you on this nice day? :)\n" +
-                                "\n" +
-                                "I was hoping that you would enlighten me if there is a demand for web development services in the Saudi Arabian market. The thing is: I represent a team of creative web developers of a Ukrainian IT company WiseVision. If you have some demand for custom soft dev we’ll be happy to coop with you, as we have experts in many different fields of IT.\n" +
-                                "\n" +
-                                "Just let me know if you are interested.\n",
+                {       "Александра - Saudi Arabia Board of directors",
+                        "alexandra.sternenko@gmail.com",
+                        "asd321qq",
+                        "Hello",
+                },
+                {       "Маша - Stockholm Founder ",
+                        "deynekamariawv@gmail.com",
+                        "3N2wbnsw",
+                        "Hello",
+                },
+                {       "Михайло - Saudi Arabia CFO",
+                        "michael.salo1995@gmail.com",
+                        "newman1996",
+                        "Hello",
+                },
+                {       "Nikita - Stockholm board of directors",
+                        "kni2012@ukr.net",
+                        "33222200s",
+                        "Hello",
 
                 },
+                {       "Наталья- Stockholm CEO",
+                        "natalia.marcoon@gmail.com ",
+                        "asd321qq",
+                        "Hello",
+                },
+                {       "Денис - Saudi Arabia CEO",
+                        "basdenisphytontm@gmail.com",
+                        "asd321qq",
+                        "Hello",
+                },
+                {       "Настя - Stuttgart CEO",
+                        "anastasiiakuntii@gmail.com",
+                        "nastya4141",
+                        "Hello",
+                },
+                {       "Роксолана - Stockholm CFO",
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                        "Hello",
+                },
+                {       "Марьян -  Stockholm CTO",
+                        "reshetunmaryanwv@gmail.com",
+                        "rSbnGaRS",
+                        "Hello",
+                },
+                {       "Максим - Stockholm co-founder",
+                        "kotokmaksym@gmail.com",
+                        "r4E3w2q1",
+                        "Hello",
+                },
+                {       "Анастасия - Saudi Arabia owner",
+                        "vozniakanastasia52@gmail.com",
+                        "zdHXF5bf",
+                        "Hello",
+                }
         };
     }
 }
