@@ -47,7 +47,11 @@ public class Messaging extends Base{
             }
             else {
                 $x("//div[contains(@aria-label,'Write a message…')]").click();
-                $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Hello");
+                $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Hello.\n" +
+                        "\n" +
+                        "Thanks for connecting.\n" +
+                        "\n" +
+                        "I was wondering if you have met any technical challenges as of late. I am a member of the WiseVision team, a software development company that specializes in web development and custom software for businesses. We are really interested in collaboration with your company. If you have a need for any kind of IT solutions, I would be happy to schedule a call with our tech lead.\n");
                 $x("//button[normalize-space()='Send']").click();
                 $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
             }
@@ -57,33 +61,33 @@ public class Messaging extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-                {       "Александра - Saudi Arabia Board of directors",
+/*                {       "Александра - Saudi Arabia Board of directors",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                         "Hello",
-                },
-                {       "Маша - Stockholm Founder ",
+                },*/
+/*                {       "Маша - Stockholm Founder ",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
                         "Hello",
-                },
-                {       "Михайло - Saudi Arabia CFO",
+                },*/
+/*                {       "Михайло - Saudi Arabia CFO",
                         "michael.salo1995@gmail.com",
                         "newman1996",
                         "Hello",
-                },
-                {       "Nikita - Stockholm board of directors",
+                },*/
+/*                {       "Nikita - Stockholm board of directors",
                         "kni2012@ukr.net",
                         "33222200s",
                         "Hello",
 
-                },
-                {       "Наталья- Stockholm CEO",
+                },*/
+/*                {       "Наталья- Stockholm CEO",
                         "natalia.marcoon@gmail.com ",
                         "asd321qq",
                         "Hello",
-                },
-                {       "Денис - Saudi Arabia CEO",
+                },*/
+/*                {       "Денис - Saudi Arabia CEO",
                         "basdenisphytontm@gmail.com",
                         "asd321qq",
                         "Hello",
@@ -97,7 +101,7 @@ public class Messaging extends Base{
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                         "Hello",
-                },
+                },*/
                 {       "Марьян -  Stockholm CTO",
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
@@ -108,11 +112,11 @@ public class Messaging extends Base{
                         "r4E3w2q1",
                         "Hello",
                 },
-                {       "Анастасия - Saudi Arabia owner",
+/*                {       "Анастасия - Saudi Arabia owner",
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
                         "Hello",
-                }
+                }*/
         };
     }
 }
