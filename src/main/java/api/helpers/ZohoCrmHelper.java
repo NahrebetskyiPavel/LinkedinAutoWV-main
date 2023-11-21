@@ -170,4 +170,9 @@ public class ZohoCrmHelper {
         JSONObject responseBodyJsonObject = new JSONObject( this.getLeadInfoByFullName(token,"Naif Alsayari,") );
         //System.out.println(responseBodyJsonObject.getJSONArray("data").getJSONObject(0).getString("id"));
         }
+    @Test
+    public void getToken1(){
+        String token = this.renewAccessToken();
+        System.out.println(token);
+    }
 }
