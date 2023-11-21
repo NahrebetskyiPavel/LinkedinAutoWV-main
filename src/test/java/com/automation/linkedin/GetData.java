@@ -101,7 +101,7 @@ public class GetData extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-                {       "Анастасия",
+                {       "Scraper",
                         "vozniakanastasia52@gmail.com",
                         "zdHXF5bf",
                 },
