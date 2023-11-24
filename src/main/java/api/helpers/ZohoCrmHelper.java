@@ -163,6 +163,91 @@ public class ZohoCrmHelper {
 
         return responseBody;
     }
+    @SneakyThrows
+    public String getLeadInfoById(String token, String id){
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://crm.zoho.eu/crm/v2/Leads/"+id)
+                .method("GET", null)
+                .addHeader("Authorization", "Bearer " + token)
+                .addHeader("Cookie", "5ad188d5f9=0b1c728d9192d8d95f6e853307767d39; JSESSIONID=DFE1D3B3557FE73191D0807E48EA5E38; _zcsr_tmp=5b05ab02-20bd-49f1-b875-28359859b9f2; crmcsr=5b05ab02-20bd-49f1-b875-28359859b9f2")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseBody = response.body().string();
+
+        return responseBody;
+    }
+
+@SneakyThrows
+public String getLeadTasksList(String token, String pickList, String status){
+    OkHttpClient client = new OkHttpClient().newBuilder()
+            .build();
+    MediaType mediaType = MediaType.parse("text/plain");
+    RequestBody body = RequestBody.create(mediaType, "");
+    Request request = new Request.Builder()
+            .url("https://crm.zoho.eu/crm/v2/Leads/search?criteria=((Pick_List_2:equals:"+ pickList +")and(Lead_Status:equals:"+status+"))")
+            .method("GET", null)
+            .addHeader("Authorization", "Bearer " + token)
+            .addHeader("Cookie", "5ad188d5f9=0b1c728d9192d8d95f6e853307767d39; JSESSIONID=AA5DC595CE762FED1E55A34A07767F17; _zcsr_tmp=5b05ab02-20bd-49f1-b875-28359859b9f2; crmcsr=5b05ab02-20bd-49f1-b875-28359859b9f2")
+            .build();
+    Response response = client.newCall(request).execute();
+    String responseBody = response.body().string();
+
+    return responseBody;
+}
+
+    @SneakyThrows
+    public String getTaskList(String token){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://crm.zoho.eu/crm/v2/Tasks")
+                .method("GET", null)
+                .addHeader("Authorization", "Bearer " + token)
+                .addHeader("Cookie", "5ad188d5f9=0b1c728d9192d8d95f6e853307767d39; JSESSIONID=DFE1D3B3557FE73191D0807E48EA5E38; _zcsr_tmp=5b05ab02-20bd-49f1-b875-28359859b9f2; crmcsr=5b05ab02-20bd-49f1-b875-28359859b9f2")
+                .build();
+        Response response = client.newCall(request).execute();
+
+        String responseBody = response.body().string();
+        return responseBody;
+    }
+    @Test
+    public void test(){
+        String token = this.renewAccessToken();
+        String data =  this.getLeadTasksList(token, "Yurij", "Contacted");
+        System.out.println(data);
+        System.out.println("||==================================================================||");
+        JSONObject responseBodyJsonObject = new JSONObject( data );
+        System.out.println(responseBodyJsonObject.getJSONArray("data").length());
+        System.out.println(responseBodyJsonObject.getJSONArray("data").getJSONObject(199).getString("id"));
+    }
+
+
+    @Test
+    public void test2(){
+        String token = this.renewAccessToken();
+        String data =  this.getTaskList(token);
+        //System.out.println(data);
+        System.out.println("||==================================================================||");
+        JSONObject responseBodyJsonObject = new JSONObject( data );
+        System.out.println(responseBodyJsonObject.getJSONArray("data").length());
+        String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(0).getJSONObject("What_Id").getString("id");
+        System.out.println();
+        String data2 =  this.getLeadInfoById(token,id) ;
+        JSONObject responseBodyJsonObject2 = new JSONObject( data2 );
+        System.out.println(data2);
+        String web = String.valueOf(responseBodyJsonObject2.getJSONArray("data").getJSONObject(0));
+        String web1 = String.valueOf(responseBodyJsonObject2.getJSONArray("data").getJSONObject(0).getString("Website"));
+        System.out.println(web);
+        System.out.println(web1);
+        System.out.println(responseBodyJsonObject.getJSONArray("data").getJSONObject(0).getJSONObject("What_Id").getString("name"));
+    }
 
     @Test
     public void getToken(){
