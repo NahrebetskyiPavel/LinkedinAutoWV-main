@@ -161,7 +161,7 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         false
                 },
-                {       "Денис - Saudi Arabia CEO",
+/*                {       "Денис - Saudi Arabia CEO",
                         clientName,
                         "basdenisphytontm@gmail.com",
                         "asd321qq",
@@ -171,7 +171,7 @@ public class AddLeads extends Base {
                         "Saudi Arabia",
                         "421659000006238011",
                         false
-                },
+                },*/
                 {       "Настя - Stuttgart CEO",
                         clientName,
                         "anastasiiakuntii@gmail.com",
@@ -205,7 +205,7 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         false
                 },
-                {       "Максим - Stockholm co-founder",
+/*                {       "Максим - Stockholm co-founder",
                         clientName,
                         "kotokmaksym@gmail.com",
                         "r4E3w2q1",
@@ -215,7 +215,7 @@ public class AddLeads extends Base {
                         "Stockholm November",
                         "421659000009767013",
                         false
-                },
+                },*/
                {       "Анастасия - Saudi Arabia owner",
                         clientName,
                         "vozniakanastasia52@gmail.com",
