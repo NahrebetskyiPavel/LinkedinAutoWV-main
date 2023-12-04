@@ -40,6 +40,7 @@ public class AddLeads extends Base {
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
+        Thread.sleep(1000*20);
         Selenide.open(searchLink);
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
