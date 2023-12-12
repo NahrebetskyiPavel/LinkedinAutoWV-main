@@ -20,7 +20,7 @@ public class Message extends Base{
     ZohoCrmHelper zoho = new ZohoCrmHelper();
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch")
-    public void sendFolowUpMsg(String name,  String email, String password){
+    public void sendFolowUpMsg(String name,  String email, String password, String pickList){
 
         setupBrowser(true, name);
         openLinkedInLoginPage();
@@ -29,7 +29,7 @@ public class Message extends Base{
         String  token = zoho.renewAccessToken();
 
         for (int n = 0; n < 100; n++) {
-            String data =  zoho.getLeadList(token, "Yurij", "Contacted",name,n);
+            String data =  zoho.getLeadList(token, pickList, "Contacted",name,n);
             //System.out.println(data);
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
@@ -89,10 +89,57 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-                {       "Михайло",
-                        "michael.salo1995@gmail.com",
-                        "newman1996"
+                {       "Александра - Saudi Arabia Board of directors",
+                        "alexandra.sternenko@gmail.com",
+                        "asd321qq",
+                        "Yurij",
                 },
+                {       "Маша - Stockholm Founder ",
+                        "deynekamariawv@gmail.com",
+                        "3N2wbnsw",
+                        "Yurij",
+                },
+                {       "Михайло - Saudi Arabia CFO",
+                        "michael.salo1995@gmail.com",
+                        "newman1996",
+                        "Yurij",
+                },
+/*                {       "Nikita - Stockholm board of directors",
+                        "kni2012@ukr.net",
+                        "33222200s",
+                        "Hello",
+
+                },*/
+                {       "Наталья- Stockholm CEO",
+                        "natalia.marcoon@gmail.com ",
+                        "asd321qq",
+                        "Valeriia",
+                },
+                {       "Денис - Saudi Arabia CEO",
+                        "basdenisphytontm@gmail.com",
+                        "asd321qq",
+                        "Valeriia",
+                },
+                {       "Настя - Stuttgart CEO",
+                        "anastasiiakuntii@gmail.com",
+                        "nastya4141",
+                        "Alex",
+                },
+                {       "Роксолана - Stockholm CFO",
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                        "Alex",
+                },
+                {       "Марьян -  Stockholm CTO",
+                        "reshetunmaryanwv@gmail.com",
+                        "rSbnGaRS",
+                        "Alex",
+                },
+                {       "Анастасия - Saudi Arabia owner",
+                        "vozniakanastasia52@gmail.com",
+                        "zdHXF5bf",
+                        "Valeriia",
+                }
         };
     }
 }
