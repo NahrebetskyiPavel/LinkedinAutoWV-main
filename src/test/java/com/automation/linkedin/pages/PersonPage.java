@@ -27,6 +27,7 @@ public class PersonPage {
     public SelenideElement inMailMessege= $x("//div[@aria-label='Messaging']//div[@aria-label='Write a message…']");
     public SelenideElement inMailMessegeBtnSubmit= $x("//div[@aria-label='Messaging']//button[@type='submit']");
     public SelenideElement errorMsg= $x("//div[@data-test-artdeco-toast-item-type='error']//p//span");
+    public SelenideElement msgBtn= $x("//main[contains(@class,'scaffold-layout__main')]//span[text()='Message']");
     private int count = 0;
    String JS_ADD_TEXT_TO_INPUT = "var elm = arguments[0], txt = arguments[1];\n" +
            "  elm.value += txt;\n" +
