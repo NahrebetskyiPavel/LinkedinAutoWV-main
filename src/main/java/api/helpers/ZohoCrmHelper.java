@@ -307,6 +307,8 @@ if (tasksData.getJSONArray("data").length() >0){
     for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
+        String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
+        System.out.println("taskId:" + taskId);
         System.out.println(status);
         System.out.println(subject);
                 if (status.equals("Not Started") &&  subject.contains("Second message")){
@@ -323,6 +325,30 @@ if (tasksData.getJSONArray("data").length() >0){
 
     }
 
+        @SneakyThrows
+        public String changeTaskStatus(String token, String taskID, String status) {
+            OkHttpClient client = new OkHttpClient();
+            MediaType mediaType = MediaType.parse("application/json");
+
+            // Define the task data to update the status to "Closed"
+            String taskData = "{\"data\":[{\"id\":\"" + taskID + "\",\"Status\":\""+status+"\"}]}";
+
+            RequestBody body = RequestBody.create(mediaType, taskData);
+
+            Request request = new Request.Builder()
+                    .url("https://crm.zoho.eu/crm/v2/Tasks/" + taskID)
+                    .method("PUT", body)
+                    .addHeader("Authorization", "Bearer " + token)
+                    .addHeader("Content-Type", "application/json")
+                    .build();
+            Response response = client.newCall(request).execute();
+            String responseBody = response.body().string();
+            System.out.println(responseBody);
+            return responseBody;
+        }
+
+
+
     @Test
     public void getToken(){
         String token = this.renewAccessToken();
@@ -332,6 +358,7 @@ if (tasksData.getJSONArray("data").length() >0){
     @Test
     public void getToken1(){
         String token = this.renewAccessToken();
+        System.out.println(this.changeTaskStatus(token, "421659000009278012","Closed"));
         System.out.println(token);
     }
 }
