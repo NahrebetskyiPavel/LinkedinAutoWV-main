@@ -32,8 +32,8 @@ public class Message extends Base{
         String  token = zoho.renewAccessToken();
 
         for (int n = 0; n < 100; n++) {
-            String data =  zoho.getLeadList(token, pickList, "Contacted",name,n);
-            //System.out.println(data);
+            String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
+            if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
             //System.out.println(responseBodyJsonObject);
@@ -69,8 +69,11 @@ public class Message extends Base{
                                 new PersonPage().msgBtn.click();
                                 if (!$x("//div[contains(@aria-label,'Write a message…')]").is(Condition.visible)) continue;
                                 $x("//div[contains(@aria-label,'Write a message…')]").click();
-                                $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Hello.\n" +
-                                        "How are you doing?\n");
+                                $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Good day to you.\n" +
+                                        "\n" +
+                                        "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
+                                        "\n" +
+                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");
                                 $x("//button[normalize-space()='Send']").click();
                                 Thread.sleep(randomResult);
                                 $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
@@ -93,6 +96,7 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
+
                 {       "Александра - Saudi Arabia Board of directors",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
@@ -116,17 +120,17 @@ public class Message extends Base{
                 },*/
                 {       "Наталья- Stockholm CEO",
                         "natalia.marcoon@gmail.com ",
-                        "asd321qq",
+                        "33222200Shin",
                         "Valeriia",
                 },
                 {       "Денис - Saudi Arabia CEO",
                         "basdenisphytontm@gmail.com",
-                        "asd321qq",
+                        "33222200Shin",
                         "Valeriia",
                 },
                 {       "Настя - Stuttgart CEO",
                         "anastasiiakuntii@gmail.com",
-                        "nastya4141",
+                        "33222200Shin",
                         "Alex",
                 },
                 {       "Роксолана - Stockholm CFO",
@@ -136,12 +140,12 @@ public class Message extends Base{
                 },
                 {       "Марьян -  Stockholm CTO",
                         "reshetunmaryanwv@gmail.com",
-                        "rSbnGaRS",
+                        "33222200Shin",
                         "Alex",
                 },
                 {       "Анастасия - Saudi Arabia owner",
                         "vozniakanastasia52@gmail.com",
-                        "zdHXF5bf",
+                        "33222200Shin",
                         "Valeriia",
                 }
         };
