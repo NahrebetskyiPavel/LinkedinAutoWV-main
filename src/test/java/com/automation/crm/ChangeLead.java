@@ -1,31 +1,26 @@
 package com.automation.crm;
 
 import api.helpers.ZohoCrmHelper;
-import com.automation.linkedin.pages.PersonPage;
 import com.automation.linkedin.pages.login.SignInPage;
-import com.automation.linkedin.pages.messaging.MessagingPage;
 import com.automation.linkedin.pages.search.SearchPeoplePage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import lombok.SneakyThrows;
-import okhttp3.Response;
 import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.Collection;
 import java.util.Random;
 
 import static com.automation.linkedin.Base.openLinkedInLoginPage;
 import static com.automation.linkedin.Base.setupBrowser;
 import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AddLeads {
+public class ChangeLead {
     ZohoCrmHelper zohoCrmHelper = new ZohoCrmHelper();
     SignInPage signInPage = new SignInPage();
     SearchPeoplePage searchPeoplePage = new SearchPeoplePage();

@@ -3,7 +3,7 @@
 <suite name="Suite" thread-count="1" data-provider-thread-count="1">
 <test name="Test">
     <classes>
-        <class name = "com.automation.crm.AddLeads" />
+        <class name = "com.automation.crm.ChangeLead" />
     </classes>
 </test> <!-- Test -->
 </suite> <!-- Suite -->
