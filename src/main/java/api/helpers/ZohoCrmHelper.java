@@ -194,6 +194,8 @@ public class ZohoCrmHelper {
 
     @Test
     public void getToken(){
-        System.out.println(this.renewAccessToken());
+        String token = this.renewAccessToken();
+        System.out.println(token);
         }
+
 }

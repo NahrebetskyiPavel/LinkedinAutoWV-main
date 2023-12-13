@@ -76,13 +76,18 @@ public class AddLeads {
                     String leadId = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("id");
                     System.out.println(leadId);
                     System.out.println(personName);
-                    String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(leadId, token, Contacted);
+                    if (responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Lead_Status").equals("Attempted to Contact"))
+
+                    {
+                        String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(leadId, token, Contacted);
                     JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
                     System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
                     System.out.println("\n" );
                     if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
                         System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
                     };
+                    }
+                    else {continue;}
                 }
                 else continue;
             Thread.sleep(randomResult);
