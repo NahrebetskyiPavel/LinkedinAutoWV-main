@@ -5,13 +5,16 @@ import com.automation.linkedin.pages.PersonPage;
 import com.automation.linkedin.pages.login.SignInPage;
 import com.automation.linkedin.pages.messaging.MessagingPage;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import lombok.SneakyThrows;
 import org.json.JSONObject;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.Utils;
 
+import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class Message extends Base{
@@ -57,9 +60,10 @@ public class Message extends Base{
                         if (status.equals("Not Started") &&  subject.contains("Second message")){
                             System.out.println("open " + leadPage + " and sent second message to " + fullName);
                             Selenide.open(leadPage);
-
-                            if (false){
-                                $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
+                     //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
+                            ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
+                            if (!msgs.isEmpty() & !Utils.areAllElementsEqual(msgs)){
+//zoho.changeLeadStatus(id, token, transition_id);
                             }
                             else {
                                 new PersonPage().msgBtn.click();
