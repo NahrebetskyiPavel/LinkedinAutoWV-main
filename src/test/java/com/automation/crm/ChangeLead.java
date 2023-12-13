@@ -94,10 +94,48 @@ public class ChangeLead {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Анастасия ",
-                        "vozniakanastasia52@gmail.com",
-                        "zdHXF5bf",
+                {       "Александра - Saudi Arabia Board of directors",
+                        "alexandra.sternenko@gmail.com",
+                        "asd321qq",
                 },
+                {       "Маша - Stockholm Founder ",
+                        "deynekamariawv@gmail.com",
+                        "3N2wbnsw",
+                },
+                {       "Михайло - Saudi Arabia CFO",
+                        "michael.salo1995@gmail.com",
+                        "newman1996",
+                },
+/*                {       "Nikita - Stockholm board of directors",
+                        "kni2012@ukr.net",
+                        "33222200s",
+                        "Hello",
+
+                },*/
+                {       "Наталья- Stockholm CEO",
+                        "natalia.marcoon@gmail.com ",
+                        "33222200Shin",
+                },
+                {       "Денис - Saudi Arabia CEO",
+                        "basdenisphytontm@gmail.com",
+                        "33222200Shin",
+                },
+                {       "Настя - Stuttgart CEO",
+                        "anastasiiakuntii@gmail.com",
+                        "33222200Shin",
+                },
+                {       "Роксолана - Stockholm CFO",
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                },
+                {       "Марьян -  Stockholm CTO",
+                        "reshetunmaryanwv@gmail.com",
+                        "33222200Shin",
+                },
+                {       "Анастасия - Saudi Arabia owner",
+                        "vozniakanastasia52@gmail.com",
+                        "33222200Shin",
+                }
         };
     }
 }
