@@ -364,7 +364,7 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
-                {       "Александра - Saudi Arabia Board of directors",
+/*                {       "Александра - Saudi Arabia Board of directors",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                         "Yurij",
@@ -373,7 +373,7 @@ public class Message extends Base{
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
                         "Yurij",
-                },
+                },*/
                 {       "Михайло - Saudi Arabia CFO",
                         "michael.salo1995@gmail.com",
                         "newman1996",
@@ -385,7 +385,7 @@ public class Message extends Base{
                         "Hello",
 
                 },*/
-                {       "Наталья- Stockholm CEO",
+             /*   {       "Наталья- Stockholm CEO",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Valeriia",
@@ -414,7 +414,7 @@ public class Message extends Base{
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                         "Valeriia",
-                }
+                }*/
         };
     }
 }
