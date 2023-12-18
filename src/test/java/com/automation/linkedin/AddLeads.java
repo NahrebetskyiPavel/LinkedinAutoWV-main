@@ -58,10 +58,17 @@ public class AddLeads extends Base {
                 String personRef = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
                 Selenide.open(personRef);
                 Thread.sleep(randomResult);
-                String id = new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("id");
+                String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
                 personPage.addToFriends(msg,false);
-                zohoCrmHelper.changeLeadStatus(id, token,"421659000001302365");
-        }
+            {
+                String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
+                JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+                System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+                System.out.println("\n" );
+                if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
+                    System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
+                };
+            }        }
     }
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
