@@ -24,7 +24,7 @@ public class Message extends Base{
     ZohoCrmHelper zoho = new ZohoCrmHelper();
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
-    public void sendFolowUpSecontMsg(String name,  String email, String password, String pickList){
+    public void sendFollowUpSecondMsg(String name,  String email, String password, String pickList){
 
         setupBrowser(true, name);
         openLinkedInLoginPage();
@@ -66,8 +66,25 @@ public class Message extends Base{
                             Selenide.open(leadPage);
                      //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
                             ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!msgs.isEmpty() & !Utils.areAllElementsEqual(msgs)){
-//zoho.changeLeadStatus(id, token, transition_id);
+                            if (!msgs.isEmpty()){
+                                if (description.equals("null")){
+                                    $x("//div[contains(@aria-label,'Write a message…')]").click();
+                                $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Good day to you.\n" +
+                                        "\n" +
+                                        "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
+                                        "\n" +
+                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");
+                                    $x("//button[normalize-space()='Send']").click();
+                            }
+                            else{
+                                    $x("//div[contains(@aria-label,'Write a message…')]").click();
+                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(description);
+                                    $x("//button[normalize-space()='Send']").click();
+                            };
+                            }
+                            else if (!Utils.areAllElementsEqual(msgs)){
+                            zoho.changeLeadStatus(id, token, "421659000006918053");
+                            continue;
                             }
                             else {
                                 new PersonPage().msgBtn.click();
@@ -78,11 +95,15 @@ public class Message extends Base{
                                         "\n" +
                                         "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
                                         "\n" +
-                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");}else{
+                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");
+                                    $x("//button[normalize-space()='Send']").click();
+                                }
+                                else{
                                     $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(description);
+                                    $x("//button[normalize-space()='Send']").click();
                                 };
 
-                                $x("//button[normalize-space()='Send']").click();
+
                                 Thread.sleep(randomResult);
                                 $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
                                 zoho.changeTaskStatus(token, taskId,"Closed");
@@ -144,8 +165,10 @@ public class Message extends Base{
                             Selenide.open(leadPage);
                      //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
                             ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!msgs.isEmpty() & !Utils.areAllElementsEqual(msgs)){
-//zoho.changeLeadStatus(id, token, transition_id);
+                            if (!msgs.isEmpty()){continue;}
+                            else if (!Utils.areAllElementsEqual(msgs)){
+                                zoho.changeLeadStatus(id, token, "421659000006918053");
+                                continue;
                             }
                             else {
                                 new PersonPage().msgBtn.click();
@@ -222,8 +245,10 @@ public class Message extends Base{
                             Selenide.open(leadPage);
                      //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
                             ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!msgs.isEmpty() & !Utils.areAllElementsEqual(msgs)){
-//zoho.changeLeadStatus(id, token, transition_id);
+                            if (!msgs.isEmpty()){continue;}
+                            else if (!Utils.areAllElementsEqual(msgs)){
+                                zoho.changeLeadStatus(id, token, "421659000006918053");
+                                continue;
                             }
                             else {
                                 new PersonPage().msgBtn.click();
@@ -299,8 +324,10 @@ public class Message extends Base{
                             Selenide.open(leadPage);
                      //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
                             ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!msgs.isEmpty() & !Utils.areAllElementsEqual(msgs)){
-//zoho.changeLeadStatus(id, token, transition_id);
+                            if (!msgs.isEmpty()){continue;}
+                            else if (!Utils.areAllElementsEqual(msgs)){
+                                zoho.changeLeadStatus(id, token, "421659000006918053");
+                                continue;
                             }
                             else {
                                 new PersonPage().msgBtn.click();
