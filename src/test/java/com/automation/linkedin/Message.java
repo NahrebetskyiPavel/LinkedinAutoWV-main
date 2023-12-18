@@ -14,6 +14,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.Utils;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 import static utils.Utils.localDateIsBeforeGivenComparison;
@@ -70,8 +72,8 @@ public class Message extends Base{
                         if (status.equals("Not Started") &&  subject.contains("Second message") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
-                            ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!Utils.areAllElementsEqual(msgs)){
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
                                 zoho.changeLeadStatus(id, token, "421659000006918053");
                                 continue;
                             }
