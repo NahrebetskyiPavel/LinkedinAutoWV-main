@@ -174,4 +174,11 @@ public class PersonPage {
         }
         return false;
     }
+
+    public void     sentMsg(String msg){
+        $x("//div[contains(@aria-label,'Write a message…')]").click();
+        $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(msg);
+        $x("//button[normalize-space()='Send']").click();
+        $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
+    }
 }

@@ -22,6 +22,12 @@ public class Message extends Base{
     SignInPage signInPage = new SignInPage();
     MessagingPage messagingPage = new MessagingPage();
     ZohoCrmHelper zoho = new ZohoCrmHelper();
+    private String  msg = "Good day to you.\n" +
+            "\n" +
+            "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
+            "\n" +
+            "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n";
+
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
     public void sendFollowUpSecondMsg(String name,  String email, String password, String pickList){
@@ -62,55 +68,21 @@ public class Message extends Base{
                         System.out.println(status);
                         System.out.println(subject);
                         if (status.equals("Not Started") &&  subject.contains("Second message") && localDateIsBeforeGivenComparison(duedate)){
-                            System.out.println("open " + leadPage + " and sent second message to " + fullName);
                             Selenide.open(leadPage);
-                     //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
+                            new PersonPage().msgBtn.click();
                             ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!msgs.isEmpty()){
-                                if (description.equals("null")){
-                                    $x("//div[contains(@aria-label,'Write a message…')]").click();
-                                $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Good day to you.\n" +
-                                        "\n" +
-                                        "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
-                                        "\n" +
-                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");
-                                    $x("//button[normalize-space()='Send']").click();
+                            if (!Utils.areAllElementsEqual(msgs)){
+                                zoho.changeLeadStatus(id, token, "421659000006918053");
+                                continue;
                             }
-                            else{
-                                    $x("//div[contains(@aria-label,'Write a message…')]").click();
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(description);
-                                    $x("//button[normalize-space()='Send']").click();
-                            };
-                            }
-                            else if (!Utils.areAllElementsEqual(msgs)){
-                            zoho.changeLeadStatus(id, token, "421659000006918053");
-                            continue;
-                            }
-                            else {
-                                new PersonPage().msgBtn.click();
-                                if (!$x("//div[contains(@aria-label,'Write a message…')]").is(Condition.visible)) continue;
-                                $x("//div[contains(@aria-label,'Write a message…')]").click();
-                                if (description.equals("null")){
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Good day to you.\n" +
-                                        "\n" +
-                                        "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
-                                        "\n" +
-                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");
-                                    $x("//button[normalize-space()='Send']").click();
-                                }
-                                else{
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(description);
-                                    $x("//button[normalize-space()='Send']").click();
-                                };
-
-
-                                Thread.sleep(randomResult);
-                                $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
-                                zoho.changeTaskStatus(token, taskId,"Closed");
-                            }
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) new PersonPage().sentMsg(msg);
+                            else new PersonPage().sentMsg(description);
+                            zoho.changeTaskStatus(token, taskId,"Closed");
                         };
                     }
                 }
+
                 System.out.println();
                 System.out.println("\n");
                 System.out.println("====================================================================");
@@ -161,36 +133,20 @@ public class Message extends Base{
                         System.out.println(status);
                         System.out.println(subject);
                         if (status.equals("Not Started") &&  subject.contains("Third message") && localDateIsBeforeGivenComparison(duedate)){
-                            System.out.println("open " + leadPage + " and sent Third message to " + fullName);
                             Selenide.open(leadPage);
-                     //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
+                            new PersonPage().msgBtn.click();
                             ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!msgs.isEmpty()){continue;}
-                            else if (!Utils.areAllElementsEqual(msgs)){
+                            if (!Utils.areAllElementsEqual(msgs)){
                                 zoho.changeLeadStatus(id, token, "421659000006918053");
                                 continue;
                             }
-                            else {
-                                new PersonPage().msgBtn.click();
-                                if (!$x("//div[contains(@aria-label,'Write a message…')]").is(Condition.visible)) continue;
-                                $x("//div[contains(@aria-label,'Write a message…')]").click();
-                                if (description.equals("null")){
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Good day to you.\n" +
-                                        "\n" +
-                                        "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
-                                        "\n" +
-                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");}else{
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(description);
-                                };
-
-                                $x("//button[normalize-space()='Send']").click();
-                                Thread.sleep(randomResult);
-                                $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
-                                zoho.changeTaskStatus(token, taskId,"Closed");
-                            }
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) new PersonPage().sentMsg(msg);
+                            else new PersonPage().sentMsg(description);
                         };
                     }
                 }
+
                 System.out.println();
                 System.out.println("\n");
                 System.out.println("====================================================================");
@@ -241,43 +197,26 @@ public class Message extends Base{
                         System.out.println(status);
                         System.out.println(subject);
                         if (status.equals("Not Started") &&  subject.contains("Fourt message") && localDateIsBeforeGivenComparison(duedate)){
-                            System.out.println("open " + leadPage + " and sent Fourt message to " + fullName);
                             Selenide.open(leadPage);
-                     //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
+                            new PersonPage().msgBtn.click();
                             ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!msgs.isEmpty()){continue;}
-                            else if (!Utils.areAllElementsEqual(msgs)){
+                            if (!Utils.areAllElementsEqual(msgs)){
                                 zoho.changeLeadStatus(id, token, "421659000006918053");
                                 continue;
                             }
-                            else {
-                                new PersonPage().msgBtn.click();
-                                if (!$x("//div[contains(@aria-label,'Write a message…')]").is(Condition.visible)) continue;
-                                $x("//div[contains(@aria-label,'Write a message…')]").click();
-                                if (description.equals("null")){
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Good day to you.\n" +
-                                        "\n" +
-                                        "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
-                                        "\n" +
-                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");}else{
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(description);
-                                };
-
-                                $x("//button[normalize-space()='Send']").click();
-                                Thread.sleep(randomResult);
-                                $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
-                                zoho.changeTaskStatus(token, taskId,"Closed");
-                            }
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) new PersonPage().sentMsg(msg);
+                            else new PersonPage().sentMsg(description);
                         };
                     }
                 }
+
                 System.out.println();
                 System.out.println("\n");
                 System.out.println("====================================================================");
                 System.out.println("\n");
             }
         }
-
 
     }
     @SneakyThrows
@@ -320,43 +259,26 @@ public class Message extends Base{
                         System.out.println(status);
                         System.out.println(subject);
                         if (status.equals("Not Started") &&  subject.contains("Fifth message") && localDateIsBeforeGivenComparison(duedate)){
-                            System.out.println("open " + leadPage + " and sent Fifth message to " + fullName);
                             Selenide.open(leadPage);
-                     //      if (   $x("//ul[contains(@class,'msg-s-message-list-content')]").exists() &&    $x("//ul[contains(@class,'msg-s-message-list-content')]").text().length()>0)
+                            new PersonPage().msgBtn.click();
                             ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!msgs.isEmpty()){continue;}
-                            else if (!Utils.areAllElementsEqual(msgs)){
+                            if (!Utils.areAllElementsEqual(msgs)){
                                 zoho.changeLeadStatus(id, token, "421659000006918053");
                                 continue;
                             }
-                            else {
-                                new PersonPage().msgBtn.click();
-                                if (!$x("//div[contains(@aria-label,'Write a message…')]").is(Condition.visible)) continue;
-                                $x("//div[contains(@aria-label,'Write a message…')]").click();
-                                if (description.equals("null")){
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys("Good day to you.\n" +
-                                        "\n" +
-                                        "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
-                                        "\n" +
-                                        "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n");}else{
-                                    $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(description);
-                                };
-
-                                $x("//button[normalize-space()='Send']").click();
-                                Thread.sleep(randomResult);
-                                $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
-                                zoho.changeTaskStatus(token, taskId,"Closed");
-                            }
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) new PersonPage().sentMsg(msg);
+                            else new PersonPage().sentMsg(description);
                         };
                     }
                 }
+
                 System.out.println();
                 System.out.println("\n");
                 System.out.println("====================================================================");
                 System.out.println("\n");
             }
         }
-
 
     }
 

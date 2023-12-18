@@ -418,7 +418,7 @@ if (tasksData.getJSONArray("data").length() >0){
     @Test
     public void getToken1(){
         String token = this.renewAccessToken();
-      //  System.out.println(this.changeTaskStatus(token, "421659000009278012","Closed"));
+        System.out.println(this.changeTaskStatus(token, "421659000010770042","Closed"));
         System.out.println(token);
     }
 }
