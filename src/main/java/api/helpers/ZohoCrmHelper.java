@@ -217,21 +217,25 @@ public String getLeadList(String token, String pickList, String status, String l
     return responseBody;
 }
 @SneakyThrows
-public String getLeadList(String token, String leadscompany, String linkedIn_person, String pick_List_2, String lead_Status, int page){
+public String getLeadList(String token, int page, String leadStatus, String linkedInPerson, String pickList2){
     OkHttpClient client = new OkHttpClient().newBuilder()
             .build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = RequestBody.create(mediaType, "");
     Request request = new Request.Builder()
-            .url("https://crm.zoho.eu/crm/v2/Leads/search?criteria=((Lead_Status:equals:"+lead_Status+")and(LinkedIn_person:equals:"+linkedIn_person+")and(Pick_List_2:equals:"+pick_List_2+")and(Lead_Status:equals:Waiting))&page=1")
-            .method("GET", body)
-            .addHeader("Authorization", "Bearer 1000.f40b00e045dce8322003be66a487f844.5783ebedac802f2d85b8aa4c6167edcb")
-            .addHeader("Cookie", "5ad188d5f9=5062f2b3c88c9158f1f3d5c447eda48b; JSESSIONID=591C868A9EBD5A345F9CA1BB5B797A80; _zcsr_tmp=c1f27ecb-3f30-48fd-a5a9-15553eefd43c; crmcsr=c1f27ecb-3f30-48fd-a5a9-15553eefd43c")
+            .url("https://crm.zoho.eu/crm/v2/Leads/search?criteria=(" +
+                    "(Lead_Status:equals:"+leadStatus+")" +
+                    "and" +
+                    "(LinkedIn_person:equals:"+linkedInPerson+")" +
+                    "and" +
+                    "(Pick_List_2:equals:"+pickList2+")" +
+                    ")&page="+page+"")
+            .method("GET", null)
+            .addHeader("Authorization", "Bearer " + token)
+            .addHeader("Cookie", "5ad188d5f9=e15fa1fb2ef12974089db8189e83c147; JSESSIONID=591C868A9EBD5A345F9CA1BB5B797A80; _zcsr_tmp=c1f27ecb-3f30-48fd-a5a9-15553eefd43c; crmcsr=c1f27ecb-3f30-48fd-a5a9-15553eefd43c")
             .build();
     Response response = client.newCall(request).execute();
-    String responseBody = response.body().string();
-
-    return responseBody;
+    return response.body().string();
 }
 
     @SneakyThrows
@@ -369,7 +373,9 @@ if (tasksData.getJSONArray("data").length() >0){
     @Test
     public void getToken(){
         String token = this.renewAccessToken();
-        this.getLeadList(token,"Test","Anastasiia K.","Anastasia","Waiting",1);
+        String data = this.getLeadList( token, 1,  "Waiting",  "Anastasiia K.",  "Anastasia");
+        System.out.println(new JSONObject( data ).getJSONArray("data").length());
+        System.out.println(new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("Website"));
         }
     @Test
     public void getToken1(){
