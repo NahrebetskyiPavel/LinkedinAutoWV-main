@@ -78,9 +78,14 @@ public class Message extends Base{
                                 continue;
                             }
                             System.out.println("sent msg!!!");
-                            if (description.equals("null")) new PersonPage().sentMsg(msg);
-                            else new PersonPage().sentMsg(description);
-                            zoho.changeTaskStatus(token, taskId,"Closed");
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg(msg);
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description);
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
                         };
                     }
                 }
@@ -138,14 +143,20 @@ public class Message extends Base{
                         if (status.equals("Not Started") &&  subject.contains("Third message") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
-                            ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!Utils.areAllElementsEqual(msgs)){
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
                                 zoho.changeLeadStatus(id, token, "421659000006918053");
                                 continue;
                             }
                             System.out.println("sent msg!!!");
-                            if (description.equals("null")) new PersonPage().sentMsg(msg);
-                            else new PersonPage().sentMsg(description);
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg(msg);
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description);
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
                         };
                     }
                 }
@@ -203,14 +214,20 @@ public class Message extends Base{
                         if (status.equals("Not Started") &&  subject.contains("Fourt message") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
-                            ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!Utils.areAllElementsEqual(msgs)){
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
                                 zoho.changeLeadStatus(id, token, "421659000006918053");
                                 continue;
                             }
                             System.out.println("sent msg!!!");
-                            if (description.equals("null")) new PersonPage().sentMsg(msg);
-                            else new PersonPage().sentMsg(description);
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg(msg);
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description);
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
                         };
                     }
                 }
@@ -266,14 +283,20 @@ public class Message extends Base{
                         if (status.equals("Not Started") &&  subject.contains("Fifth message") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
-                            ElementsCollection msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span");
-                            if (!Utils.areAllElementsEqual(msgs)){
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
                                 zoho.changeLeadStatus(id, token, "421659000006918053");
                                 continue;
                             }
                             System.out.println("sent msg!!!");
-                            if (description.equals("null")) new PersonPage().sentMsg(msg);
-                            else new PersonPage().sentMsg(description);
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg(msg);
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description);
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
                         };
                     }
                 }
