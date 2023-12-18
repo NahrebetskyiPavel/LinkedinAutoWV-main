@@ -7,6 +7,7 @@ import com.automation.linkedin.pages.messaging.MessagingPage;
 import com.automation.linkedin.pages.search.SearchPeoplePage;
 import com.codeborne.selenide.*;
 import lombok.SneakyThrows;
+import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 
@@ -30,7 +31,7 @@ public class AddLeads extends Base {
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
-    public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId, boolean premium){
+    public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
         int leadsRequestCount = 0;
         Thread.sleep(randomResult);
         System.out.println("-------------------------------------------------------\n" +
@@ -40,192 +41,115 @@ public class AddLeads extends Base {
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
-        Selenide.open(searchLink);
+        Thread.sleep(1000*20);
+        Selenide.open("https://www.linkedin.com/");
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-        while (leadsRequestCount != 20){
+        String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson,  "Anastasia");
+       // System.out.println(new JSONObject( data ).getJSONArray("data").length());
+        //System.out.println(new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("Website"));
+
+        for (int i = 0; i < new JSONObject( data ).getJSONArray("data").length(); i++)
+        {
             Thread.sleep(randomResult);
-            for (SelenideElement person:searchPeoplePage.PersonPages
-            ) {
+
                 Thread.sleep(200);
-                String personRef = person.getAttribute("href");
-                if (person.text().contains("LinkedIn Member")) continue;
-
-                String[] personNamearr = person.find(By.cssSelector("span")).text().split("\\s");
-                String personName = personNamearr[0] + " " + personNamearr[1];
+                String personRef = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
+                Selenide.open(personRef);
                 Thread.sleep(randomResult);
-                Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
-
-            Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
-                Thread.sleep(randomResult*3);
-            Selenide.switchTo().window(1);
-                Thread.sleep(randomResult);
-                closeMsgPopups();
-            if (personPage.addLead(msg.replace("NAME", personNamearr[0]), premium) ){
-                if (leadsRequestCount == 20) {
-                    Selenide.closeWindow();
-                    switchTo().window(0);
-
-                    WebDriverRunner.getWebDriver().quit();
-                    break;
-                };
-                leadsRequestCount = leadsRequestCount + 1;
-                if (leadsRequestCount == 19) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
-                System.out.println("leadsRequestCount: " + leadsRequestCount);
-                String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
-                if (response.contains("INVALID_TOKEN")) {
-                    token = zohoCrmHelper.renewAccessToken();
-                    zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
-                }
-                }
-
-                Selenide.closeWindow();
-                switchTo().window(0);
-                //if (zohoCrmHelper.responseBody.contains("DUPLICATE_DATA")){break;}
-            }
-            Thread.sleep(randomResult);
-            if (!searchPeoplePage.previousPageBtn.is(interactable)){
-                if (leadsRequestCount == 20) break;
-                System.out.println( WebDriverRunner.getWebDriver().getCurrentUrl() );
-                System.out.println("=========== OUT OF SEARCH ===========");
-                break;
-            }
-            Thread.sleep(randomResult);
-            Thread.sleep(randomResult);
-            searchPeoplePage.previousPageBtn.shouldBe(visible).click();
-            Thread.sleep(randomResult);
+                String id = new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("id");
+                personPage.addToFriends(msg,false);
+                zohoCrmHelper.changeLeadStatus(id, token,"421659000001302365");
         }
     }
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
-        String clientName = "";
-        String leadCompanyGamblingId ="421659000005125089";
-        String leadCompanyAmsterdamId ="421659000005261283";
-        String leadCompanyAustraliaId ="421659000005261273";
-        String leadCompanyName ="Gambling LinkedIn";
+
         return new Object[][]{
-                {       "Александра - Saudi Arabia Board of directors",
-                        clientName,
+                {       "Настя ",
+                        "anastasiiakuntii@gmail.com",
+                        "33222200Shin",
+                        "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)",
+                        "Anastasiia K."
+                },
+                {       "Pasha ",
+                        "pavelnagrebetski@gmail.com",
+                        "Asd321qq",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Pavlo"
+                },
+                {       "Александра - Gothenburg ",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=jWc&titleFreeText=Board%20of%20directors",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Yurij",
-                        "Saudi Arabia",
-                        "421659000006238011",
-                        false
+                        "Yurij"
                 },
-                {       "Маша - Stockholm Founder ",
-                        clientName,
+                {       "Маша - Gothenburg Founder ",
                         "deynekamariawv@gmail.com",
-                        "3N2wbnsw",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104853962%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=T*X&titleFreeText=Founder",
+                        "qwertqaz1234",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Yurij",
-                        "Stockholm",
-                        "421659000006238021",
-                        false
+                        "Yurij"
                 },
-                {       "Михайло - Saudi Arabia CFO",
-                        clientName,
+                {       "Михайло - Gothenburg  CFO",
                         "michael.salo1995@gmail.com",
                         "newman1996",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=0Ue&titleFreeText=CFO",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
-                        "Yurij",
-                        "Saudi Arabia",
-                        "421659000006238011",
-                        false
+                        "Yurij"
                 },
-                {       "Nikita - Stockholm board of directors",
+/*                {       "Nikita - Stockholm board of directors",
                         clientName,
                         "kni2012@ukr.net",
                         "33222200s",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=69&sid=E7r&titleFreeText=board%20of%20directors",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=50&sid=E7r&titleFreeText=board%20of%20directors",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
                         "Valeriia",
-                        "Yura Test",
-                        "421659000009264001",
+                        "Stockholm November",
+                        "421659000009767013",
                         true
-                },
-                {       "Наталья- Stockholm CEO",
-                        clientName,
+                },*/
+                {       "Наталья- Gothenburg CEO",
                         "natalia.marcoon@gmail.com ",
-                        "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=FAZ&titleFreeText=CEO",
+                        "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Valeriia",
-                        "Stockholm",
-                        "421659000006238021",
-                        false
+                        "Valeriia"
                 },
-                {       "Денис - Saudi Arabia CEO",
-                        clientName,
+                {       "Денис - Stockholm CEO",
                         "basdenisphytontm@gmail.com",
-                        "asd321qq",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=20&sid=_p%3B&titleFreeText=CEO",
+                        "33222200Shin_",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
-                        "Valeriia",
-                        "Saudi Arabia",
-                        "421659000006238011",
-                        false
+                        "Valeriia"
                 },
-                {       "Настя - Stuttgart CEO",
-                        clientName,
-                        "anastasiiakuntii@gmail.com",
-                        "nastya4141",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%5D&origin=FACETED_SEARCH&page=100&sid=V%40~&titleFreeText=COO",
-                        "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)",
-                        "Alex",
-                        "Stuttgart",
-                        "421659000009084020",
-                        false
-                },
+
                 {       "Роксолана - Stockholm CFO",
-                        clientName,
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
-                        "",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Alex",
-                        "Stockholm",
-                        "421659000006238021",
-                        false
+                        "Alex"
                 },
                 {       "Марьян -  Stockholm CTO",
-                        clientName,
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=kcd&titleFreeText=CTO",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Alex",
-                        "Stockholm",
-                        "421659000006238021",
-                        false
+                        "Alex"
                 },
-                {       "Максим - Stockholm co-founder",
+/*                {       "Максим - Stockholm co-founder",
                         clientName,
                         "kotokmaksym@gmail.com",
                         "r4E3w2q1",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=SEz&titleFreeText=co-founder",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=80&sid=SEz&titleFreeText=co-founder",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Yurij",
-                        "Stockholm",
-                        "421659000006238021",
+                        "Stockholm November",
+                        "421659000009767013",
                         false
-                },
-               {       "Анастасия - Saudi Arabia owner",
-                        clientName,
+                },*/
+                {       "Анастасия - Stockholm owner",
                         "vozniakanastasia52@gmail.com",
-                        "zdHXF5bf",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=HY4&titleFreeText=owner",
+                        "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Pavlo",
-                       "Saudi Arabia",
-                       "421659000006238011",
-                        false
+                        "Pavlo"
                 }
 
 /* ==================================================================================================================================================================== */

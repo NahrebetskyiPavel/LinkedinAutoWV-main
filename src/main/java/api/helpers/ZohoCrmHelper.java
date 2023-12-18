@@ -375,6 +375,7 @@ if (tasksData.getJSONArray("data").length() >0){
         String token = this.renewAccessToken();
         String data = this.getLeadList( token, 1,  "Waiting",  "Anastasiia K.",  "Anastasia");
         System.out.println(new JSONObject( data ).getJSONArray("data").length());
+        System.out.println(new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("id"));
         System.out.println(new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("Website"));
         }
     @Test
