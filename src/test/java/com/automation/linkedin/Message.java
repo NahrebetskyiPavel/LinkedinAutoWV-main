@@ -31,7 +31,7 @@ public class Message extends Base{
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
     public void sendFollowUpSecondMsg(String name,  String email, String password, String pickList){
-
+        System.out.println("START 2 MSG");
         setupBrowser(true, name);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
@@ -96,6 +96,7 @@ public class Message extends Base{
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 2)
     public void sendFolowUpThirdMsg(String name,  String email, String password, String pickList){
+        System.out.println("START 3 MSG");
 
         setupBrowser(true, name);
         openLinkedInLoginPage();
@@ -160,6 +161,7 @@ public class Message extends Base{
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 3)
     public void sendFolowUpFourtMsg(String name,  String email, String password, String pickList){
+        System.out.println("START 4 MSG");
 
         setupBrowser(true, name);
         openLinkedInLoginPage();
@@ -222,6 +224,7 @@ public class Message extends Base{
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 4)
     public void sendFolowUpFifthMsg(String name,  String email, String password, String pickList){
+        System.out.println("START 5 MSG");
 
         setupBrowser(true, name);
         openLinkedInLoginPage();
