@@ -144,15 +144,16 @@ public class ZohoCrmHelper {
                 .addHeader("Cookie", "5ad188d5f9=6292d2984ef0821bee3338d1fd76c022; JSESSIONID=3CE4C543322B328AA0D63C186786DDB3; _zcsr_tmp=c3665641-3d33-48e0-90e7-b87732b42ac0; crmcsr=c3665641-3d33-48e0-90e7-b87732b42ac0")
                 .build();
         Response response = client.newCall(request).execute();
-        System.out.println(response.body().string());
-        return response.body().string();
+        String responseBody = response.body().string();
+        System.out.println(responseBody);
+        return responseBody;
     }
     @SneakyThrows
-    public String directChangeLeadStatus(String leadId, String token, String transitionStatusName){
+    public String directChangeLeadStatus(String leadId, String token, String statusName){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\"data\":[{\"Lead_Status\":\""+transitionStatusName+"\"}],\"formruleValue\":{\"mandatoryInputNeededElem\":[],\"lrMandatoryElem\":[],\"LayoutRuleHiddenElem\":[]}}");
+        RequestBody body = RequestBody.create(mediaType, "{\"data\":[{\"Lead_Status\":\""+statusName+"\"}],\"formruleValue\":{\"mandatoryInputNeededElem\":[],\"lrMandatoryElem\":[],\"LayoutRuleHiddenElem\":[]}}");
         Request request = new Request.Builder()
                 .url("https://crm.zoho.eu/crm/v2/Leads/"+leadId+"?affected_data=true")
                 .method("PUT", body)
@@ -169,10 +170,9 @@ public class ZohoCrmHelper {
                 .addHeader("sec-ch-ua-platform", "\"macOS\"")
                 .addHeader("host", "crm.zoho.eu")
                 .addHeader("Authorization", "Bearer " + token)
-                .addHeader("Cookie", "5ad188d5f9=e15fa1fb2ef12974089db8189e83c147; JSESSIONID=591C868A9EBD5A345F9CA1BB5B797A80; _zcsr_tmp=c1f27ecb-3f30-48fd-a5a9-15553eefd43c; crmcsr=c1f27ecb-3f30-48fd-a5a9-15553eefd43c")
+                .addHeader("Cookie", "5ad188d5f9=602c68540f2fb9aa8d48ce31dfa8d025; _zcsr_tmp=34c9ebdd-e968-441c-9fae-a3a56dd240bb; crmcsr=34c9ebdd-e968-441c-9fae-a3a56dd240bb")
                 .build();
         Response response = client.newCall(request).execute();
-        System.out.println(response.body().string());
         return response.body().string();
     }
     @SneakyThrows
@@ -259,6 +259,26 @@ public String getLeadList(String token, int page, String leadStatus, String link
                     "and" +
                     "(Pick_List_2:equals:"+pickList2+")" +
                     ")&page="+page+"")
+            .method("GET", null)
+            .addHeader("Authorization", "Bearer " + token)
+            .addHeader("Cookie", "5ad188d5f9=e15fa1fb2ef12974089db8189e83c147; JSESSIONID=591C868A9EBD5A345F9CA1BB5B797A80; _zcsr_tmp=c1f27ecb-3f30-48fd-a5a9-15553eefd43c; crmcsr=c1f27ecb-3f30-48fd-a5a9-15553eefd43c")
+            .build();
+    Response response = client.newCall(request).execute();
+    return response.body().string();
+}
+@SneakyThrows
+public String getLeadList(String token, int page, String leadStatus, String linkedInPerson){
+    OkHttpClient client = new OkHttpClient().newBuilder()
+            .build();
+    MediaType mediaType = MediaType.parse("text/plain");
+    RequestBody body = RequestBody.create(mediaType, "");
+    Request request = new Request.Builder()
+            .url("https://crm.zoho.eu/crm/v2/Leads/search?criteria=(" +
+                    "(Lead_Status:equals:"+leadStatus+")" +
+                    "and" +
+                    "(LinkedIn_person:equals:"+linkedInPerson+")" +
+                    ")" +
+                    "&page="+page+"")
             .method("GET", null)
             .addHeader("Authorization", "Bearer " + token)
             .addHeader("Cookie", "5ad188d5f9=e15fa1fb2ef12974089db8189e83c147; JSESSIONID=591C868A9EBD5A345F9CA1BB5B797A80; _zcsr_tmp=c1f27ecb-3f30-48fd-a5a9-15553eefd43c; crmcsr=c1f27ecb-3f30-48fd-a5a9-15553eefd43c")

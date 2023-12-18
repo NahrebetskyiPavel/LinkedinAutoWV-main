@@ -42,11 +42,10 @@ public class AddLeads extends Base {
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         Thread.sleep(1000*20);
-        Selenide.open("https://www.linkedin.com/");
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-        String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson,  "Anastasia");
+        String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
        // System.out.println(new JSONObject( data ).getJSONArray("data").length());
         //System.out.println(new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("Website"));
 
@@ -81,29 +80,29 @@ public class AddLeads extends Base {
                         "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)",
                         "Anastasiia K."
                 },
-                {       "Pasha ",
+                {       "Pasha",
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Pavlo"
+                        "Pavel"
                 },
-                {       "Александра - Gothenburg ",
+                {       "Александра",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Yurij"
+                        "Aleksandra"
                 },
-                {       "Маша - Gothenburg Founder ",
+                {       "Маша",
                         "deynekamariawv@gmail.com",
                         "qwertqaz1234",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Yurij"
+                        "Mariia"
                 },
-                {       "Михайло - Gothenburg  CFO",
+                {       "Михайло",
                         "michael.salo1995@gmail.com",
                         "newman1996",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
-                        "Yurij"
+                        "Michael"
                 },
 /*                {       "Nikita - Stockholm board of directors",
                         clientName,
@@ -120,26 +119,26 @@ public class AddLeads extends Base {
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Valeriia"
+                        "Natalia"
                 },
                 {       "Денис - Stockholm CEO",
                         "basdenisphytontm@gmail.com",
                         "33222200Shin_",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
-                        "Valeriia"
+                        "Denis"
                 },
 
                 {       "Роксолана - Stockholm CFO",
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Alex"
+                        "Roksolana"
                 },
                 {       "Марьян -  Stockholm CTO",
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Alex"
+                        "Maryan"
                 },
 /*                {       "Максим - Stockholm co-founder",
                         clientName,
@@ -156,7 +155,7 @@ public class AddLeads extends Base {
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Pavlo"
+                        "Anastasiia"
                 }
 
 /* ==================================================================================================================================================================== */
