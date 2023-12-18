@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -40,6 +42,26 @@ public class Utils {
         }
 
         return true; // All elements are equal
+    }
+
+    public static boolean localDateIsBeforeGivenComparison(String givendate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // Parse the given date and the current date
+        LocalDate givenDate = LocalDate.parse(givendate, formatter);
+        LocalDate currentDate = LocalDate.now(); // Current date
+
+        // Compare the dates
+        if (currentDate.isEqual(givenDate)) {
+            System.out.println("Dates are equal.");
+            return true;
+        } else if (currentDate.isAfter(givenDate)) {
+            System.out.println("Current date is after the given date.");
+            return false;
+        } else {
+            System.out.println("Current date is before the given date.");
+            return true;
+        }
     }
 @Test
 public void test(){

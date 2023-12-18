@@ -6,6 +6,8 @@ import okhttp3.*;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
+import static utils.Utils.localDateIsBeforeGivenComparison;
+
 public class ZohoCrmHelper {
     public String responseBody;
     @SneakyThrows
@@ -358,10 +360,16 @@ if (tasksData.getJSONArray("data").length() >0){
         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
+        String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
+        String description = String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(j).get("Description"));
         System.out.println("taskId:" + taskId);
         System.out.println(status);
         System.out.println(subject);
-                if (status.equals("Not Started") &&  subject.contains("Second message")){
+        System.out.println("duedate: " + duedate);
+        localDateIsBeforeGivenComparison(duedate);
+        System.out.println("Description: "  + description);
+
+        if (status.equals("Not Started") &&  subject.contains("Second message")){
             System.out.println("open" + website + " and sent second message to " + fullName);
         };
     }
