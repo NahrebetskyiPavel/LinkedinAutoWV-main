@@ -69,7 +69,7 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") &&  subject.contains("Second message") && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started") &&  subject.contains("Second automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
@@ -140,7 +140,7 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") &&  subject.contains("Third message") && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started") &&  subject.contains("Third automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
@@ -211,7 +211,7 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") &&  subject.contains("Fourt message") && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started") &&  subject.contains("Fourt automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
@@ -280,7 +280,7 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") &&  subject.contains("Fifth message") && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started") &&  subject.contains("Fifth automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
