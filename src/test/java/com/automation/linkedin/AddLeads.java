@@ -34,6 +34,10 @@ public class AddLeads extends Base {
     public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
         int leadsRequestCount = 0;
         Thread.sleep(randomResult);
+        //String token = zohoCrmHelper.renewAccessToken();
+        String token = "1000.d5c088f9eb0c213f66c42e87ff3cdcc3.c63bf8adb088e205e793ac2a3c82a1a4";
+        String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
+        if (data.isEmpty()) return;
         System.out.println("-------------------------------------------------------\n" +
                 "START: "+name+"\n" +
                 "-------------------------------------------------------");
@@ -44,8 +48,7 @@ public class AddLeads extends Base {
         Thread.sleep(1000*20);
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
-        String token = zohoCrmHelper.renewAccessToken();
-        String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
+
        // System.out.println(new JSONObject( data ).getJSONArray("data").length());
         //System.out.println(new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("Website"));
 
