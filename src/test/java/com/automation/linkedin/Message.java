@@ -154,7 +154,7 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
-                                new PersonPage().sentMsg(description);
+                                new PersonPage().sentMsg(description.replace("NAME",fullName));
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
@@ -225,7 +225,7 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
-                                new PersonPage().sentMsg(description);
+                                new PersonPage().sentMsg(description.replace("NAME",fullName));
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
@@ -294,7 +294,7 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
-                                new PersonPage().sentMsg(description);
+                                new PersonPage().sentMsg(description.replace("NAME",fullName));
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
