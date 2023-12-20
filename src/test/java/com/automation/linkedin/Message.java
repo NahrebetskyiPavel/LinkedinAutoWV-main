@@ -56,7 +56,6 @@ public class Message extends Base{
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
                 JSONObject tasksData = new JSONObject( tasks );
-                System.out.println(tasksData.getJSONArray("data"));
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
                 if (tasksData.getJSONArray("data").length() >0){
                     for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
