@@ -94,8 +94,8 @@ public class ChangeLead {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Денис - Saudi Arabia CEO",
-                        "basdenisphytontm@gmail.com",
+                {       "Настя - Stuttgart CEO",
+                        "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                 }
         };
