@@ -97,7 +97,7 @@ public class ChangeLead {
                 {       "Nikita - Stockholm board of directors",
                         "kni2012@ukr.net",
                         "33222200s",
-                },
+                }
         };
     }
 }
