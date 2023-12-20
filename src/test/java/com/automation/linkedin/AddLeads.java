@@ -146,6 +146,15 @@ public class AddLeads extends Base {
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Maryan"
                 },
+
+                {       "Анастасия - Stockholm owner",
+                        "vozniakanastasia52@gmail.com",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Anastasiia"
+                }
+
+/* ==================================================================================================================================================================== */
 /*                {       "Максим - Stockholm co-founder",
                         clientName,
                         "kotokmaksym@gmail.com",
@@ -157,14 +166,6 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         false
                 },*/
-                {       "Анастасия - Stockholm owner",
-                        "vozniakanastasia52@gmail.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Anastasiia"
-                }
-
-/* ==================================================================================================================================================================== */
 /*                {       "Софія",
                         clientName,
                         "sofi.podlesna@gmail.com",
