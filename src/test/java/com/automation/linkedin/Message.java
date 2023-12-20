@@ -314,6 +314,11 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
+                {       "Анастасия - Saudi Arabia owner",
+                        "vozniakanastasia52@gmail.com",
+                        "33222200Shin",
+                        "Valeriia",
+                },
                 {       "Александра - Saudi Arabia Board of directors",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
@@ -359,11 +364,6 @@ public class Message extends Base{
                         "reshetunmaryanwv@gmail.com",
                         "33222200Shin",
                         "Alex",
-                },
-                {       "Анастасия - Saudi Arabia owner",
-                        "vozniakanastasia52@gmail.com",
-                        "33222200Shin",
-                        "Valeriia",
                 }
         };
     }
