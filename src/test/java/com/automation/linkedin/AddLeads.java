@@ -80,11 +80,11 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-                {       "Александра",
-                        "alexandra.sternenko@gmail.com",
-                        "asd321qq",
+                {       "Маша",
+                        "deynekamariawv@gmail.com",
+                        "qwertqaz1234",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Aleksandra"
+                        "Mariia"
                 }
         };
     }
