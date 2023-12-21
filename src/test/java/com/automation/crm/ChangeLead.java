@@ -59,7 +59,7 @@ public class ChangeLead {
                 //System.out.println(lead.text());
 
                 String[] personNamearr = lead.text().replace("Member’s name","").split("\\s");
-                String personName = personNamearr[1].replace(" Member’s","");
+                String personName = personNamearr[1].replace(" Member’s","") +" "+ personNamearr[2].replace(" Member’s","");
                 System.out.println(personName);
                 System.out.println("=======================");
 
