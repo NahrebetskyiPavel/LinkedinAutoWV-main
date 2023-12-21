@@ -63,7 +63,8 @@ public class ChangeLead {
                 String personName = personNamearr[1].replace(" Member’s","") +" "+ personNamearr[2].replace(" Member’s","");
 if (personRef.contains("?")) {
     String[] personRefArr = personRef.split("/\\?");
-    personRef = personRefArr[0].replace("?","");
+    String newString = personRefArr[0].replace("?","").substring(0, personRefArr[0].length() - 1) ;
+    personRef = newString;
 }
                 Thread.sleep(randomResult);
 
