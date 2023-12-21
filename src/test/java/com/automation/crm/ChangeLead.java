@@ -54,8 +54,6 @@ public class ChangeLead {
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
             }
-
-
         }
         for (SelenideElement lead:leads
         ) {
