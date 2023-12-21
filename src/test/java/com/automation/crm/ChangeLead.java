@@ -61,6 +61,7 @@ public class ChangeLead {
                 Thread.sleep(randomResult);
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
+            System.out.println("====================================");
                 System.out.println(personName);
                 System.out.println(leadInfoResponseBody);
                 if (leadInfoResponseBody.contains("INVALID_TOKEN")) {
