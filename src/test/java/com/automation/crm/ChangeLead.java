@@ -49,24 +49,32 @@ public class ChangeLead {
                 $x("//span[normalize-space()='Show more results']").shouldBe(interactable).click();
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
-            }        }
+            }
+        }
         for (int i = 0; i < 200; i++) {
             Thread.sleep(randomResult);
             ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
             SelenideElement person = leads.get(i);
-                Thread.sleep(200);
+            String personRef = person.getAttribute("href");;
+
+            Thread.sleep(200);
                 if (person.find(By.cssSelector(".mn-connection-card__name")).text().contains("LinkedIn Member")) continue;
                 String[] personNamearr = person.text().replace("Member’s name","").split("\\s");;
                 String personName = personNamearr[1].replace(" Member’s","") +" "+ personNamearr[2].replace(" Member’s","");
+if (personRef.contains("?")) {
+    String[] personRefArr = personRef.split("\\?");
+    personRef = personRefArr[0].replace("?","");
+}
                 Thread.sleep(randomResult);
 
-                String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
-            System.out.println("====================================");
+                String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByWebSite(token, personRef);
+             System.out.println("====================================");
                 System.out.println(personName);
+                System.out.println(personRef);
                 System.out.println(leadInfoResponseBody);
                 if (leadInfoResponseBody.contains("INVALID_TOKEN")) {
                     token = zohoCrmHelper.renewAccessToken();
-                    leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
+                    leadInfoResponseBody = zohoCrmHelper.getLeadInfoByWebSite(token, personRef);
                 }
                 if (leadInfoResponseBody.length() > 0 && leadInfoResponseBody.contains("data")) {
                     JSONObject responseBodyJsonObjectLeadInfo = new JSONObject(leadInfoResponseBody);

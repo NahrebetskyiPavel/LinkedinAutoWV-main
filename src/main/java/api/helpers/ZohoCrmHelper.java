@@ -191,6 +191,23 @@ public class ZohoCrmHelper {
 
         return responseBody;
     }
+    @SneakyThrows
+    public String getLeadInfoByWebSite(String token, String website){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://crm.zoho.eu/crm/v2/Leads/search?criteria=((Website:equals:"+website+"))&=")
+                .method("GET", null)
+                .addHeader("Authorization", "Bearer " + token)
+                .addHeader("Cookie", "5ad188d5f9=2043a35eeac128098b39ad18c65a66e8; JSESSIONID=5AB5E352AB817359FC7BF5758EF40DD3; _zcsr_tmp=a0416a82-9027-4fca-bb70-4da48617c3a6; crmcsr=a0416a82-9027-4fca-bb70-4da48617c3a6")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseBody = response.body().string();
+
+        return responseBody;
+    }
 
     @Test
     public void getToken(){
