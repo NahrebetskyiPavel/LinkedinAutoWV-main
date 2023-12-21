@@ -37,6 +37,7 @@ public class AddLeads extends Base {
         //String token = zohoCrmHelper.renewAccessToken();
         String token = "1000.d5c088f9eb0c213f66c42e87ff3cdcc3.c63bf8adb088e205e793ac2a3c82a1a4";
         String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
+        System.out.println(data);
         if (data.isEmpty()) {
             System.out.println("Skip" + linkedinperson);
             return;
