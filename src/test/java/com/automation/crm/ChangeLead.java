@@ -41,7 +41,7 @@ public class ChangeLead {
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
 
-        for (int i = 0; i < 5; i++) {
+/*        for (int i = 0; i < 5; i++) {
             Thread.sleep(randomResult);
             Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
             if ($x("//span[normalize-space()='Show more results']").exists()) {
@@ -49,7 +49,7 @@ public class ChangeLead {
                 $x("//span[normalize-space()='Show more results']").shouldBe(interactable).click();
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
-            }        }
+            }        }*/
         for (int i = 0; i < 200; i++) {
             Thread.sleep(randomResult);
             ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
