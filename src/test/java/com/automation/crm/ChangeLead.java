@@ -72,7 +72,8 @@ if (personRef.contains("?")) {
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByWebSite(token, personRef);
                 if (leadInfoResponseBody.isEmpty()) leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
-
+if (leadInfoResponseBody.isEmpty())
+    zohoCrmHelper.AddLeadToCRM(personName, token, "Anastasia", personRef, "Contacted", "notFromCRM", "421659000010915003", "Anastasiia K.");
              System.out.println("====================================");
                 System.out.println(personName);
                 System.out.println(personRef);
