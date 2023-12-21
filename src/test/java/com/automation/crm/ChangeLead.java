@@ -35,6 +35,7 @@ public class ChangeLead {
     public void addLeadsToCRM(String name, String email, String password){
         setupBrowser(true, name);
         Thread.sleep(randomResult*3);
+        Thread.sleep(20000);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         Selenide.open("https://www.linkedin.com/mynetwork/invite-connect/connections/");
