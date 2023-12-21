@@ -214,5 +214,12 @@ public class ZohoCrmHelper {
         String token = this.renewAccessToken();
         System.out.println(token);
         }
+    @Test
+    public void afafa(){
+        String s = "https://www.linkedin.com/in/wise-vision-321058260/";
+        String newString = s.substring(0, s.length() - 1) ;
+        System.out.println(newString);
+
+        }
 
 }

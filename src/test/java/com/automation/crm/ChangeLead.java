@@ -64,9 +64,9 @@ public class ChangeLead {
                 String personName = personNamearr[1].replace(" Member’s","") +" "+ personNamearr[2].replace(" Member’s","");
 if (personRef.contains("?")) {
     String[] personRefArr = personRef.split("/\\?");
-    String newString = personRefArr[0].replace("?","");
-    personRef = newString.substring(0, newString.length()-1);
 }
+            String newString = personRef.replace("?","");
+            personRef = newString.substring(0, newString.length()-1);
                 Thread.sleep(randomResult);
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByWebSite(token, personRef);
