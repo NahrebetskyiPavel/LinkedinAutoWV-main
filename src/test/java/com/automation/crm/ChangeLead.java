@@ -55,7 +55,10 @@ public class ChangeLead {
             ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
             for (SelenideElement lead:leads
                  ) {
-                lead.find(By.cssSelector(".mn-connection-card__name")).text();
+                lead.text();
+               // String[] personNamearr = lead.text().split("\\s");
+               // String personName = personNamearr[0] + " " + personNamearr[1];
+
             }
             SelenideElement person = leads.get(i);
                 Thread.sleep(200);
