@@ -73,8 +73,11 @@ if (personRef.contains("?")) {
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByWebSite(token, personRef);
                 if (leadInfoResponseBody.isEmpty()) leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
 if (leadInfoResponseBody.isEmpty()) {
-  String resp =  zohoCrmHelper.AddLeadToCRM(personName, token, "Anastasia", personRef, "Contacted", "notFromCRM", "421659000010915003", "Anastasiia K.");
+  String resp =  zohoCrmHelper.AddLeadToCRM(token, "Contacted", "NotCrm", personName, "Anastasiia K.");
+    System.out.println("+++++++++++++++++++++++++++++++++++");
     System.out.println("Lead" + personName + "was not found and was added: \n" +  resp);
+    System.out.println("+++++++++++++++++++++++++++++++++++");
+
 }             System.out.println("====================================");
                 System.out.println(personName);
                 System.out.println(personRef);

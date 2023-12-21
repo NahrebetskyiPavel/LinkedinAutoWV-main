@@ -108,6 +108,25 @@ public class ZohoCrmHelper {
 
         return responseBody;
     }
+    @SneakyThrows
+    public String AddLeadToCRM(String token,String status, String leadSource, String lasName, String linkedinPerson){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\n  \"data\": [\n    {\n      \"Owner\": {\n        \"id\": \"421659000000609236\",\n        \"full_name\": \"Anastasiia Kuntii\"\n      },\n      \"Lead_Status\": \""+status+"\",\n      \"Email_Opt_Out\": false,\n      \"Lead_Source\": \""+leadSource+"\",\n      \"Rating\": \"-None-\",\n      \"Industry\": \"-None-\",\n      \"TechStack\": \"-None-\",\n      \"Leadscompany\": \"-None-\",\n      \"Pick_List_2\": \"-None-\",\n      \"OlyaPick\": \"-None-\",\n      \"Date_Of_Burth\": null,\n      \"LinkedIn_person\": \""+linkedinPerson+"\",\n      \"Company\": \"фафыа\",\n      \"Last_Name\": \""+lasName+"\"\n    }\n  ],\n  \"skip_mandatory\": false\n}");
+        Request request = new Request.Builder()
+                .url("https://crm.zoho.eu/crm/v2.2/Leads")
+                .method("POST", body)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer " + token)
+                .addHeader("Cookie", "5ad188d5f9=2043a35eeac128098b39ad18c65a66e8; JSESSIONID=5AB5E352AB817359FC7BF5758EF40DD3; _zcsr_tmp=a0416a82-9027-4fca-bb70-4da48617c3a6; crmcsr=a0416a82-9027-4fca-bb70-4da48617c3a6")
+                .build();
+        Response response = client.newCall(request).execute();
+        responseBody = response.body().string();
+        //JSONObject responseBodyJsonObject = new JSONObject(responseBody);
+
+        return responseBody;
+    }
 
     @SneakyThrows
     public String renewAccessToken(){
