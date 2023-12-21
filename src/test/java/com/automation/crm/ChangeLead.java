@@ -58,8 +58,8 @@ public class ChangeLead {
                 System.out.println("=======leadtext=======");
                 //System.out.println(lead.text());
 
-                String[] personNamearr = lead.text().split("\\s");
-                String personName = personNamearr[0].replace("Member’s name","") + " " + personNamearr[1] + " " +  personNamearr[2] + " " + personNamearr[3];
+                String[] personNamearr = lead.text().replace("Member’s name","").split("\\s");
+                String personName = personNamearr[0] + " " + personNamearr[1] + " " +  personNamearr[2] + " " + personNamearr[3];
                 System.out.println(personName);
                 System.out.println("=======================");
 
