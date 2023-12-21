@@ -71,6 +71,8 @@ if (personRef.contains("?")) {
                 Thread.sleep(randomResult);
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByWebSite(token, personRef);
+                if (leadInfoResponseBody.isEmpty()) leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
+
              System.out.println("====================================");
                 System.out.println(personName);
                 System.out.println(personRef);
@@ -78,6 +80,7 @@ if (personRef.contains("?")) {
                 if (leadInfoResponseBody.contains("INVALID_TOKEN")) {
                     token = zohoCrmHelper.renewAccessToken();
                     leadInfoResponseBody = zohoCrmHelper.getLeadInfoByWebSite(token, personRef);
+                    if (leadInfoResponseBody.isEmpty()) leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
                 }
                 if (leadInfoResponseBody.length() > 0 && leadInfoResponseBody.contains("data")) {
                     JSONObject responseBodyJsonObjectLeadInfo = new JSONObject(leadInfoResponseBody);
