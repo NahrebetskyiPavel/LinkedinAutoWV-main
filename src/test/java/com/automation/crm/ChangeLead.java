@@ -40,11 +40,10 @@ public class ChangeLead {
         Selenide.open("https://www.linkedin.com/mynetwork/invite-connect/connections/");
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-        ElementsCollection leads = null;
+        ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
         for (int i = 0; i < 5; i++) {
             Thread.sleep(randomResult);
-            for (SelenideElement lead:$$x("//div[@class='mn-connection-card__details']/a")
-            ) {
+            for (SelenideElement lead:$$x("//div[@class='mn-connection-card__details']/a") ) {
                 leads.add(lead);
             }
             Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
