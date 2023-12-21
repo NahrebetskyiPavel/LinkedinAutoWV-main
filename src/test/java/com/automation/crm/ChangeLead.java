@@ -53,17 +53,6 @@ public class ChangeLead {
         for (int i = 0; i < 200; i++) {
             Thread.sleep(randomResult);
             ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
-            for (SelenideElement lead:leads
-                 ) {
-                System.out.println("=======leadtext=======");
-                //System.out.println(lead.text());
-
-                String[] personNamearr = lead.text().replace("Member’s name","").split("\\s");
-                String personName = personNamearr[1].replace(" Member’s","") +" "+ personNamearr[2].replace(" Member’s","");
-                System.out.println(personName);
-                System.out.println("=======================");
-
-            }
             SelenideElement person = leads.get(i);
                 Thread.sleep(200);
                 if (person.find(By.cssSelector(".mn-connection-card__name")).text().contains("LinkedIn Member")) continue;
