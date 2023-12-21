@@ -67,8 +67,8 @@ public class ChangeLead {
             SelenideElement person = leads.get(i);
                 Thread.sleep(200);
                 if (person.find(By.cssSelector(".mn-connection-card__name")).text().contains("LinkedIn Member")) continue;
-                String[] personNamearr = person.find(By.cssSelector(".mn-connection-card__name")).text().split("\\s");
-                String personName = personNamearr[0] + " " + personNamearr[1];
+                String[] personNamearr = person.text().replace("Member’s name","").split("\\s");;
+                String personName = personNamearr[1].replace(" Member’s","") +" "+ personNamearr[2].replace(" Member’s","");
                 Thread.sleep(randomResult);
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
