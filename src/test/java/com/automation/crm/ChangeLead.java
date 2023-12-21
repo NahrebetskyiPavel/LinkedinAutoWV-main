@@ -40,20 +40,26 @@ public class ChangeLead {
         Selenide.open("https://www.linkedin.com/mynetwork/invite-connect/connections/");
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-
+        ElementsCollection leads = null;
         for (int i = 0; i < 5; i++) {
             Thread.sleep(randomResult);
+            for (SelenideElement lead:$$x("//div[@class='mn-connection-card__details']/a")
+            ) {
+                leads.add(lead);
+            }
             Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
             if ($x("//span[normalize-space()='Show more results']").exists()) {
                 //if (!$x("//span[normalize-space()='Show more results']").exists())continue;
                 $x("//span[normalize-space()='Show more results']").shouldBe(interactable).click();
                 Thread.sleep(randomResult);
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
-            }        }
-        ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
+            }
+
+
+        }
         for (SelenideElement lead:leads
         ) {
-            System.out.println(lead.find(By.cssSelector(".mn-connection-card__name")).text());
+            lead.find(By.cssSelector(".mn-connection-card__name")).text();
         }
         for (int i = 0; i < 200; i++) {
             Thread.sleep(randomResult);
