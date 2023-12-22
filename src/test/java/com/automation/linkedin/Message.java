@@ -38,7 +38,7 @@ public class Message extends Base{
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
-        Thread.sleep(10000);
+        Thread.sleep(20000);
         String  token = zoho.renewAccessToken();
 
         for (int n = 0; n < 100; n++) {
