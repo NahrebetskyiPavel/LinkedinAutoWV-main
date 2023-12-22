@@ -241,17 +241,17 @@ public class Message extends Base{
     }
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 4)
-    public void sendFolowUpFifthMsg(String name,  String email, String password, String pickList){
+    public void sendFolowUpFifthMsg(String linkedinAccount,  String email, String password, String pickList){
         System.out.println("START 5 MSG");
 
-        setupBrowser(true, name);
+        setupBrowser(true, linkedinAccount);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String  token = zoho.renewAccessToken();
 
         for (int n = 0; n < 100; n++) {
-            String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
+            String data =  zoho.getLeadList(token, pickList, "Contacted", linkedinAccount, n);
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
@@ -313,7 +313,7 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
-                {       "Настя - Stuttgart CEO",
+                {       "Anastasiia K.",
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                         "Alex",
