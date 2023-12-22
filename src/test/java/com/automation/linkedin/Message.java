@@ -65,10 +65,11 @@ public class Message extends Base{
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
-
+                        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
+                        System.out.println(duedate);
                         if (status.equals("Not Started") &&  subject.contains("Second automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
@@ -136,10 +137,11 @@ public class Message extends Base{
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
-
+                        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
+                        System.out.println(duedate);
                         if (status.equals("Not Started") &&  subject.contains("Third automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
@@ -207,10 +209,11 @@ public class Message extends Base{
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
-
+                        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
+                        System.out.println(duedate);
                         if (status.equals("Not Started") &&  subject.contains("Fourt automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
