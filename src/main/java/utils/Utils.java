@@ -57,10 +57,10 @@ public class Utils {
             return true;
         } else if (currentDate.isAfter(givenDate)) {
             System.out.println("Current date is after the given date.");
-            return false;
+            return true;
         } else {
             System.out.println("Current date is before the given date.");
-            return true;
+            return false;
         }
     }
 @Test
