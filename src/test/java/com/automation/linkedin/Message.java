@@ -56,6 +56,7 @@ public class Message extends Base{
                 System.out.println(fullName);
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
                 if (tasksData.getJSONArray("data").length() >0){
@@ -127,6 +128,7 @@ public class Message extends Base{
                 System.out.println(fullName);
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
                 System.out.println(tasksData.getJSONArray("data"));
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
@@ -198,6 +200,7 @@ public class Message extends Base{
                 System.out.println(fullName);
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
                 System.out.println(tasksData.getJSONArray("data"));
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
@@ -267,6 +270,7 @@ public class Message extends Base{
                 System.out.println(fullName);
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
                 System.out.println(tasksData.getJSONArray("data"));
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
