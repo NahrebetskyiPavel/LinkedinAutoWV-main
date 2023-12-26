@@ -140,7 +140,7 @@ public class Message extends Base{
                         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
-                        String description = String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(j).get("Description"));
+                        String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
 
                         System.out.println(taskId);
@@ -208,7 +208,7 @@ public class Message extends Base{
                         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
-                        String description = String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(j).get("Description"));
+                        String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
 
                         System.out.println(taskId);
@@ -278,7 +278,7 @@ public class Message extends Base{
                         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
-                        String description = String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(j).get("Description"));
+                        String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
 
                         System.out.println(taskId);
