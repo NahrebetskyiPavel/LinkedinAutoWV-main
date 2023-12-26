@@ -31,6 +31,7 @@ public class Utils {
     }
 
     public static boolean areAllElementsEqual(Collection<?> collection) {
+        if (collection.isEmpty()) return true;
         Iterator<?> iterator = collection.iterator();
         Object firstElement = iterator.next(); // Get the first element
 

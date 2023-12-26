@@ -32,15 +32,23 @@ public class Message extends Base{
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
-    public void sendFollowUpSecondMsg(String name,  String email, String password, String pickList){
-        System.out.println("START 2 MSG");
+    public void senddMsg(String name,  String email, String password, String pickList){
         setupBrowser(true, name);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         Thread.sleep(10000);
-        String  token = zoho.renewAccessToken();
 
+
+        sendFollowUpSecondMsg(name, email, password, pickList);
+        sendFolowUpThirdMsg(name, email, password, pickList);
+        sendFolowUpFourtMsg(name, email, password, pickList);
+        sendFolowUpFifthMsg(name, email, password, pickList);
+    }
+
+    public void sendFollowUpSecondMsg(String name,  String email, String password, String pickList){
+        System.out.println("START 2 MSG");
+        String  token = zoho.renewAccessToken();
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
             if (data.isEmpty()) break;
@@ -64,23 +72,25 @@ public class Message extends Base{
                         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
-                        String description = String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(j).get("Description"));
+                        String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
-
-                        System.out.println(taskId);
-                        System.out.println(status);
-                        System.out.println(duedate);
-                        System.out.println(subject);
+                        System.out.println("++++++++++++++++++++++++++++++");
+                        System.out.println("taskId" + taskId);
+                        System.out.println("status" + status);
+                        System.out.println("duedate" + duedate);
+                        System.out.println("subject" + subject);
+                        System.out.println("description:" + description);
+                        System.out.println("++++++++++++++++++++++++++++++");
                         if (status.equals("Not Started") &&  subject.contains("Second automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
-                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
+                            if (!msgs.isEmpty() && !Utils.areAllElementsEqual(msgs)  ){
                                 zoho.changeLeadStatus(id, token, "421659000006918053");
                                 continue;
                             }
                             System.out.println("sent msg!!!");
-                            if (description.equals("null")) {
+                            if (description.isEmpty() || description.equals("null") ) {
                                 new PersonPage().sentMsg(msg);
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
@@ -99,20 +109,13 @@ public class Message extends Base{
             }
         }
 
-
     }
 
-    @SneakyThrows
-    @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 2)
+   // @SneakyThrows
+    //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 2)
     public void sendFolowUpThirdMsg(String name,  String email, String password, String pickList){
         System.out.println("START 3 MSG");
-
-        setupBrowser(true, name);
-        openLinkedInLoginPage();
-        signInPage.signIn(randomResult, email, password);
-        WebDriverRunner.getWebDriver().manage().window().maximize();
         String  token = zoho.renewAccessToken();
-
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
             if (data.isEmpty()) break;
@@ -174,15 +177,11 @@ public class Message extends Base{
 
     }
 
-    @SneakyThrows
-    @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 3)
+    //@SneakyThrows
+    //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 3)
     public void sendFolowUpFourtMsg(String name,  String email, String password, String pickList){
         System.out.println("START 4 MSG");
 
-        setupBrowser(true, name);
-        openLinkedInLoginPage();
-        signInPage.signIn(randomResult, email, password);
-        WebDriverRunner.getWebDriver().manage().window().maximize();
         String  token = zoho.renewAccessToken();
 
         for (int n = 0; n < 100; n++) {
@@ -244,8 +243,8 @@ public class Message extends Base{
         }
 
     }
-    @SneakyThrows
-    @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 4)
+    //@SneakyThrows
+    //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 4)
     public void sendFolowUpFifthMsg(String linkedinAccount,  String email, String password, String pickList){
         System.out.println("START 5 MSG");
 
