@@ -316,7 +316,7 @@ public class Message extends Base{
                 {       "pavelnagrebetski",
                         "pavelnagrebetski@gmail.com",
                         "newman1996",
-                        "Asd321qq",
+                        "Yurij",
                 }
         };
     }
