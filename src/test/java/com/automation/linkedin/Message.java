@@ -247,11 +247,6 @@ public class Message extends Base{
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 4)
     public void sendFolowUpFifthMsg(String linkedinAccount,  String email, String password, String pickList){
         System.out.println("START 5 MSG");
-
-        setupBrowser(true, linkedinAccount);
-        openLinkedInLoginPage();
-        signInPage.signIn(randomResult, email, password);
-        WebDriverRunner.getWebDriver().manage().window().maximize();
         String  token = zoho.renewAccessToken();
 
         for (int n = 0; n < 100; n++) {
