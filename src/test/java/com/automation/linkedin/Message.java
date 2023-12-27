@@ -313,10 +313,10 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
-                {       "pavelnagrebetski",
-                        "pavelnagrebetski@gmail.com",
+                {       "Nick",
+                        "kni2012@ukr.net",
                         "newman1996",
-                        "Yurij",
+                        "Valeriia",
                 }
         };
     }
