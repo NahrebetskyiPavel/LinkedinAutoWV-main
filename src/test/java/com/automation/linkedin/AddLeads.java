@@ -39,7 +39,7 @@ public class AddLeads extends Base {
         String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
         System.out.println(data);
         if (data.isEmpty()) {
-            System.out.println("Skip" + linkedinperson);
+            System.out.println("no leads found by filter status Waiting " +linkedinperson+ "Skip" + linkedinperson);
             return;
         };
         System.out.println("-------------------------------------------------------\n" +
