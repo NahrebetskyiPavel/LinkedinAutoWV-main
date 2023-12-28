@@ -49,8 +49,9 @@ public class Base {
     }
     @SneakyThrows
     public static void openLinkedInLoginPage(){
-        Selenide.open("https://www.linkedin.com/");
-        Selenide.open("https://www.linkedin.com/m/logout/");
+        Selenide.open("https://www.linkedin.com/login");
+        Thread.sleep(10000);
+        WebDriverRunner.getWebDriver().quit();
         Thread.sleep(10000);
         Selenide.open("https://www.linkedin.com/login");
     }
