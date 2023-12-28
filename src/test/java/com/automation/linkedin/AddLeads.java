@@ -45,7 +45,7 @@ public class AddLeads extends Base {
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
-        while (leadsRequestCount != 20){
+        while (leadsRequestCount != 30){
             Thread.sleep(randomResult);
             for (SelenideElement person:searchPeoplePage.PersonPages
             ) {
@@ -64,7 +64,7 @@ public class AddLeads extends Base {
                 Thread.sleep(randomResult);
                 closeMsgPopups();
             if (personPage.addLead(msg.replace("NAME", personNamearr[0]), premium) ){
-                if (leadsRequestCount == 20) {
+                if (leadsRequestCount == 30) {
                     Selenide.closeWindow();
                     switchTo().window(0);
 
@@ -72,7 +72,7 @@ public class AddLeads extends Base {
                     break;
                 };
                 leadsRequestCount = leadsRequestCount + 1;
-                if (leadsRequestCount == 19) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
+                if (leadsRequestCount == 29) System.out.println(WebDriverRunner.getWebDriver().getCurrentUrl()  );
                 System.out.println("leadsRequestCount: " + leadsRequestCount);
                 String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
                 if (response.contains("INVALID_TOKEN")) {
@@ -87,7 +87,7 @@ public class AddLeads extends Base {
             }
             Thread.sleep(randomResult);
             if (!searchPeoplePage.previousPageBtn.is(interactable)){
-                if (leadsRequestCount == 20) break;
+                if (leadsRequestCount == 30) break;
                 System.out.println( WebDriverRunner.getWebDriver().getCurrentUrl() );
                 System.out.println("=========== OUT OF SEARCH ===========");
                 break;
