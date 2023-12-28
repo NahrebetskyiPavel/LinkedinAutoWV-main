@@ -97,6 +97,7 @@ public class AddLeads extends Base {
             searchPeoplePage.previousPageBtn.shouldBe(visible).click();
             Thread.sleep(randomResult);
         }
+        WebDriverRunner.getWebDriver().quit();
     }
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
