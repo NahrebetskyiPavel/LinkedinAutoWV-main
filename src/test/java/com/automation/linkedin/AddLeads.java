@@ -108,18 +108,18 @@ public class AddLeads extends Base {
         String leadCompanyAustraliaId ="421659000005261273";
         String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
-                {       "Pasha ",
+                {       "Pavel",
                         clientName,
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
                         "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=32&sid=0nk&titleFreeText=automotive%20ceo",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Pavlo",
+                        "Yurij",
                         "US Automotive 1-1300",
                         "421659000010496070",
                         false
                 },
-                {       "Александра - Gothenburg ",
+                {       "Aleksandra",
                         clientName,
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
@@ -130,7 +130,7 @@ public class AddLeads extends Base {
                         "421659000006238011",
                         false
                 },
-                {       "Маша - Gothenburg Founder ",
+                {       "Mariia ",
                         clientName,
                         "deynekamariawv@gmail.com",
                         "qwertqaz1234",
@@ -141,7 +141,7 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         false
                 },
-                {       "Михайло - Gothenburg  CFO",
+                {       "Michael",
                         clientName,
                         "michael.salo1995@gmail.com",
                         "newman1996",
@@ -152,7 +152,7 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         false
                 },
-/*                {       "Nikita - Stockholm board of directors",
+/*                {       "Nikita",
                         clientName,
                         "kni2012@ukr.net",
                         "33222200s",
@@ -163,7 +163,7 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         true
                 },*/
-                {       "Наталья- Gothenburg CEO",
+                {       "Natalia",
                         clientName,
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
@@ -174,7 +174,7 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         false
                 },
-                {       "Денис - Stockholm CEO",
+                {       "Denis",
                         clientName,
                         "basdenisphytontm@gmail.com",
                         "33222200Shin_",
@@ -185,7 +185,7 @@ public class AddLeads extends Base {
                         "421659000006238011",
                         false
                 },
-                {       "Настя - Gothenburg CEO",
+                {       "Anastasiia K.",
                         clientName,
                         "anastasiiakuntii@gmail.com",
                         "nastya4141",
@@ -196,7 +196,7 @@ public class AddLeads extends Base {
                         "421659000009084020",
                         false
                 },
-                {       "Роксолана - Stockholm CFO",
+                {       "Roksolana",
                         clientName,
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
@@ -207,7 +207,7 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         false
                 },
-                {       "Марьян -  Stockholm CTO",
+                {       "Maryan",
                         clientName,
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
@@ -229,7 +229,7 @@ public class AddLeads extends Base {
                         "421659000009767013",
                         false
                 },*/
-               {       "Анастасия - Stockholm owner",
+               {       "Anastasiia",
                         clientName,
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
