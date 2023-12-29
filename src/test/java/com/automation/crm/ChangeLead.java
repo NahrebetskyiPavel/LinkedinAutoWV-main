@@ -115,7 +115,7 @@ if (leadInfoResponseBody.isEmpty()) {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Настя - Stuttgart CEO",
+                {       "Настя ",
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                 }
