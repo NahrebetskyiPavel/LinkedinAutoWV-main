@@ -80,7 +80,7 @@ public class AddLeads extends Base {
 
         return new Object[][]{
                 {       "Denis",
-                        "denysbasbas@gmail.com",
+                        "basdenisphytontm@gmail.com",
                         "asd321qq",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
                         "Denis"
