@@ -165,7 +165,7 @@ public class PersonPage {
                 }
                 if (this.errorMsg.exists()) return false;
                 if (addPeoplePopupPage.sendRequestBtn.is(visible)){addPeoplePopupPage.sendRequestBtn.shouldBe(interactable).click();}
-                else addPeoplePopupPage.sendRequestBtnWithoutNote.shouldBe(visible,Duration.ofSeconds(40)).click();
+                else if (addPeoplePopupPage.sendRequestBtnWithoutNote.is(visible))addPeoplePopupPage.sendRequestBtnWithoutNote.shouldBe(visible,Duration.ofSeconds(40)).click();
                 if (limitAlertHeader.isDisplayed()){
                     System.out.println("\n========================================================================\n" +"Out of requests"+ "\n========================================================================\n");
                     WebDriverRunner.getWebDriver().quit(); }
