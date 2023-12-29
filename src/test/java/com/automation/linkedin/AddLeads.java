@@ -28,14 +28,15 @@ public class AddLeads extends Base {
     int low = 2000;
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
+    String attemptToContactStatusid = "421659000010541270";
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
         int leadsRequestCount = 0;
         Thread.sleep(randomResult);
-        //String token = zohoCrmHelper.renewAccessToken();
-        String token = "1000.d5c088f9eb0c213f66c42e87ff3cdcc3.c63bf8adb088e205e793ac2a3c82a1a4";
+        String token = zohoCrmHelper.renewAccessToken();
+        //String token = "1000.d5c088f9eb0c213f66c42e87ff3cdcc3.c63bf8adb088e205e793ac2a3c82a1a4";
         String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
         if (data.isEmpty()) {
             System.out.println("Skip" + linkedinperson);
@@ -66,7 +67,7 @@ public class AddLeads extends Base {
                 String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
                 personPage.addToFriends(msg,false);
             {
-                String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
+                String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptToContactStatusid);
                 JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
                 System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
                 System.out.println("\n" );
@@ -80,7 +81,7 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-                {       "Роксолана - Stockholm CFO",
+                {       "Roksolana",
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
