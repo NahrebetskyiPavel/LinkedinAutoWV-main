@@ -28,6 +28,8 @@ public class AddLeads extends Base {
     int low = 2000;
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
+    String attemptToContactStatusid = "421659000010541270";
+
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
@@ -66,21 +68,22 @@ public class AddLeads extends Base {
                 String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
                 personPage.addToFriends(msg,false);
             {
-                String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
+                String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptToContactStatusid);
                 JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
                 System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
                 System.out.println("\n" );
                 if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
                     System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
                 };
-            }        }
+            }
+        }
     }
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-                {       "Марьян -  Stockholm CTO",
+                {       "Maryan",
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
