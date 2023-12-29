@@ -73,7 +73,8 @@ public class AddLeads extends Base {
                 if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
                     System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
                 };
-            }        }
+            }
+        }
     }
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
