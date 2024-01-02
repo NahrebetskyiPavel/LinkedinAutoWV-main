@@ -62,6 +62,8 @@ public class Message extends Base{
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
                 String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
+                String[] fullNameArr = fullName.split(" ");
+                String leadName = fullNameArr[0];
                 System.out.println(id);
                 System.out.println(fullName);
                 System.out.println(leadPage);
@@ -97,7 +99,7 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
-                                new PersonPage().sentMsg(description.replace("NAME",fullName));
+                                new PersonPage().sentMsg(description.replace("NAME",leadName));
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
