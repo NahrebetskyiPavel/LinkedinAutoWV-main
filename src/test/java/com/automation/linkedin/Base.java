@@ -48,8 +48,6 @@ public class Base {
     }
     public static void openLinkedInLoginPage(){
         Selenide.open("https://www.linkedin.com/login");
-        WebDriverRunner.getWebDriver().quit();
-        Selenide.open("https://www.linkedin.com/login");
     }
 
     public static void closeMsgPopups(){
