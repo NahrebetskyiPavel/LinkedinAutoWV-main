@@ -49,7 +49,7 @@ public class Base {
     }
     @SneakyThrows
     public static void openLinkedInLoginPage(){
-        Selenide.open("https://www.linkedin.com/");
+        Selenide.open("https://www.linkedin.com/login");
     }
 
     public static void closeMsgPopups(){
