@@ -24,6 +24,7 @@ public class Message extends Base{
     SignInPage signInPage = new SignInPage();
     MessagingPage messagingPage = new MessagingPage();
     ZohoCrmHelper zoho = new ZohoCrmHelper();
+    String chatLeadStatusid = "421659000006918053";
     private String  msg = "Good day to you.\n" +
             "\n" +
             "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
@@ -90,7 +91,7 @@ public class Message extends Base{
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!msgs.isEmpty() && !Utils.areAllElementsEqual(msgs)  ){
-                                zoho.changeLeadStatus(id, token, "421659000006918053");
+                              //  zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
                             System.out.println("sent msg!!!");
@@ -159,7 +160,7 @@ public class Message extends Base{
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
-                                zoho.changeLeadStatus(id, token, "421659000006918053");
+                               // zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
                             System.out.println("sent msg!!!");
@@ -231,7 +232,7 @@ public class Message extends Base{
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
-                                zoho.changeLeadStatus(id, token, "421659000006918053");
+                              //  zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
                             System.out.println("sent msg!!!");
@@ -299,7 +300,7 @@ public class Message extends Base{
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
-                                zoho.changeLeadStatus(id, token, "421659000006918053");
+                               // zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
                             System.out.println("sent msg!!!");
