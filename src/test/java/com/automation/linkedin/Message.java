@@ -46,7 +46,8 @@ public class Message extends Base{
         sendFolowUpFifthMsg(name, email, password, pickList);
     }
 
-    public void sendFollowUpSecondMsg(String name,  String email, String password, String pickList){
+    @SneakyThrows
+    public void sendFollowUpSecondMsg(String name, String email, String password, String pickList){
         System.out.println("START 2 MSG");
         String  token = zoho.renewAccessToken();
         for (int n = 0; n < 100; n++) {
@@ -85,6 +86,7 @@ public class Message extends Base{
                         System.out.println("++++++++++++++++++++++++++++++");
                         if (status.equals("Not Started") &&  subject.contains("Second automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
+                            Thread.sleep(10000);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!msgs.isEmpty() && !Utils.areAllElementsEqual(msgs)  ){
@@ -115,7 +117,8 @@ public class Message extends Base{
 
    // @SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 2)
-    public void sendFolowUpThirdMsg(String name,  String email, String password, String pickList){
+    @SneakyThrows
+    public void sendFolowUpThirdMsg(String name, String email, String password, String pickList){
         System.out.println("START 3 MSG");
         String  token = zoho.renewAccessToken();
         for (int n = 0; n < 100; n++) {
@@ -152,6 +155,7 @@ public class Message extends Base{
                         System.out.println(subject);
                         if (status.equals("Not Started") &&  subject.contains("Third automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
+                            Thread.sleep(10000);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -183,7 +187,8 @@ public class Message extends Base{
 
     //@SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 3)
-    public void sendFolowUpFourtMsg(String name,  String email, String password, String pickList){
+    @SneakyThrows
+    public void sendFolowUpFourtMsg(String name, String email, String password, String pickList){
         System.out.println("START 4 MSG");
 
         String  token = zoho.renewAccessToken();
@@ -222,6 +227,7 @@ public class Message extends Base{
                         System.out.println(subject);
                         if (status.equals("Not Started") &&  subject.contains("Fourt automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
+                            Thread.sleep(10000);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -251,7 +257,8 @@ public class Message extends Base{
     }
     //@SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 4)
-    public void sendFolowUpFifthMsg(String linkedinAccount,  String email, String password, String pickList){
+    @SneakyThrows
+    public void sendFolowUpFifthMsg(String linkedinAccount, String email, String password, String pickList){
         System.out.println("START 5 MSG");
         String  token = zoho.renewAccessToken();
 
@@ -288,6 +295,7 @@ public class Message extends Base{
                         System.out.println(subject);
                         if (status.equals("Not Started") &&  subject.contains("Fifth automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
+                            Thread.sleep(10000);
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
