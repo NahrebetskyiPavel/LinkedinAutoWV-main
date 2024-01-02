@@ -38,11 +38,13 @@ public class Message extends Base{
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         Thread.sleep(10000);
-
-
+        Thread.sleep(10000);
         sendFollowUpSecondMsg(name, email, password, pickList);
+        Thread.sleep(10000);
         sendFolowUpThirdMsg(name, email, password, pickList);
+        Thread.sleep(10000);
         sendFolowUpFourtMsg(name, email, password, pickList);
+        Thread.sleep(10000);
         sendFolowUpFifthMsg(name, email, password, pickList);
     }
 
