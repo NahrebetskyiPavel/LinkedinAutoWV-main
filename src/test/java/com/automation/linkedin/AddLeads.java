@@ -30,7 +30,7 @@ public class AddLeads extends Base {
     int randomResult = random.nextInt(high-low) + low;
 
     @SneakyThrows
-    @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
+    @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
         int leadsRequestCount = 0;
         Thread.sleep(randomResult);
@@ -81,73 +81,73 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
+                {       "Aleksandra",
+                        "alexandra.sternenko@gmail.com",
+                        "asd321qq",
+                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
+                        "Aleksandra"
+                },
                 {       "Anastasiia K.",
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                         "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)",
-                        "Alex"
+                        "Anastasiia K."
                 },
                 {       "Pavel",
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Yurij"
-                },
-                {       "Aleksandra",
-                        "alexandra.sternenko@gmail.com",
-                        "asd321qq",
-                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Yurij"
+                        "Pavel"
                 },
                 {       "Mariia",
                         "deynekamariawv@gmail.com",
                         "qwertqaz1234",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Yurij"
+                        "Mariia"
                 },
                 {       "Michael",
                         "michael.salo1995@gmail.com",
                         "newman1996",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
-                        "Yurij"
+                        "Michael"
                 },
                 {       "Nikita",
                         "kni2012@ukr.net",
                         "33222200s",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Valeriia"
+                        "Nikita"
                 },
                 {       "Natalia",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Valeriia"
+                        "Natalia"
                 },
                 {       "Denis",
                         "basdenisphytontm@gmail.com",
                         "33222200Shin_",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
-                        "Valeriia"
+                        "Denis"
                 },
 
                 {       "Roksolana",
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Alex"
+                        "Roksolana"
                 },
                 {       "Maryan",
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Alex"
+                        "Maryan"
                 },
 
                 {       "Anastasiia",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Valeriia"
+                        "Anastasiia"
                 }
 
 /* ==================================================================================================================================================================== */
