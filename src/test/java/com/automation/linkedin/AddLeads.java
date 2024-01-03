@@ -66,6 +66,7 @@ public class AddLeads extends Base {
                 Thread.sleep(randomResult);
                 String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
                 personPage.addToFriends(msg,false);
+                if (i==30) break;
             {
                 String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
                 JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
