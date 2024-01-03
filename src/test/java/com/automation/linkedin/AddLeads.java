@@ -85,69 +85,69 @@ public class AddLeads extends Base {
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                         "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)",
-                        "Anastasiia K."
+                        "Alex"
                 },
                 {       "Pavel",
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Pavel"
+                        "Yurij"
                 },
                 {       "Aleksandra",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Aleksandra"
+                        "Yurij"
                 },
                 {       "Mariia",
                         "deynekamariawv@gmail.com",
                         "qwertqaz1234",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Mariia"
+                        "Yurij"
                 },
                 {       "Michael",
                         "michael.salo1995@gmail.com",
                         "newman1996",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
-                        "Michael"
+                        "Yurij"
                 },
                 {       "Nikita",
                         "kni2012@ukr.net",
                         "33222200s",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Nikita"
+                        "Valeriia"
                 },
                 {       "Natalia",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Natalia"
+                        "Valeriia"
                 },
                 {       "Denis",
                         "basdenisphytontm@gmail.com",
                         "33222200Shin_",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
-                        "Denis"
+                        "Valeriia"
                 },
 
                 {       "Roksolana",
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Roksolana"
+                        "Alex"
                 },
                 {       "Maryan",
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Maryan"
+                        "Alex"
                 },
 
                 {       "Anastasiia",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Anastasiia"
+                        "Valeriia"
                 }
 
 /* ==================================================================================================================================================================== */
