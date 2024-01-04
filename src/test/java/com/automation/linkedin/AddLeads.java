@@ -170,18 +170,18 @@ public class AddLeads extends Base {
                         "Marian Reshetun"
                 },
                 //11
-                {       "Anastasiia Vozniak",
+                {       "Artem Pevchenko",
                         "artemter223@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Anastasiia Vozniak"
+                        "Artem Pevchenko"
                 },
                 //12
-                {       "Artem Pevchenko",
+                {       "Anastasiia Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Artem Pevchenko"
+                        "Anastasiia Vozniak"
                 },
                 //13
                 {       "Roman Gulyaev",
