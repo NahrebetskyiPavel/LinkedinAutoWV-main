@@ -43,12 +43,13 @@ public class AddLeads extends Base {
             return;
         };
 
-        System.out.println("-------------------------------------------------------\n" +
-                "START: "+name+"\n" +
-                "-------------------------------------------------------");
+
         setupBrowser(true, "name");
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
+        System.out.println("-------------------------------------------------------\n" +
+                "START: "+name+"\n" +
+                "-------------------------------------------------------");
         signInPage.signIn(randomResult, email, password);
         Thread.sleep(1000*20);
         Thread.sleep(randomResult);
