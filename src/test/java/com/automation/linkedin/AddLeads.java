@@ -36,7 +36,7 @@ public class AddLeads extends Base {
         Thread.sleep(randomResult);
         String token = zohoCrmHelper.renewAccessToken();
         String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
-
+        int leadsAddedCount = 0;
 
         if (data.isEmpty()) {
             System.out.println("Skip" + linkedinperson);
@@ -80,7 +80,9 @@ public class AddLeads extends Base {
                 continue;
             };
             personPage.addToFriends(msg,false);
-            if (i==30) break;
+            leadsAddedCount = leadsRequestCount++;
+            System.out.println("Leads added from " + name + "account = " + leadsAddedCount);
+            if (leadsAddedCount==30) break;
             {
                 String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
                 JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
