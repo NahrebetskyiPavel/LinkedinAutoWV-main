@@ -95,73 +95,73 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-                {       "Aleksandra",
+                {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Aleksandra"
+                        "Aleksandra Sternenko"
                 },
-                {       "Anastasiia K.",
+                {       "Anastasiia Kuntii",
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                         "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)",
-                        "Anastasiia K."
+                        "Anastasiia Kuntii"
                 },
-                {       "Pavel",
+                {       "Pavel Nagrebetski",
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Pavel"
+                        "Pavel Nagrebetski"
                 },
-                {       "Mariia",
+                {       "Maria Deyneka",
                         "deynekamariawv@gmail.com",
                         "qwertqaz1234",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Mariia"
+                        "Maria Deyneka"
                 },
-                {       "Michael",
+                {       "Michael Salo",
                         "michael.salo1995@gmail.com",
                         "newman1996",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
-                        "Michael"
+                        "Michael Salo"
                 },
-                {       "Nikita",
+                {       "Nikita K.",
                         "kni2012@ukr.net",
                         "33222200s",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Nikita"
+                        "Nikita K."
                 },
-                {       "Natalia",
+                {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Natalia"
+                        "Natalia Marcun"
                 },
-                {       "Denis",
+                {       "Denis Bas",
                         "basdenisphytontm@gmail.com",
                         "33222200Shin_",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
-                        "Denis"
+                        "Denis Bas"
                 },
 
-                {       "Roksolana",
+                {       "Roksolana Trofimchuk",
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Roksolana"
+                        "Roksolana Trofimchuk"
                 },
-                {       "Maryan",
+                {       "Marian Reshetun",
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Maryan"
+                        "Marian Reshetun"
                 },
 
-                {       "Anastasiia",
+                {       "Anastasiia Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Anastasiia"
+                        "Anastasiia Vozniak"
                 }
 
 /* ==================================================================================================================================================================== */
