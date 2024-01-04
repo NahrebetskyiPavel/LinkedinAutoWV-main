@@ -210,55 +210,13 @@ public class AddLeads extends Base {
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Ruslan Mamedov"
+                },
+                {       "Dymitr Tolmach",
+                        "dymitr.tolmach1012@outlook.com",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Dymitr Tolmach"
                 }
-
-/* ==================================================================================================================================================================== */
-/*                {       "Максим - Stockholm co-founder",
-                        clientName,
-                        "kotokmaksym@gmail.com",
-                        "r4E3w2q1",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=80&sid=SEz&titleFreeText=co-founder",
-                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Yurij",
-                        "Stockholm November",
-                        "421659000009767013",
-                        false
-                },*/
-/*                {       "Софія",
-                        clientName,
-                        "sofi.podlesna@gmail.com",
-                        "7riuwotu949",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&origin=FACETED_SEARCH&page=85&sid=B%2Cg&titleFreeText=president",
-                        "Hi, NAME. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? \n",
-                        "Alex",
-                        "Saudi Arabia",
-                        "421659000006238011"
-                },
-                {       "Test",
-                        clientName,
-                        "wisevision1985@gmail.com",
-                        "33222200Shin",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=Ng9",
-                        "Hi, I want expand my contact, thx for accepting",
-                        "Pavlo",
-                        "Test",
-                        "421659000007355929"
-                },
-                {       "Test",
-                        clientName,
-                        "wisevision1986@gmail.com",
-                        "33222200Shin",
-                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=Ng9",
-                        "Hi, I want expand my contact, thx for accepting",
-                        "Pavlo",
-                        "Test",
-                        "421659000007355929"
-                },
-<==============================================================================================================================================================>
-
-
-
-               */
         };
     }
 }
