@@ -43,7 +43,7 @@ public class AddLeads extends Base {
         Thread.sleep(1000*20);
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
-        Thread.sleep(1000*20);
+        Thread.sleep(10000*10000);
 
     }
 
