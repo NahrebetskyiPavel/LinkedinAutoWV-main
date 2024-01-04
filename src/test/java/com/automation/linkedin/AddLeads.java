@@ -42,6 +42,7 @@ public class AddLeads extends Base {
             System.out.println("Skip" + linkedinperson);
             return;
         };
+
         System.out.println("-------------------------------------------------------\n" +
                 "START: "+name+"\n" +
                 "-------------------------------------------------------");
@@ -61,10 +62,22 @@ public class AddLeads extends Base {
             Thread.sleep(randomResult);
 
             Thread.sleep(200);
+            String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
+            if (String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(i).get("Website")).contains("null")) {
+                {
+                    String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
+                    JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+                    System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+                    System.out.println("\n" );
+                    if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
+                        System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
+                    };
+                }
+                continue;
+            };
             String personRef = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
             Selenide.open(personRef);
             Thread.sleep(randomResult);
-            String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) {
                 {
                     String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");

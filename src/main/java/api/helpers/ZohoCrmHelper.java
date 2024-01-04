@@ -431,7 +431,7 @@ if (tasksData.getJSONArray("data").length() >0){
     public void getToken1(){
         String token = this.renewAccessToken();
       //  System.out.println(this.changeTaskStatus(token, "421659000009278012","Closed"));
-
-        System.out.println(        this.getLeadList( "1000.e55641d1c24325701b254720c4a027d4.e4ae5ca1fe748b8b35963200e33b9468", 0,  "Waiting",  "Anastasiia") );
+        System.out.println(token);
+      //  System.out.println(        this.getLeadList( "1000.e55641d1c24325701b254720c4a027d4.e4ae5ca1fe748b8b35963200e33b9468", 0,  "Waiting",  "Anastasiia") );
     }
 }
