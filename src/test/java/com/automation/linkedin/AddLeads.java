@@ -63,9 +63,7 @@ public class AddLeads extends Base {
 
             Thread.sleep(200);
             String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
-            if (String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(i).get("Website")).contains("null")) {
-                continue;
-            };
+            if (String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(i).get("Website")).contains("null")) continue;
             String personRef = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
             Selenide.open(personRef);
             Thread.sleep(randomResult);
