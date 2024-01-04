@@ -32,7 +32,7 @@ public class AddLeads extends Base {
     @SneakyThrows
     @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
-        int leadsRequestCount = 0;
+        int leadsRequestCount = 1;
         Thread.sleep(randomResult);
         String token = zohoCrmHelper.renewAccessToken();
         String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
