@@ -52,12 +52,14 @@ public class AddLeads extends Base {
 
         return new Object[][]{
 
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
+                {       "Artem Pevchenko",
+                        "artemter223@outlook.com",
+                        "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Oleg Valter"
-                }
+                        "Artem Pevchenko"
+                },
+
+
         };
     }
 }
