@@ -28,14 +28,18 @@ public class AddLeads extends Base {
     int low = 2000;
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
+    String token = zohoCrmHelper.renewAccessToken();
 
     @SneakyThrows
     @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
         int leadsRequestCount = 1;
         Thread.sleep(randomResult);
-        String token = zohoCrmHelper.renewAccessToken();
         String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
+        if (data.contains("INVALID_TOKEN")){
+            String token = zohoCrmHelper.renewAccessToken();
+            data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
+        }
         int leadsAddedCount = 0;
 
         if (data.isEmpty()) {
@@ -101,12 +105,12 @@ public class AddLeads extends Base {
 
         return new Object[][]{
                 //1
-                {       "Aleksandra Sternenko",
-                        "alexandra.sternenko@gmail.com",
-                        "asd321qq",
-                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Aleksandra Sternenko"
-                },
+//                {       "Aleksandra Sternenko",
+//                        "alexandra.sternenko@gmail.com",
+//                        "asd321qq",
+//                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
+//                        "Aleksandra Sternenko"
+//                },
                 //2
                 {       "Anastasiia Kuntii",
                         "anastasiiakuntii@gmail.com",
@@ -143,12 +147,12 @@ public class AddLeads extends Base {
                         "Nikita K."
                 },
                 //7
-                {       "Natalia Marcun",
+/*                {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Natalia Marcun"
-                },
+                },*/
                 //8
                 {       "Denis Bas",
                         "basdenisphytontm@gmail.com",
