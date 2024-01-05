@@ -52,14 +52,12 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-
-                {       "Dmytro Andreev",
-                        "andreev.dima@outlook.de",
+                {       "Dymitr Tolmach",
+                        "dymitr.tolmach1012@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Dmytro Andreev"
+                        "Dymitr Tolmach"
                 },
-
         };
     }
 }
