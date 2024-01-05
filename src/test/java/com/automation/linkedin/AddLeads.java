@@ -140,12 +140,12 @@ public class AddLeads extends Base {
                         "Michael Salo"
                 },
                 //6
-                {       "Nikita K.",
+/*                {       "Nikita K.",
                         "kni2012@ukr.net",
                         "33222200s",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Nikita K."
-                },
+                },*/
                 //7
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
@@ -168,12 +168,12 @@ public class AddLeads extends Base {
                         "Roksolana Trofimchuk"
                 },
                 //10
-                {       "Marian Reshetun",
+/*                {       "Marian Reshetun",
                         "reshetunmaryanwv@gmail.com",
                         "rSbnGaRS",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Marian Reshetun"
-                },
+                },*/
                 //11
                 {       "Artem Pevchenko",
                         "artemter223@outlook.com",
@@ -244,7 +244,7 @@ public class AddLeads extends Base {
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Dymitr Tolmach"
                 },
-                //20
+                //21
                 {       "Oleg Valter",
                         "ovalter@outlook.co.nz",
                         "Shmee2023",
