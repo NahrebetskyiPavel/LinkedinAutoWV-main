@@ -105,12 +105,12 @@ public class AddLeads extends Base {
 
         return new Object[][]{
                 //1
-//                {       "Aleksandra Sternenko",
-//                        "alexandra.sternenko@gmail.com",
-//                        "asd321qq",
-//                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-//                        "Aleksandra Sternenko"
-//                },
+                {       "Aleksandra Sternenko",
+                        "alexandra.sternenko@gmail.com",
+                        "asd321qq",
+                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
+                        "Aleksandra Sternenko"
+                },
                 //2
                 {       "Anastasiia Kuntii",
                         "anastasiiakuntii@gmail.com",
@@ -147,12 +147,12 @@ public class AddLeads extends Base {
                         "Nikita K."
                 },
                 //7
-/*                {       "Natalia Marcun",
+                {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Natalia Marcun"
-                },*/
+                },
                 //8
                 {       "Denis Bas",
                         "basdenisphytontm@gmail.com",
