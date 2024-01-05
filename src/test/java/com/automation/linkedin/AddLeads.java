@@ -33,13 +33,14 @@ public class AddLeads extends Base {
     @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
 
-        System.out.println("-------------------------------------------------------\n" +
-                "START: "+name+"\n" +
-                "-------------------------------------------------------");
+
         setupBrowser(true, name);
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
+        System.out.println("-------------------------------------------------------\n" +
+                "START: "+name+"\n" +
+                "-------------------------------------------------------");
         Thread.sleep(1000*20);
         Thread.sleep(randomResult);
         WebDriverRunner.getWebDriver().manage().window().maximize();
@@ -52,13 +53,12 @@ public class AddLeads extends Base {
 
         return new Object[][]{
 
-                {       "Artem Pevchenko",
-                        "artemter223@outlook.com",
+                {       "Dmytro Andreev",
+                        "andreev.dima@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Artem Pevchenko"
+                        "Dmytro Andreev"
                 },
-
 
         };
     }
