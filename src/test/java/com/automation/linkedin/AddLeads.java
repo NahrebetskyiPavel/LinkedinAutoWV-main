@@ -93,6 +93,10 @@ public class AddLeads extends Base {
                 JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
                 System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
                 System.out.println("\n" );
+                if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
+                    token = zohoCrmHelper.renewAccessToken();
+                    zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
+                }
                 if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
                     System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
                 };
@@ -139,112 +143,99 @@ public class AddLeads extends Base {
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
                         "Michael Salo"
                 },
+
                 //6
-/*                {       "Nikita K.",
-                        "kni2012@ukr.net",
-                        "33222200s",
-                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Nikita K."
-                },*/
-                //7
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Natalia Marcun"
                 },
-                //8
+                //7
                 {       "Denis Bas",
                         "basdenisphytontm@gmail.com",
                         "33222200Shin_",
                         "Hello there. I stumbled across your account by chance and was impressed with your expertise. Would you mind accepting this invite to have an opportunity to talk in the future?",
                         "Denis Bas"
                 },
-                //9
+                //8
                 {       "Roksolana Trofimchuk",
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Roksolana Trofimchuk"
                 },
-                //10
-/*                {       "Marian Reshetun",
-                        "reshetunmaryanwv@gmail.com",
-                        "rSbnGaRS",
-                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Marian Reshetun"
-                },*/
-                //11
+                //9
                 {       "Artem Pevchenko",
                         "artemter223@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Artem Pevchenko"
                 },
-                //12
+                //10
                 {       "Anastasiia Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Anastasiia Vozniak"
                 },
-                //13
+                //11
                 {       "Roman Gulyaev",
                         "gulyaev.roman@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Roman Gulyaev"
                 },
-                //14
+                //12
                 {       "Dmytro Andreev",
                         "andreev.dima@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Dmytro Andreev"
                 },
-                //15
+                //13
                 {       "Oleg Konorov",
                         "oleg.konorov@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Oleg Konorov"
                 },
-                //16
+                //14
                 {       "Oleg Artemjew",
                         "oleg.artemjew@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Oleg Artemjew"
                 },
-                //17
+                //15
                 {       "Mykhailo Derebenev",
                         "misha.derebenev00@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Mykhailo Derebenev"
                 },
-                //18
+                //16
                 {       "Nikita Kanaev",
                         "niKanaev11@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Nikita Kanaev"
                 },
-                //19
+                //17
                 {       "Ruslan Mamedov",
                         "mamedov.rul@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Ruslan Mamedov"
                 },
-                //20
+                //18
                 {       "Dymitr Tolmach",
                         "dymitr.tolmach1012@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Dymitr Tolmach"
                 },
-                //21
+                //19
                 {       "Oleg Valter",
                         "ovalter@outlook.co.nz",
                         "Shmee2023",
