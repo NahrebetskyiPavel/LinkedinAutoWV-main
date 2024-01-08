@@ -106,12 +106,6 @@ public class ChangeLead {
                         "michael.salo1995@gmail.com",
                         "newman1996",
                 },
-/*                {       "Nikita - Stockholm board of directors",
-                        "kni2012@ukr.net",
-                        "33222200s",
-                        "Hello",
-
-                },*/
                 {       "Наталья- Stockholm CEO",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
@@ -135,7 +129,57 @@ public class ChangeLead {
                 {       "Анастасия - Saudi Arabia owner",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
+                },
+                {       "Artem Pevchenko",
+                        "artemter223@outlook.com",
+                        "33222200Shin",
+                },
+                //11
+                {       "Roman Gulyaev",
+                        "gulyaev.roman@outlook.com",
+                        "33222200Shin",
+                },
+//12
+                {       "Dmytro Andreev",
+                        "andreev.dima@outlook.de",
+                        "33222200Shin",
+                },
+//13
+                {       "Oleg Konorov",
+                        "oleg.konorov@outlook.com",
+                        "33222200Shin",
+                },
+//14
+                {       "Oleg Artemjew",
+                        "oleg.artemjew@outlook.de",
+                        "33222200Shin",
+                },
+//15
+                {       "Mykhailo Derebenev",
+                        "misha.derebenev00@outlook.com",
+                        "33222200Shin",
+                },
+//16
+                {       "Nikita Kanaev",
+                        "niKanaev11@outlook.de",
+                        "33222200Shin",
+                },
+//17
+                {       "Ruslan Mamedov",
+                        "mamedov.rul@outlook.com",
+                        "33222200Shin",
+                },
+//18
+                {       "Dymitr Tolmach",
+                        "dymitr.tolmach1012@outlook.com",
+                        "33222200Shin",
+                },
+//19
+                {       "Oleg Valter",
+                        "ovalter@outlook.co.nz",
+                        "Shmee2023",
                 }
+
         };
     }
 }
