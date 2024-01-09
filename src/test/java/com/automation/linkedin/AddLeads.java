@@ -108,7 +108,7 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-/*                //1
+                //1
                 {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
@@ -142,7 +142,7 @@ public class AddLeads extends Base {
                         "newman1996",
                         "Hello there. I happened upon your account accidentally and was impressed with your expertise. How about accepting this invite so that we can talk some more?",
                         "Michael Salo"
-                },*/
+                },
 
                 //6
                 {       "Natalia Marcun",
@@ -151,7 +151,7 @@ public class AddLeads extends Base {
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Natalia Marcun"
                 },
-          /*      //7
+                //7
                 {       "Denis Bas",
                         "basdenisphytontm@gmail.com",
                         "33222200Shin_",
@@ -192,7 +192,7 @@ public class AddLeads extends Base {
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Dmytro Andreev"
-                },*/
+                },
                 //13
                 {       "Oleg Konorov",
                         "oleg.konorov@outlook.com",
