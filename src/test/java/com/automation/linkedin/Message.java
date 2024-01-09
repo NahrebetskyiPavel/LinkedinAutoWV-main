@@ -76,15 +76,15 @@ public class Message extends Base{
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
-                        String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date"));
                         System.out.println("++++++++++++++++++++++++++++++");
-                        System.out.println("taskId" + taskId);
-                        System.out.println("status" + status);
-                        System.out.println("duedate" + duedate);
-                        System.out.println("subject" + subject);
-                        System.out.println("description:" + description);
+                        System.out.println("taskId: " + taskId);
+                        System.out.println("status: " + status);
+                        System.out.println("duedate: " + duedate);
+                        System.out.println("subject: " + subject);
+                        System.out.println("description: " + description);
                         System.out.println("++++++++++++++++++++++++++++++");
-                        if (status.equals("Not Started") &&  subject.contains("Second automessage") && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started") &&  subject.contains("Second automessage") && localDateIsBeforeGivenComparison(duedate) && duedate!="null"){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             new PersonPage().msgBtn.click();
