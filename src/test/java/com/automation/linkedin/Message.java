@@ -39,18 +39,17 @@ public class Message extends Base{
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         Thread.sleep(10000);
+        String  token = zoho.renewAccessToken();
 
-
-        sendFollowUpSecondMsg(name, email, password, pickList);
-        sendFolowUpThirdMsg(name, email, password, pickList);
-        sendFolowUpFourtMsg(name, email, password, pickList);
-        sendFolowUpFifthMsg(name, email, password, pickList);
+        sendFollowUpSecondMsg(name, email, password, pickList, token);
+        sendFolowUpThirdMsg(name, email, password, pickList, token);
+        sendFolowUpFourtMsg(name, email, password, pickList, token);
+        sendFolowUpFifthMsg(name, email, password, pickList, token);
     }
 
     @SneakyThrows
-    public void sendFollowUpSecondMsg(String name, String email, String password, String pickList){
+    public void sendFollowUpSecondMsg(String name, String email, String password, String pickList, String token){
         System.out.println("START 2 MSG");
-        String  token = zoho.renewAccessToken();
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
             if (data.isEmpty()) break;
@@ -119,9 +118,8 @@ public class Message extends Base{
    // @SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 2)
     @SneakyThrows
-    public void sendFolowUpThirdMsg(String name, String email, String password, String pickList){
+    public void sendFolowUpThirdMsg(String name, String email, String password, String pickList, String token){
         System.out.println("START 3 MSG");
-        String  token = zoho.renewAccessToken();
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
             if (data.isEmpty()) break;
@@ -189,10 +187,9 @@ public class Message extends Base{
     //@SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 3)
     @SneakyThrows
-    public void sendFolowUpFourtMsg(String name, String email, String password, String pickList){
+    public void sendFolowUpFourtMsg(String name, String email, String password, String pickList, String token){
         System.out.println("START 4 MSG");
 
-        String  token = zoho.renewAccessToken();
 
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
@@ -259,9 +256,8 @@ public class Message extends Base{
     //@SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 4)
     @SneakyThrows
-    public void sendFolowUpFifthMsg(String linkedinAccount, String email, String password, String pickList){
+    public void sendFolowUpFifthMsg(String linkedinAccount, String email, String password, String pickList, String token){
         System.out.println("START 5 MSG");
-        String  token = zoho.renewAccessToken();
 
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, pickList, "Contacted", linkedinAccount, n);
