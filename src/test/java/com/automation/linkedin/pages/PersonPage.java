@@ -124,7 +124,8 @@ public class PersonPage {
     public void closePremiumAd(){ premiumUpsellLinkCloseBtn.shouldBe(interactable, Duration.ofSeconds(30)).click(); }
     @SneakyThrows
     public boolean addToFriends(String message, boolean withMassage){
-
+if ($("button[aria-label='Dismiss people you may know recommendations']").is(visible))
+    $("button[aria-label='Dismiss people you may know recommendations']").click();
     if (!addBtn.is(visible)) clickMoreBtn();
         if (addBtn.exists())
         {
