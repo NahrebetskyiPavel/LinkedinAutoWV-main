@@ -194,40 +194,40 @@ public class AddLeads extends Base {
                         "Dmytro Andreev"
                 },
                 //13
-                {       "Oleg Konorov",
+/*                {       "Oleg Konorov",
                         "oleg.konorov@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Oleg Konorov"
-                },
+                },*/
                 //14
-                {       "Oleg Artemjew",
+/*                {       "Oleg Artemjew",
                         "oleg.artemjew@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Oleg Artemjew"
-                },
+                },*/
                 //15
-                {       "Mykhailo Derebenev",
+/*                {       "Mykhailo Derebenev",
                         "misha.derebenev00@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Mykhailo Derebenev"
-                },
+                },*/
                 //16
-                {       "Nikita Kanaev",
-                        "niKanaev11@outlook.de",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Nikita Kanaev"
-                },
+//                {       "Nikita Kanaev",
+//                        "niKanaev11@outlook.de",
+//                        "33222200Shin",
+//                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+//                        "Nikita Kanaev"
+//                },
                 //17
-                {       "Ruslan Mamedov",
+/*                {       "Ruslan Mamedov",
                         "mamedov.rul@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Ruslan Mamedov"
-                },
+                },*/
                 //18
                 {       "Dymitr Tolmach",
                         "dymitr.tolmach1012@outlook.com",
