@@ -249,6 +249,28 @@ public String getLeadList(String token, String pickList, String status, String l
     return responseBody;
 }
 @SneakyThrows
+public String getLeadList(String token,  String status, String linkedInAccount, int pagenum){
+    OkHttpClient client = new OkHttpClient().newBuilder()
+            .build();
+    MediaType mediaType = MediaType.parse("text/plain");
+    RequestBody body = RequestBody.create(mediaType, "");
+    Request request = new Request.Builder()
+            .url("https://crm.zoho.eu/crm/v2/Leads/search?criteria=(" +
+                    "(Lead_Status:equals:"+status+")" +
+                    "and" +
+                    "(LinkedIn_person:starts_with:"+linkedInAccount+")" +
+                    ")" +
+                    "&page="+pagenum+"")
+            .method("GET", null)
+            .addHeader("Authorization", "Bearer " + token)
+            .addHeader("Cookie", "5ad188d5f9=8e60be8f0c2215e209caa87ee5dc6c13; JSESSIONID=D11A65ED733CBC7495262D328D0AD072; _zcsr_tmp=ff76b4d3-87d6-4b5e-aa5c-1e4308899658; crmcsr=ff76b4d3-87d6-4b5e-aa5c-1e4308899658")
+            .build();
+    Response response = client.newCall(request).execute();
+    String responseBody = response.body().string();
+
+    return responseBody;
+}
+@SneakyThrows
 public String getLeadList(String token, int page, String leadStatus, String linkedInPerson, String pickList2){
     OkHttpClient client = new OkHttpClient().newBuilder()
             .build();

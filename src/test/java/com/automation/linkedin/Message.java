@@ -33,25 +33,25 @@ public class Message extends Base{
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
-    public void senddMsg(String name,  String email, String password, String pickList){
-        setupBrowser(true, name);
+    public void senddMsg(String linkedInAccount,  String email, String password){
+        setupBrowser(true, linkedInAccount);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         Thread.sleep(10000);
         String  token = zoho.renewAccessToken();
 
-        sendFollowUpSecondMsg(name, email, password, pickList, token);
-        sendFolowUpThirdMsg(name, email, password, pickList, token);
-        sendFolowUpFourtMsg(name, email, password, pickList, token);
-        sendFolowUpFifthMsg(name, email, password, pickList, token);
+        sendFollowUpSecondMsg(linkedInAccount, token);
+        sendFolowUpThirdMsg(linkedInAccount, token);
+        sendFolowUpFourtMsg(linkedInAccount, token);
+        sendFolowUpFifthMsg(linkedInAccount, token);
     }
 
     @SneakyThrows
-    public void sendFollowUpSecondMsg(String name, String email, String password, String pickList, String token){
+    public void sendFollowUpSecondMsg(String linkedInAccount, String token){
         System.out.println("START 2 MSG");
         for (int n = 0; n < 100; n++) {
-            String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
+            String data =  zoho.getLeadList(token, "Contacted", linkedInAccount, n);
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
@@ -118,10 +118,10 @@ public class Message extends Base{
    // @SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 2)
     @SneakyThrows
-    public void sendFolowUpThirdMsg(String name, String email, String password, String pickList, String token){
+    public void sendFolowUpThirdMsg(String linkedInAccount, String token){
         System.out.println("START 3 MSG");
         for (int n = 0; n < 100; n++) {
-            String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
+            String data =  zoho.getLeadList(token, "Contacted", linkedInAccount, n);
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
@@ -187,12 +187,12 @@ public class Message extends Base{
     //@SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 3)
     @SneakyThrows
-    public void sendFolowUpFourtMsg(String name, String email, String password, String pickList, String token){
+    public void sendFolowUpFourtMsg(String linkedInAccount, String token){
         System.out.println("START 4 MSG");
 
 
         for (int n = 0; n < 100; n++) {
-            String data =  zoho.getLeadList(token, pickList, "Contacted", name, n);
+            String data =  zoho.getLeadList(token, "Contacted", linkedInAccount, n);
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
@@ -256,11 +256,11 @@ public class Message extends Base{
     //@SneakyThrows
     //@Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch",priority = 4)
     @SneakyThrows
-    public void sendFolowUpFifthMsg(String linkedinAccount, String email, String password, String pickList, String token){
+    public void sendFolowUpFifthMsg(String linkedinAccount, String token){
         System.out.println("START 5 MSG");
 
         for (int n = 0; n < 100; n++) {
-            String data =  zoho.getLeadList(token, pickList, "Contacted", linkedinAccount, n);
+            String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
@@ -324,57 +324,77 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-                {       "Anastasiia Kuntii",
-                        "anastasiiakuntii@gmail.com",
-                        "33222200Shin",
-                        "Alex",
-                },
+                //1
                 {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
-                        "Yurij",
                 },
-                {       "Maria Deyneka",
-                        "deynekamariawv@gmail.com",
-                        "qwertqaz1234",
-                        "Yurij",
+                //2
+                {       "Anastasiia Kuntii",
+                        "anastasiiakuntii@gmail.com",
+                        "33222200Shin",
                 },
-                {       "Michael Salo",
-                        "michael.salo1995@gmail.com",
-                        "newman1996",
-                        "Yurij",
-                },
-
+                //3
                 {       "Pavel Nagrebetski",
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
-                        "Yurij",
                 },
+                //4
+                {       "Maria Deyneka",
+                        "deynekamariawv@gmail.com",
+                        "qwertqaz1234",
+                },
+                //5
+                {       "Michael Salo",
+                        "michael.salo1995@gmail.com",
+                        "newman1996",
+                },
+                //6
                 {       "Natalia Marcun",
-                        "natalia.marcoon@gmail.com",
+                        "natalia.marcoon@gmail.com ",
                         "33222200Shin",
-                        "Valeriia",
                 },
+                //7
                 {       "Denis Bas",
                         "basdenisphytontm@gmail.com",
-                        "asd321qq",
-                        "Valeriia",
+                        "33222200Shin_",
                 },
+                //8
+                {       "Roksolana Trofimchuk",
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                },
+                //9
+                {       "Artem Pevchenko",
+                        "artemter223@outlook.com",
+                        "33222200Shin",
+                },
+                //10
                 {       "Anastasiia Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
-                        "Valeriia",
                 },
-                {       "Roksolana Trofimchuk",
-                        "roksolanatrofim@gmail.com",
+                //11
+                {       "Roman Gulyaev",
+                        "gulyaev.roman@outlook.com",
                         "33222200Shin",
-                        "Alex",
                 },
-                {       "Maryan",
-                        "reshetunmaryanwv@gmail.com",
+                //12
+                {       "Dmytro Andreev",
+                        "andreev.dima@outlook.de",
                         "33222200Shin",
-                        "Alex",
-                }
+                },
+                //13
+                {       "Dymitr Tolmach",
+                        "dymitr.tolmach1012@outlook.com",
+                        "33222200Shin",
+                },
+                //14
+                {       "Oleg Valter",
+                        "ovalter@outlook.co.nz",
+                        "Shmee2023",
+                },
+
         };
     }
 }
