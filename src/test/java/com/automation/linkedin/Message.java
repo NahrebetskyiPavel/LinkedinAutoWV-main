@@ -59,13 +59,14 @@ public class Message extends Base{
             System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
-                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                String leadPage = String.valueOf( responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website") );
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
                 System.out.println(id);
                 System.out.println(fullName);
                 System.out.println(leadPage);
+                if (leadPage.equals("null")) continue;
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
