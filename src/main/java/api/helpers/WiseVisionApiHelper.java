@@ -21,7 +21,11 @@ public class WiseVisionApiHelper {
     String aboutPersonReplace = aboutPerson
             .replaceAll("\n","")
             .replaceAll("/","")
-            .replaceAll("\\\\","");
+            .replaceAll("\\\\","")
+            .replaceAll(":","")
+            .replaceAll("\"","")
+            .replaceAll("'","")
+            .replaceAll("·","");
     if (aboutPersonReplace.length()==0 || aboutPersonReplace == "  "|| aboutPersonReplace == " ") {aboutPersonReplace = "no data";}
     if (personName.length()==0) {personName = "no data";}
     if (workHistory.length()==0) {workHistory = "no data";}
