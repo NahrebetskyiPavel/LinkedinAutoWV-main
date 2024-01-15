@@ -88,6 +88,7 @@ public class Message extends Base{
                         if (status.equals("Not Started") &&  subject.contains("Second automessage") && localDateIsBeforeGivenComparison(duedate) && duedate!="null"){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!msgs.isEmpty() && !Utils.areAllElementsEqual(msgs)  ){
@@ -148,14 +149,15 @@ public class Message extends Base{
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
-                        String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date"));
 
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") &&  subject.contains("Third automessage") && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started") &&  subject.contains("Third automessage") && localDateIsBeforeGivenComparison(duedate) && !duedate.equals("null")){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -227,6 +229,7 @@ public class Message extends Base{
                         if (status.equals("Not Started") &&  subject.contains("Fourt automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -294,6 +297,7 @@ public class Message extends Base{
                         if (status.equals("Not Started") &&  subject.contains("Fifth automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
