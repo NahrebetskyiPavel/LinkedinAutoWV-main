@@ -94,39 +94,39 @@ public class ChangeLead {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Александра - Saudi Arabia Board of directors",
+                {       "Александра ",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                 },
-                {       "Маша - Stockholm Founder ",
+                {       "Маша  ",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
                 },
-                {       "Михайло - Saudi Arabia CFO",
+                {       "Михайло ",
                         "michael.salo1995@gmail.com",
                         "newman1996",
                 },
-                {       "Наталья- Stockholm CEO",
+                {       "Наталья",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                 },
-                {       "Денис - Saudi Arabia CEO",
+                {       "Денис ",
                         "basdenisphytontm@gmail.com",
                         "33222200Shin",
                 },
-                {       "Настя - Stuttgart CEO",
+                {       "Настя",
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                 },
-                {       "Роксолана - Stockholm CFO",
+                {       "Роксолана ",
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
                 },
-                {       "Марьян -  Stockholm CTO",
+                {       "Марьян ",
                         "reshetunmaryanwv@gmail.com",
                         "33222200Shin",
                 },
-                {       "Анастасия - Saudi Arabia owner",
+                {       "Анастасия ",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                 },
@@ -134,7 +134,7 @@ public class ChangeLead {
                         "artemter223@outlook.com",
                         "33222200Shin",
                 },
-                //11
+//11
                 {       "Roman Gulyaev",
                         "gulyaev.roman@outlook.com",
                         "33222200Shin",
@@ -178,7 +178,19 @@ public class ChangeLead {
                 {       "Oleg Valter",
                         "ovalter@outlook.co.nz",
                         "Shmee2023",
-                }
+                },
+
+//20
+                {       "Dmitriy Semiletov",
+                        "semi.dima@outlook.com",
+                        "33222200Shin",
+                },
+
+//21
+                {       "Roman Bezrukikh",
+                        "bezrukikh.roman@outlook.com",
+                        "33222200Shin",
+                },
 
         };
     }
