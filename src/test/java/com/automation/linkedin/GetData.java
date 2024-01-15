@@ -29,7 +29,7 @@ public class GetData extends Base{
     SelenideElement aboutHeader = $("div[id='about'] +div");
     SelenideElement aboutBody = $("div[id='about'] +div +div");
     SelenideElement seeMoreBtn = $("div[id='about'] +div +div button");
-    SelenideElement location = $("div.pv-text-details__left-panel.mt2 span");
+    SelenideElement location = $x("//span[@class='text-body-small inline t-black--light break-words']");
     ElementsCollection works = $$("#experience +div +div ul li");
     WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
     String personName = "No data";

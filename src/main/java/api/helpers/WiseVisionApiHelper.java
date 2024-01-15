@@ -18,8 +18,11 @@ public class WiseVisionApiHelper {
     }
     @SneakyThrows
     public void postLinkedinPersonData(String linkedinUrl, String personName, String aboutPerson, String workHistory, String location){
-    String aboutPersonReplace = aboutPerson.replace("\n","").replace("\"","");
-    if (aboutPersonReplace.length()==0) {aboutPersonReplace = "no data";}
+    String aboutPersonReplace = aboutPerson
+            .replaceAll("\n","")
+            .replaceAll("/","")
+            .replaceAll("\\\\","");
+    if (aboutPersonReplace.length()==0 || aboutPersonReplace == "  "|| aboutPersonReplace == " ") {aboutPersonReplace = "no data";}
     if (personName.length()==0) {personName = "no data";}
     if (workHistory.length()==0) {workHistory = "no data";}
     if (location.length()==0) {location = "no data";}
