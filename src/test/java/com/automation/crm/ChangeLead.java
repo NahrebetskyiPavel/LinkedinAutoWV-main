@@ -37,6 +37,8 @@ public class ChangeLead {
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
+        Thread.sleep(10000);
+
         Selenide.open("https://www.linkedin.com/mynetwork/invite-connect/connections/");
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
@@ -94,7 +96,7 @@ public class ChangeLead {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Александра ",
+/*                {       "Александра ",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                 },
@@ -109,8 +111,8 @@ public class ChangeLead {
                 {       "Наталья",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
-                },
-                {       "Денис ",
+                },*/
+/*                {       "Денис ",
                         "basdenisphytontm@gmail.com",
                         "33222200Shin",
                 },
@@ -125,20 +127,20 @@ public class ChangeLead {
                 {       "Марьян ",
                         "reshetunmaryanwv@gmail.com",
                         "33222200Shin",
-                },
-                {       "Анастасия ",
+                },*/
+/*                {       "Анастасия ",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
-                },
+                },*/
                 {       "Artem Pevchenko",
                         "artemter223@outlook.com",
                         "33222200Shin",
                 },
 //11
-                {       "Roman Gulyaev",
+/*                {       "Roman Gulyaev",
                         "gulyaev.roman@outlook.com",
                         "33222200Shin",
-                },
+                },*/
 //12
                 {       "Dmytro Andreev",
                         "andreev.dima@outlook.de",
