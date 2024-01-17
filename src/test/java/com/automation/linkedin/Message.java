@@ -339,44 +339,17 @@ public class Message extends Base{
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                 },
-                //3
-                {       "Pavel Nagrebetski",
-                        "pavelnagrebetski@gmail.com",
-                        "Asd321qq",
-                },
-                //4
-                {       "Maria Deyneka",
-                        "deynekamariawv@gmail.com",
-                        "qwertqaz1234",
-                },
-                //5
-                {       "Michael Salo",
-                        "michael.salo1995@gmail.com",
-                        "newman1996",
-                },
+
+
                 //6
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                 },
-                //7
-                {       "Denis Bas",
-                        "basdenisphytontm@gmail.com",
-                        "33222200Shin_",
-                },
-                //8
-                {       "Roksolana Trofimchuk",
-                        "roksolanatrofim@gmail.com ",
-                        "89fcmTT88V",
-                },
+
                 //9
                 {       "Artem Pevchenko",
                         "artemter223@outlook.com",
-                        "33222200Shin",
-                },
-                //10
-                {       "Anastasiia Vozniak",
-                        "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                 },
                 //11
@@ -389,15 +362,26 @@ public class Message extends Base{
                         "andreev.dima@outlook.de",
                         "33222200Shin",
                 },
-                //13
+
                 {       "Dymitr Tolmach",
                         "dymitr.tolmach1012@outlook.com",
                         "33222200Shin",
                 },
-                //14
                 {       "Oleg Valter",
                         "ovalter@outlook.co.nz",
                         "Shmee2023",
+                },
+                {       "Oleg Konorov",
+                        "oleg.konorov@outlook.com",
+                        "33222200Shin",
+                },
+                {       "Roman Bezrukikh",
+                        "bezrukikh.roman@outlook.com",
+                        "33222200Shin",
+                },
+                {       "Dmitriy Semiletov",
+                        "semi.dima@outlook.com",
+                        "33222200Shin",
                 },
 
         };
