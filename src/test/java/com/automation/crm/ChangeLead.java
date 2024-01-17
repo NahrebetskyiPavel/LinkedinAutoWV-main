@@ -153,26 +153,8 @@ public class ChangeLead {
                         "oleg.konorov@outlook.com",
                         "33222200Shin",
                 },
-//14
-                {       "Oleg Artemjew",
-                        "oleg.artemjew@outlook.de",
-                        "33222200Shin",
-                },
-//15
-                {       "Mykhailo Derebenev",
-                        "misha.derebenev00@outlook.com",
-                        "33222200Shin",
-                },
-//16
-                {       "Nikita Kanaev",
-                        "niKanaev11@outlook.de",
-                        "33222200Shin",
-                },
-//17
-                {       "Ruslan Mamedov",
-                        "mamedov.rul@outlook.com",
-                        "33222200Shin",
-                },
+
+
 //18
                 {       "Dymitr Tolmach",
                         "dymitr.tolmach1012@outlook.com",
@@ -194,6 +176,14 @@ public class ChangeLead {
                 {       "Roman Bezrukikh",
                         "bezrukikh.roman@outlook.com",
                         "33222200Shin",
+                },
+                {       "Oleg Konorov",
+                        "oleg.konorov@outlook.com",
+                        "33222200Shin",
+                },
+                {       "Pavel  Nagrebetski",
+                        "pavelnagrebetski@gmail.com",
+                        "Asd321qq",
                 },
 
         };
