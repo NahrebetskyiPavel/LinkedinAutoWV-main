@@ -174,8 +174,9 @@ public class PersonPage {
         }
         return false;
     }
-
+    @SneakyThrows
     public void     sentMsg(String msg){
+        Thread.sleep(10000);
         $x("//div[contains(@aria-label,'Write a message…')]").click();
         $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(msg);
         $x("//button[normalize-space()='Send']").click();
