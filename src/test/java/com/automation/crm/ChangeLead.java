@@ -53,9 +53,10 @@ public class ChangeLead {
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
             }
         }
-        for (int i = 0; i < 200; i++) {
+        ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
+
+        for (int i = 0; i < leads.size(); i++) {
             Thread.sleep(randomResult);
-            ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
             SelenideElement person = leads.get(i);
                 Thread.sleep(200);
                 if (person.find(By.cssSelector(".mn-connection-card__name")).text().contains("LinkedIn Member")) continue;
