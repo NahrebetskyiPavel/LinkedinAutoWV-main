@@ -185,6 +185,10 @@ public class ChangeLead {
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
                 },
+                {       "Maksim Bakh",
+                        "Bekhmaksim@outlook.com",
+                        "33222200Shin",
+                },
 
         };
     }
