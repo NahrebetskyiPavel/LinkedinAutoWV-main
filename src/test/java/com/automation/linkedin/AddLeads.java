@@ -31,15 +31,15 @@ public class AddLeads extends Base {
 
     @SneakyThrows
     @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
-    public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
+    public void addLeads( String email, String password){
 
 
-        setupBrowser(true, name);
+        setupBrowser(true, "Test");
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         System.out.println("-------------------------------------------------------\n" +
-                "START: "+name+"\n" +
+                "START: "+"Test"+"\n" +
                 "-------------------------------------------------------");
         Thread.sleep(1000*20);
         Thread.sleep(randomResult);
@@ -52,11 +52,9 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-                {       "Dymitr Tolmach",
-                        "dymitr.tolmach1012@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Dymitr Tolmach"
+                {
+                        "Bekhmaksim@outlook.com",
+                        "33222200Shin"
                 },
         };
     }
