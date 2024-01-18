@@ -85,6 +85,13 @@ public class AddLeads extends Base {
                 continue;
             };
             personPage.addToFriends(msg,false);
+            Thread.sleep(randomResult);
+            if (personPage.limitAlertHeader.exists()){
+
+                System.out.println("\n========================================================================\n" +"Out of requests"+ "\n========================================================================\n");
+                WebDriverRunner.getWebDriver().quit();
+                break;
+            }
             leadsAddedCount = leadsRequestCount++;
             System.out.println("Leads added from " + name + "account = " + leadsAddedCount);
             if (leadsAddedCount==30) break;

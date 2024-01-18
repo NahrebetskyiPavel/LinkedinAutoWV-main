@@ -18,7 +18,7 @@ public class PersonPage {
     public SelenideElement addBtn = $x("//main[contains(@class,'scaffold-layout__main')]//span[text()='Connect']");
     public SelenideElement getCannotAddLeadPopUpClose = $("#artdeco-toasts li-icon[type='cancel-icon']");
     public SelenideElement cannotAddLeadPopUp = $("#artdeco-toasts [role='alert']");
-    public SelenideElement limitAlertHeader = $x("//h2[@id='ip-fuse-limit-alert__header']");
+    public SelenideElement limitAlertHeader = $x("//H2[@id='ip-fuse-limit-alert__header']");
     public SelenideElement inMailMsgBtn = $x("//main//span[@class='artdeco-button__text'][normalize-space()='Message']");
     public SelenideElement premiumUpsellLink = $("div.premium-upsell-link");
     public SelenideElement premiumUpsellLinkCloseBtn = $x("//div[@role='dialog']//li-icon[@type='cancel-icon']");
@@ -153,9 +153,10 @@ if ($("button[aria-label='Dismiss people you may know recommendations']").is(vis
                 addPeoplePopupPage.sendRequestBtn.shouldBe(visible).click();
                 Thread.sleep(randomResult);
             }
-                if (limitAlertHeader.isDisplayed()){
+                if (limitAlertHeader.exists()){
                     System.out.println("\n========================================================================\n" +"Out of requests"+ "\n========================================================================\n");
-                    WebDriverRunner.getWebDriver().quit(); }
+                    WebDriverRunner.getWebDriver().quit();
+                }
                 Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
             }else {
                 Thread.sleep(randomResult);
@@ -167,7 +168,7 @@ if ($("button[aria-label='Dismiss people you may know recommendations']").is(vis
                 if (this.errorMsg.exists()) return false;
                 if (addPeoplePopupPage.sendRequestBtn.is(visible)){addPeoplePopupPage.sendRequestBtn.shouldBe(interactable).click();}
                 else addPeoplePopupPage.sendRequestBtnWithoutNote.shouldBe(visible,Duration.ofSeconds(40)).click();
-                if (limitAlertHeader.isDisplayed()){
+                if (limitAlertHeader.exists()){
                     System.out.println("\n========================================================================\n" +"Out of requests"+ "\n========================================================================\n");
                     WebDriverRunner.getWebDriver().quit(); }
             }
