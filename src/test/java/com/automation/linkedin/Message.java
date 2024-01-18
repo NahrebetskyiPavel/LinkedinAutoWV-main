@@ -4,10 +4,7 @@ import api.helpers.ZohoCrmHelper;
 import com.automation.linkedin.pages.PersonPage;
 import com.automation.linkedin.pages.login.SignInPage;
 import com.automation.linkedin.pages.messaging.MessagingPage;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.*;
 import lombok.SneakyThrows;
 import org.json.JSONObject;
 import org.testng.annotations.DataProvider;
@@ -131,17 +128,17 @@ public class Message extends Base{
             System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
-                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                String leadPage = String.valueOf( responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website") );
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
                 System.out.println(id);
                 System.out.println(fullName);
                 System.out.println(leadPage);
+                if (leadPage.equals("null")) continue;
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
-                System.out.println(tasksData.getJSONArray("data"));
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
                 if (tasksData.getJSONArray("data").length() >0){
                     for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
@@ -150,22 +147,31 @@ public class Message extends Base{
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date"));
-
-                        System.out.println(taskId);
-                        System.out.println(status);
-                        System.out.println(subject);
-                        if (status.equals("Not Started") &&  subject.contains("Third automessage") && localDateIsBeforeGivenComparison(duedate) && !duedate.equals("null")){
+                        System.out.println("++++++++++++++++++++++++++++++");
+                        System.out.println("taskId: " + taskId);
+                        System.out.println("status: " + status);
+                        System.out.println("duedate: " + duedate);
+                        System.out.println("subject: " + subject);
+                        System.out.println("description: " + description);
+                        System.out.println("++++++++++++++++++++++++++++++");
+                        if (status.equals("Not Started") &&  subject.contains("Third automessage") && localDateIsBeforeGivenComparison(duedate) && duedate!="null"){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            if (new PersonPage().closeBtn.is(Condition.visible)){
+                                for (SelenideElement closeBtn:new PersonPage().closeBtns
+                                     ) {
+                                    closeBtn.click();
+                                }
+                            }
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
-                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
-                               // zoho.changeLeadStatus(id, token, chatLeadStatusid);
+                            if (!msgs.isEmpty() && !Utils.areAllElementsEqual(msgs)  ){
+                                //  zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
                             System.out.println("sent msg!!!");
-                            if (description.equals("null")) {
+                            if (description.isEmpty() || description.equals("null") ) {
                                 new PersonPage().sentMsg(msg);
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }

@@ -1,6 +1,7 @@
 package com.automation.linkedin.pages;
 
 import com.automation.linkedin.pages.search.popup.AddPeoplePopupPage;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
@@ -28,6 +29,8 @@ public class PersonPage {
     public SelenideElement inMailMessegeBtnSubmit= $x("//div[@aria-label='Messaging']//button[@type='submit']");
     public SelenideElement errorMsg= $x("//div[@data-test-artdeco-toast-item-type='error']//p//span");
     public SelenideElement msgBtn= $x("//main[contains(@class,'scaffold-layout__main')]//span[text()='Message']");
+    public SelenideElement closeBtn = $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]");
+    public ElementsCollection closeBtns = $$x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]");
     private int count = 0;
    String JS_ADD_TEXT_TO_INPUT = "var elm = arguments[0], txt = arguments[1];\n" +
            "  elm.value += txt;\n" +
@@ -180,6 +183,6 @@ public class PersonPage {
         $x("//div[contains(@aria-label,'Write a message…')]").click();
         $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(msg);
         $x("//button[normalize-space()='Send']").click();
-        $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]").click();
+        closeBtn.click();
     }
 }
