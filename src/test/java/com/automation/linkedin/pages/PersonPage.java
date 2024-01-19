@@ -182,6 +182,7 @@ public class PersonPage {
         Thread.sleep(10000);
         $$x("//div[contains(@aria-label,'Write a message…')]").last().click();
         $$x("//div[contains(@aria-label,'Write a message…')]").last().sendKeys(msg);
+        Thread.sleep(5000);
         $x("//button[normalize-space()='Send']").click();
         Thread.sleep(5000);
         closeBtn.click();

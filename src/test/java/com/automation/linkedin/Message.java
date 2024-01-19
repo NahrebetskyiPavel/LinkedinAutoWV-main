@@ -13,8 +13,7 @@ import utils.Utils;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static utils.Utils.localDateIsBeforeGivenComparison;
 
 public class Message extends Base{
@@ -74,7 +73,7 @@ public class Message extends Base{
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
-                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date"));
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
                         System.out.println("++++++++++++++++++++++++++++++");
                         System.out.println("taskId: " + taskId);
                         System.out.println("status: " + status);
@@ -92,6 +91,7 @@ public class Message extends Base{
                               //  zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
                             if (description.isEmpty() || description.equals("null") ) {
                                 new PersonPage().sentMsg(msg);
@@ -146,7 +146,7 @@ public class Message extends Base{
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
-                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date"));
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
                         System.out.println("++++++++++++++++++++++++++++++");
                         System.out.println("taskId: " + taskId);
                         System.out.println("status: " + status);
@@ -170,6 +170,7 @@ public class Message extends Base{
                                 //  zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
                             if (description.isEmpty() || description.equals("null") ) {
                                 new PersonPage().sentMsg(msg);
@@ -227,7 +228,7 @@ public class Message extends Base{
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
-                        String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
+                        String duedate = String.valueOf( tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
 
                         System.out.println(taskId);
                         System.out.println(status);
@@ -242,6 +243,7 @@ public class Message extends Base{
                               //  zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
                             if (description.equals("null")) {
                                 new PersonPage().sentMsg(msg);
@@ -295,7 +297,7 @@ public class Message extends Base{
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
-                        String duedate = tasksData.getJSONArray("data").getJSONObject(j).getString("Due_Date");
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
 
                         System.out.println(taskId);
                         System.out.println(status);
@@ -310,6 +312,7 @@ public class Message extends Base{
                                // zoho.changeLeadStatus(id, token, chatLeadStatusid);
                                 continue;
                             }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
                             if (description.equals("null")) {
                                 new PersonPage().sentMsg(msg);
@@ -335,6 +338,7 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
+/*
                 //1
                 {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
@@ -345,6 +349,7 @@ public class Message extends Base{
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                 },
+*/
 
 
                 //6
