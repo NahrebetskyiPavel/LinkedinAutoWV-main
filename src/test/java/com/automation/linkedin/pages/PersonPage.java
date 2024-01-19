@@ -180,9 +180,10 @@ public class PersonPage {
     @SneakyThrows
     public void     sentMsg(String msg){
         Thread.sleep(10000);
-        $x("//div[contains(@aria-label,'Write a message…')]").click();
-        $x("//div[contains(@aria-label,'Write a message…')]").sendKeys(msg);
+        $$x("//div[contains(@aria-label,'Write a message…')]").last().click();
+        $$x("//div[contains(@aria-label,'Write a message…')]").last().sendKeys(msg);
         $x("//button[normalize-space()='Send']").click();
+        Thread.sleep(5000);
         closeBtn.click();
     }
 }

@@ -56,7 +56,7 @@ public class Message extends Base{
             System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
-                String leadPage = String.valueOf( responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website") );
+                String leadPage = String.valueOf( responseBodyJsonObject.getJSONArray("data").getJSONObject(i).get("Website") );
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
@@ -381,10 +381,7 @@ public class Message extends Base{
                         "oleg.konorov@outlook.com",
                         "33222200Shin",
                 },
-                {       "Roman Bezrukikh",
-                        "bezrukikh.roman@outlook.com",
-                        "33222200Shin",
-                },
+
                 {       "Dmitriy Semiletov",
                         "semi.dima@outlook.com",
                         "33222200Shin",
