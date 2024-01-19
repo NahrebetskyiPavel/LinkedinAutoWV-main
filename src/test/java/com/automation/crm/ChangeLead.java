@@ -171,12 +171,6 @@ public class ChangeLead {
                         "semi.dima@outlook.com",
                         "33222200Shin",
                 },
-
-//21
-                {       "Roman Bezrukikh",
-                        "bezrukikh.roman@outlook.com",
-                        "33222200Shin",
-                },
                 {       "Oleg Konorov",
                         "oleg.konorov@outlook.com",
                         "33222200Shin",
