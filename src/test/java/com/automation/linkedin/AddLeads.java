@@ -122,15 +122,6 @@ public class AddLeads extends Base {
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Aleksandra Sternenko"
                 },
-                //2
-                {       "Anastasiia Kuntii",
-                        "anastasiiakuntii@gmail.com",
-                        "33222200Shin",
-                        "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)",
-                        "Anastasiia Kuntii"
-                },
-
-
                 //6
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
