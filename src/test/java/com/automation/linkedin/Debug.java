@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 public class Debug {
     @Test
     public void test(){
-        System.out.println();
+        String strUserName = System.getProperty("LOGIN");
+
+        System.out.println(strUserName);
     }
 }
