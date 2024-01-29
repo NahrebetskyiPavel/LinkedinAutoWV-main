@@ -116,64 +116,12 @@ public class AddLeads extends Base {
 
         return new Object[][]{
                 //1
-                {       "Aleksandra Sternenko",
-                        "alexandra.sternenko@gmail.com",
-                        "asd321qq",
+                {       "name",
+                        System.getProperty("LOGIN"),
+                        System.getProperty("PASSWORD"),
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Aleksandra Sternenko"
                 },
-                //6
-                {       "Natalia Marcun",
-                        "natalia.marcoon@gmail.com ",
-                        "33222200Shin",
-                        "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        "Natalia Marcun"
-                },
-
-                //9
-                {       "Artem Pevchenko",
-                        "artemter223@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Artem Pevchenko"
-                },
-                {       "Roman Gulyaev",
-                        "gulyaev.roman@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Roman Gulyaev"
-                },
-                {       "Dmytro Andreev",
-                        "andreev.dima@outlook.de",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Dmytro Andreev"
-                },
-                {       "Dymitr Tolmach",
-                        "dymitr.tolmach1012@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Dymitr Tolmach"
-                },
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Oleg Valter"
-                },
-                {       "Dmitriy Semiletov",
-                        "semi.dima@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Dmitriy Semiletov"
-                },
-                {       "Oleg Konorov",
-                        "oleg.konorov@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Oleg Konorov"
-                },
-
         };
     }
 }
