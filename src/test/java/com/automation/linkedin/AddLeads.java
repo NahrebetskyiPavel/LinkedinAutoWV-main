@@ -13,6 +13,7 @@ import org.testng.annotations.DataProvider;
 
 import org.testng.annotations.Test;
 
+import java.util.Map;
 import java.util.Random;
 
 import static com.codeborne.selenide.Condition.*;
@@ -113,12 +114,13 @@ public class AddLeads extends Base {
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
+        Map<String, String> env = System.getenv();
 
         return new Object[][]{
                 //1
                 {       "name",
-                        System.getProperty("LOGIN"),
-                        System.getProperty("PASSWORD"),
+                        env.get("LOGIN"),
+                        env.get("PASSWORD"),
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Aleksandra Sternenko"
                 },
