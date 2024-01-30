@@ -161,12 +161,6 @@ public class AddLeads extends Base {
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Oleg Valter"
                 },
-                {       "Dmitriy Semiletov",
-                        "semi.dima@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Dmitriy Semiletov"
-                },
                 {       "Oleg Konorov",
                         "oleg.konorov@outlook.com",
                         "33222200Shin",
