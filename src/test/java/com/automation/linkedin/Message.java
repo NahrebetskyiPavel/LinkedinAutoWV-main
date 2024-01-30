@@ -343,13 +343,6 @@ public class Message extends Base{
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                 },
-                //2
-                {       "Anastasiia Kuntii",
-                        "anastasiiakuntii@gmail.com",
-                        "33222200Shin",
-                },
-
-
                 //6
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
