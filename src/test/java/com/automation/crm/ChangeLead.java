@@ -61,7 +61,9 @@ public class ChangeLead {
                 Thread.sleep(200);
                 if (person.find(By.cssSelector(".mn-connection-card__name")).text().contains("LinkedIn Member")) continue;
                 String[] personNamearr = person.find(By.cssSelector(".mn-connection-card__name")).text().split("\\s");
-                String personName = personNamearr[0] + " " + personNamearr[1];
+                String personName;
+                if (personNamearr.length>1)  personName = personNamearr[0] + " " + personNamearr[1];
+                else personName =  personNamearr[0];
                 Thread.sleep(randomResult);
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
@@ -98,7 +100,7 @@ public class ChangeLead {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Александра ",
+/*                {       "Александра ",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                 },
@@ -174,7 +176,7 @@ public class ChangeLead {
                 {       "Oleg Konorov",
                         "oleg.konorov@outlook.com",
                         "33222200Shin",
-                },
+                },*/
                 {       "Pavel  Nagrebetski",
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
