@@ -34,8 +34,9 @@ public class AddLeads extends Base {
     @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
     public void addLeads(String name, String email, String password,  String msg, String linkedinperson){
         int leadsRequestCount = 1;
+        for (int j = 0; j < 10; j++) {
         Thread.sleep(randomResult);
-        String data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
+        String data = zohoCrmHelper.getLeadList( token, j,  "Waiting",  linkedinperson);
         if (data.contains("INVALID_TOKEN")){
             String token = zohoCrmHelper.renewAccessToken();
             data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
@@ -46,8 +47,6 @@ public class AddLeads extends Base {
             System.out.println("Skip" + linkedinperson);
             return;
         };
-
-
         setupBrowser(true, "name");
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
@@ -70,6 +69,7 @@ public class AddLeads extends Base {
             String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
             if (String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(i).get("Website")).contains("null")) continue;
             String personRef = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
+            System.out.println("personRe: " + personRef);
             Selenide.open(personRef);
             Thread.sleep(randomResult);
             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) {
@@ -108,6 +108,8 @@ public class AddLeads extends Base {
                     System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
                 };
             }
+        }
+            if (leadsAddedCount==30) break;
         }
     }
 
