@@ -42,6 +42,11 @@ public class Message extends Base{
         sendFolowUpFourtMsg(linkedInAccount, token);
         sendFolowUpFifthMsg(linkedInAccount, token);
         sendFolowUpMeetingMsg(linkedInAccount, token);
+        sendFolowUpSevenMsg(linkedInAccount, token);
+        sendFolowUpEightMsg(linkedInAccount, token);
+        sendFolowUpNineMsg(linkedInAccount, token);
+        sendFolowUpMsg(linkedInAccount, token, "Ten automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Eleven automessage");
     }
 
     @SneakyThrows
@@ -373,6 +378,275 @@ public class Message extends Base{
                         System.out.println(status);
                         System.out.println(subject);
                         if (status.equals("Not Started") &&  subject.contains("Meeting automessage") && localDateIsBeforeGivenComparison(duedate)){
+                            Selenide.open(leadPage);
+                            Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            new PersonPage().msgBtn.click();
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
+                                // zoho.changeLeadStatus(id, token, chatLeadStatusid);
+                                continue;
+                            }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg("Lets go to meeting");
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                        };
+                    }
+                }
+
+                System.out.println();
+                System.out.println("\n");
+                System.out.println("====================================================================");
+                System.out.println("\n");
+            }
+        }
+
+    }
+
+    @SneakyThrows
+    public void sendFolowUpSevenMsg(String linkedinAccount, String token){
+        System.out.println("START Meeting MSG");
+
+        for (int n = 0; n < 100; n++) {
+            String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
+            if (data.isEmpty()) break;
+            System.out.println("||==================================================================||");
+            JSONObject responseBodyJsonObject = new JSONObject( data );
+            //System.out.println(responseBodyJsonObject);
+            System.out.println(responseBodyJsonObject.getJSONArray("data").length());
+            for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
+                String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
+                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
+                String[] fullNameArr = fullName.split(" ");
+                String leadName = fullNameArr[0];                System.out.println(id);
+                System.out.println(fullName);
+                System.out.println(leadPage);
+                String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.isEmpty()) continue;
+                JSONObject tasksData = new JSONObject( tasks );
+                System.out.println(tasksData.getJSONArray("data"));
+                System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
+                if (tasksData.getJSONArray("data").length() >0){
+                    for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
+                        String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
+                        String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
+                        String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
+                        String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
+
+                        System.out.println(taskId);
+                        System.out.println(status);
+                        System.out.println(subject);
+                        if (status.equals("Not Started") &&  subject.contains("Seven automessage") && localDateIsBeforeGivenComparison(duedate)){
+                            Selenide.open(leadPage);
+                            Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            new PersonPage().msgBtn.click();
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
+                                // zoho.changeLeadStatus(id, token, chatLeadStatusid);
+                                continue;
+                            }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg("Lets go to meeting");
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                        };
+                    }
+                }
+
+                System.out.println();
+                System.out.println("\n");
+                System.out.println("====================================================================");
+                System.out.println("\n");
+            }
+        }
+
+    }
+    @SneakyThrows
+    public void sendFolowUpEightMsg(String linkedinAccount, String token){
+        System.out.println("START Meeting MSG");
+
+        for (int n = 0; n < 100; n++) {
+            String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
+            if (data.isEmpty()) break;
+            System.out.println("||==================================================================||");
+            JSONObject responseBodyJsonObject = new JSONObject( data );
+            //System.out.println(responseBodyJsonObject);
+            System.out.println(responseBodyJsonObject.getJSONArray("data").length());
+            for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
+                String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
+                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
+                String[] fullNameArr = fullName.split(" ");
+                String leadName = fullNameArr[0];                System.out.println(id);
+                System.out.println(fullName);
+                System.out.println(leadPage);
+                String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.isEmpty()) continue;
+                JSONObject tasksData = new JSONObject( tasks );
+                System.out.println(tasksData.getJSONArray("data"));
+                System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
+                if (tasksData.getJSONArray("data").length() >0){
+                    for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
+                        String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
+                        String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
+                        String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
+                        String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
+
+                        System.out.println(taskId);
+                        System.out.println(status);
+                        System.out.println(subject);
+                        if (status.equals("Not Started") &&  subject.contains("Eight automessage") && localDateIsBeforeGivenComparison(duedate)){
+                            Selenide.open(leadPage);
+                            Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            new PersonPage().msgBtn.click();
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
+                                // zoho.changeLeadStatus(id, token, chatLeadStatusid);
+                                continue;
+                            }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg("Lets go to meeting");
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                        };
+                    }
+                }
+
+                System.out.println();
+                System.out.println("\n");
+                System.out.println("====================================================================");
+                System.out.println("\n");
+            }
+        }
+
+    }
+    @SneakyThrows
+    public void sendFolowUpNineMsg(String linkedinAccount, String token){
+        System.out.println("START Meeting MSG");
+
+        for (int n = 0; n < 100; n++) {
+            String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
+            if (data.isEmpty()) break;
+            System.out.println("||==================================================================||");
+            JSONObject responseBodyJsonObject = new JSONObject( data );
+            //System.out.println(responseBodyJsonObject);
+            System.out.println(responseBodyJsonObject.getJSONArray("data").length());
+            for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
+                String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
+                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
+                String[] fullNameArr = fullName.split(" ");
+                String leadName = fullNameArr[0];                System.out.println(id);
+                System.out.println(fullName);
+                System.out.println(leadPage);
+                String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.isEmpty()) continue;
+                JSONObject tasksData = new JSONObject( tasks );
+                System.out.println(tasksData.getJSONArray("data"));
+                System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
+                if (tasksData.getJSONArray("data").length() >0){
+                    for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
+                        String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
+                        String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
+                        String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
+                        String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
+
+                        System.out.println(taskId);
+                        System.out.println(status);
+                        System.out.println(subject);
+                        if (status.equals("Not Started") &&  subject.contains("Nine automessage") && localDateIsBeforeGivenComparison(duedate)){
+                            Selenide.open(leadPage);
+                            Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            new PersonPage().msgBtn.click();
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
+                                // zoho.changeLeadStatus(id, token, chatLeadStatusid);
+                                continue;
+                            }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg("Lets go to meeting");
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                        };
+                    }
+                }
+
+                System.out.println();
+                System.out.println("\n");
+                System.out.println("====================================================================");
+                System.out.println("\n");
+            }
+        }
+
+    }
+    @SneakyThrows
+    public void sendFolowUpMsg(String linkedinAccount, String token, String taskName){
+        System.out.println("START Meeting MSG");
+
+        for (int n = 0; n < 100; n++) {
+            String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
+            if (data.isEmpty()) break;
+            System.out.println("||==================================================================||");
+            JSONObject responseBodyJsonObject = new JSONObject( data );
+            //System.out.println(responseBodyJsonObject);
+            System.out.println(responseBodyJsonObject.getJSONArray("data").length());
+            for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
+                String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
+                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
+                String[] fullNameArr = fullName.split(" ");
+                String leadName = fullNameArr[0];                System.out.println(id);
+                System.out.println(fullName);
+                System.out.println(leadPage);
+                String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.isEmpty()) continue;
+                JSONObject tasksData = new JSONObject( tasks );
+                System.out.println(tasksData.getJSONArray("data"));
+                System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
+                if (tasksData.getJSONArray("data").length() >0){
+                    for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
+                        String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
+                        String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
+                        String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
+                        String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
+                        String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
+
+                        System.out.println(taskId);
+                        System.out.println(status);
+                        System.out.println(subject);
+                        if (status.equals("Not Started") &&  subject.contains(taskName) && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
