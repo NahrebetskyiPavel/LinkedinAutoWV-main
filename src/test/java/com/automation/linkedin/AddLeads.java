@@ -131,19 +131,12 @@ public class AddLeads extends Base {
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Natalia Marcun"
                 },
-
                 //9
                 {       "Artem Pevchenko",
                         "artemter223@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Artem Pevchenko"
-                },
-                {       "Roman Gulyaev",
-                        "gulyaev.roman@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Roman Gulyaev"
                 },
                 {       "Dmytro Andreev",
                         "andreev.dima@outlook.de",
@@ -157,18 +150,39 @@ public class AddLeads extends Base {
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Dymitr Tolmach"
                 },
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Oleg Valter"
-                },
+
                 {       "Oleg Konorov",
                         "oleg.konorov@outlook.com",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Oleg Konorov"
                 },
+
+                {       "Fedotov Alexey",
+                        "fedotov.alexey@outlook.de",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Oleg Konorov"
+                },
+                {       "Demetrios Mikhaylov",
+                        "demetrios.Mikhaylov@outlook.de",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Oleg Konorov"
+                },
+                {       "Loïs David",
+                        "l0is.david@outlook.fr ",
+                        "iWeWv1Ci",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Oleg Konorov"
+                },
+                {       "Anna Bydynskaya",
+                        "anna.bydynskaya@outlook.it ",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Oleg Konorov"
+                },
+
 
         };
     }
