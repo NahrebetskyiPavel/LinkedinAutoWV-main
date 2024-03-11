@@ -162,25 +162,49 @@ public class AddLeads extends Base {
                         "fedotov.alexey@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Oleg Konorov"
+                        "Fedotov Alexey"
                 },
                 {       "Demetrios Mikhaylov",
                         "demetrios.Mikhaylov@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Oleg Konorov"
+                        "Demetrios Mikhaylov"
                 },
                 {       "Loïs David",
-                        "l0is.david@outlook.fr ",
+                        "l0is.david@outlook.fr",
                         "iWeWv1Ci",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Oleg Konorov"
+                        "Loïs David"
                 },
                 {       "Anna Bydynskaya",
-                        "anna.bydynskaya@outlook.it ",
+                        "anna.bydynskaya@outlook.it",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Oleg Konorov"
+                        "Anna Bydynskaya"
+                },
+                {       "vozniakanastasia52",
+                        "vozniakanastasia52@gmail.com",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "vozniakanastasia52"
+                },
+                {       "vozniakanastasia52",
+                        "vozniakanastasia52@gmail.com",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "vozniakanastasia52"
+                },
+                {       "Eugenia Kartasheva",
+                        "eugenia.kartasheva@outlook.it",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Eugenia Kartasheva"
+                },
+                {       "Roksolana Trofimchuk",
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Roksolana Trofimchuk"
                 },
 
 
