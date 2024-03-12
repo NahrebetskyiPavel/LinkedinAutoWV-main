@@ -46,7 +46,13 @@ public class Message extends Base{
         sendFolowUpEightMsg(linkedInAccount, token);
         sendFolowUpNineMsg(linkedInAccount, token);
         sendFolowUpMsg(linkedInAccount, token, "Ten automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Eleven automessage");
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp first automessage");
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp second automessage");
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp third automessage");
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp forth automessage");
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp fifth automessage");
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage");
+
     }
 
     @SneakyThrows
