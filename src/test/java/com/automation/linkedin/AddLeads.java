@@ -1,5 +1,6 @@
 package com.automation.linkedin;
 
+import api.helpers.WiseVisionApiHelper;
 import api.helpers.ZohoCrmHelper;
 import com.automation.linkedin.pages.PersonPage;
 import com.automation.linkedin.pages.login.SignInPage;
@@ -24,6 +25,7 @@ public class AddLeads extends Base {
     PersonPage personPage = new PersonPage();
     MessagingPage messagingPage = new MessagingPage();
     ZohoCrmHelper zohoCrmHelper = new ZohoCrmHelper();
+    WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
     Random random = new Random();
     int low = 2000;
     int high = 5000;
@@ -45,6 +47,8 @@ public class AddLeads extends Base {
 
         if (data.isEmpty()) {
             System.out.println("Skip" + linkedinperson);
+            wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Skip" + linkedinperson + "because data isEmpty");
+
             return;
         };
         setupBrowser(true, "name");
@@ -94,7 +98,11 @@ public class AddLeads extends Base {
             }
             leadsAddedCount = leadsRequestCount++;
             System.out.println("Leads added from " + name + "account = " + leadsAddedCount);
-            if (leadsAddedCount==30) break;
+            wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Leads added from " + name + "account = " + leadsAddedCount);
+            if (leadsAddedCount==30) {
+                wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + leadsAddedCount + "leadsAdded = " + leadsAddedCount);
+                break;
+            };
             {
                 String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
                 JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;

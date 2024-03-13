@@ -36,6 +36,20 @@ public class WiseVisionApiHelper {
         Response response = client.newCall(request).execute();
 
     }
+    @SneakyThrows
+    public void SendMsgToTelegram(String chatId, String botToken, String text){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\n    \"chat_id\": \""+chatId+"\",\n    \"text\": \""+text+"\",\n    \"disable_notification\": false\n}");
+        Request request = new Request.Builder()
+                .url("https://api.telegram.org/bot"+botToken+"/sendMessage")
+                .method("POST", body)
+                .addHeader("Content-Type", "application/json")
+                .build();
+        Response response = client.newCall(request).execute();
+
+    }
 
 
 
