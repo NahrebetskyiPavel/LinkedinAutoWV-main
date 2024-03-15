@@ -37,14 +37,14 @@ public class Message extends Base{
         Thread.sleep(10000);
         String  token = zoho.renewAccessToken();
 
-        sendFollowUpSecondMsg(linkedInAccount, token);
-        sendFolowUpThirdMsg(linkedInAccount, token);
-        sendFolowUpFourtMsg(linkedInAccount, token);
-        sendFolowUpFifthMsg(linkedInAccount, token);
-        sendFolowUpMeetingMsg(linkedInAccount, token);
-        sendFolowUpSevenMsg(linkedInAccount, token);
-        sendFolowUpEightMsg(linkedInAccount, token);
-        sendFolowUpNineMsg(linkedInAccount, token);
+
+        sendFolowUpMsg(linkedInAccount, token, "Second automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Third automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Fourt automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Fifth automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Seven automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Eight automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Nine automessage");
         sendFolowUpMsg(linkedInAccount, token, "Ten automessage");
         sendFolowUpMsg(linkedInAccount, token, "FollowUp first automessage");
         sendFolowUpMsg(linkedInAccount, token, "FollowUp second automessage");
@@ -52,6 +52,8 @@ public class Message extends Base{
         sendFolowUpMsg(linkedInAccount, token, "FollowUp forth automessage");
         sendFolowUpMsg(linkedInAccount, token, "FollowUp fifth automessage");
         sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage");
+
+        sendFolowUpMsg(linkedInAccount, token, "Meeting automessage");
 
     }
 
@@ -245,7 +247,7 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") &&  subject.contains("Fourt automessage") && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started") || status.equals("In Progress") &&  subject.contains("Fourt automessage") && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
@@ -652,7 +654,7 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") &&  subject.contains(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started") || status.equals("In Progress") &&  subject.contains(taskName) && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
