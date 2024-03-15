@@ -44,6 +44,7 @@ public class AddLeads extends Base {
             data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
         }
         int leadsAddedCount = 0;
+        int totalLeadsAddedCount = 0;
 
         if (data.isEmpty()) {
             System.out.println("Skip" + linkedinperson);
@@ -97,10 +98,14 @@ public class AddLeads extends Base {
                 break;
             }
             leadsAddedCount = leadsRequestCount++;
+            totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
             System.out.println("Leads added from " + name + "account = " + leadsAddedCount);
             wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Leads added from " + name + "account = " + leadsAddedCount);
             if (leadsAddedCount==30) {
+
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + leadsAddedCount + "leadsAdded = " + leadsAddedCount);
+                wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount );
+
                 break;
             };
             {
@@ -117,7 +122,11 @@ public class AddLeads extends Base {
                 };
             }
         }
-            if (leadsAddedCount==30) break;
+            if (leadsAddedCount==30) {
+                wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount );
+
+                break;
+            };
         }
     }
 
