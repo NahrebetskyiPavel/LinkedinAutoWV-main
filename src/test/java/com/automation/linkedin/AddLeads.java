@@ -94,6 +94,8 @@ public class AddLeads extends Base {
             if (personPage.limitAlertHeader.exists()){
 
                 System.out.println("\n========================================================================\n" +"Out of requests"+ "\n========================================================================\n");
+                wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Skip" + linkedinperson + "Out of requests");
+
                 WebDriverRunner.getWebDriver().quit();
                 break;
             }
