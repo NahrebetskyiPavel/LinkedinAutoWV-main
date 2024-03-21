@@ -31,6 +31,7 @@ public class AddLeads extends Base {
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
     String token = zohoCrmHelper.renewAccessToken();
+    int totalLeadsAddedCount = 0;
 
     @SneakyThrows
     @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
@@ -44,7 +45,6 @@ public class AddLeads extends Base {
             data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
         }
         int leadsAddedCount = 0;
-        int totalLeadsAddedCount = 0;
 
         if (data.isEmpty()) {
             System.out.println("Skip" + linkedinperson);
