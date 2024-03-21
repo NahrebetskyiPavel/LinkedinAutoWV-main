@@ -159,18 +159,18 @@ public class AddLeads extends Base {
                         "Natalia Marcun"
                 },
 //9
-                {       "Artem Pevchenko",
-                        "artemter223@outlook.com",
-                        "33222200Shin",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Artem Pevchenko"
-                },
-                {       "Dmytro Andreev",
+//                {       "Artem Pevchenko",
+//                        "artemter223@outlook.com",
+//                        "33222200Shin",
+//                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+//                        "Artem Pevchenko"
+//                },
+/*                {       "Dmytro Andreev",
                         "andreev.dima@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Dmytro Andreev"
-                },
+                },*/
                 {       "Dymitr Tolmach",
                         "dymitr.tolmach1012@outlook.com",
                         "33222200Shin",
@@ -219,12 +219,12 @@ public class AddLeads extends Base {
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Marian Reshetun"
                 },
-                {       "Alex Borzov",
+/*                {       "Alex Borzov",
                         "borzov.alex@outlook.de",
                         "33222200Shin",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Alex Borzov"
-                },
+                },*/
                 {       "Barakhoyev Musa",
                         "barakhoyev.musa@outlook.it",
                         "33222200Shin",
