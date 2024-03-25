@@ -140,26 +140,14 @@ public class Message extends Base{
                         "33222200Shin",
                 },
 
-                //9
-                {       "Artem Pevchenko",
-                        "artemter223@outlook.com",
-                        "33222200Shin",
-                },
+
                 //11
                 {       "Roman Gulyaev",
                         "gulyaev.roman@outlook.com",
                         "33222200Shin",
                 },
-                //12
-                {       "Dmytro Andreev",
-                        "andreev.dima@outlook.de",
-                        "33222200Shin",
-                },
 
-                {       "Dymitr Tolmach",
-                        "dymitr.tolmach1012@outlook.com",
-                        "33222200Shin",
-                },
+
                 {       "Oleg Valter",
                         "ovalter@outlook.co.nz",
                         "Shmee2023",
