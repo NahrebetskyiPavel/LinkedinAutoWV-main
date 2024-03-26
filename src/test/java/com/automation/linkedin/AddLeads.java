@@ -26,6 +26,9 @@ public class AddLeads extends Base {
     MessagingPage messagingPage = new MessagingPage();
     ZohoCrmHelper zohoCrmHelper = new ZohoCrmHelper();
     WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
+
+    String attemptedToContact = "421659000010541270";
+    String attemptedToContact1 = "421659000001302365";
     Random random = new Random();
     int low = 2000;
     int high = 5000;
@@ -70,12 +73,32 @@ public class AddLeads extends Base {
             String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
             if (String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(i).get("Website")).contains("null")) continue;
             String personRef = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
-            System.out.println("personRe: " + personRef);
+            System.out.println("personRef: " + personRef);
+            System.out.println("id: " + id);
             Thread.sleep(randomResult);
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount + "\n");
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + linkedinperson + " "+ leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
+            {
+                wiseVisionApiHelper.impastoAddToFriends(profileId, email, password, cookie, personRef);
 
-            wiseVisionApiHelper.impastoAddToFriends(profileId, email, password, cookie, personRef);
+                String changeLeadStatusResponse;
+                JSONObject changeLeadStatusResponseJson;
+                changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact1);
+                changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+                    if (changeLeadStatusResponseJson.getString("code").equals("INVALID_DATA")) {
+                    changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact);
+                    changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+                    }
+                System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+                System.out.println("\n" );
+                if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
+                    token = zohoCrmHelper.renewAccessToken();
+                    zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
+                }
+                if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
+                    System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
+                };
+            }
 
             leadsAddedCount = leadsRequestCount++;
             totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
@@ -88,19 +111,7 @@ public class AddLeads extends Base {
 
                 break;
             };
-            {
-                String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
-                JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-                System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
-                System.out.println("\n" );
-                if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
-                    token = zohoCrmHelper.renewAccessToken();
-                    zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
-                }
-                if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
-                    System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
-                };
-            }
+
         }
             if (leadsAddedCount==25) {
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","\nTOTAL = " + totalLeadsAddedCount + "\n");
@@ -117,8 +128,8 @@ public class AddLeads extends Base {
                 {       "alexey-fedotov-41a4a42b2",
                         "fedotov.alexey@outlook.de",
                         "33222200Shin",
-                        "AQEDAUst11YFB92AAAABjnTUMkEAAAGOmOC2QVYAdaax2yBgrlTn3hSPMb4_zrML0lgNg8_Nq5qXmUj4QP3rTx_dyrF1eAEmzbwEXOL673FlZAdkRqyVZo-KhkJnl4RwmWtXS860aExDWmd0GZSiksPl",
-                        "Aleksandra Sternenko"
+                        "AQEDAUst11YDXkwtAAABjnWOXgkAAAGOmZriCU0AtuKG_eCf1YjB0qq1iJOy2u8pEpMBJD3vUW7eOV7cjVEkEoyTiU3TX_9cs5fUcXjKXxrCxSKbE3MihEPEUG972caFxWvP_tXkX_q5OAjvRcyflMR5",
+                        "Fedotov Alexey"
                 },
 
         };
