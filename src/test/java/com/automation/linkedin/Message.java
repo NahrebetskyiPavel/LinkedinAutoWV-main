@@ -1,5 +1,6 @@
 package com.automation.linkedin;
 
+import api.helpers.WiseVisionApiHelper;
 import api.helpers.ZohoCrmHelper;
 import com.automation.linkedin.pages.PersonPage;
 import com.automation.linkedin.pages.login.SignInPage;
@@ -19,6 +20,7 @@ import static utils.Utils.localDateIsBeforeGivenComparison;
 public class Message extends Base{
     SignInPage signInPage = new SignInPage();
     MessagingPage messagingPage = new MessagingPage();
+    WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
     ZohoCrmHelper zoho = new ZohoCrmHelper();
     String chatLeadStatusid = "421659000006918053";
     private String  msg = "Good day to you.\n" +
@@ -29,37 +31,32 @@ public class Message extends Base{
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
-    public void senddMsg(String linkedInAccount,  String email, String password){
-        setupBrowser(true, linkedInAccount);
-        openLinkedInLoginPage();
-        signInPage.signIn(randomResult, email, password);
-        WebDriverRunner.getWebDriver().manage().window().maximize();
-        Thread.sleep(10000);
+    public void senddMsg(String profileId, String email, String password, String cookie, String linkedInAccount ){
+
         String  token = zoho.renewAccessToken();
 
 
-        sendFolowUpMsg(linkedInAccount, token, "Second automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Third automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Fourt automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Fifth automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Seven automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Eight automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Nine automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Ten automessage");
-        sendFolowUpMsg(linkedInAccount, token, "FollowUp first automessage");
-        sendFolowUpMsg(linkedInAccount, token, "FollowUp second automessage");
-        sendFolowUpMsg(linkedInAccount, token, "FollowUp third automessage");
-        sendFolowUpMsg(linkedInAccount, token, "FollowUp forth automessage");
-        sendFolowUpMsg(linkedInAccount, token, "FollowUp fifth automessage");
-        sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage");
+        sendFolowUpMsg(linkedInAccount, token,  "Second automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "Fourt automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "Fifth automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "Seven automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "Eight automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "Nine automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "Ten automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp first automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp second automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp third automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp forth automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp fifth automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage", profileId,  email,  password,  cookie );
 
-        sendFolowUpMsg(linkedInAccount, token, "Meeting automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Meeting automessage", profileId,  email,  password,  cookie );
 
     }
 
 
     @SneakyThrows
-    public void sendFolowUpMsg(String linkedinAccount, String token, String taskName){
+    public void sendFolowUpMsg(String linkedinAccount, String token, String taskName, String profileId, String email, String password, String cookie ){
         System.out.println("START Meeting MSG");
 
         for (int n = 0; n < 100; n++) {
@@ -94,23 +91,16 @@ public class Message extends Base{
                         System.out.println(status);
                         System.out.println(subject);
                         if (status.equals("Not Started") || status.equals("In Progress") &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
-                            Selenide.open(leadPage);
                             Thread.sleep(10000);
-                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
-                            new PersonPage().msgBtn.click();
-                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
-                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
-                                // zoho.changeLeadStatus(id, token, chatLeadStatusid);
-                                continue;
-                            }
-                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
                             if (description.equals("null")) {
-                                new PersonPage().sentMsg("Lets go to meeting");
+                                //new PersonPage().sentMsg("Lets go to meeting");
+                                wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, "Hello, how are you doing?");
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
-                                new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                //new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, description.replace("NAME",leadName));
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
@@ -129,44 +119,12 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-                //1
-                {       "Aleksandra Sternenko",
-                        "alexandra.sternenko@gmail.com",
-                        "asd321qq",
-                },
-                //6
-                {       "Natalia Marcun",
-                        "natalia.marcoon@gmail.com ",
+                {       "alexey-fedotov-41a4a42b2",
+                        "fedotov.alexey@outlook.de",
                         "33222200Shin",
+                        "AQEDAUst11YFB92AAAABjnTUMkEAAAGOmOC2QVYAdaax2yBgrlTn3hSPMb4_zrML0lgNg8_Nq5qXmUj4QP3rTx_dyrF1eAEmzbwEXOL673FlZAdkRqyVZo-KhkJnl4RwmWtXS860aExDWmd0GZSiksPl",
+                        "Aleksandra Sternenko"
                 },
-
-
-                //11
-                {       "Roman Gulyaev",
-                        "gulyaev.roman@outlook.com",
-                        "33222200Shin",
-                },
-
-
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
-                },
-                {       "Oleg Konorov",
-                        "oleg.konorov@outlook.com",
-                        "33222200Shin",
-                },
-
-                {       "Dmitriy Semiletov",
-                        "semi.dima@outlook.com",
-                        "33222200Shin",
-                },
-
-                {       "Maria Deyneka",
-                        "deynekamariawv@gmail.com",
-                        "3N2wbnsw",
-                },
-
         };
     }
 }

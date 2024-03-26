@@ -3,7 +3,6 @@ package api.helpers;
 
 import lombok.SneakyThrows;
 import okhttp3.*;
-import org.json.JSONObject;
 import org.testng.annotations.Test;
 public class WiseVisionApiHelper {
     @SneakyThrows
@@ -35,6 +34,35 @@ public class WiseVisionApiHelper {
                 .build();
         Response response = client.newCall(request).execute();
 
+    }
+    @SneakyThrows
+    public String sentMsgImpasto(String profileId, String email, String password, String cookie, String spreadsheetUrl, String message){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\n    " +
+                "\"profileId\": \""+profileId+"\",\n    " +
+                "\"data\": {\n        " +
+                "\"email\": \""+email+"\",\n        " +
+                "\"password\": \""+password+"\",\n        " +
+                "\"cookie\": \""+cookie+"\",\n        " +
+                "\"messages\": [\n            {\n                " +
+                "\"spreadsheetUrl\": \""+spreadsheetUrl+"/\",\n                " +
+                "\"message\": \""+message+"\"\n            " +
+                "}\n        ]\n    },\n    " +
+                "\"meta\": {\n      \"languages\":[\"ua-UA\",\"ua\"],\n      \"language\":\"ua-UA\",\n      \"timeZone\":\"Europe/Kiev\",\n      \"ip\":\"145.224.120.77\"\n    },\n    " +
+                "\"callback\": \"https://test.com\"\n}"
+        );
+        Request request = new Request.Builder()
+                .url("https://api.impasto.cpga.systems/api/impasto.script.message_sender")
+                .method("POST", body)
+                .addHeader("Authorization", "b9cb85f7-3211-4e13-b45f-748cbbc71bc1")
+                .addHeader("Content-Type", "application/json")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseBody = response.body().string();
+        System.out.println(responseBody);
+        return responseBody;
     }
 
 
