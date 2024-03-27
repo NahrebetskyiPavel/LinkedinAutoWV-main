@@ -93,7 +93,7 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") || status.equals("In Progress") &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("Not Started")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
@@ -107,6 +107,27 @@ public class Message extends Base{
                             System.out.println("sent msg!!!");
                             if (description.equals("null")) {
                                 new PersonPage().sentMsg("Lets go to meeting");
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                            else {
+                                new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                        };
+                        if (status.equals("Not Started")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                            Selenide.open(leadPage);
+                            Thread.sleep(10000);
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            new PersonPage().msgBtn.click();
+                            List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
+                            if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
+                                // zoho.changeLeadStatus(id, token, chatLeadStatusid);
+                                continue;
+                            }
+                            if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
+                            System.out.println("sent msg!!!");
+                            if (description.equals("null")) {
+                                new PersonPage().sentMsg("Hello" + leadName + "how are you doing");
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
