@@ -10,6 +10,7 @@ import lombok.SneakyThrows;
 import org.json.JSONObject;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.StatusChecker;
 import utils.Utils;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class Message extends Base{
     MessagingPage messagingPage = new MessagingPage();
     WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
     ZohoCrmHelper zoho = new ZohoCrmHelper();
+    StatusChecker statusChecker = new StatusChecker();
     String chatLeadStatusid = "421659000006918053";
     private String  msg = "Good day to you.\n" +
             "\n" +
@@ -37,6 +39,7 @@ public class Message extends Base{
 
 
         sendFolowUpMsg(linkedInAccount, token,  "Second automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token,  "Third automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Fourt automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Fifth automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Seven automessage", profileId,  email,  password,  cookie );
@@ -57,7 +60,7 @@ public class Message extends Base{
 
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName, String profileId, String email, String password, String cookie ){
-        System.out.println("START Meeting MSG");
+        System.out.println("START " + taskName);
 
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
@@ -71,7 +74,8 @@ public class Message extends Base{
                 String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
-                String leadName = fullNameArr[0];                System.out.println(id);
+                String leadName = fullNameArr[0];
+                System.out.println(id);
                 System.out.println(fullName);
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
@@ -81,6 +85,7 @@ public class Message extends Base{
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
                 if (tasksData.getJSONArray("data").length() >0){
                     for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
+                        System.out.println("==================================================================");
                         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
@@ -90,20 +95,78 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.equals("Not Started") || status.equals("In Progress") &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                        boolean subjectequalstaskName = subject.equals(taskName);
+                        System.out.println("subjectequalstaskName= " + subjectequalstaskName);
+                        boolean descriptionEqualsNull = description.equals("null");
+                        System.out.println("descriptionEqualsNull= " + descriptionEqualsNull);
+
+                        if (subject.equals(taskName) && status.equals("Not Started")  && localDateIsBeforeGivenComparison(duedate) ){
+
+                            System.out.println("subject " + subject);
+                            System.out.println("equals " +subject.equals(taskName));
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
-                            if (description.equals("null")) {
-                                //new PersonPage().sentMsg("Lets go to meeting");
-                                wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, "Hello, how are you doing?");
-                                zoho.changeTaskStatus(token, taskId,"Closed");
-                            }
-                            else {
+                            {
                                 //new PersonPage().sentMsg(description.replace("NAME",leadName));
-                                wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, description.replace("NAME",leadName));
+                                String msg = description.replace("NAME",leadName).replace("\n","\\n");
+                                System.out.println(msg);
+                                String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
+                                System.out.println("response " + response);
+                                Thread.sleep(1000*60);
+                                int impastoTaskId = (int) new JSONObject( response ).get("taskId");
+                                System.out.println("taskid = " + impastoTaskId);
+                                String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
+                                System.out.println("taskStatus " + taskStatus);
+                                if (taskStatus.equals("new")) {
+                                    Thread.sleep(30000);
+                                    taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
+                                    System.out.println("taskStatus " + taskStatus);
+
+                                }
+                                try {
+                                    statusChecker.waitForStatus("finished", taskStatus, 60000);
+                                    System.out.println("Status is now 'finished'.");
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
-                        };
+                        }
+                        if ( subject.equals(taskName) && status.equals("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
+
+                            System.out.println("subject " + subject);
+                            System.out.println("equals " +subject.equals(taskName));
+                            Thread.sleep(10000);
+                            System.out.println("sent msg!!!");
+                            {
+                                //new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                String msg = description.replace("NAME",leadName).replace("\n","\\n");
+                                System.out.println(msg);
+                                String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
+                                System.out.println("response " + response);
+                                Thread.sleep(1000*60);
+                                int impastoTaskId = (int) new JSONObject( response ).get("taskId");
+                                System.out.println("taskid = " + impastoTaskId);
+                                String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
+                                if (taskStatus.equals("new")) {
+                                    Thread.sleep(30000);
+                                    taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
+                                    System.out.println("taskStatus " + taskStatus);
+
+                                }
+
+                                    System.out.println("taskStatus " + taskStatus);
+                                try {
+                                    statusChecker.waitForStatus("finished", taskStatus, 60000);
+                                    System.out.println("Status is now 'finished'.");
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                        }
                     }
                 }
 
@@ -122,8 +185,8 @@ public class Message extends Base{
                 {       "alexey-fedotov-41a4a42b2",
                         "fedotov.alexey@outlook.de",
                         "33222200Shin",
-                        "AQEDAUst11YFB92AAAABjnTUMkEAAAGOmOC2QVYAdaax2yBgrlTn3hSPMb4_zrML0lgNg8_Nq5qXmUj4QP3rTx_dyrF1eAEmzbwEXOL673FlZAdkRqyVZo-KhkJnl4RwmWtXS860aExDWmd0GZSiksPl",
-                        "Aleksandra Sternenko"
+                        "AQEDAUst11YFDERKAAABjn-dyf0AAAGOo6pN_U4AFrQNTgzgR5PoN1yMXl0e78aXnzop0fgDNZ94xPRd9rChH32d1wikBnCERfjIilrb6xzLJkCzyZSRNXtO4MUsUPwROulXi6xAZn3tbrIJs2udcIya",
+                        "Fedotov Alexey"
                 },
         };
     }
