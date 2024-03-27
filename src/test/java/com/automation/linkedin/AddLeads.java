@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 
 import org.testng.annotations.Test;
+import utils.StatusChecker;
 
 import java.util.Random;
 
@@ -26,7 +27,7 @@ public class AddLeads extends Base {
     MessagingPage messagingPage = new MessagingPage();
     ZohoCrmHelper zohoCrmHelper = new ZohoCrmHelper();
     WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
-
+    StatusChecker statusChecker = new StatusChecker();
     String attemptedToContact = "421659000010541270";
     String attemptedToContact1 = "421659000001302365";
     Random random = new Random();
@@ -79,8 +80,16 @@ public class AddLeads extends Base {
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount + "\n");
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + linkedinperson + " "+ leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
             {
-                wiseVisionApiHelper.impastoAddToFriends(profileId, email, password, cookie, personRef);
-
+              String response =  wiseVisionApiHelper.impastoAddToFriends(profileId, email, password, cookie, personRef);
+                Thread.sleep(1000*60);
+              int taskId = (int) new JSONObject( response ).get("taskId");
+              String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId) ).getString("status");
+                try {
+                    statusChecker.waitForStatus("finished", taskStatus);
+                    System.out.println("Status is now 'finished'.");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 String changeLeadStatusResponse;
                 JSONObject changeLeadStatusResponseJson;
                 changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact1);

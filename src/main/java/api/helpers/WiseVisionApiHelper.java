@@ -3,6 +3,7 @@ package api.helpers;
 
 import lombok.SneakyThrows;
 import okhttp3.*;
+import org.json.JSONObject;
 import org.testng.annotations.Test;
 public class WiseVisionApiHelper {
     @SneakyThrows
@@ -79,7 +80,9 @@ public class WiseVisionApiHelper {
         String responseBody = response.body().string();
         System.out.println(responseBody);
         return responseBody;
-    }    @SneakyThrows
+    }
+
+    @SneakyThrows
     public String impastoAddToFriends(String profileId, String email, String password, String cookie, String spreadsheetUrl, String inviteMsg){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
@@ -109,10 +112,31 @@ public class WiseVisionApiHelper {
         return responseBody;
     }
 
+    @SneakyThrows
+    public String impastoGetTaskinfo(String profileId, int tasId){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://api.impasto.cpga.systems/api/task/"+tasId+"/info/"+profileId+"")
+                .method("POST", body)
+                .addHeader("Authorization", "b9cb85f7-3211-4e13-b45f-748cbbc71bc1")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseBody = response.body().string();
+        System.out.println(responseBody);
+        return responseBody;
+    }
+
 
 
     @Test
     public void teest(){
+    //  String data =  impastoGetTaskinfo("alexey-fedotov-41a4a42b2", 307);
+      //  System.out.println(new JSONObject( data ).getString("status"));
 
+  String a = impastoAddToFriends("alexey-fedotov-41a4a42b2", "fedotov.alexey@outlook.de", "33222200Shin", "AQEDAUst11YDXkwtAAABjnWOXgkAAAGOmZriCU0AtuKG_eCf1YjB0qq1iJOy2u8pEpMBJD3vUW7eOV7cjVEkEoyTiU3TX_9cs5fUcXjKXxrCxSKbE3MihEPEUG972caFxWvP_tXkX_q5OAjvRcyflMR5", "AQEDAUst11YDXkwtAAABjnWOXgkAAAGOmZriCU0AtuKG_eCf1YjB0qq1iJOy2u8pEpMBJD3vUW7eOV7cjVEkEoyTiU3TX_9cs5fUcXjKXxrCxSKbE3MihEPEUG972caFxWvP_tXkX_q5OAjvRcyflMR5");
+        System.out.println();
     }
 }
