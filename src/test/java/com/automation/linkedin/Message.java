@@ -187,6 +187,14 @@ public class Message extends Base{
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
                 },
+                {       "Anastasiia Vozniak",
+                        "vozniakanastasia52@gmail.com",
+                        "33222200Shin",
+                },
+                {       "Roksolana Trofimchuk",
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                },
 
         };
     }
