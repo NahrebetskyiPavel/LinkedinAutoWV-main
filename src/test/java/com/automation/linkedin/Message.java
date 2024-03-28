@@ -191,9 +191,30 @@ public class Message extends Base{
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
                 },
+
                 {       "Roksolana Trofimchuk",
-                        "roksolanatrofim@gmail.com ",
+                        "roksolanatrofim@gmail.com",
                         "89fcmTT88V",
+                },
+
+                {       "Pavel Nagrebetski",
+                        "pavelnagrebetski@gmail.com",
+                        "Asd321qq",
+                },
+
+                {       "Marian Reshetun",
+                        "reshetunmaryanwv@gmail.com",
+                        "33222200Shin",
+                },
+
+                {       "Anastasiia Kuntii",
+                        "anastasiiakuntii@gmail.com",
+                        "33222200Shin",
+                },
+
+                {       "Oleg Valter",
+                        "ovalter@outlook.co.nz",
+                        "Shmee2023",
                 },
 
         };
