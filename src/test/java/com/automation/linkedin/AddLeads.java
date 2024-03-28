@@ -231,12 +231,50 @@ public class AddLeads extends Base {
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Barakhoyev Musa"
                 },
+
+
                 {       "Maria Deyneka",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Maria Deyneka"
                 },
+
+                {       "Oleg Valter",
+                        "ovalter@outlook.co.nz",
+                        "Shmee2023",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Oleg Valter"
+                },
+
+                {       "Oleg Konorov",
+                        "oleg.konorov@outlook.com",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Oleg Konorov"
+                },
+
+                {       "Dmitriy Semiletov",
+                        "semi.dima@outlook.com",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Dmitriy Semiletov"
+                },
+
+                {       "Dmitriy Semiletov",
+                        "semi.dima@outlook.com",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Dmitriy Semiletov"
+                },
+
+                {       "Pavel Nagrebetski",
+                        "pavelnagrebetski@gmail.com",
+                        "Asd321qq",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Pavel Nagrebetski"
+                },
+
 
 
 
