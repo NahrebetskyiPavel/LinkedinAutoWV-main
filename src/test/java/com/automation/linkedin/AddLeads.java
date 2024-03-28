@@ -31,7 +31,7 @@ public class AddLeads extends Base {
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
     String token = zohoCrmHelper.renewAccessToken();
-    int totalLeadsAddedCount = 0;
+    static int totalLeadsAddedCount = 0;
 
     @SneakyThrows
     @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
@@ -108,10 +108,10 @@ public class AddLeads extends Base {
                 break;
             }
             leadsAddedCount = leadsRequestCount++;
-            totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
             System.out.println("Leads added from " + name + "account = " + leadsAddedCount);
             //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Leads added from " + name + "account = " + leadsAddedCount);
             if (leadsAddedCount==25) {
+                totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
 
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + name  + leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount + "\n");
