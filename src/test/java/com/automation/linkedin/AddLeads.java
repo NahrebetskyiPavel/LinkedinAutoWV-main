@@ -31,7 +31,7 @@ public class AddLeads extends Base {
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
     String token = zohoCrmHelper.renewAccessToken();
-    static int totalLeadsAddedCount = -300;
+    static int totalLeadsAddedCount = 0;
 
     @SneakyThrows
     @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
