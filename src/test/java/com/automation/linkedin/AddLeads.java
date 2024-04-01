@@ -90,7 +90,7 @@ public class AddLeads extends Base {
                     statusChecker.waitForStatus("finished", taskStatus);
                     System.out.println("Status is now 'finished'.");
                     if (taskResults.contains("error")) {
-                        System.out.println("ERROR: " +new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         continue;
                     };
                 } catch (InterruptedException e) {
