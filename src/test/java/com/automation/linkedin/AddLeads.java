@@ -83,10 +83,16 @@ public class AddLeads extends Base {
               String response =  wiseVisionApiHelper.impastoAddToFriends(profileId, email, password, cookie, personRef);
                 Thread.sleep(1000*60);
               int taskId = (int) new JSONObject( response ).get("taskId");
-              String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId) ).getString("status");
+              String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
+              String taskStatus = new JSONObject( taskInfo ).getString("status");
+              String taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 try {
                     statusChecker.waitForStatus("finished", taskStatus);
                     System.out.println("Status is now 'finished'.");
+                    if (taskResults.contains("error")) {
+                        System.out.println("ERROR: " +new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        continue;
+                    };
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

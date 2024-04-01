@@ -136,7 +136,7 @@ public class WiseVisionApiHelper {
     //  String data =  impastoGetTaskinfo("alexey-fedotov-41a4a42b2", 307);
       //  System.out.println(new JSONObject( data ).getString("status"));
 
-  String a = impastoAddToFriends("alexey-fedotov-41a4a42b2", "fedotov.alexey@outlook.de", "33222200Shin", "AQEDAUst11YDXkwtAAABjnWOXgkAAAGOmZriCU0AtuKG_eCf1YjB0qq1iJOy2u8pEpMBJD3vUW7eOV7cjVEkEoyTiU3TX_9cs5fUcXjKXxrCxSKbE3MihEPEUG972caFxWvP_tXkX_q5OAjvRcyflMR5", "AQEDAUst11YDXkwtAAABjnWOXgkAAAGOmZriCU0AtuKG_eCf1YjB0qq1iJOy2u8pEpMBJD3vUW7eOV7cjVEkEoyTiU3TX_9cs5fUcXjKXxrCxSKbE3MihEPEUG972caFxWvP_tXkX_q5OAjvRcyflMR5");
-        System.out.println();
+  String a = impastoGetTaskinfo("maryana-nikolayenko",468);
+        System.out.println(new JSONObject( a ).getJSONArray("results").getJSONObject(0));
     }
 }
