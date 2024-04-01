@@ -108,7 +108,7 @@ public class AddLeads extends Base {
                 break;
             }
             leadsAddedCount = leadsRequestCount++;
-            System.out.println("Leads added from " + name + "account = " + leadsAddedCount);
+            System.out.println("Leads added from " + name + " account = " + leadsAddedCount);
             //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Leads added from " + name + "account = " + leadsAddedCount);
             if (leadsAddedCount==25) {
                 totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
