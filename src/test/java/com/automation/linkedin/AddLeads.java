@@ -139,13 +139,7 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-                //1
-                {       "alexey-fedotov-41a4a42b2",
-                        "fedotov.alexey@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUst11YDXkwtAAABjnWOXgkAAAGOmZriCU0AtuKG_eCf1YjB0qq1iJOy2u8pEpMBJD3vUW7eOV7cjVEkEoyTiU3TX_9cs5fUcXjKXxrCxSKbE3MihEPEUG972caFxWvP_tXkX_q5OAjvRcyflMR5",
-                        "Fedotov Alexey"
-                },
+
                 {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
