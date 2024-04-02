@@ -192,13 +192,46 @@ public class ZohoCrmHelper {
         return responseBody;
     }
 
+    @SneakyThrows
+    public String getConnectionsList(String profileId, String email, String password, String cookie, String sortBy, String numberOfProfiles){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\n    " +
+                "\"profileId\": \""+profileId+"\",\n    " +
+                "\"data\": {\n        " +
+                "\"email\": \""+email+"\",\n        " +
+                "\"password\": \""+password+"\",\n        " +
+                "\"cookie\": \""+cookie+"\",\n" +
+                "\"sortBy\": \""+sortBy+"\",\n        " +
+                "\"numberOfProfiles\": "+numberOfProfiles+",\n        " +
+                "\"onlyRetrieveProfilesAfterDate\": true,\n        " +
+                "\"dateAfter\": \"02-03-2024\"\n    " +
+                "},\n    " +
+                "\"meta\": {\n\n    },\n    \"callback\": \"https://test.com\"\n}");
+        Request request = new Request.Builder()
+                .url("https://api.impasto.cpga.systems/api/impasto.script.connection_export")
+                .method("POST", body)
+                .addHeader("Authorization", "b9cb85f7-3211-4e13-b45f-748cbbc71bc1")
+                .addHeader("Content-Type", "application/json")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseBody = response.body().string();
+
+        return responseBody;
+    }
+
     @Test
     public void getToken(){
 
-        String token = this.renewAccessToken();
+/*        String token = this.renewAccessToken();
         String leadInfoResponseBody = getLeadInfoByFullName(token, "Tirza Bawa");
 
-        System.out.println(leadInfoResponseBody);
+        System.out.println(leadInfoResponseBody);*/
+
+        String connectionsListTask = getConnectionsList("andrei-gorbunkov-a34b4a2aa", "andreiGorbunkov@outlook.de", "33222200Shin","AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q", "Recently added", "50");
+        String connectionsListTaskId = connectionsListTask;
+        System.out.println(connectionsList);
         }
 
 }
