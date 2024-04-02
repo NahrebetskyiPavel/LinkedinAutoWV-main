@@ -33,39 +33,11 @@ public class ChangeLead {
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleAddToCRM")
     public void addLeadsToCRM(String name, String email, String password){
-        setupBrowser(true, name);
-        Thread.sleep(randomResult*3);
-        openLinkedInLoginPage();
-        signInPage.signIn(randomResult, email, password);
-        Thread.sleep(10000);
-
-        Selenide.open("https://www.linkedin.com/mynetwork/invite-connect/connections/");
-        WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
 
-        for (int i = 0; i < 2; i++) {
+       {
             Thread.sleep(randomResult);
-            Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
-            if ($x("//span[normalize-space()='Show more results']").exists()) {
-                //if (!$x("//span[normalize-space()='Show more results']").exists())continue;
-                $x("//span[normalize-space()='Show more results']").shouldBe(interactable).click();
-                Thread.sleep(randomResult);
-                Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
-            }
-        }
-        ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
-
-        for (int i = 0; i < leads.size(); i++) {
-            Thread.sleep(randomResult);
-            SelenideElement person = leads.get(i);
-                Thread.sleep(200);
-                if (person.find(By.cssSelector(".mn-connection-card__name")).text().contains("LinkedIn Member")) continue;
-                String[] personNamearr = person.find(By.cssSelector(".mn-connection-card__name")).text().split("\\s");
                 String personName;
-                if (personNamearr.length>1)  personName = personNamearr[0] + " " + personNamearr[1];
-                else personName =  personNamearr[0];
-                Thread.sleep(randomResult);
-
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
                 System.out.println(leadInfoResponseBody);
                 if (leadInfoResponseBody.contains("INVALID_TOKEN")) {
@@ -88,9 +60,8 @@ public class ChangeLead {
                         System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
                     };
                     }
-                    else {continue;}
+
                 }
-                else continue;
             Thread.sleep(randomResult);
         }
     }

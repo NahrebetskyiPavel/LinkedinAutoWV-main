@@ -196,9 +196,9 @@ public class ZohoCrmHelper {
     public void getToken(){
 
         String token = this.renewAccessToken();
-        String leadInfoResponseBody = getLeadInfoByFullName(token, personName);
+        String leadInfoResponseBody = getLeadInfoByFullName(token, "Tirza Bawa");
 
-        System.out.println(token);
+        System.out.println(leadInfoResponseBody);
         }
 
 }
