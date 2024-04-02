@@ -191,6 +191,22 @@ public class ZohoCrmHelper {
 
         return responseBody;
     }
+    @SneakyThrows
+    public String getTaskInfo(String taskId, String profileId){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://api.impasto.cpga.systems/api/task/"+taskId+"/info/"+profileId+"")
+                .method("POST", body)
+                .addHeader("Authorization", "b9cb85f7-3211-4e13-b45f-748cbbc71bc1")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseBody = response.body().string();
+
+        return responseBody;
+    }
 
     @SneakyThrows
     public String getConnectionsList(String profileId, String email, String password, String cookie, String sortBy, String numberOfProfiles){
@@ -230,8 +246,12 @@ public class ZohoCrmHelper {
         System.out.println(leadInfoResponseBody);*/
 
         String connectionsListTask = getConnectionsList("andrei-gorbunkov-a34b4a2aa", "andreiGorbunkov@outlook.de", "33222200Shin","AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q", "Recently added", "50");
-        String connectionsListTaskId = connectionsListTask;
+        String connectionsListTaskId = String.valueOf(new JSONObject( connectionsListTask ).get("taskId"));
+        System.out.println(connectionsListTaskId);
+        String connectionsList = getTaskInfo(connectionsListTaskId, "margit-matthes");
         System.out.println(connectionsList);
-        }
+        String name = String.valueOf(new JSONObject( connectionsList ).getJSONArray("inputs"));
+        System.out.println(name);
+    }
 
 }
