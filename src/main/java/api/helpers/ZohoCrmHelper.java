@@ -248,9 +248,10 @@ public class ZohoCrmHelper {
         String connectionsListTask = getConnectionsList("andrei-gorbunkov-a34b4a2aa", "andreiGorbunkov@outlook.de", "33222200Shin","AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q", "Recently added", "50");
         String connectionsListTaskId = String.valueOf(new JSONObject( connectionsListTask ).get("taskId"));
         System.out.println(connectionsListTaskId);
-        String connectionsList = getTaskInfo(connectionsListTaskId, "margit-matthes");
+        String connectionsList = getTaskInfo(connectionsListTaskId, "andrei-gorbunkov-a34b4a2aa");
         System.out.println(connectionsList);
-        String name = String.valueOf(new JSONObject( connectionsList ).getJSONArray("inputs"));
+        String data = String.valueOf(new JSONObject( connectionsList ).getJSONArray("results").get(0));
+        String name = String.valueOf(new JSONObject( data ).getString("fullName"));
         System.out.println(name);
     }
 
