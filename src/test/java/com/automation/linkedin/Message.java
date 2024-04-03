@@ -182,28 +182,17 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-                {       "alexey-fedotov-41a4a42b2",
-                        "fedotov.alexey@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUst11YFDERKAAABjn-dyf0AAAGOo6pN_U4AFrQNTgzgR5PoN1yMXl0e78aXnzop0fgDNZ94xPRd9rChH32d1wikBnCERfjIilrb6xzLJkCzyZSRNXtO4MUsUPwROulXi6xAZn3tbrIJs2udcIya",
-                        "Fedotov Alexey"
-                },
                 {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
                         "AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q",
                         "Andrei Gorbunkov"
                 },
-                {       "maryana-nikolayenko",
-                        "nikolayenko.maryana@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUwXjXUEIGu5AAABjepsA3kAAAGOqQA4JU0AzNcS_1QgrITl8veER7O_l56aNg9ujszf2XbmB2Mw6Kx2fFl8azF0opPeG7dC7DSGuQ4NbYz7X3haGOyA8BqHLXtxeljElBZaD90Fuc1JOS5pWmSx",
-                        "Nikolayenko Maryana"
-                },
+
                 {       "aline-paul",
                         "aline.paul@outlook.de",
                         "33222200Shin",
-                        "AQEDAUst11YDXkwtAAABjnWOXgkAAAGOmZriCU0AtuKG_eCf1YjB0qq1iJOy2u8pEpMBJD3vUW7eOV7cjVEkEoyTiU3TX_9cs5fUcXjKXxrCxSKbE3MihEPEUG972caFxWvP_tXkX_q5OAjvRcyflMR5",
+                        "AQEDAUt7kBIA4MJgAAABjqNntPAAAAGOx3Q48E4AexTges7j1wsZ0B32R1TEEDrpZi5RTL34iCnfNfDLgcLLiUCrgaNcL-QfMM5rHf08I_PfzQaoWeS8qjOa4GjI54x7SCf4evAsGy05jy5S-NSTp8m-",
                         "Aline Paul"
                 },
                 {       "paul-bereza",
