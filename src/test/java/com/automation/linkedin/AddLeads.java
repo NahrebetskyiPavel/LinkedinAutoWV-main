@@ -146,16 +146,10 @@ public class AddLeads extends Base {
                         "AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q",
                         "Andrei Gorbunkov"
                 },
-                {       "maryana-nikolayenko",
-                        "nikolayenko.maryana@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUwXjXUEIGu5AAABjepsA3kAAAGOqQA4JU0AzNcS_1QgrITl8veER7O_l56aNg9ujszf2XbmB2Mw6Kx2fFl8azF0opPeG7dC7DSGuQ4NbYz7X3haGOyA8BqHLXtxeljElBZaD90Fuc1JOS5pWmSx",
-                        "Nikolayenko Maryana"
-                },
                 {       "aline-paul",
                         "aline.paul@outlook.de",
                         "33222200Shin",
-                        "AQEDAUt7kBIDtSOCAAABjoqZ9EkAAAGOrqZ4SU4At0fsm_CBll-ihHQrlUkQgkB0vDrKvn4pZL8MmVP8eZwQC5JiunUW-rdJqiNFRHOh3HVNI8wHJVsFn18Ug5UukdCXS34oHzjPZfrR6V0Vpa4OYQ3Y",
+                        "AQEDAUt7kBIA4MJgAAABjqNntPAAAAGOx3Q48E4AexTges7j1wsZ0B32R1TEEDrpZi5RTL34iCnfNfDLgcLLiUCrgaNcL-QfMM5rHf08I_PfzQaoWeS8qjOa4GjI54x7SCf4evAsGy05jy5S-NSTp8m-",
                         "Aline Paul"
                 },
                 {       "paul-bereza",
