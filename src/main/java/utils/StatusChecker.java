@@ -24,30 +24,19 @@ public class StatusChecker {
         }
     }
 
-    /*public static void main(String[] args) {
-        StatusChecker statusChecker = new StatusChecker();
+    public synchronized void waitForStatus(String targetStatus, String status, long timeoutMillis) throws InterruptedException {
+        long endTime = System.currentTimeMillis() + timeoutMillis;
+        long remainingTime = timeoutMillis;
 
-        Thread statusUpdater = new Thread(() -> {
-            // Simulating some process that updates the status
-            try {
-                Thread.sleep(5000); // Simulate a process taking 5 seconds
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            statusChecker.setStatus("finished");
-        });
+        while (!status.equals(targetStatus) && remainingTime > 0) {
+            wait(remainingTime);
+            remainingTime = endTime - System.currentTimeMillis();
+        }
 
-        Thread statusListener = new Thread(() -> {
-            try {
-                statusChecker.waitForStatus("finished");
-                System.out.println("Status is now 'finished'.");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
-        statusUpdater.start();
-        statusListener.start();
-    }*/
+        if (!status.equals(targetStatus)) {
+            throw new InterruptedException("Timeout while waiting for status '" + targetStatus + "'");
+        }
+    }
 }
+
 
