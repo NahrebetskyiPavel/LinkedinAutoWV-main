@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.StatusChecker;
 
 import java.util.Random;
 
@@ -32,12 +33,22 @@ public class ChangeLead {
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleAddToCRM")
-    public void addLeadsToCRM(String name, String email, String password){
+    public void addLeadsToCRM(String profileId, String email, String password, String cookie){
+        int numberOfProfiles = 50;
         String token = zohoCrmHelper.renewAccessToken();
+        String connectionsListTask = zohoCrmHelper.getConnectionsList("andrei-gorbunkov-a34b4a2aa", "andreiGorbunkov@outlook.de", "33222200Shin","AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q", "Recently added", numberOfProfiles);
+        String connectionsListTaskId = String.valueOf(new JSONObject( connectionsListTask ).get("taskId"));
+        Thread.sleep(1000*60);
+        String connectionsList = zohoCrmHelper.getTaskInfo(connectionsListTaskId, "andrei-gorbunkov-a34b4a2aa");
+        new StatusChecker().waitForStatus("finished", String.valueOf(new JSONObject( connectionsList ).get("status")) );
 
-       {
+        for (int i = 0; i < numberOfProfiles; i++)
+        {
+            String data = String.valueOf(new JSONObject( connectionsList ).getJSONArray("results").get(i));
+            String personName = String.valueOf(new JSONObject( data ).getString("fullName"));
+
             Thread.sleep(randomResult);
-                String personName;
+
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
                 System.out.println(leadInfoResponseBody);
                 if (leadInfoResponseBody.contains("INVALID_TOKEN")) {
@@ -67,7 +78,7 @@ public class ChangeLead {
     }
 
 
-
+//String profileId, String email, String password, String cookie
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
