@@ -97,19 +97,14 @@ public class ChangeLead {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-/*
+
                 {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
                         "AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q",
                         "Andrei Gorbunkov"
-                },*/
-/*                {       "maryana-nikolayenko",
-                        "nikolayenko.maryana@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUwXjXUEIGu5AAABjepsA3kAAAGOqQA4JU0AzNcS_1QgrITl8veER7O_l56aNg9ujszf2XbmB2Mw6Kx2fFl8azF0opPeG7dC7DSGuQ4NbYz7X3haGOyA8BqHLXtxeljElBZaD90Fuc1JOS5pWmSx",
-                        "Nikolayenko Maryana"
-                },*/
+                },
+
                 {       "aline-paul",
                         "aline.paul@outlook.de",
                         "33222200Shin",
