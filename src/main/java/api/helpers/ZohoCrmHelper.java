@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 import okhttp3.*;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
+import utils.StatusChecker;
 
 public class ZohoCrmHelper {
     public String responseBody;
@@ -238,6 +239,7 @@ public class ZohoCrmHelper {
     }
 
     @Test
+    @SneakyThrows
     public void getToken(){
 
 /*        String token = this.renewAccessToken();
@@ -248,7 +250,9 @@ public class ZohoCrmHelper {
         String connectionsListTask = getConnectionsList("andrei-gorbunkov-a34b4a2aa", "andreiGorbunkov@outlook.de", "33222200Shin","AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q", "Recently added", "50");
         String connectionsListTaskId = String.valueOf(new JSONObject( connectionsListTask ).get("taskId"));
         System.out.println(connectionsListTaskId);
+
         String connectionsList = getTaskInfo(connectionsListTaskId, "andrei-gorbunkov-a34b4a2aa");
+        new StatusChecker().waitForStatus("finished", String.valueOf(new JSONObject( connectionsList ).get("status")) );
         System.out.println(connectionsList);
         String data = String.valueOf(new JSONObject( connectionsList ).getJSONArray("results").get(0));
         String name = String.valueOf(new JSONObject( data ).getString("fullName"));
