@@ -1,5 +1,7 @@
 package utils;
 
+import lombok.SneakyThrows;
+
 public class StatusChecker {
     private String status;
 
@@ -19,6 +21,14 @@ public class StatusChecker {
     }
 
     public synchronized void waitForStatus(String targetStatus, String status) throws InterruptedException {
+        while (!status.equals(targetStatus)) {
+            wait(); // Wait until status equals targetStatus
+        }
+    }
+
+    @SneakyThrows
+    public synchronized void waitForStatus(String targetStatus, String status, String errorStatus) throws InterruptedException {
+        if (status.equals(errorStatus)) throw new InterruptedException("Status error");
         while (!status.equals(targetStatus)) {
             wait(); // Wait until status equals targetStatus
         }

@@ -33,20 +33,30 @@ public class ChangeLead {
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleAddToCRM")
-    public void addLeadsToCRM(String profileId, String email, String password, String cookie){
+    public void addLeadsToCRM(String profileId, String email, String password, String cookie, String linkedinperson){
         int numberOfProfiles = 50;
         String token = zohoCrmHelper.renewAccessToken();
-        String connectionsListTask = zohoCrmHelper.getConnectionsList("andrei-gorbunkov-a34b4a2aa", "andreiGorbunkov@outlook.de", "33222200Shin","AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q", "Recently added", numberOfProfiles);
+        System.out.println("Start");
+        System.out.println("profileId " + profileId);
+        System.out.println("email " + email);
+        System.out.println("password " + password);
+        System.out.println("cookie " + cookie);
+        System.out.println("linkedinperson " + linkedinperson);
+        String connectionsListTask = zohoCrmHelper.getConnectionsList(profileId, email, password, cookie, "Recently added", numberOfProfiles);
         String connectionsListTaskId = String.valueOf(new JSONObject( connectionsListTask ).get("taskId"));
+        System.out.println(connectionsListTaskId);
         Thread.sleep(1000*60);
         String connectionsList = zohoCrmHelper.getTaskInfo(connectionsListTaskId, "andrei-gorbunkov-a34b4a2aa");
-        new StatusChecker().waitForStatus("finished", String.valueOf(new JSONObject( connectionsList ).get("status")) );
+
+
+        new StatusChecker().waitForStatus("finished", String.valueOf(new JSONObject( connectionsList ).get("status")), 30000);
 
         for (int i = 0; i < numberOfProfiles; i++)
         {
             String data = String.valueOf(new JSONObject( connectionsList ).getJSONArray("results").get(i));
             String personName = String.valueOf(new JSONObject( data ).getString("fullName"));
-
+            //String personRef = String.valueOf(new JSONObject( data ).getString("personRef"));
+            System.out.println(personName);
             Thread.sleep(randomResult);
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
@@ -61,7 +71,6 @@ public class ChangeLead {
                     System.out.println(leadId);
                     System.out.println(personName);
                     if (responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Lead_Status").equals("Attempted to Contact"))
-
                     {
                         String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(leadId, token, Contacted);
                     JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
@@ -71,7 +80,13 @@ public class ChangeLead {
                         System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
                     };
                     }
-
+//else {
+//                       // String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname
+//                        String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, linkedinperson);
+//                        if (response.contains("INVALID_TOKEN")) {
+//                            token = zohoCrmHelper.renewAccessToken();
+//                        }
+//                    }
                 }
             Thread.sleep(randomResult);
         }
@@ -82,91 +97,45 @@ public class ChangeLead {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Александра ",
-                        "alexandra.sternenko@gmail.com",
-                        "asd321qq",
-                },
-                {       "Маша  ",
-                        "deynekamariawv@gmail.com",
-                        "3N2wbnsw",
-                },
-                {       "Михайло ",
-                        "michael.salo1995@gmail.com",
-                        "newman1996",
-                },
-                {       "Наталья",
-                        "natalia.marcoon@gmail.com ",
+/*
+                {       "andrei-gorbunkov-a34b4a2aa",
+                        "andreiGorbunkov@outlook.de",
                         "33222200Shin",
-                },
-                {       "Денис ",
-                        "basdenisphytontm@gmail.com",
+                        "AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q",
+                        "Andrei Gorbunkov"
+                },*/
+/*                {       "maryana-nikolayenko",
+                        "nikolayenko.maryana@outlook.de",
                         "33222200Shin",
-                },
-                {       "Настя",
-                        "anastasiiakuntii@gmail.com",
+                        "AQEDAUwXjXUEIGu5AAABjepsA3kAAAGOqQA4JU0AzNcS_1QgrITl8veER7O_l56aNg9ujszf2XbmB2Mw6Kx2fFl8azF0opPeG7dC7DSGuQ4NbYz7X3haGOyA8BqHLXtxeljElBZaD90Fuc1JOS5pWmSx",
+                        "Nikolayenko Maryana"
+                },*/
+                {       "aline-paul",
+                        "aline.paul@outlook.de",
                         "33222200Shin",
+                        "AQEDAUt7kBIA4MJgAAABjqNntPAAAAGOx3Q48E4AexTges7j1wsZ0B32R1TEEDrpZi5RTL34iCnfNfDLgcLLiUCrgaNcL-QfMM5rHf08I_PfzQaoWeS8qjOa4GjI54x7SCf4evAsGy05jy5S-NSTp8m-",
+                        "Aline Paul"
                 },
-                {       "Роксолана ",
-                        "roksolanatrofim@gmail.com ",
-                        "89fcmTT88V",
-                },
-                {       "Марьян ",
-                        "reshetunmaryanwv@gmail.com",
+                {       "paul-bereza",
+                        "paul.bereza02@outlook.de",
                         "33222200Shin",
+                        "AQEDAUt7kjAFQ5V1AAABjY17BIQAAAGOrchRxk0ANnqFXzwoOoGvqdSns-mBZgVIAigOKbTZJ0RWUBNK8UB64oOwoeTXFih1uxrDgIW8DA6YEpGKavO-W1MdA2YdEUSLqalw5LgoK7VQMCDwi7SmvsPn",
+                        "Paul Bereza"
                 },
-                {       "Анастасия ",
-                        "vozniakanastasia52@gmail.com",
+                {       "alessio-vacenko-b506612b3",
+                        "alessio.Vacenko@outlook.it",
                         "33222200Shin",
+                        "AQEDAUthqywBUW83AAABjoGzPasAAAGOpb_Bq00AYesxSzqz_svmdxwpgeBI81kGKBz9KOqrYeQvGGre8kwdFnnUm2mcCEmofBpk5hydytWEP2hVdpRs910CvZ5kko7h1JcCY1jsGoAdpRxNvdqaCuac",
+                        "Alessio Vacenko"
                 },
-                {       "Artem Pevchenko",
-                        "artemter223@outlook.com",
+                {       "margit-matthes",
+                        "margit.Matthes@outlook.de",
                         "33222200Shin",
-                },
-//11
-                {       "Roman Gulyaev",
-                        "gulyaev.roman@outlook.com",
-                        "33222200Shin",
-                },
-//12
-                {       "Dmytro Andreev",
-                        "andreev.dima@outlook.de",
-                        "33222200Shin",
-                },
-//13
-                {       "Oleg Konorov",
-                        "oleg.konorov@outlook.com",
-                        "33222200Shin",
+                        "AQEDAUuampkCi39pAAABjoGopG0AAAGOpbUobU0AYzgDBXlGuCNM8mjS3qeymKlCs3GDAAAX2yazREUmzNsgqrkCEBZWhzFf7xDJ05XaRilGTXcvDKyDYGYfmp7b-E2i0L4QTVBbKA7d6GA6MsD6y_Hb",
+                        "Margit Matthes"
                 },
 
 
-//18
-                {       "Dymitr Tolmach",
-                        "dymitr.tolmach1012@outlook.com",
-                        "33222200Shin",
-                },
-//19
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
-                },
-
-//20
-                {       "Dmitriy Semiletov",
-                        "semi.dima@outlook.com",
-                        "33222200Shin",
-                },
-                {       "Oleg Konorov",
-                        "oleg.konorov@outlook.com",
-                        "33222200Shin",
-                },
-                {       "Pavel  Nagrebetski",
-                        "pavelnagrebetski@gmail.com",
-                        "Asd321qq",
-                },
-                {       "Maksim Bakh",
-                        "Bekhmaksim@outlook.com",
-                        "33222200Shin",
-                },
 
         };
     }
