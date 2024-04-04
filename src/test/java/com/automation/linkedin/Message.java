@@ -217,6 +217,25 @@ public class Message extends Base{
                         "Shmee2023",
                 },
 
+
+
+                {       "Michael Salo",
+                        "michael.salo1995@gmail.com",
+                        "newman1996",
+                },
+
+
+                {       "Denis Bas",
+                        "basdenisphytontm@gmail.com",
+                        "asd321qq",
+                },
+
+
+                {       "Demetrios Mikhaylov",
+                        "demetrios.Mikhaylov@outlook.de",
+                        "33222200Shin",
+                },
+
         };
     }
 }
