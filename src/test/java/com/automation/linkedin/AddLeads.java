@@ -275,6 +275,29 @@ public class AddLeads extends Base {
                         "Pavel Nagrebetski"
                 },
 
+                {       "Michael Salo",
+                        "michael.salo1995@gmail.com",
+                        "newman1996",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Michael Salo"
+                },
+
+
+                {       "Denis Bas",
+                        "basdenisphytontm@gmail.com",
+                        "asd321qq",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Denis Bas"
+                },
+
+
+                {       "Demetrios Mikhaylov",
+                        "demetrios.Mikhaylov@outlook.de",
+                        "33222200Shin",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Demetrios Mikhaylov"
+                },
+
 
 
 
