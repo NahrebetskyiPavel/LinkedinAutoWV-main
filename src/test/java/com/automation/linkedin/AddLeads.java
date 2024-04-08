@@ -85,15 +85,16 @@ public class AddLeads extends Base {
               int taskId = (int) new JSONObject( response ).get("taskId");
               String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
               String taskStatus = new JSONObject( taskInfo ).getString("status");
+              String taskResult = String.valueOf(new JSONObject( taskInfo ));
+                if (taskResult.contains("error") && taskResult.contains("Invalid url")) {
+
+                    continue;
+                };
               String taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
-              //String taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 try {
                     statusChecker.waitForStatus("finished", taskStatus);
                     System.out.println("Status is now 'finished'.");
-                    if (taskResults.contains("error") && taskResults.contains("Invalid url")) {
 
-                        continue;
-                    };
                     if (taskResults.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         continue;
@@ -154,7 +155,7 @@ public class AddLeads extends Base {
                 {       "aline-paul",
                         "aline.paul@outlook.de",
                         "33222200Shin",
-                        "AQEDAUt7kBIBD9suAAABjqzBn98AAAGO0M4j31YAB-ejevI3O51ylrBUMddKqopiDHFb2EmPi6xKqNg3ButBULsJujbT6agbWwqczSrj_zeFCD7U9_dgZJEGfRZ6Sjy4Eame209mOO8vxlmfp9-td9sA",
+                        "AQEDAUt7kBIAhK1UAAABjr0MjCEAAAGO4RkQIU4AwCpP-a5CDmqHZR87eGGsaDqZD7x-vcizUKMYrOZWE8WVM0BRdPoNC_EvJ6hyBvxggkixZIZEn_NjF3m1ovC5m7MRm9yIZjGXo2FDIeSkofJ5HrH8",
                         "Aline Paul"
                 },
                 {       "paul-bereza",
