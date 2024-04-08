@@ -34,6 +34,7 @@ public class StatusChecker {
         }
 
         if (!status.equals(targetStatus)) {
+
             throw new InterruptedException("Timeout while waiting for status '" + targetStatus + "'");
         }
     }

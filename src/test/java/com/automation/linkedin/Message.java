@@ -114,6 +114,9 @@ public class Message extends Base{
                                 System.out.println("response " + response);
                                 Thread.sleep(1000*60);
                                 int impastoTaskId = (int) new JSONObject( response ).get("taskId");
+                                String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
+                                String taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
+
                                 System.out.println("taskid = " + impastoTaskId);
                                 String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                 System.out.println("taskStatus " + taskStatus);
@@ -123,8 +126,12 @@ public class Message extends Base{
                                     System.out.println("taskStatus " + taskStatus);
 
                                 }
+                                if (taskResults.contains("error") && taskResults.contains("Invalid url")) continue;
+
                                 try {
                                     statusChecker.waitForStatus("finished", taskStatus, 60000);
+
+
                                     System.out.println("Status is now 'finished'.");
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
