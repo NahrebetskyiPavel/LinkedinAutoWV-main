@@ -122,10 +122,10 @@ public class AddLeads extends Base {
             }
 
             leadsAddedCount = leadsRequestCount++;
-            totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
             System.out.println("Leads added from " + linkedinperson + " account = " + leadsAddedCount);
             //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Leads added from " + name + "account = " + leadsAddedCount);
             if (leadsAddedCount==25) {
+                totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
 
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + linkedinperson  + leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount + "\n");
