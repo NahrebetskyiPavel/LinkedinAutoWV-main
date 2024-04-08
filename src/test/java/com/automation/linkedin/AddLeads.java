@@ -86,9 +86,14 @@ public class AddLeads extends Base {
               String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
               String taskStatus = new JSONObject( taskInfo ).getString("status");
               String taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
+              //String taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 try {
                     statusChecker.waitForStatus("finished", taskStatus);
                     System.out.println("Status is now 'finished'.");
+                    if (taskResults.contains("error") && taskResults.contains("Invalid url")) {
+
+                        continue;
+                    };
                     if (taskResults.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         continue;
