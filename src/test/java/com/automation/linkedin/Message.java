@@ -150,91 +150,82 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
+
                 //1
                 {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
+
                 },
-                //6
+//2
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                 },
-
-
-                //11
-                {       "Roman Gulyaev",
-                        "gulyaev.roman@outlook.com",
-                        "33222200Shin",
-                },
-
-
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
-                },
-                {       "Oleg Konorov",
-                        "oleg.konorov@outlook.com",
-                        "33222200Shin",
-                },
-
-                {       "Dmitriy Semiletov",
-                        "semi.dima@outlook.com",
-                        "33222200Shin",
-                },
-
-                {       "Maria Deyneka",
-                        "deynekamariawv@gmail.com",
-                        "3N2wbnsw",
-                },
-                {       "Anastasiia Vozniak",
-                        "vozniakanastasia52@gmail.com",
-                        "33222200Shin",
-                },
-
-                {       "Roksolana Trofimchuk",
-                        "roksolanatrofim@gmail.com",
-                        "89fcmTT88V",
-                },
-
-                {       "Pavel Nagrebetski",
-                        "pavelnagrebetski@gmail.com",
-                        "Asd321qq",
-                },
-
-                {       "Marian Reshetun",
-                        "reshetunmaryanwv@gmail.com",
-                        "33222200Shin",
-                },
-
-                {       "Anastasiia Kuntii",
-                        "anastasiiakuntii@gmail.com",
-                        "33222200Shin",
-                },
-
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
-                },
-
-
-
-                {       "Michael Salo",
-                        "michael.salo1995@gmail.com",
-                        "newman1996",
-                },
-
-
-                {       "Denis Bas",
-                        "basdenisphytontm@gmail.com",
-                        "asd321qq",
-                },
-
-
+//3
                 {       "Demetrios Mikhaylov",
                         "demetrios.Mikhaylov@outlook.de",
                         "33222200Shin",
                 },
+//4
+                {       "Anastasiia Vozniak",
+                        "vozniakanastasia52@gmail.com",
+                        "33222200Shin",
+                },
+//5
+                {       "Roksolana Trofimchuk",
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                },
+//6
+                {       "Anastasiia Kuntii",
+                        "anastasiiakuntii@gmail.com",
+                        "33222200Shin",
+                },
+//7
+                {       "Marian Reshetun",
+                        "reshetunmaryanwv@gmail.com",
+                        "33222200Shin",
+                },
+//8
+                {       "Barakhoyev Musa",
+                        "barakhoyev.musa@outlook.it",
+                        "33222200Shin",
+                },
+//9
+                {       "Maria Deyneka",
+                        "deynekamariawv@gmail.com",
+                        "3N2wbnsw",
+                },
+//10
+                {       "Oleg Valter",
+                        "ovalter@outlook.co.nz",
+                        "Shmee2023",
+                },
+//11
+                {       "Pavel Nagrebetski",
+                        "pavelnagrebetski@gmail.com",
+                        "Asd321qq",
+                },
+//12
+                {       "Michael Salo",
+                        "michael.salo1995@gmail.com",
+                        "newman1996",
+                },
+//13
+                {       "Denis Bas",
+                        "basdenisphytontm@gmail.com",
+                        "asd321qq",
+                },
+//14
+                {       "Demetrios Mikhaylov",
+                        "demetrios.Mikhaylov@outlook.de",
+                        "33222200Shin",
+                },
+
+
+
+
 
         };
     }
