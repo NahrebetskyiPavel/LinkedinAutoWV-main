@@ -220,7 +220,12 @@ public class Message extends Base{
                         "AQEDAUuampkCi39pAAABjoGopG0AAAGOpbUobU0AYzgDBXlGuCNM8mjS3qeymKlCs3GDAAAX2yazREUmzNsgqrkCEBZWhzFf7xDJ05XaRilGTXcvDKyDYGYfmp7b-E2i0L4QTVBbKA7d6GA6MsD6y_Hb",
                         "Margit Matthes"
                 },
-
+                {       "dmitriy-timashov",
+                        "timashov.dmitriy@outlook.de",
+                        "33222200Shin",
+                        "AQEDAUsszhwEAKkFAAABjWPddXUAAAGO5z0PXE0ARMhQR0-MOEBRh7EyBGRM-S4jmoyUlHfdOlcjgh6xVE_e2dvxPYueFIGTfc1OUqDu-sfytCMrY7SpLdhYUKsjMrrlIjul4LmJu2_DWUNg5JkJ4usr",
+                        "Dmitriy Timashov"
+                },
         };
     }
 }
