@@ -27,7 +27,7 @@ public class Base {
                 put("name", name);
 
                 // How to set session timeout
-                put("sessionTimeout", "15m");
+                put("sessionTimeout", "30m");
 
                 // How to set timezone
                 put("env", new ArrayList<String>() {{

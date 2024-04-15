@@ -80,6 +80,10 @@ public class Message extends Base{
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
+                if (!String.valueOf(tasksData).contains("data")){
+                    System.out.println("no data");
+                    break;
+                }
                 System.out.println(tasksData.getJSONArray("data"));
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
                 if (tasksData.getJSONArray("data").length() >0){
@@ -150,79 +154,89 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-
                 //1
                 {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
 
                 },
-//2
+                //2
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
+
                 },
-//3
+                //3
                 {       "Demetrios Mikhaylov",
                         "demetrios.Mikhaylov@outlook.de",
                         "33222200Shin",
+
                 },
-//4
+                //4
                 {       "Anastasiia Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "33222200Shin",
+
                 },
-//5
+                //5
                 {       "Roksolana Trofimchuk",
                         "roksolanatrofim@gmail.com ",
                         "89fcmTT88V",
+
                 },
-//6
+                //6
                 {       "Anastasiia Kuntii",
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
+
                 },
-//7
+                //7
                 {       "Marian Reshetun",
                         "reshetunmaryanwv@gmail.com",
                         "33222200Shin",
+
                 },
-//8
+                //8
                 {       "Barakhoyev Musa",
                         "barakhoyev.musa@outlook.it",
                         "33222200Shin",
+
                 },
-//9
+                //9
                 {       "Maria Deyneka",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
                 },
-//10
+                //10
                 {       "Oleg Valter",
                         "ovalter@outlook.co.nz",
                         "Shmee2023",
+
                 },
-//11
+                //11
                 {       "Pavel Nagrebetski",
                         "pavelnagrebetski@gmail.com",
                         "Asd321qq",
+
                 },
-//12
+                //12
                 {       "Michael Salo",
                         "michael.salo1995@gmail.com",
                         "newman1996",
+
                 },
-//13
+                //13
                 {       "Denis Bas",
                         "basdenisphytontm@gmail.com",
                         "asd321qq",
+
                 },
-//14
+                //14
                 {       "Demetrios Mikhaylov",
                         "demetrios.Mikhaylov@outlook.de",
                         "33222200Shin",
-                },
 
+                },
 
 
 
