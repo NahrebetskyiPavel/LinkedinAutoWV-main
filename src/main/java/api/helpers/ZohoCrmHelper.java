@@ -252,7 +252,7 @@ public String getLeadList(String token, String pickList, String status, String l
 }
 @SneakyThrows
 public String getLeadList(String token,  String status, String linkedInAccount, int pagenum){
-    OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(30, TimeUnit.SECONDS)
+    OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(60, TimeUnit.SECONDS)
             .build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = RequestBody.create(mediaType, "");

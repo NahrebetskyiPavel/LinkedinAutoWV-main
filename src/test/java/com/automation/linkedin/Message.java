@@ -74,12 +74,14 @@ public class Message extends Base{
                 String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
-                String leadName = fullNameArr[0];                System.out.println(id);
+                String leadName = fullNameArr[0];
+                System.out.println(id);
                 System.out.println(fullName);
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
+                System.out.println("tasksData: " + tasksData);
                 if (!String.valueOf(tasksData).contains("data")){
                     System.out.println("no data");
                     break;
@@ -118,7 +120,7 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
-                        if (status.equals("Not Started")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.equals("In Progress")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
