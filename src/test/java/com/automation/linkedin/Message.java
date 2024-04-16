@@ -107,8 +107,8 @@ public class Message extends Base{
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
                             {
-                                //new PersonPage().sentMsg(description.replace("NAME",leadName));
-                                String msg = description.replace("NAME",leadName).replace("\n","\\n");
+
+                                String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
                                 System.out.println(msg);
                                 String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
                                 System.out.println("response " + response);
@@ -147,8 +147,7 @@ public class Message extends Base{
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
                             {
-                                //new PersonPage().sentMsg(description.replace("NAME",leadName));
-                                String msg = description.replace("NAME",leadName).replace("\n","\\n");
+                                String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
                                 System.out.println(msg);
                                 String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
                                 System.out.println("response " + response);
