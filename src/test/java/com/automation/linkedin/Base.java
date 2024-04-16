@@ -19,7 +19,7 @@ public class Base {
     public static void setupBrowser(boolean isRemote, String name){
         if (isRemote){
             Configuration.driverManagerEnabled = false;
-            Configuration.remote = "http://34.116.212.22:4444/wd/hub";
+            Configuration.remote = "http://http://34.118.49.36:4444/wd/hub";
             ChromeOptions options = new ChromeOptions();
             options.setCapability("selenoid:options", new HashMap<String, Object>() {{
                 // How to add test badge
