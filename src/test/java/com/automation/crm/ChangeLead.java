@@ -104,13 +104,6 @@ public class ChangeLead {
                         "AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOmMFYqE0ArnVnmtRxkfVOu6vUysML6PHk2oENpaWG43H6H_RZGisvCqLeBj7azZTBPn0_vjE7zPme8YjHw6GyXwEOBkQvUkqNijYnP9HnwG2A5y5wR9E-hY_q",
                         "Andrei Gorbunkov"
                 },
-
-                {       "aline-paul",
-                        "aline.paul@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUt7kBIBSqhWAAABjsLldyIAAAGO5vH7Ik4AbSKfm82cXlIDfe1iPUSWWQ-bXMg3q940NTgDsDi6NwigYeud1Uf7DZTqlaL30Ju4NsTnhtbmo250F-vNujTE8pjWu59UQD6Lv4U3GF5uW1CTA9nd",
-                        "Aline Paul"
-                },
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
