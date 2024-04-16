@@ -160,12 +160,7 @@ public class AddLeads extends Base {
                         "AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOvMqCdU0Ag3zxWG6o12zUqqURQRW9W5YiAsL1JQ-5vdfFpGBelyaVGYHP0iC122HlAv2xNwq1My_zBbSA4uhCMU42DV4iRCVI6UIK2Q98FAhhAkl_Lzklgvzg",
                         "Andrei Gorbunkov"
                 },
-                {       "aline-paul",
-                        "aline.paul@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUt7kBIDCg5mAAABjscwpkAAAAGO6z0qQE4A0lbQ6C85kap8MA2fXoknzKMw0xHyVTeRyQ1qywLmjcUyLRDuBuW-Hkcvty6PhpvR-J-_gWDBOVFPiY4JeGskcYDsxTsKuQI3US8SyA5x9wkYK1iY",
-                        "Aline Paul"
-                },
+
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
