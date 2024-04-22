@@ -87,6 +87,10 @@ public class AddLeads extends Base {
               String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
               String taskStatus = new JSONObject( taskInfo ).getString("status");
               String taskResult = String.valueOf(new JSONObject( taskInfo ));
+                if (taskResult.contains("error") && taskResult.contains("Invitation already sent")) {
+                    changeLeadStatus(id);
+                    continue;
+                };
                 if (taskResult.contains("error") && taskResult.contains("Invalid url")) {
 
                     continue;
@@ -107,26 +111,11 @@ public class AddLeads extends Base {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         continue;
                     };
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                String changeLeadStatusResponse;
-                JSONObject changeLeadStatusResponseJson;
-                changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact1);
-                changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-                    if (changeLeadStatusResponseJson.getString("code").equals("INVALID_DATA")) {
-                    changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact);
-                    changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-                    }
-                System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
-                System.out.println("\n" );
-                if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
-                    token = zohoCrmHelper.renewAccessToken();
-                    zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
-                }
-                if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
-                    System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
-                };
+                changeLeadStatus(id);
             }
 
             leadsAddedCount = leadsRequestCount++;
@@ -161,19 +150,19 @@ public class AddLeads extends Base {
                         "Andrei Gorbunkov"
                 },*/
 
-                {       "paul-bereza",
+/*                {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
                         "AQEDAUt7kjAFQ5V1AAABjY17BIQAAAGOrZocyk0ADu01WzC7kYz9BmnkvrCJtPNphBAckembhcTOWFgLSCn2xdhVluaqk3DacYtyQsrIBgd8c7_NtYwfevHyEfAhOtIcLkxdxfUEgj04dDbx_uSrdTPY",
                         "Paul Bereza"
-                },
+                },*/
                 {       "alessio-vacenko-b506612b3",
                         "alessio.Vacenko@outlook.it",
                         "33222200Shin",
                         "AQEDAUthqywBUW83AAABjoGzPasAAAGO0M-Kik0Ae4BcJ1UTuha87SZJeYtjcP_2EgzmyJOQ2w90rDaR6EKdLlcwxVl_hIYUBgy3IGj22i-BN7hoWrqeZGKPi_iW1-CDfDDZAMgu73Ob4spxYIZu68uP",
                         "Alessio Vacenko"
                 },
-                {       "margit-matthes",
+/*                {       "margit-matthes",
                         "margit.Matthes@outlook.de",
                         "33222200Shin",
                         "AQEDAUuampkCi39pAAABjoGopG0AAAGO0NAIJE0ANY67cipBXpm84lAAO5KsSsnGqeB1OK-HxQ37rLF4cr5j7qraGxRj9dY1e47pYWWgeevakyzo_wrohxtHSrP6PDsCQOq7LBb5f0FxITaAZLFCP--b",
@@ -184,8 +173,28 @@ public class AddLeads extends Base {
                         "33222200Shin",
                         "AQEDAUsszhwEAKkFAAABjWPddXUAAAGO5z0PXE0ARMhQR0-MOEBRh7EyBGRM-S4jmoyUlHfdOlcjgh6xVE_e2dvxPYueFIGTfc1OUqDu-sfytCMrY7SpLdhYUKsjMrrlIjul4LmJu2_DWUNg5JkJ4usr",
                         "Dmitriy Timashov"
-                },
+                },*/
 
+        };
+    }
+
+    public void changeLeadStatus(String id){
+        String changeLeadStatusResponse;
+        JSONObject changeLeadStatusResponseJson;
+        changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact1);
+        changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+        if (changeLeadStatusResponseJson.getString("code").equals("INVALID_DATA")) {
+            changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact);
+            changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+        }
+        System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+        System.out.println("\n" );
+        if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
+            token = zohoCrmHelper.renewAccessToken();
+            zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
+        }
+        if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
+            System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
         };
     }
 }
