@@ -185,6 +185,18 @@ public class ChangeLead {
                         "Bekhmaksim@outlook.com",
                         "33222200Shin",
                 },
+                {       "Gorichev Andrey",
+                        "gorichev.andrey12311@outlook.it",
+                        "33222200Shin",
+                },
+                {       "Barakhoyev Musa",
+                        "barakhoyev.musa@outlook.it",
+                        "33222200Shin",
+                },
+                {       "Demetrios Mikhaylov",
+                        "demetrios.Mikhaylov@outlook.de",
+                        "33222200Shin",
+                },
 
         };
     }
