@@ -153,12 +153,12 @@ public class AddLeads extends Base {
                         "Aleksandra Sternenko"
                 },
                 //2
-                {       "Natalia Marcun",
+/*                {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "33222200Shin",
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Natalia Marcun"
-                },
+                },*/
                 //3
                 {       "Demetrios Mikhaylov",
                         "demetrios.Mikhaylov@outlook.de",
