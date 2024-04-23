@@ -43,7 +43,7 @@ public class ChangeLead {
         WebDriverRunner.getWebDriver().manage().window().maximize();
         String token = zohoCrmHelper.renewAccessToken();
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 4; i++) {
             Thread.sleep(randomResult);
             Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
             if ($x("//span[normalize-space()='Show more results']").exists()) {
@@ -54,7 +54,9 @@ public class ChangeLead {
             }
         }
         ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
-
+        for (SelenideElement lead: leads) {
+            System.out.println( lead.find(By.cssSelector(".mn-connection-card__name")).text() );
+        }
         for (int i = 0; i < leads.size(); i++) {
             Thread.sleep(randomResult);
             SelenideElement person = leads.get(i);
