@@ -57,9 +57,9 @@ public class ChangeLead {
             }
         }
         ElementsCollection leads = $$x("//div[@class='mn-connection-card__details']/a");
-        for (SelenideElement lead: leads) {
+/*        for (SelenideElement lead: leads) {
             System.out.println( lead.find(By.cssSelector(".mn-connection-card__name")).text() );
-        }
+        }*/
         for (int i = 0; i < leads.size(); i++) {
             Thread.sleep(randomResult);
             SelenideElement person = leads.get(i);
@@ -72,6 +72,15 @@ public class ChangeLead {
                 Thread.sleep(randomResult);
 
                 String leadInfoResponseBody = zohoCrmHelper.getLeadInfoByFullName(token, personName);
+                if (leadInfoResponseBody.isEmpty()){
+                    //{
+                    //  "name": "Unknown",
+                    //  "id": "421659000016077007"
+                    //}
+                    zohoCrmHelper.AddLeadToCRM(personName, token, "Anastasia", person.getAttribute("href"),  "Attempted to Contact", "Unknown", "421659000016077007", name);
+                    System.out.println("add to CRM: " + personName);
+                }
+
                 System.out.println(leadInfoResponseBody);
                 if (leadInfoResponseBody.contains("INVALID_TOKEN")) {
                     token = zohoCrmHelper.renewAccessToken();
@@ -111,7 +120,7 @@ public class ChangeLead {
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-                {       "Александра ",
+/*                {       "Александра ",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                 },
@@ -199,7 +208,7 @@ public class ChangeLead {
                 {       "Gorichev Andrey",
                         "gorichev.andrey12311@outlook.it",
                         "33222200Shin",
-                },
+                },*/
                 {       "Barakhoyev Musa",
                         "barakhoyev.musa@outlook.it",
                         "33222200Shin",
