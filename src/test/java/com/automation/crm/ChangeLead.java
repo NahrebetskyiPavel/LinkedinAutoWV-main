@@ -29,6 +29,9 @@ public class ChangeLead {
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
     private static final String Contacted  = "421659000001302293";
+    String attemptedToContact = "421659000010541270";
+    String attemptedToContact1 = "421659000001302365";
+
 
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleAddToCRM")
@@ -80,23 +83,29 @@ public class ChangeLead {
                     System.out.println(leadId);
                     System.out.println(personName);
                     if (responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Lead_Status").equals("Attempted to Contact"))
-
-                    {
-                        String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(leadId, token, Contacted);
-                    JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-                    System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
-                    System.out.println("\n" );
-                    if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
-                        System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
-                    };
-                    }
+                        changeStatus(leadId, token, Contacted);
                     else {continue;}
                 }
                 else continue;
             Thread.sleep(randomResult);
         }
+
+
+
+
+
+
     }
 
+    public void changeStatus(String leadId, String token, String status)      {
+        String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(leadId, token, status);
+        JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+        System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+        System.out.println("\n" );
+        if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
+            System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
+        };
+    }
 
 
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
