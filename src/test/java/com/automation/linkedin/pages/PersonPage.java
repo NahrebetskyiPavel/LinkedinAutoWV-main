@@ -19,6 +19,7 @@ public class PersonPage {
     public SelenideElement addBtn = $x("//main[contains(@class,'scaffold-layout__main')]//span[text()='Connect']");
     public SelenideElement getCannotAddLeadPopUpClose = $("#artdeco-toasts li-icon[type='cancel-icon']");
     public SelenideElement cannotAddLeadPopUp = $("#artdeco-toasts [role='alert']");
+    public SelenideElement msgParagraph = $(".msg-form__msg-content-container .msg-form__contenteditable>p");
     public SelenideElement limitAlertHeader = $x("//h2[@id='ip-fuse-limit-alert__header']");
     public SelenideElement inMailMsgBtn = $x("//main//span[@class='artdeco-button__text'][normalize-space()='Message']");
     public SelenideElement premiumUpsellLink = $("div.premium-upsell-link");
@@ -180,10 +181,10 @@ public class PersonPage {
     @SneakyThrows
     public void     sentMsg(String msg){
         Thread.sleep(10000);
-        if($(".msg-form__msg-content-container .msg-form__contenteditable>p").is(visible)){
-            $(".msg-form__msg-content-container .msg-form__contenteditable>p").click();
-            $(".msg-form__msg-content-container .msg-form__contenteditable>p").clear();
-        }
+        if(msgParagraph.is(visible)){msgParagraph.click();}
+        if(msgParagraph.is(visible)){msgParagraph.click();}
+        if(msgParagraph.is(visible)){msgParagraph.click();}
+        if(msgParagraph.is(visible)){msgParagraph.click();}
         $$x("//div[contains(@aria-label,'Write a message…')]").last().click();
         $$x("//div[contains(@aria-label,'Write a message…')]").last().sendKeys(msg);
         Thread.sleep(5000);
