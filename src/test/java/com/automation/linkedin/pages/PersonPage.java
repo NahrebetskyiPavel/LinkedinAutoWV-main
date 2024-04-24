@@ -181,10 +181,10 @@ public class PersonPage {
     @SneakyThrows
     public void     sentMsg(String msg){
         Thread.sleep(10000);
-        if(msgParagraph.is(visible)){msgParagraph.click();}
-        if(msgParagraph.is(visible)){msgParagraph.click();}
-        if(msgParagraph.is(visible)){msgParagraph.click();}
-        if(msgParagraph.is(visible)){msgParagraph.click();}
+        if(msgParagraph.is(visible)){msgParagraph.clear();}
+        if(msgParagraph.is(visible)){msgParagraph.clear();}
+        if(msgParagraph.is(visible)){msgParagraph.clear();}
+        if(msgParagraph.is(visible)){msgParagraph.clear();}
         $$x("//div[contains(@aria-label,'Write a message…')]").last().click();
         $$x("//div[contains(@aria-label,'Write a message…')]").last().sendKeys(msg);
         Thread.sleep(5000);
