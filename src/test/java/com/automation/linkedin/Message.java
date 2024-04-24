@@ -11,6 +11,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -26,6 +27,7 @@ public class Message extends Base{
             "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
             "\n" +
             "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n";
+    List<String> accMsgSeconded = new ArrayList<String>();
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
@@ -36,7 +38,6 @@ public class Message extends Base{
         WebDriverRunner.getWebDriver().manage().window().maximize();
         Thread.sleep(10000);
         String  token = zoho.renewAccessToken();
-
 
         sendFolowUpMsg(linkedInAccount, token, "Second automessage");
         sendFolowUpMsg(linkedInAccount, token, "Third automessage");
@@ -112,10 +113,14 @@ public class Message extends Base{
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
                             if (description.equals("null")) {
+                                if (accMsgSeconded.contains(fullName)){continue;}
+                                accMsgSeconded.add(fullName);
                                 new PersonPage().sentMsg("Lets go to meeting");
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
+                                if (accMsgSeconded.contains(fullName)){continue;}
+                                accMsgSeconded.add(fullName);
                                 new PersonPage().sentMsg(description.replace("NAME",leadName));
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
