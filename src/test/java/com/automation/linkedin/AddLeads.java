@@ -30,6 +30,9 @@ public class AddLeads extends Base {
     int low = 2000;
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
+    int leadLow = 21;
+    int leadsHigh = 27;
+    int leadsRandomResult = random.nextInt(leadsHigh-leadLow) + leadLow;
     String token = zohoCrmHelper.renewAccessToken();
     static int totalLeadsAddedCount = 0;
 
@@ -111,7 +114,7 @@ public class AddLeads extends Base {
             leadsAddedCount = leadsRequestCount++;
             System.out.println("Leads added from " + name + " account = " + leadsAddedCount);
             //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Leads added from " + name + "account = " + leadsAddedCount);
-            if (leadsAddedCount==25) {
+            if (leadsAddedCount==leadsRandomResult) {
                 totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
 
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + name  + leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
@@ -133,7 +136,7 @@ public class AddLeads extends Base {
                 };
             }
         }
-            if (leadsAddedCount==25) {
+            if (leadsAddedCount==leadsRandomResult) {
                 wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","\nTOTAL = " + totalLeadsAddedCount + "\n");
 
                 break;
