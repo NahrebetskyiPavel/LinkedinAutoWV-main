@@ -18,8 +18,10 @@ public class Base {
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
     public static void setupBrowser(boolean isRemote, String name){
+
         if (isRemote){
             Configuration.driverManagerEnabled = false;
+            Configuration.pageLoadTimeout = 60000;
             Configuration.remote = "http://34.118.49.36:4444/wd/hub";
             ChromeOptions options = new ChromeOptions();
             options.setCapability("selenoid:options", new HashMap<String, Object>() {{
