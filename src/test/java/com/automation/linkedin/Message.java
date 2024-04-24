@@ -38,7 +38,10 @@ public class Message extends Base{
         WebDriverRunner.getWebDriver().manage().window().maximize();
         Thread.sleep(10000);
         String  token = zoho.renewAccessToken();
+        System.out.println("=======================");
+        System.out.println("START: " +  linkedInAccount);
 
+        System.out.println("=======================");
         sendFolowUpMsg(linkedInAccount, token, "Second automessage");
         sendFolowUpMsg(linkedInAccount, token, "Third automessage");
         sendFolowUpMsg(linkedInAccount, token, "Fourt automessage");
