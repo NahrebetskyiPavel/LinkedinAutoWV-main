@@ -248,6 +248,13 @@ public class AddLeads extends Base {
                         "Demetrios Mikhaylov"
                 },
 
+                {       "Nikita K.",
+                        "kni2012@ukr.net",
+                        "33222200s",
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Nikita K."
+                },
+
 
 
 
