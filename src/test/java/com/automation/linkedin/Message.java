@@ -164,12 +164,12 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-                //1
+/*                //1
                 {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
 
-                },
+                },*/
                 //2
 /*                {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
