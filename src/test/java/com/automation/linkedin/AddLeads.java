@@ -104,6 +104,11 @@ public class AddLeads extends Base {
                      taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 } else {
                     Thread.sleep(60000);
+                    if (String.valueOf(new JSONObject( taskInfo )).contains("Cookie is not valid"))
+                    {
+                        System.out.println("Cookie is not valid");
+                        break;
+                    }
                      taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 }
 
@@ -178,7 +183,7 @@ public class AddLeads extends Base {
                         "AQEDAUsszhwEAKkFAAABjWPddXUAAAGO5z0PXE0ARMhQR0-MOEBRh7EyBGRM-S4jmoyUlHfdOlcjgh6xVE_e2dvxPYueFIGTfc1OUqDu-sfytCMrY7SpLdhYUKsjMrrlIjul4LmJu2_DWUNg5JkJ4usr",
                         "Dmitriy Timashov"
                 },
-
+/*
                 {       "Eliza Kolner",
                         "eliza.kolner0103@outlook.de",
                         "ek03303KK",
@@ -212,7 +217,7 @@ public class AddLeads extends Base {
                         "33222200Shin",
                         "AQEDAUs5cmoFe9mZAAABjlyBf2oAAAGPMzVXok0Aase-74YwTB2el__HXiApMk1VKjDZtiYnIDeGI_Ez0PCLecWzCQhotwuxGmOsGFdTDsfLoyvCiOiFkdEKpoiqtjPBEqoZR_aSsiFM2OhDXtMNs2cp",
                         "petr-2"
-                },
+                },*/
 
         };
     }
