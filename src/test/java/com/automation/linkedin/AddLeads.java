@@ -104,7 +104,10 @@ public class AddLeads extends Base {
                      taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 } else {
                     Thread.sleep(60000);
-                     taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
+                     taskResult = String.valueOf(new JSONObject( taskInfo ).get("results"));
+                     if (taskResult.contains("null"))                     Thread.sleep(60000);
+                     if (taskResult.contains("Proxy connection ended before receiving CONNECT response")) continue;
+                    taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 }
 
                 try {
@@ -147,12 +150,12 @@ public class AddLeads extends Base {
 
         return new Object[][]{
 
-/*                {       "andrei-gorbunkov-a34b4a2aa",
+                {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
                         "AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOvMqCdU0Ag3zxWG6o12zUqqURQRW9W5YiAsL1JQ-5vdfFpGBelyaVGYHP0iC122HlAv2xNwq1My_zBbSA4uhCMU42DV4iRCVI6UIK2Q98FAhhAkl_Lzklgvzg",
                         "Andrei Gorbunkov"
-                },*/
+                },
 
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
