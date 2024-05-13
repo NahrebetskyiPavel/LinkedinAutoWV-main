@@ -107,6 +107,10 @@ public class AddLeads extends Base {
                      taskResult = String.valueOf(new JSONObject( taskInfo ).get("results"));
                      if (taskResult.contains("null"))                     Thread.sleep(60000);
                      if (taskResult.contains("Proxy connection ended before receiving CONNECT response")) continue;
+                     if (taskResult.contains("Cookie is not valid")) {
+                         System.out.println("Cookie is not valid");
+                         break;
+                     };
                     taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 }
 
@@ -153,7 +157,7 @@ public class AddLeads extends Base {
                 {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
-                        "AQEDAUqQcUgAJO_LAAABjRGv3SIAAAGOvMqCdU0Ag3zxWG6o12zUqqURQRW9W5YiAsL1JQ-5vdfFpGBelyaVGYHP0iC122HlAv2xNwq1My_zBbSA4uhCMU42DV4iRCVI6UIK2Q98FAhhAkl_Lzklgvzg",
+                        "AQEDAUqQcUgEIxsAAAABjvWFnKYAAAGPcTOPsVYAWZvnilVwmBw7dA3m8-9tE6dnWZgozJ5vYqKwtOgiYui5Dl33iqObm6HsXZdYW73lpfg2Dc1DeD5H_C0BE3C6X64u3VGDuwCyvAqNmqs0RnGa1iPa",
                         "Andrei Gorbunkov"
                 },
 
