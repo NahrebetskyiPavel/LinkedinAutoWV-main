@@ -13,7 +13,13 @@ import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 
 import org.testng.annotations.Test;
+import utils.GoogleSheets;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import static com.codeborne.selenide.Condition.*;
@@ -55,7 +61,7 @@ public class AddLeads extends Base {
 
             return;
         };
-        setupBrowser(true, "name");
+        setupBrowser(true, name);
         Thread.sleep(randomResult*3);
         openLinkedInLoginPage();
         System.out.println("-------------------------------------------------------\n" +
@@ -146,111 +152,138 @@ public class AddLeads extends Base {
     }
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
-    public static Object[][] dataProviderPeopleSearch() {
-
+    public static Object[][] dataProviderPeopleSearch() throws GeneralSecurityException, IOException {
+        List<List<Object>> values = new GoogleSheets().getAccountsInfo();
+        List<List<Object>> accountInfos = new GoogleSheets().getAccountsInfo();
+        String[]  accountInfo = {"name", "login", "pass"};
+        for (List row : values) {
+            accountInfos.add(Arrays.asList(accountInfo));
+            accountInfo[0] = (String) row.get(0);
+            accountInfo[1] = (String) row.get(1);
+            accountInfo[2] = (String) row.get(2);
+            accountInfos.add(Arrays.asList(accountInfo));
+            // Print columns A and E, which correspond to indices 0 and 4.
+            System.out.println(accountInfos.get(0).get(0));
+            System.out.printf("%s, %s, %s\n", row.get(0), row.get(1), row.get(2));
+        }
         return new Object[][]{
                 //1
-                {       "Aleksandra Sternenko",
-                        "alexandra.sternenko@gmail.com",
-                        "asd321qq",
+                {
+                        accountInfos.get(0).get(0),
+                        accountInfos.get(0).get(1),
+                        accountInfos.get(0).get(2),
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Aleksandra Sternenko"
                 },
                 //2
-                {       "Natalia Marcun",
-                        "natalia.marcoon@gmail.com ",
-                        "33222200Shin",
+                {
+                        accountInfos.get(1).get(0),
+                        accountInfos.get(1).get(1),
+                        accountInfos.get(1).get(2),
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         "Natalia Marcun"
                 },
                 //3
-                {       "Demetrios Mikhaylov",
-                        "demetrios.Mikhaylov@outlook.de",
-                        "33222200Shin",
+                {
+                        accountInfos.get(2).get(0),
+                        accountInfos.get(2).get(1),
+                        accountInfos.get(2).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Demetrios Mikhaylov"
                 },
                 //4
-                {       "Anastasiia Vozniak",
-                        "vozniakanastasia52@gmail.com",
-                        "33222200Shin",
+                {
+                        accountInfos.get(3).get(0),
+                        accountInfos.get(3).get(1),
+                        accountInfos.get(3).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Anastasiia Vozniak"
                 },
                 //5
-                {       "Roksolana Trofimchuk",
-                        "roksolanatrofim@gmail.com ",
-                        "89fcmTT88V",
+                {
+                        accountInfos.get(4).get(0),
+                        accountInfos.get(4).get(1),
+                        accountInfos.get(4).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Roksolana Trofimchuk"
                 },
                 //6
-                {       "Anastasiia Kuntii",
-                        "anastasiiakuntii@gmail.com",
-                        "33222200Shin",
+                {
+                        accountInfos.get(5).get(0),
+                        accountInfos.get(5).get(1),
+                        accountInfos.get(5).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Anastasiia Kuntii"
                 },
                 //7
-                {       "Marian Reshetun",
-                        "reshetunmaryanwv@gmail.com",
-                        "33222200Shin",
+                {
+                        accountInfos.get(6).get(0),
+                        accountInfos.get(6).get(1),
+                        accountInfos.get(6).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Marian Reshetun"
                 },
                 //8
-                {       "Barakhoyev Musa",
-                        "barakhoyev.musa@outlook.it",
-                        "33222200Shin",
+                {
+                        accountInfos.get(7).get(0),
+                        accountInfos.get(7).get(1),
+                        accountInfos.get(7).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Barakhoyev Musa"
                 },
                 //9
-                {       "Maria Deyneka",
-                        "deynekamariawv@gmail.com",
-                        "3N2wbnsw",
+                {
+                        accountInfos.get(8).get(0),
+                        accountInfos.get(8).get(1),
+                        accountInfos.get(8).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Maria Deyneka"
                 },
                 //10
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
+                {
+                        accountInfos.get(9).get(0),
+                        accountInfos.get(9).get(1),
+                        accountInfos.get(9).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Oleg Valter"
                 },
                 //11
-                {       "Pavel Nagrebetski",
-                        "pavelnagrebetski@gmail.com",
-                        "Asd321qq",
+                {
+                        accountInfos.get(10).get(0),
+                        accountInfos.get(10).get(1),
+                        accountInfos.get(10).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Pavel Nagrebetski"
                 },
                 //12
-                {       "Michael Salo",
-                        "michael.salo1995@gmail.com",
-                        "newman1996",
+                {
+                        accountInfos.get(11).get(0),
+                        accountInfos.get(11).get(1),
+                        accountInfos.get(11).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Michael Salo"
                 },
                 //13
-                {       "Denis Bas",
-                        "basdenisphytontm@gmail.com",
-                        "asd321qq",
+                {
+                        accountInfos.get(12).get(0),
+                        accountInfos.get(12).get(1),
+                        accountInfos.get(12).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Denis Bas"
                 },
                 //14
-                {       "Demetrios Mikhaylov",
-                        "demetrios.Mikhaylov@outlook.de",
-                        "33222200Shin",
+                {
+                        accountInfos.get(13).get(0),
+                        accountInfos.get(13).get(1),
+                        accountInfos.get(13).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Demetrios Mikhaylov"
                 },
 
-                {       "Nikita K.",
-                        "kni2012@ukr.net",
-                        "33222200s",
+                {
+                        accountInfos.get(14).get(0),
+                        accountInfos.get(14).get(1),
+                        accountInfos.get(14).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Nikita K."
                 },
