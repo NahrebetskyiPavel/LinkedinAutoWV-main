@@ -32,7 +32,7 @@ public class GoogleSheets {
      */
     private static final List<String> SCOPES =
             Collections.singletonList(SheetsScopes.SPREADSHEETS_READONLY);
-    private static final String CREDENTIALS_FILE_PATH = "/client_secret_160710300302-75tfiru7l31g75n6r0a2juibf3g56bhj.apps.googleusercontent.com.json";
+    private static final String CREDENTIALS_FILE_PATH = "/key.json";
 
     /**
      * Creates an authorized Credential object.
