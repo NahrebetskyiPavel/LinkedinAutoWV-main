@@ -10,7 +10,7 @@ public class WiseVisionApiHelper {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
-                .url("https://zoho.wisevision.pp.ua/linkedin-url/unprocessed-link")
+                .url("https://api-zoho.wisevisionllc.com/linkedin-url/unprocessed-link")
                 .method("GET", null)
                 .build();
         Response response = client.newCall(request).execute();
@@ -41,7 +41,7 @@ public class WiseVisionApiHelper {
                 "\"location\": \""+location.replace("\n","")+"\",\n    " +
                 "\"workHistory\": \""+workHistory.replace("\"","").replace("\n","")+"\"\n}");
         Request request = new Request.Builder()
-                .url("https://zoho.wisevision.pp.ua/linkedin")
+                .url("https://api-zoho.wisevisionllc.com/linkedin")
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
                 .build();
