@@ -51,7 +51,7 @@ public class AddLeads extends Base {
         String data = zohoCrmHelper.getLeadList( token, j,  "Waiting",  linkedinperson);
         if (data.contains("INVALID_TOKEN")){
             String token = zohoCrmHelper.renewAccessToken();
-            data = zohoCrmHelper.getLeadList( token, 1,  "Waiting",  linkedinperson);
+            data = zohoCrmHelper.getLeadList( token, j,  "Waiting",  linkedinperson);
         }
         int leadsAddedCount = 0;
 
@@ -96,7 +96,11 @@ public class AddLeads extends Base {
                     continue;
                 };
                 if (taskResult.contains("error") && taskResult.contains("Invalid url")) {
-
+                    changeLeadStatus(id);
+                    continue;
+                };
+                if (taskResult.contains("error") && taskResult.contains("Profile link invalid")) {
+                    changeLeadStatus(id);
                     continue;
                 };
                 String taskResults;
@@ -154,12 +158,12 @@ public class AddLeads extends Base {
 
         return new Object[][]{
 
-                {       "andrei-gorbunkov-a34b4a2aa",
+/*                {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
                         "AQEDAUqQcUgEIxsAAAABjvWFnKYAAAGPlUYADFYAombm43_GJ7Tg5JgPeG6gMA7igoCuX850p-7SUHJnbnQrAqxiiJv4ADi_L76d5_T8_1z0Ea_ZO7h2I-35JHOu43bflHEbj-G5kzFRsyhBhkJZwHc8",
                         "Andrei Gorbunkov"
-                },
+                },*/
 
 /*                {       "paul-bereza",
                         "paul.bereza02@outlook.de",
@@ -167,18 +171,18 @@ public class AddLeads extends Base {
                         "AQEFAREBAAAAAA9y_ngAAAGPTWyIZQAAAY9xerrsTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkMwRzBrTkJ0UnhBdGNPak1TMFlRSS9uZXNWNHdJN0krWUM4REl3RE1hUW9RXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2Mjg0OSwzMDMyMjU2NjUpXnVybjpsaTptZW1iZXI6MTI2NjM4OTU1Mqtahj54xFZSxnrvy1Fhjo_T5CKqWfcLzzEpATi94tKyJSkHYCbgDxcQJJBeH2a8gJu17Nee6uDtPtfo_xlPThNbQRG8NrY1MvzU75pvL6Rvd7fsGhGb9M58udN77XZ1qFysniogLshJfVj7ldODM6ZXSGdf68Gml-blsKo3mCQX9GbJCdGFEc0IjGUj57r7S4gaOng",
                         "Paul Bereza"
                 },*/
-                {       "alessio-vacenko-b506612b3",
+/*                {       "alessio-vacenko-b506612b3",
                         "alessio.Vacenko@outlook.it",
                         "33222200Shin",
                         "AQEDAUthqywCOthiAAABj00h33QAAAGPvkp4OE4ASeyim2hF4oGJkCfAbCkjDWmIdJfwVO3XyI1HeaM_0-kmXSiiMnwHo7xnp6urbl5O3VczT6kuWjuBlXHiAKh7-TSsVSn6Vrc2y521ONn_sVF2klqU",
                         "Alessio Vacenko"
-                },
+                },*/
                 {       "margit-matthes",
                         "margit.Matthes@outlook.de",
                         "33222200Shin",
                         "AQEDAUuampkDA9uSAAABjzNCPogAAAGPV07CiFYAUTlaawCUQBq15anEMNwZmKlCqaTK2oqUSr-P05fihZvoGHPgFk7KZroX9ZKpVEbvEjOLth1xcqkJDG3F_a2_o_3WYwet4mooFR5SjuTy2Z_eezlj",
                         "Margit Matthes"
-                },
+                },/*
                 {       "dmitriy-timashov",
                         "timashov.dmitriy@outlook.de",
                         "33222200Shin",
@@ -226,7 +230,7 @@ public class AddLeads extends Base {
                         "33222200Shin",
                         "AQEDAUs6XDsCa_PgAAABjXEAR6wAAAGPvnUX8VYAR6FAgkuaV0y_vHtOvXsZpgRzeT26KlNYH93IyJIvw7UoOHeBkpUI_sp-S3bWqGBbPA_2Dxr_E6qhJL-v3awX4tp5K2b74cZe6QP1xVtzzrFYmS8L",
                         "Elias Danilov"
-                },
+                },*/
 
         };
     }
