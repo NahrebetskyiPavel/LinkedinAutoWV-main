@@ -255,6 +255,13 @@ public class Message extends Base{
                         "AQEDAUs5cmoFe9mZAAABjlyBf2oAAAGPMzVXok0Aase-74YwTB2el__HXiApMk1VKjDZtiYnIDeGI_Ez0PCLecWzCQhotwuxGmOsGFdTDsfLoyvCiOiFkdEKpoiqtjPBEqoZR_aSsiFM2OhDXtMNs2cp",
                         "petr-2"
                 },
+
+                {       "elias-danilov",
+                        "elias.danilov@outlook.it",
+                        "33222200Shin",
+                        "AQEDAUs6XDsCa_PgAAABjXEAR6wAAAGPvnUX8VYAR6FAgkuaV0y_vHtOvXsZpgRzeT26KlNYH93IyJIvw7UoOHeBkpUI_sp-S3bWqGBbPA_2Dxr_E6qhJL-v3awX4tp5K2b74cZe6QP1xVtzzrFYmS8L",
+                        "Elias Danilov"
+                },
         };
     }
 }
