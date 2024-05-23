@@ -117,16 +117,21 @@ public class AddLeads extends Base {
                 try {
                     statusChecker.waitForStatus("finished", taskStatus);
 
-                    System.out.println("Status is now 'finished'.");
 
                     if (taskResults.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        System.out.println("Status is now 'error'.");
+
                         continue;
                     };
                     if (taskStatus.contains("expired")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        System.out.println("Status is now 'expired'.");
+
                         continue;
                     };
+                    System.out.println("Status is now 'finished'.");
+
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
