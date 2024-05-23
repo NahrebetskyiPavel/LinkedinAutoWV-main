@@ -6,20 +6,15 @@ import com.automation.linkedin.pages.PersonPage;
 import com.automation.linkedin.pages.login.SignInPage;
 import com.automation.linkedin.pages.messaging.MessagingPage;
 import com.automation.linkedin.pages.search.SearchPeoplePage;
-import com.codeborne.selenide.*;
 import lombok.SneakyThrows;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 
 import org.testng.annotations.Test;
 import utils.StatusChecker;
 
 import java.util.Random;
-
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
 
 public class AddLeads extends Base {
     SignInPage signInPage = new SignInPage();
@@ -31,6 +26,7 @@ public class AddLeads extends Base {
     StatusChecker statusChecker = new StatusChecker();
     String attemptedToContact = "421659000010541270";
     String attemptedToContact1 = "421659000001302365";
+    String broken = "421659000017740001";
     Random random = new Random();
     int low = 2000;
     int high = 5000;
@@ -92,15 +88,15 @@ public class AddLeads extends Base {
               String taskStatus = new JSONObject( taskInfo ).getString("status");
               String taskResult = String.valueOf(new JSONObject( taskInfo ));
                 if (taskResult.contains("error") && taskResult.contains("Invitation already sent")) {
-                    changeLeadStatus(id);
+                    changeLeadStatusAttemptToContacted(id);
                     continue;
                 };
                 if (taskResult.contains("error") && taskResult.contains("Invalid url")) {
-                    changeLeadStatus(id);
+                    changeLeadStatus(id, broken, "Broken");
                     continue;
                 };
                 if (taskResult.contains("error") && taskResult.contains("Profile link invalid")) {
-                    changeLeadStatus(id);
+                    changeLeadStatus(id, broken, "Broken");
                     continue;
                 };
                 String taskResults;
@@ -120,9 +116,14 @@ public class AddLeads extends Base {
 
                 try {
                     statusChecker.waitForStatus("finished", taskStatus);
+
                     System.out.println("Status is now 'finished'.");
 
                     if (taskResults.contains("error")) {
+                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        continue;
+                    };
+                    if (taskStatus.contains("expired")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         continue;
                     };
@@ -130,7 +131,7 @@ public class AddLeads extends Base {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                changeLeadStatus(id);
+                changeLeadStatusAttemptToContacted(id);
             }
 
             leadsAddedCount = leadsRequestCount++;
@@ -157,7 +158,12 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
-
+                {       "margit-matthes",
+                        "margit.Matthes@outlook.de",
+                        "33222200Shin",
+                        "AQEDAUuampkDA9uSAAABjzNCPogAAAGPV07CiFYAUTlaawCUQBq15anEMNwZmKlCqaTK2oqUSr-P05fihZvoGHPgFk7KZroX9ZKpVEbvEjOLth1xcqkJDG3F_a2_o_3WYwet4mooFR5SjuTy2Z_eezlj",
+                        "Margit Matthes"
+                },
                 {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
@@ -235,7 +241,7 @@ public class AddLeads extends Base {
         };
     }
 
-    public void changeLeadStatus(String id){
+    public void changeLeadStatusAttemptToContacted(String id){
         String changeLeadStatusResponse;
         JSONObject changeLeadStatusResponseJson;
         changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact1);
@@ -252,6 +258,21 @@ public class AddLeads extends Base {
         }
         if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
             System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
+        };
+    }
+    public void changeLeadStatus(String id, String transitionsId, String transitionsStatus){
+        String changeLeadStatusResponse;
+        JSONObject changeLeadStatusResponseJson;
+        changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, transitionsId);
+        changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+        System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+        System.out.println("\n" );
+        if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
+            token = zohoCrmHelper.renewAccessToken();
+            zohoCrmHelper.changeLeadStatus(id, token, transitionsId);
+        }
+        if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
+            System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,transitionsStatus) );
         };
     }
 }
