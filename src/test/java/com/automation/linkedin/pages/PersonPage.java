@@ -30,7 +30,7 @@ public class PersonPage {
     public SelenideElement inMailMessegeBtnSubmit= $x("//div[@aria-label='Messaging']//button[@type='submit']");
     public SelenideElement errorMsg= $x("//div[@data-test-artdeco-toast-item-type='error']//p//span");
     public SelenideElement msgBtn= $x("//main[contains(@class,'scaffold-layout__main')]//span[text()='Message']");
-    public SelenideElement closeBtn = $x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]");
+    public SelenideElement closeBtn = $x("//div[contains(@class,'msg-overlay-bubble-header__controls')]//*[contains(@href,'#close-small')]");
     public ElementsCollection closeBtns = $$x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]");
     private int count = 0;
    String JS_ADD_TEXT_TO_INPUT = "var elm = arguments[0], txt = arguments[1];\n" +
@@ -179,17 +179,25 @@ public class PersonPage {
         return false;
     }
     @SneakyThrows
-    public void     sentMsg(String msg){
+    public boolean sentMsg(String msg){
         Thread.sleep(10000);
         if(msgParagraph.is(visible)){msgParagraph.clear();}
         if(msgParagraph.is(visible)){msgParagraph.clear();}
         if(msgParagraph.is(visible)){msgParagraph.clear();}
         if(msgParagraph.is(visible)){msgParagraph.clear();}
+        if(!$x("//button[normalize-space()='Send']").is(visible)) {
+            if (closeBtn.is(interactable)) closeBtn.click();
+            return false;
+        };
         $$x("//div[contains(@aria-label,'Write a message…')]").last().click();
         $$x("//div[contains(@aria-label,'Write a message…')]").last().sendKeys(msg);
         Thread.sleep(5000);
         $x("//button[normalize-space()='Send']").click();
         Thread.sleep(5000);
         closeBtn.click();
+
+        if (closeBtn.is(interactable)) closeBtn.click();
+
+        return true;
     }
 }

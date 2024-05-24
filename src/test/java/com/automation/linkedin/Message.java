@@ -21,6 +21,10 @@ public class Message extends Base{
     SignInPage signInPage = new SignInPage();
     MessagingPage messagingPage = new MessagingPage();
     ZohoCrmHelper zoho = new ZohoCrmHelper();
+    private ElementsCollection closeBtns = $$x("//div[contains(@class,'msg-overlay-bubble-header__controls')]//*[contains(@href,'#close-small')]");
+    private ElementsCollection pendingBtn = $$x("//button[contains(@aria-label,'Pending')]//span[normalize-space()='Pending']");
+
+    Boolean msgResult;
     String chatLeadStatusid = "421659000006918053";
     private String  msg = "Good day to you.\n" +
             "\n" +
@@ -72,7 +76,6 @@ public class Message extends Base{
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
             //System.out.println(responseBodyJsonObject);
-            System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
                 String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
@@ -85,13 +88,13 @@ public class Message extends Base{
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
-                System.out.println("tasksData: " + tasksData);
+                //System.out.println("tasksData: " + tasksData);
                 if (!String.valueOf(tasksData).contains("data")){
                     System.out.println("no data");
                     break;
                 }
-                System.out.println(tasksData.getJSONArray("data"));
-                System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
+                //System.out.println(tasksData.getJSONArray("data"));
+                //System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
                 if (tasksData.getJSONArray("data").length() >0){
                     for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
                         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
@@ -107,6 +110,16 @@ public class Message extends Base{
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            if (pendingBtn.last().is(Condition.visible)) continue;
+                            if (closeBtns.size()>0){
+                                if (closeBtns.first().is(Condition.visible)){
+                                    for (SelenideElement closeBtn:closeBtns
+                                         ) {
+                                        closeBtn.click();
+                                    }
+                                }
+                            }
+
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -118,13 +131,15 @@ public class Message extends Base{
                             if (description.equals("null")) {
                                 if (accMsgSeconded.contains(fullName)){continue;}
                                 accMsgSeconded.add(fullName);
-                                new PersonPage().sentMsg("Lets go to meeting");
+                                msgResult = new PersonPage().sentMsg("Lets go to meeting");
+                                if (!msgResult) continue;
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
                                 if (accMsgSeconded.contains(fullName)){continue;}
                                 accMsgSeconded.add(fullName);
-                                new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                msgResult = new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                if (!msgResult) continue;
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
@@ -132,6 +147,7 @@ public class Message extends Base{
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -141,11 +157,13 @@ public class Message extends Base{
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
                             if (description.equals("null")) {
-                                new PersonPage().sentMsg("Hello" + leadName + "how are you doing");
+                                msgResult = new PersonPage().sentMsg("Hello" + leadName + "how are you doing");
+                                if (!msgResult) continue;
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                             else {
-                                new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                msgResult = new PersonPage().sentMsg(description.replace("NAME",leadName));
+                                if (!msgResult) continue;
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
@@ -165,15 +183,15 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
                 //1
-                {       "Aleksandra Sternenko",
+/*                {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
 
-                },
+                },*/
                 //2
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
-                        "33222200Shin",
+                        "asd321qq",
 
                 },
                 //3
