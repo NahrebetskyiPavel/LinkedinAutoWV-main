@@ -117,6 +117,7 @@ public class AddLeads extends Base {
                 try {
                     statusChecker.waitForStatus("finished", taskStatus);
 
+                    if (taskStatus.contains("processing")) statusChecker.waitForStatus("finished", taskStatus);
 
                     if (taskResults.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
