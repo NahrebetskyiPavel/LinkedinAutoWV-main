@@ -99,6 +99,10 @@ public class AddLeads extends Base {
                     changeLeadStatus(id, broken, "Broken");
                     continue;
                 };
+                if (taskResult.contains("error") && taskResult.contains("Task expired")) {
+                    changeLeadStatus(id, broken, "Broken");
+                    continue;
+                };
                 String taskResults;
                 if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
                      taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
