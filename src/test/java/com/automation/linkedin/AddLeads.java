@@ -248,6 +248,20 @@ public class AddLeads extends Base {
                         "Elias Danilov"
                 },
 
+                {       "stefania-mykhaylenko",
+                        "mykhaylenko.stefania@outlook.fr",
+                        "cTsH3KhU",
+                        "AQEFAREBAAAAAA9y9r0AAAGPTV_V0AAAAY_lIlocTgAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRWdGhpQmFTT2g2Q1lnV09LekZ5QWhpSk4vci9ncG1STmJIYVRFd0FnQ2ozUWdCXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2NzYwMSwzMDMyMjQ2OTIpXnVybjpsaTptZW1iZXI6MTI4MDM3MjUxNh1vv87hOCPXubfRNXRCFvEdBEeBTizDkYRNnTNWEhcaDcM0E_8th2IPZIiva19huKk8Mv64w5PAKLxrksA8bXi3Z2ohbE-aFQLQW9rp5YuEwvoHWELtI6RMALKMN3tLEWtwU-2FndA63Z_9laag79-jDLyNtln4wLlo1dYCv8ET9lSb3usRHMlNnjKXOS2ujwUwnxQ",
+                        "Mykhaylenko Stefania"
+                },
+                {       "eliza-kolner",
+                        "eliza.kolner0103@outlook.de",
+                        "ek03303KK",
+                        "AQEFAREBAAAAAA9zBMEAAAGPTWfEpAAAAY_lKiqTTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkUwRzBrTkNMbXlCYTRIRGhTa1lRSS9uZVhsMHdJN0krNVFZREl3RExpQW5SXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2MjgzMywzMDMyMjkxNDUpXnVybjpsaTptZW1iZXI6MTI4MDM3NTY4NWp8bEsKJ75ogALhXQXQOlD3_brt0oR5mr_80U-ICsdrFqy-1_NJDjBInsNdgTVTTTiucKXT3yLe7uO0ozSA-OpT2CoPk-eUXF8diJIz_3Z_ciTBjWjlYNDM16fYlOI0mnZ_P-RdJDWNMvtQwywWon_TNUL5nyhQROKH4yOtj5VTz4BbSV5zMWjs405mZxzJEzUYwds",
+                        "Eliza Kolner"
+                },
+
+
         };
     }
 
