@@ -240,15 +240,15 @@ public class AddLeads extends Base {
                         "petr.degtyarev@outlook.de",
                         "33222200Shin",
                         "AQEDAUs5cmoFe9mZAAABjlyBf2oAAAGPMzVXok0Aase-74YwTB2el__HXiApMk1VKjDZtiYnIDeGI_Ez0PCLecWzCQhotwuxGmOsGFdTDsfLoyvCiOiFkdEKpoiqtjPBEqoZR_aSsiFM2OhDXtMNs2cp",
-                        "petr-2"
+                        "Petr Degtyarev"
                 },
 
-                {       "elias-danilov",
-                        "elias.danilov@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUs6XDsFpxLOAAABj6mngH8AAAGP8ihYlVYAsIj-HjxXCiscl_rRuwjKq4ZKBoFavNbdPf7qJ1zr2yfIn2MfSwGzLJwBk3CDVEZatH3SrpVx9SsQ43tRFkLa20PaVuBllvpIETfF0SXWlSimz87A",
-                        "Elias Danilov"
-                },
+                    {       "elias-danilov",
+                            "elias.danilov@outlook.it",
+                            "33222200Shin",
+                            "AQEDAUs6XDsFpxLOAAABj6mngH8AAAGP8ihYlVYAsIj-HjxXCiscl_rRuwjKq4ZKBoFavNbdPf7qJ1zr2yfIn2MfSwGzLJwBk3CDVEZatH3SrpVx9SsQ43tRFkLa20PaVuBllvpIETfF0SXWlSimz87A",
+                            "Elias Danilov"
+                    },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
