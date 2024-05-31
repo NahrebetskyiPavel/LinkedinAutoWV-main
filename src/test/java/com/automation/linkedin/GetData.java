@@ -51,6 +51,10 @@ public class GetData extends Base{
                 Response getUnprocessedLinksResponse = wiseVisionApiHelper.getUnprocessedLinks();
                 String personRef = getUnprocessedLinksResponse.body().string();
                     if (personRef.isEmpty()) continue;
+                    if (personRef.contains("Didn't find unprocessed linkedin link")) {
+                        System.out.println("Didn't find unprocessed linkedin link");
+                        break;
+                    };
 
                     Thread.sleep(randomResult);
                 if (personRef.contains("No unprocessed linkedin URLs found.")) {
