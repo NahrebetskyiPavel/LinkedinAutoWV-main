@@ -53,8 +53,8 @@ public class AddLeads extends Base {
 
         return new Object[][]{
                 {
-                        "basdenisphytontm@gmail.com",
-                        "asd321qq",
+                        "kni2012@ukr.net",
+                        "33222200s",
                 },
         };
     }
