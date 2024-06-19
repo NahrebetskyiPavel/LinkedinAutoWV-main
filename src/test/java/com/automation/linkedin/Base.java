@@ -22,7 +22,7 @@ public class Base {
         if (isRemote){
             Configuration.driverManagerEnabled = false;
             Configuration.pageLoadTimeout = 120000;
-            Configuration.remote = "http://34.118.49.36:4444/wd/hub";
+            Configuration.remote = "http://34.116.143.198:4444/wd/hub";
             ChromeOptions options = new ChromeOptions();
             options.setCapability("selenoid:options", new HashMap<String, Object>() {{
                 // How to add test badge
