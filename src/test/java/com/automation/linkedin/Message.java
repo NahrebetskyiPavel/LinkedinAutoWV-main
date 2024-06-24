@@ -147,7 +147,8 @@ public class Message extends Base{
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
-
+                            if (!$x("//main//span[contains(text(),'Pending')]").is(Condition.visible)) continue;
+                            if (!new PersonPage().msgBtn.is(Condition.visible)) continue;
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -203,7 +204,7 @@ public class Message extends Base{
                 //4
                 {       "Anastasiia Vozniak",
                         "vozniakanastasia52@gmail.com",
-                        "33222200Shin",
+                        "asd2424qq",
 
                 },
                 //5
