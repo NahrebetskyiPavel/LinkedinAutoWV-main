@@ -66,7 +66,7 @@ public class AddLeads extends Base {
 
         // System.out.println(new JSONObject( data ).getJSONArray("data").length());
         //System.out.println(new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("Website"));
-        System.out.println("data: " + data);
+        //System.out.println("data: " + data);
         for (int i = 0; i < new JSONObject( data ).getJSONArray("data").length(); i++)
         {
             Thread.sleep(randomResult);
@@ -91,7 +91,15 @@ public class AddLeads extends Base {
                     changeLeadStatusAttemptToContacted(id);
                     continue;
                 };
+                if (taskResult.contains("error") && taskResult.contains("Profile already in connections")) {
+                    changeLeadStatusAttemptToContacted(id);
+                    continue;
+                };
                 if (taskResult.contains("error") && taskResult.contains("Invalid url")) {
+                    changeLeadStatus(id, broken, "Broken");
+                    continue;
+                };
+                if (taskResult.contains("error") && taskResult.contains("Navigation timeout of 30000 ms exceeded")) {
                     changeLeadStatus(id, broken, "Broken");
                     continue;
                 };
@@ -99,9 +107,17 @@ public class AddLeads extends Base {
                     changeLeadStatus(id, broken, "Broken");
                     continue;
                 };
+                if (taskResult.contains("error") && taskResult.contains("To verify this member knows you, please enter their email to connect.")) {
+                    changeLeadStatus(id, broken, "Broken");
+                    continue;
+                };
                 if (taskResult.contains("error") && taskResult.contains("Task expired")) {
                     changeLeadStatus(id, broken, "Broken");
                     continue;
+                };
+                if (taskStatus.contains("failed") && taskResult.contains("Cookie is not valid")) {
+                    System.out.println("!!! Cookie is not valid !!!");
+                    break;
                 };
                 String taskResults;
                 if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
@@ -170,6 +186,7 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
+/*
                 {       "margit-matthes",
                         "margit.Matthes@outlook.de",
                         "33222200Shin",
@@ -242,20 +259,23 @@ public class AddLeads extends Base {
                         "AQEDAUs5cmoFe9mZAAABjlyBf2oAAAGPMzVXok0Aase-74YwTB2el__HXiApMk1VKjDZtiYnIDeGI_Ez0PCLecWzCQhotwuxGmOsGFdTDsfLoyvCiOiFkdEKpoiqtjPBEqoZR_aSsiFM2OhDXtMNs2cp",
                         "Petr Degtyarev"
                 },
+*/
 
+/*
                     {       "elias-danilov",
                             "elias.danilov@outlook.it",
                             "33222200Shin",
-                            "AQEDAUs6XDsFpxLOAAABj6mngH8AAAGP8ihYlVYAsIj-HjxXCiscl_rRuwjKq4ZKBoFavNbdPf7qJ1zr2yfIn2MfSwGzLJwBk3CDVEZatH3SrpVx9SsQ43tRFkLa20PaVuBllvpIETfF0SXWlSimz87A",
+                            "AQEDAUs6XDsE5r84AAABkFSaSSQAAAGQeKbNJFYAlmhPNpqd4hkaaPgnPxco4GUXwZDNgbLzvw-wpG-OXavFb5mOlT7YvGc0An4Mtgbu1nHFYCaECQCliVWgwbY0J2tysOE27Sk-xaRCrXCDQpnY0B2G",
                             "Elias Danilov"
                     },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
                         "cTsH3KhU",
-                        "AQEFAREBAAAAAA9y9r0AAAGPTV_V0AAAAY_lIlocTgAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRWdGhpQmFTT2g2Q1lnV09LekZ5QWhpSk4vci9ncG1STmJIYVRFd0FnQ2ozUWdCXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2NzYwMSwzMDMyMjQ2OTIpXnVybjpsaTptZW1iZXI6MTI4MDM3MjUxNh1vv87hOCPXubfRNXRCFvEdBEeBTizDkYRNnTNWEhcaDcM0E_8th2IPZIiva19huKk8Mv64w5PAKLxrksA8bXi3Z2ohbE-aFQLQW9rp5YuEwvoHWELtI6RMALKMN3tLEWtwU-2FndA63Z_9laag79-jDLyNtln4wLlo1dYCv8ET9lSb3usRHMlNnjKXOS2ujwUwnxQ",
+                        "AQEDAUxQ7yQB0DQHAAABkFTUWGQAAAGQeODcZE0Az5LeizXUvlo_k2-fAAY9s-j0WPWH2nkiDsincVY-HvizEL5Yc_T9vR0LrF_0G7gogZflSQnZcMDl9yRXFgmGp51XMNi3FNTWU3DuKbSgoumfjP0D",
                         "Mykhaylenko Stefania"
                 },
+*/
 
                 {       "eliza-kolner",
                         "eliza.kolner0103@outlook.de",
