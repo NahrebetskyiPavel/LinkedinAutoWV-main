@@ -114,8 +114,8 @@ public class Message extends Base{
                             System.out.println(subject);
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
-                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
-                            if (pendingBtn.last().is(Condition.visible)) continue;
+                            //if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            //if (pendingBtn.last().is(Condition.visible)) continue;
                             if (closeBtns.size()>0){
                                 if (closeBtns.first().is(Condition.visible)){
                                     for (SelenideElement closeBtn:closeBtns
@@ -154,9 +154,9 @@ public class Message extends Base{
                             System.out.println(subject);
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
-                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
-                            if (!$x("//main//span[contains(text(),'Pending')]").is(Condition.visible)) continue;
-                            if (!new PersonPage().msgBtn.is(Condition.visible)) continue;
+                            //if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            //if (!$x("//main//span[contains(text(),'Pending')]").is(Condition.visible)) continue;
+                            //if (!new PersonPage().msgBtn.is(Condition.visible)) continue;
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
