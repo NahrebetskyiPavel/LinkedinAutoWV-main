@@ -24,6 +24,7 @@ public class Base {
             Configuration.pageLoadTimeout = 120000;
             Configuration.remote = "http://34.116.143.198:4444/wd/hub";
             ChromeOptions options = new ChromeOptions();
+            options.setCapability("browserVersion", "125.0");
             options.setCapability("selenoid:options", new HashMap<String, Object>() {{
                 // How to add test badge
                 put("name", name);

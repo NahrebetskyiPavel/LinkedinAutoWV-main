@@ -68,7 +68,7 @@ public class Message extends Base{
 
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName){
-        System.out.println("START Meeting MSG");
+        System.out.println("START " + taskName);
 
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
@@ -109,6 +109,9 @@ public class Message extends Base{
                         //System.out.println(status);
                         //System.out.println(subject);
                         if (status.equals("Not Started")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                            System.out.println(taskId);
+                            System.out.println(status);
+                            System.out.println(subject);
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
@@ -130,9 +133,6 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
-                            System.out.println(taskId);
-                            System.out.println(status);
-                            System.out.println(subject);
                             if (description.equals("null")) {
                                 if (accMsgSeconded.contains(fullName)){continue;}
                                 accMsgSeconded.add(fullName);
@@ -149,6 +149,9 @@ public class Message extends Base{
                             }
                         };
                         if (status.equals("In Progress")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                            System.out.println(taskId);
+                            System.out.println(status);
+                            System.out.println(subject);
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
@@ -162,9 +165,6 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
-                            System.out.println(taskId);
-                            System.out.println(status);
-                            System.out.println(subject);
                             if (description.equals("null")) {
                                 msgResult = new PersonPage().sentMsg("Hello" + leadName + "how are you doing");
                                 if (!msgResult) continue;
