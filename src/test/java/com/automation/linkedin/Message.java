@@ -78,13 +78,15 @@ public class Message extends Base{
             //System.out.println(responseBodyJsonObject);
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
+                if (responseBodyJsonObject.getJSONArray("data").getJSONObject(i).get("Website") == null) continue;
+                if (responseBodyJsonObject.getJSONArray("data").getJSONObject(i).get("Website") == "null") continue;
                 String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
-                System.out.println(id);
-                System.out.println(fullName);
-                System.out.println(leadPage);
+                //System.out.println(id);
+                //System.out.println(fullName);
+                //System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
@@ -103,9 +105,9 @@ public class Message extends Base{
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
 
-                        System.out.println(taskId);
-                        System.out.println(status);
-                        System.out.println(subject);
+                        //System.out.println(taskId);
+                        //System.out.println(status);
+                        //System.out.println(subject);
                         if (status.equals("Not Started")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
@@ -128,6 +130,9 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
+                            System.out.println(taskId);
+                            System.out.println(status);
+                            System.out.println(subject);
                             if (description.equals("null")) {
                                 if (accMsgSeconded.contains(fullName)){continue;}
                                 accMsgSeconded.add(fullName);
@@ -157,6 +162,9 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
+                            System.out.println(taskId);
+                            System.out.println(status);
+                            System.out.println(subject);
                             if (description.equals("null")) {
                                 msgResult = new PersonPage().sentMsg("Hello" + leadName + "how are you doing");
                                 if (!msgResult) continue;
@@ -173,7 +181,7 @@ public class Message extends Base{
 
                 System.out.println();
                 System.out.println("\n");
-                System.out.println("====================================================================");
+                //System.out.println("====================================================================");
                 System.out.println("\n");
             }
         }
@@ -184,11 +192,11 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
                 //1
-/*                {       "Aleksandra Sternenko",
+                {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
 
-                },*/
+                },
                 //2
                 {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
