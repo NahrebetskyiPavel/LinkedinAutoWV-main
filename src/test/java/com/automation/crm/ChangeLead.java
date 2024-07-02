@@ -138,7 +138,7 @@ public class ChangeLead {
                 },
                 {       "Денис ",
                         "basdenisphytontm@gmail.com",
-                        "33222200Shin",
+                        "asd321qq",
                 },
                 {       "Настя",
                         "anastasiiakuntii@gmail.com",
