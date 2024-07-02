@@ -185,7 +185,14 @@ public class PersonPage {
         if(msgParagraph.is(visible)){msgParagraph.clear();}
         if(msgParagraph.is(visible)){msgParagraph.clear();}
         if(msgParagraph.is(visible)){msgParagraph.clear();}
-        if(!$x("//button[normalize-space()='Send']").is(visible)) {
+        if($x("//button[contains(@class,'msg-form__send-btn')]").is(visible)){
+            $x("//button[contains(@class,'msg-form__send-btn')]").click();
+            Thread.sleep(5000);
+            closeBtn.click();
+            return true;
+
+        }
+            if(!$x("//button[normalize-space()='Send']").is(visible)) {
             if (closeBtn.is(interactable)) closeBtn.click();
             return false;
         };
@@ -193,6 +200,8 @@ public class PersonPage {
         $$x("//div[contains(@aria-label,'Write a message…')]").last().sendKeys(msg);
         Thread.sleep(5000);
         $x("//button[normalize-space()='Send']").click();
+
+        $x("//button[contains(@class,'msg-form__send-btn')]").click();
         Thread.sleep(5000);
         closeBtn.click();
 
