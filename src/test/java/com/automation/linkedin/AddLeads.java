@@ -137,6 +137,7 @@ public class AddLeads extends Base {
                 }
 
                 try {
+                    Thread.sleep(50000);
                     statusChecker.waitForStatus("finished", taskStatus);
 
                     if (taskStatus.contains("processing")) statusChecker.waitForStatus("finished", taskStatus);
