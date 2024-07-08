@@ -139,6 +139,10 @@ public class AddLeads extends Base {
                     if (taskStatus.contains("processing")) Thread.sleep(2 * 60 * 1000);
 
                     taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
+                    if (taskResult.contains("error") && taskResult.contains("Invitation already sent")) {
+                        changeLeadStatusAttemptToContacted(id);
+                        continue;
+                    };
                 }
 
                 try {
