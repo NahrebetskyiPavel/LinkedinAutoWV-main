@@ -132,12 +132,17 @@ public class AddLeads extends Base {
                          System.out.println("Cookie is not valid");
                          break;
                      };
-                    if (taskStatus.contains("processing"))                     Thread.sleep(60000);
+                    if (taskStatus.contains("processing"))
+                        Thread.sleep(4 * 60 * 1000);
+                    taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
+                    taskStatus = new JSONObject( taskInfo ).getString("status");
+                    if (taskStatus.contains("processing")) Thread.sleep(2 * 60 * 1000);
+
                     taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
                 }
 
                 try {
-                    Thread.sleep(50000);
+                    Thread.sleep(50*1000);
                     statusChecker.waitForStatus("finished", taskStatus);
 
                     if (taskStatus.contains("processing")) statusChecker.waitForStatus("finished", taskStatus);
