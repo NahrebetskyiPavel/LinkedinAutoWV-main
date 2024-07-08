@@ -314,7 +314,7 @@ public String getLeadList(String token, int page, String leadStatus, String link
 
     @SneakyThrows
     public String getLeadTaskList(String leadId, String token){
-        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(60, TimeUnit.SECONDS)
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
@@ -324,7 +324,12 @@ public String getLeadList(String token, int page, String leadStatus, String link
                 .addHeader("Authorization", "Bearer " + token)
                 .addHeader("Cookie", "5ad188d5f9=1086874d1f4b79ca34a3e357de49b547; _zcsr_tmp=9615c3e5-2287-4b6e-b579-a7ecab0f032b; crmcsr=9615c3e5-2287-4b6e-b579-a7ecab0f032b")
                 .build();
-        Response response = client.newCall(request).execute();
+        Response response;
+        try {
+            response = client.newCall(request).execute();
+        } catch (Exception e){
+            response = client.newCall(request).execute();
+        }
         String responseBody = response.body().string();
         return responseBody;
     }

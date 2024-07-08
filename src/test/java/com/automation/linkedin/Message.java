@@ -14,6 +14,7 @@ import utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Selenide.*;
 import static utils.Utils.localDateIsBeforeGivenComparison;
 
@@ -154,9 +155,12 @@ public class Message extends Base{
                             System.out.println(subject);
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
-                            //if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
+                            if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             //if (!$x("//main//span[contains(text(),'Pending')]").is(Condition.visible)) continue;
                             //if (!new PersonPage().msgBtn.is(Condition.visible)) continue;
+                            if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
+                            if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
+                            if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -164,9 +168,9 @@ public class Message extends Base{
                                 continue;
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
-                            System.out.println("sent msg!!!");
+                            System.out.println("sent msg!!");
                             if (description.equals("null")) {
-                                msgResult = new PersonPage().sentMsg("Hello" + leadName + "how are you doing");
+                                msgResult = new PersonPage().sentMsg("Hello how are you doing");
                                 if (!msgResult) continue;
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
@@ -204,11 +208,6 @@ public class Message extends Base{
 
                 },
                 //3
-                {       "Demetrios Mikhaylov",
-                        "demetrios.Mikhaylov@outlook.de",
-                        "33222200Shin",
-
-                },
                 //4
                 {       "Anastasiia Vozniak",
                         "vozniakanastasia52@gmail.com",
@@ -269,11 +268,6 @@ public class Message extends Base{
 
                 },
                 //14
-                {       "Demetrios Mikhaylov",
-                        "demetrios.Mikhaylov@outlook.de",
-                        "33222200Shin",
-
-                },                //14
                 {
                         "Nikita K.",
                         "kni2012@ukr.net",

@@ -20,7 +20,7 @@ public class PersonPage {
     public SelenideElement getCannotAddLeadPopUpClose = $("#artdeco-toasts li-icon[type='cancel-icon']");
     public SelenideElement cannotAddLeadPopUp = $("#artdeco-toasts [role='alert']");
     public SelenideElement msgParagraph = $x("//div[@aria-label='Messaging']//p");
-    public ElementsCollection msgParagraphs = $$x("//div[@aria-label='Messaging']//p");
+    public ElementsCollection msgParagraphs = $$x("//div[contains(@class,'msg-form__msg-content-container')]//p");
     public SelenideElement limitAlertHeader = $x("//h2[@id='ip-fuse-limit-alert__header']");
     public SelenideElement inMailMsgBtn = $x("//main//span[@class='artdeco-button__text'][normalize-space()='Message']");
     public SelenideElement premiumUpsellLink = $("div.premium-upsell-link");
@@ -181,11 +181,14 @@ public class PersonPage {
     }
     @SneakyThrows
     public boolean sentMsg(String msg){
+
+
         Thread.sleep(10000);
+        if (msgParagraphs.last().text().length()>0){
         for (SelenideElement msgParagraph:msgParagraphs
              ) {
             msgParagraph.clear();
-        }
+        }}
         if($x("//button[contains(@class,'msg-form__send-btn')]").is(visible)){
             $$x("//div[contains(@aria-label,'Write a message…')]").last().click();
             $$x("//div[contains(@aria-label,'Write a message…')]").last().sendKeys(msg);
