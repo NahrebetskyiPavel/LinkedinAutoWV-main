@@ -82,12 +82,18 @@ public class AddLeads extends Base {
                 //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + linkedinperson + " "+ leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
             {
               String response =  wiseVisionApiHelper.impastoAddToFriends(profileId, email, password, cookie, personRef);
-                Thread.sleep(1000*60);
               int taskId = (int) new JSONObject( response ).get("taskId");
               String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
               String taskStatus = new JSONObject( taskInfo ).getString("status");
               String taskResult = String.valueOf(new JSONObject( taskInfo ));
-                if (taskResult.contains("error") && taskResult.contains("Invitation already sent")) {
+                while (true){
+                    Thread.sleep( 60 * 1000);
+                    taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
+                    taskStatus = new JSONObject( taskInfo ).getString("status");
+                    if (taskStatus.contains("finished")) break;
+                    if (taskStatus.contains("failed")) break;
+                }
+                if (taskInfo.contains("Invitation already sent")) {
                     changeLeadStatusAttemptToContacted(id);
                     continue;
                 };
@@ -132,13 +138,10 @@ public class AddLeads extends Base {
                          System.out.println("Cookie is not valid");
                          break;
                      };
-                    if (taskStatus.contains("processing"))
-                        Thread.sleep(4 * 60 * 1000);
-                    taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
-                    taskStatus = new JSONObject( taskInfo ).getString("status");
-                    if (taskStatus.contains("processing")) Thread.sleep(2 * 60 * 1000);
 
-                    taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
+
+                    taskInfo = String.valueOf(new JSONObject( taskInfo ));
+
                     if (taskResult.contains("error") && taskResult.contains("Invitation already sent")) {
                         changeLeadStatusAttemptToContacted(id);
                         continue;
@@ -151,10 +154,13 @@ public class AddLeads extends Base {
 
                     if (taskStatus.contains("processing")) statusChecker.waitForStatus("finished", taskStatus);
 
-                    if (taskResults.contains("error")) {
+                    if (taskInfo.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Status is now 'error'.");
-
+                        if (taskInfo.contains("Invitation already sent")) {
+                            changeLeadStatusAttemptToContacted(id);
+                            continue;
+                        };
                         continue;
                     };
                     if (taskStatus.contains("expired")) {
@@ -302,6 +308,7 @@ public class AddLeads extends Base {
 
         };
     }
+
 
     public void changeLeadStatusAttemptToContacted(String id){
         String changeLeadStatusResponse;
