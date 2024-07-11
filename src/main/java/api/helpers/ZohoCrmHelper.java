@@ -6,6 +6,8 @@ import okhttp3.*;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 import static utils.Utils.localDateIsBeforeGivenComparison;
 
 public class ZohoCrmHelper {
@@ -134,7 +136,7 @@ public class ZohoCrmHelper {
 
     @SneakyThrows
     public String changeLeadStatus(String leadId, String token, String transition_id){
-        OkHttpClient client = new OkHttpClient().newBuilder()
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "\n{\n    \"blueprint\": [\n       {\n            \"transition_id\": \"" + transition_id + "\"\n        }\n    ]\n}\n");
@@ -152,7 +154,7 @@ public class ZohoCrmHelper {
     }
     @SneakyThrows
     public String directChangeLeadStatus(String leadId, String token, String transitionStatusName){
-        OkHttpClient client = new OkHttpClient().newBuilder()
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "{\"data\":[{\"Lead_Status\":\""+transitionStatusName+"\"}],\"formruleValue\":{\"mandatoryInputNeededElem\":[],\"lrMandatoryElem\":[],\"LayoutRuleHiddenElem\":[]}}");
@@ -180,7 +182,7 @@ public class ZohoCrmHelper {
     }
     @SneakyThrows
     public String getLeadInfoByFullName(String token, String fullName){
-        OkHttpClient client = new OkHttpClient().newBuilder()
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
@@ -198,7 +200,7 @@ public class ZohoCrmHelper {
     @SneakyThrows
     public String getLeadInfoById(String token, String id){
 
-        OkHttpClient client = new OkHttpClient().newBuilder()
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
@@ -216,7 +218,7 @@ public class ZohoCrmHelper {
 
 @SneakyThrows
 public String getLeadList(String token, String pickList, String status){
-    OkHttpClient client = new OkHttpClient().newBuilder()
+    OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
             .build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = RequestBody.create(mediaType, "");
@@ -233,7 +235,7 @@ public String getLeadList(String token, String pickList, String status){
 }
 @SneakyThrows
 public String getLeadList(String token, String pickList, String status, String linkedInAccount, int pagenum){
-    OkHttpClient client = new OkHttpClient().newBuilder()
+    OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
             .build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = RequestBody.create(mediaType, "");
@@ -250,7 +252,7 @@ public String getLeadList(String token, String pickList, String status, String l
 }
 @SneakyThrows
 public String getLeadList(String token,  String status, String linkedInAccount, int pagenum){
-    OkHttpClient client = new OkHttpClient().newBuilder()
+    OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
             .build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = RequestBody.create(mediaType, "");
@@ -272,7 +274,7 @@ public String getLeadList(String token,  String status, String linkedInAccount, 
 }
 @SneakyThrows
 public String getLeadList(String token, int page, String leadStatus, String linkedInPerson, String pickList2){
-    OkHttpClient client = new OkHttpClient().newBuilder()
+    OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
             .build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = RequestBody.create(mediaType, "");
@@ -294,7 +296,7 @@ public String getLeadList(String token, int page, String leadStatus, String link
 
     @SneakyThrows
     public String getTaskList(String token){
-        OkHttpClient client = new OkHttpClient().newBuilder()
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
@@ -312,7 +314,7 @@ public String getLeadList(String token, int page, String leadStatus, String link
 
     @SneakyThrows
     public String getLeadTaskList(String leadId, String token){
-        OkHttpClient client = new OkHttpClient().newBuilder()
+        OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
