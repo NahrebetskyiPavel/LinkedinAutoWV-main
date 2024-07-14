@@ -203,12 +203,7 @@ public class AddLeads extends Base {
 
         return new Object[][]{
 
-                {       "margit-matthes",
-                        "margit.Matthes@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUuampkDA9uSAAABjzNCPogAAAGPV07CiFYAUTlaawCUQBq15anEMNwZmKlCqaTK2oqUSr-P05fihZvoGHPgFk7KZroX9ZKpVEbvEjOLth1xcqkJDG3F_a2_o_3WYwet4mooFR5SjuTy2Z_eezlj",
-                        "Margit Matthes"
-                },
+
                 {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
