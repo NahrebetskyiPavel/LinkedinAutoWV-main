@@ -188,6 +188,7 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
+
                 {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
@@ -195,12 +196,12 @@ public class Message extends Base{
                         "Andrei Gorbunkov"
                 },
 
-/*                {       "paul-bereza",
+                {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
                         "AQEFAREBAAAAAA9y_ngAAAGPTWyIZQAAAY9xerrsTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkMwRzBrTkJ0UnhBdGNPak1TMFlRSS9uZXNWNHdJN0krWUM4REl3RE1hUW9RXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2Mjg0OSwzMDMyMjU2NjUpXnVybjpsaTptZW1iZXI6MTI2NjM4OTU1Mqtahj54xFZSxnrvy1Fhjo_T5CKqWfcLzzEpATi94tKyJSkHYCbgDxcQJJBeH2a8gJu17Nee6uDtPtfo_xlPThNbQRG8NrY1MvzU75pvL6Rvd7fsGhGb9M58udN77XZ1qFysniogLshJfVj7ldODM6ZXSGdf68Gml-blsKo3mCQX9GbJCdGFEc0IjGUj57r7S4gaOng",
                         "Paul Bereza"
-                },*/
+                },
                 {       "alessio-vacenko-b506612b3",
                         "alessio.Vacenko@outlook.it",
                         "33222200Shin",
@@ -220,11 +221,11 @@ public class Message extends Base{
                         "Dmitriy Timashov"
                 },
 
-
                 {       "eliza-kolner",
                         "eliza.kolner0103@outlook.de",
                         "ek03303KK",
-                        "AQEFAREBAAAAAA9zBMEAAAGPTWfEpAAAAY_lKiqTTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkUwRzBrTkNMbXlCYTRIRGhTa1lRSS9uZVhsMHdJN0krNVFZREl3RExpQW5SXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2MjgzMywzMDMyMjkxNDUpXnVybjpsaTptZW1iZXI6MTI4MDM3NTY4NWp8bEsKJ75ogALhXQXQOlD3_brt0oR5mr_80U-ICsdrFqy-1_NJDjBInsNdgTVTTTiucKXT3yLe7uO0ozSA-OpT2CoPk-eUXF8diJIz_3Z_ciTBjWjlYNDM16fYlOI0mnZ_P-RdJDWNMvtQwywWon_TNUL5nyhQROKH4yOtj5VTz4BbSV5zMWjs405mZxzJEzUYwds",                        "Eliza Kolner"
+                        "AQEFAREBAAAAAA9zBMEAAAGPTWfEpAAAAY_lKiqTTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkUwRzBrTkNMbXlCYTRIRGhTa1lRSS9uZVhsMHdJN0krNVFZREl3RExpQW5SXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2MjgzMywzMDMyMjkxNDUpXnVybjpsaTptZW1iZXI6MTI4MDM3NTY4NWp8bEsKJ75ogALhXQXQOlD3_brt0oR5mr_80U-ICsdrFqy-1_NJDjBInsNdgTVTTTiucKXT3yLe7uO0ozSA-OpT2CoPk-eUXF8diJIz_3Z_ciTBjWjlYNDM16fYlOI0mnZ_P-RdJDWNMvtQwywWon_TNUL5nyhQROKH4yOtj5VTz4BbSV5zMWjs405mZxzJEzUYwds",
+                        "Eliza Kolner"
                 },
 
                 {       "Matthew Martinez",
@@ -251,17 +252,37 @@ public class Message extends Base{
                 {       "petr-2",
                         "petr.degtyarev@outlook.de",
                         "33222200Shin",
-                        "AQEDAUs5cmoFe9mZAAABjlyBf2oAAAGPMzVXok0Aase-74YwTB2el__HXiApMk1VKjDZtiYnIDeGI_Ez0PCLecWzCQhotwuxGmOsGFdTDsfLoyvCiOiFkdEKpoiqtjPBEqoZR_aSsiFM2OhDXtMNs2cp",
-                        "petr-2"
+                        "AQEFAREBAAAAABBY1JQAAAGQgeLMcgAAAZDKCB9kTgAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDNFM3NVNXQ2FMellFUkV2a3hFVXhnaGhKSGlidFlFYmt2bC9zREl3QWdvRUczZz09XnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjMyNzgxOTE1NCwzMTk3MDg1MDApXnVybjpsaTptZW1iZXI6MTI2MjA1NjA0MiB5HA7YQmaCnTjG_Jeg9OP193CAUgF3O5NbC4tsQoBwY6Icqn4NqeYKfS1mBhe-GEaBcQzoNO_OHOwtGcd1ljS3ETYlo3cbU7dsgJ3ZKZWDbCPyJjQFuy-maQrDoTH817VKfgGeyfRdWon95WJFBNMfdxeEmEKO___glBu3dHkUCMbTBEszAMmwUmN9QOjpjN4EjlE",
+                        "Petr Degtyarev"
                 },
+
 
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsCa_PgAAABjXEAR6wAAAGPvnUX8VYAR6FAgkuaV0y_vHtOvXsZpgRzeT26KlNYH93IyJIvw7UoOHeBkpUI_sp-S3bWqGBbPA_2Dxr_E6qhJL-v3awX4tp5K2b74cZe6QP1xVtzzrFYmS8L",
+                        "AQEFAREBAAAAABBfUeMAAAGQVYpWigAAAZDb2R5dTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDNFU0UElURE5GM1FHUkV0a3UvMWlCREdTM0pqWXdZeklmZC9NR0JnQmhRNEc4UT09XnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjMyNzc2Mzk4NiwzMTk3MDU4MDQpXnVybjpsaTptZW1iZXI6MTI4MDM3MjUxNjdwQUKWdzcrMV5UyxuUz1x8aEhKKXF7EcQeSEPQ-KGKylQVfG6KOF4xN4K1EjALiMpe8uUTcJvt8s_EnjBJ3Oq7J_hHAa0pB4CZQIu5I0BI6lPMxoTb2YQBkRqvYp_9qBXA8EPoMTgyvGkbpxIayC1AT_2EG6jmw7gnMfga1skf5jXaHSc8EWrLcKCcL3FqQiD3iuo",
                         "Elias Danilov"
                 },
 
+                {       "stefania-mykhaylenko",
+                        "mykhaylenko.stefania@outlook.fr",
+                        "cTsH3KhU",
+                        "AQEDAUxQ7yQB0DQHAAABkFTUWGQAAAGQeODcZE0Az5LeizXUvlo_k2-fAAY9s-j0WPWH2nkiDsincVY-HvizEL5Yc_T9vR0LrF_0G7gogZflSQnZcMDl9yRXFgmGp51XMNi3FNTWU3DuKbSgoumfjP0D",
+                        "Mykhaylenko Stefania"
+                },
+
+                {       "eliza-kolner",
+                        "eliza.kolner0103@outlook.de",
+                        "ek03303KK",
+                        "AQEFAREBAAAAAA9zBMEAAAGPTWfEpAAAAY_lKiqTTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkUwRzBrTkNMbXlCYTRIRGhTa1lRSS9uZVhsMHdJN0krNVFZREl3RExpQW5SXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2MjgzMywzMDMyMjkxNDUpXnVybjpsaTptZW1iZXI6MTI4MDM3NTY4NWp8bEsKJ75ogALhXQXQOlD3_brt0oR5mr_80U-ICsdrFqy-1_NJDjBInsNdgTVTTTiucKXT3yLe7uO0ozSA-OpT2CoPk-eUXF8diJIz_3Z_ciTBjWjlYNDM16fYlOI0mnZ_P-RdJDWNMvtQwywWon_TNUL5nyhQROKH4yOtj5VTz4BbSV5zMWjs405mZxzJEzUYwds",
+                        "Eliza Kolner"
+                },
+                {       "andrey-gorichev",
+                        "gorichev.andrey12311@outlook.it",
+                        "33222200Shin",
+                        "AQEDAUsXduoFXURrAAABjVq7ABQAAAGP47hNrE0AfWZ8_ikQZ884R2ykvvKS1bOA0bUDRo0-6r0_QFmBrzWZvqxX_JCmB-X5RykYyrSh6LzajqQcrohQA8pmVb7XqF8MMY24l9X2v4tQfU3OeyOnIpyd",
+                        "Gorichev Andrey"
+                },
 
                 {       "den-vaviron",
                         "denVavir00@outlook.de",
@@ -274,28 +295,30 @@ public class Message extends Base{
                         "max.Mikhaylov@outlook.de",
                         "33222200Shin",
                         "AQEDAUtQFBQCjJC7AAABjp8_IKQAAAGQtXbCFk0APU1awin9vTpbYPFPAwTI09b3wzQTleAm9yk3WJrSzyUhqSO1oAKNUAtMstP37X_J_ilxnTfpDYL7LbEzY75i1-7r49tgyEDTplOmq0bWTgcp2kOh",
-                        "max-mikhaylov"
+                        "Max Mikhaylov"
                 },
 
                 {       "anastasiya-boroday-8874362b7",
                         "boroday.anastasiya@outlook.de",
                         "SBZQP0FG",
                         "AQEDAUwPgGcC5KHZAAABjeWXQGgAAAGQuotxjU0AJnPA67zRBmxWTC8FhKcIK88XX08j0QdAq5jPoCwH1-RafIlwA5dTJr_Gyjcntv0RAdjl9EJ0jstEp6D1fR2y1rCIMeebp6Ec6Oaks8kjviNpqi3g",
-                        "anastasiya-boroday-8874362b7"
+                        "Boroday Anastasiya"
                 },
 
                 {       "daniele-tsvetkov",
                         "daniele.tsvetkov@outlook.it",
                         "33222200Shin",
                         "AQEDAUtiZkQEzpptAAABjYItJMIAAAGQupELhk0ApRFD-1Hgo_-4tATx2KxiW0Ckh1_aOHjf1GX1XMSCcNLd_HQbgLydDywC2zLCZQfpTztsCPonqT_Q8MDEcO_2K3taSnfpPvgzWmL_Xedrdm36Fxh0",
-                        "daniele-tsvetkov"
+                        "Daniele Tsvetkov"
                 },
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
                         "206GLMC2",
                         "AQEFAREBAAAAABBl9t0AAAGPfE7YuwAAAZC6kOdFTgAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDa2JDbVR5QmFlTWFxZGhBdE9lRlJGQ09Ja1JKc3pROW1SRjY4ZG9tQkVRRERJUWwzXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjM0MTIxMzkzOCwzMjg3NzIyMzEpXnVybjpsaTptZW1iZXI6MTI4MDAxMjQyNBoDBY08vb3502vD4Lj1B4RgmmkK9v0IEWkf_IjnAtvJqOfXzBNNs9vcA8ZklQxTdPNHdwmvFOJtaoTqBK38dvgyvHQacDip21M7eXyIjBtLGsCmWr_PCKUW4xEYLnJG8Dayg7-oVljVDkJ3KBp8X3MVfha5PgpBrMhdlxW-ZLQ11--220ZXBT6eQ9OMTxTMD4IADG4",
-                        "patrick-yushko-b2080b2b8"
+                        "Yushko Patrick"
                 },
+
+
 
         };
     }
