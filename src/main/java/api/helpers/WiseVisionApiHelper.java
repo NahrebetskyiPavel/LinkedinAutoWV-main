@@ -5,6 +5,9 @@ import lombok.SneakyThrows;
 import okhttp3.*;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
 public class WiseVisionApiHelper {
     @SneakyThrows
     public String getUnprocessedLinks(){
@@ -20,6 +23,9 @@ public class WiseVisionApiHelper {
     @SneakyThrows
     public void postLinkedinPersonData(String linkedinUrl, String personName, String aboutPerson, String workHistory,String location){
         OkHttpClient client = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "{\n    " +
@@ -115,6 +121,9 @@ public class WiseVisionApiHelper {
     @SneakyThrows
     public String impastoGetTaskinfo(String profileId, int tasId){
         OkHttpClient client = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
@@ -123,7 +132,14 @@ public class WiseVisionApiHelper {
                 .method("POST", body)
                 .addHeader("Authorization", "b9cb85f7-3211-4e13-b45f-748cbbc71bc1")
                 .build();
-        Response response = client.newCall(request).execute();
+        Response response;
+try {
+    response = client.newCall(request).execute();
+}catch (Exception e){
+    Thread.sleep(10 * 1000);
+    response = client.newCall(request).execute();
+
+}
         String responseBody = response.body().string();
         System.out.println(responseBody);
         return responseBody;

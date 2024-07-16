@@ -303,7 +303,7 @@ public class AddLeads extends Base {
                         "denVavir00@outlook.de",
                         "33222200Shin",
                         "AQEDAUpubFMFCUCvAAABjP1fQdMAAAGQtXessU0ABfMSxtRvOA33jReqC-CJ1_M_lJguSSNtxtfK6oNPSgSEoAjysk8z-9NuyMRgQzXAE2aPNfe2cezizlTWm074u_OxWydkKNdyeD3bKq-pJb0icOlm",
-                        "den-vaviron"
+                        "Den Vaviron"
                 },
 
                 {       "max-mikhaylov",
