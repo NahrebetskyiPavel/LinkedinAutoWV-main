@@ -52,7 +52,7 @@ public class AddLeads extends Base {
         int leadsAddedCount = 0;
 
         if (data.isEmpty()) {
-            System.out.println("Skip" + linkedinperson);
+            //System.out.println("Skip" + linkedinperson);
             wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Skip " + linkedinperson + "because data isEmpty");
 
             return;
@@ -75,8 +75,8 @@ public class AddLeads extends Base {
             String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
             if (String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(i).get("Website")).contains("null")) continue;
             String personRef = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
-            System.out.println("personRef: " + personRef);
-            System.out.println("id: " + id);
+            //System.out.println("personRef: " + personRef);
+            //System.out.println("id: " + id);
             Thread.sleep(randomResult);
                 //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount + "\n");
                 //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + linkedinperson + " "+ leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
