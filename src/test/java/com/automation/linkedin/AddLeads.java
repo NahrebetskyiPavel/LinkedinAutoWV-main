@@ -292,12 +292,12 @@ public class AddLeads extends Base {
                         "AQEFAREBAAAAAA9zBMEAAAGPTWfEpAAAAY_lKiqTTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkUwRzBrTkNMbXlCYTRIRGhTa1lRSS9uZVhsMHdJN0krNVFZREl3RExpQW5SXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2MjgzMywzMDMyMjkxNDUpXnVybjpsaTptZW1iZXI6MTI4MDM3NTY4NWp8bEsKJ75ogALhXQXQOlD3_brt0oR5mr_80U-ICsdrFqy-1_NJDjBInsNdgTVTTTiucKXT3yLe7uO0ozSA-OpT2CoPk-eUXF8diJIz_3Z_ciTBjWjlYNDM16fYlOI0mnZ_P-RdJDWNMvtQwywWon_TNUL5nyhQROKH4yOtj5VTz4BbSV5zMWjs405mZxzJEzUYwds",
                         "Eliza Kolner"
                 },
-/*                {       "andrey-gorichev",
+                {       "andrey-gorichev",
                         "gorichev.andrey12311@outlook.it",
                         "33222200Shin",
                         "AQEDAUsXduoFXURrAAABjVq7ABQAAAGP47hNrE0AfWZ8_ikQZ884R2ykvvKS1bOA0bUDRo0-6r0_QFmBrzWZvqxX_JCmB-X5RykYyrSh6LzajqQcrohQA8pmVb7XqF8MMY24l9X2v4tQfU3OeyOnIpyd",
                         "Gorichev Andrey"
-                },*/
+                },
 
                 {       "den-vaviron",
                         "denVavir00@outlook.de",
