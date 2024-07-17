@@ -341,14 +341,14 @@ public class AddLeads extends Base {
             changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact);
             changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
         }
-        //System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
-        //System.out.println("\n" );
+        System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+        System.out.println("\n" );
         if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
             token = zohoCrmHelper.renewAccessToken();
             zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
         }
         if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
-            //System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
+            System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
         };
     }
     public void changeLeadStatus(String id, String transitionsId, String transitionsStatus){
@@ -356,14 +356,14 @@ public class AddLeads extends Base {
         JSONObject changeLeadStatusResponseJson;
         changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, transitionsId);
         changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-        //System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
-        //System.out.println("\n" );
+        System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+        System.out.println("\n" );
         if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
             token = zohoCrmHelper.renewAccessToken();
             zohoCrmHelper.changeLeadStatus(id, token, transitionsId);
         }
         if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
-            //System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,transitionsStatus) );
+            System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,transitionsStatus) );
         };
     }
 }
