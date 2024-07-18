@@ -136,7 +136,7 @@ public class AddLeads extends Base {
                      if (taskResult.contains("Proxy connection ended before receiving CONNECT response")) continue;
                      if (taskResult.contains("Cookie is not valid")) {
                          System.out.println("Cookie is not valid");
-                         break;
+                         throw new Exception("Cookie is not valid!");
                      };
 
 
@@ -158,6 +158,16 @@ public class AddLeads extends Base {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Status is now 'error'.");
                         if (taskInfo.contains("Invitation already sent")) {
+                            if (leadsAddedCount == leadsRandomResult) break;
+                            leadsAddedCount = leadsRequestCount++;
+                            System.out.println("Leads added from " + linkedinperson + " account = " + leadsAddedCount);
+                            changeLeadStatusAttemptToContacted(id);
+                            continue;
+                        };
+                        if (taskInfo.contains("Profile already in connections")) {
+                            if (leadsAddedCount == leadsRandomResult) break;
+                            leadsAddedCount = leadsRequestCount++;
+                            System.out.println("Leads added from " + linkedinperson + " account = " + leadsAddedCount);
                             changeLeadStatusAttemptToContacted(id);
                             continue;
                         };
@@ -207,7 +217,7 @@ public class AddLeads extends Base {
                {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
-                        "AQEDAUqQcUgEIxsAAAABjvWFnKYAAAGPlUYADFYAombm43_GJ7Tg5JgPeG6gMA7igoCuX850p-7SUHJnbnQrAqxiiJv4ADi_L76d5_T8_1z0Ea_ZO7h2I-35JHOu43bflHEbj-G5kzFRsyhBhkJZwHc8",
+                        "AQEDAUqQcUgD6EWMAAABkMYKnpEAAAGQ6hcikU4Aiy3NU9_3Nzk5N3dVmWOwFQRegPTvU0TcLHaHej-UIZrZ9tVQknB9_REq00JtwdUeU3NCQyk1u5-k1NZMNCWO9_BC6qJ0VElyNxFrPmhYZT-krtrj",
                         "Andrei Gorbunkov"
                 },
 
@@ -267,14 +277,14 @@ public class AddLeads extends Base {
                     {       "elias-danilov",
                             "elias.danilov@outlook.it",
                             "33222200Shin",
-                            "AQEFAREBAAAAABBfUeMAAAGQVYpWigAAAZDb2R5dTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDNFU0UElURE5GM1FHUkV0a3UvMWlCREdTM0pqWXdZeklmZC9NR0JnQmhRNEc4UT09XnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjMyNzc2Mzk4NiwzMTk3MDU4MDQpXnVybjpsaTptZW1iZXI6MTI4MDM3MjUxNjdwQUKWdzcrMV5UyxuUz1x8aEhKKXF7EcQeSEPQ-KGKylQVfG6KOF4xN4K1EjALiMpe8uUTcJvt8s_EnjBJ3Oq7J_hHAa0pB4CZQIu5I0BI6lPMxoTb2YQBkRqvYp_9qBXA8EPoMTgyvGkbpxIayC1AT_2EG6jmw7gnMfga1skf5jXaHSc8EWrLcKCcL3FqQiD3iuo",
+                            "AQEDAUs6XDsDYjQtAAABkF7_KwkAAAGQ29gIpk0ABQ7evp1BZpiMKTZKcKrKbAEYErDqQV5qlsZE48O9gt9KtVtp-yiL2mba_0eu8s7XFwlLMchtv4UKpwO5U7orqayzpIIbSNdoU0ZIcUJpznR5U4vH",
                             "Elias Danilov"
                     },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
                         "cTsH3KhU",
-                        "AQEDAUxQ7yQB0DQHAAABkFTUWGQAAAGQeODcZE0Az5LeizXUvlo_k2-fAAY9s-j0WPWH2nkiDsincVY-HvizEL5Yc_T9vR0LrF_0G7gogZflSQnZcMDl9yRXFgmGp51XMNi3FNTWU3DuKbSgoumfjP0D",
+                        "AQEDAUxQ7yQCN3J_AAABkMYMiesAAAGQ6hkN600ARCpEl-us2IgVnvKv36VszwnHOjsPgLnVnL1nZTGdUrFd_WhO-9zNddGDVpeD2-gJdS_JsurHGNpHbab7v7DSozlppvljI2O3n3TmPcsEKsFYVJ8k",
                         "Mykhaylenko Stefania"
                 },
 
