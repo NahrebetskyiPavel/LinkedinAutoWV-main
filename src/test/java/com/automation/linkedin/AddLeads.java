@@ -105,6 +105,11 @@ public class AddLeads extends Base {
                     changeLeadStatus(id, broken, "Broken");
                     continue;
                 };
+                if (taskResult.contains("error") && taskResult.contains("Request failed with status code 590")) {
+                    System.out.println("Request failed with status code 590");
+                    Thread.sleep(2*60*1000);
+                    continue;
+                };
                 if (taskResult.contains("error") && taskResult.contains("Navigation timeout of 30000 ms exceeded")) {
                     changeLeadStatus(id, broken, "Broken");
                     continue;
