@@ -162,6 +162,10 @@ public class AddLeads extends Base {
                     if (taskInfo.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Status is now 'error'.");
+                        if (taskResult.contains("error") && taskResult.contains("Invalid url")) {
+                            changeLeadStatus(id, broken, "Broken");
+                            continue;
+                        };
                         if (taskInfo.contains("Invitation already sent")) {
                             if (leadsAddedCount == leadsRandomResult) break;
                             leadsAddedCount = leadsRequestCount++;
@@ -217,6 +221,7 @@ public class AddLeads extends Base {
     public static Object[][] dataProviderPeopleSearch() {
 
         return new Object[][]{
+
 
 
                {       "andrei-gorbunkov-a34b4a2aa",
@@ -327,13 +332,6 @@ public class AddLeads extends Base {
                         "AQEDAUwPgGcC5KHZAAABjeWXQGgAAAGQuotxjU0AJnPA67zRBmxWTC8FhKcIK88XX08j0QdAq5jPoCwH1-RafIlwA5dTJr_Gyjcntv0RAdjl9EJ0jstEp6D1fR2y1rCIMeebp6Ec6Oaks8kjviNpqi3g",
                         "Boroday Anastasiya"
                 },
-
-                {       "daniele-tsvetkov",
-                        "daniele.tsvetkov@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGQupELhk0ApRFD-1Hgo_-4tATx2KxiW0Ckh1_aOHjf1GX1XMSCcNLd_HQbgLydDywC2zLCZQfpTztsCPonqT_Q8MDEcO_2K3taSnfpPvgzWmL_Xedrdm36Fxh0",
-                        "Daniele Tsvetkov"
-                },
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
                         "206GLMC2",
@@ -342,7 +340,12 @@ public class AddLeads extends Base {
                 },
 
 
-
+                {       "daniele-tsvetkov",
+                        "daniele.tsvetkov@outlook.it",
+                        "33222200Shin",
+                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGQupELhk0ApRFD-1Hgo_-4tATx2KxiW0Ckh1_aOHjf1GX1XMSCcNLd_HQbgLydDywC2zLCZQfpTztsCPonqT_Q8MDEcO_2K3taSnfpPvgzWmL_Xedrdm36Fxh0",
+                        "Daniele Tsvetkov"
+                },
         };
     }
 
