@@ -114,6 +114,10 @@ public class AddLeads extends Base {
                     changeLeadStatus(id, broken, "Broken");
                     continue;
                 };
+                if (taskResult.contains("error") && taskResult.contains("Cannot find module")) {
+                    changeLeadStatus(id, broken, "Broken");
+                    continue;
+                };
                 if (taskResult.contains("error") && taskResult.contains("Profile link invalid")) {
                     changeLeadStatus(id, broken, "Broken");
                     continue;
@@ -128,7 +132,11 @@ public class AddLeads extends Base {
                 };
                 if (taskStatus.contains("failed") && taskResult.contains("Cookie is not valid")) {
                     System.out.println("!!! Cookie is not valid !!!");
-                    break;
+                    throw new Exception("Cookie is not valid!");
+                };
+                if (taskResult.contains("error")) {
+                    changeLeadStatus(id, broken, "Broken");
+                    continue;
                 };
                 String taskResults;
                 if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
