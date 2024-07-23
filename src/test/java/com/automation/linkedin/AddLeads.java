@@ -276,7 +276,7 @@ public class AddLeads extends Base {
                         accountInfos.get(13).get(1),
                         accountInfos.get(13).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Denis Bas"
+                        "Art Stenko"
                 },
 
              /*   //14
