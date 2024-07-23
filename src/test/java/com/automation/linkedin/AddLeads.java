@@ -93,101 +93,37 @@ public class AddLeads extends Base {
                     if (taskStatus.contains("finished")) break;
                     if (taskStatus.contains("failed")) break;
                 }
-                if (taskInfo.contains("Invitation already sent")) {
-                    changeLeadStatusAttemptToContacted(id);
-                    continue;
-                };
-                if (taskResult.contains("error") && taskResult.contains("Profile already in connections")) {
-                    changeLeadStatusAttemptToContacted(id);
-                    continue;
-                };
-                if (taskResult.contains("error") && taskResult.contains("Invalid url")) {
-                    changeLeadStatus(id, broken, "Broken");
-                    continue;
-                };
-                if (taskResult.contains("error") && taskResult.contains("Request failed with status code 590")) {
-                    System.out.println("Request failed with status code 590");
-                    Thread.sleep(2*60*1000);
-                    continue;
-                };
-                if (taskResult.contains("error") && taskResult.contains("Navigation timeout of 30000 ms exceeded")) {
-                    changeLeadStatus(id, broken, "Broken");
-                    continue;
-                };
-                if (taskResult.contains("error") && taskResult.contains("Cannot find module")) {
-                    changeLeadStatus(id, broken, "Broken");
-                    continue;
-                };
-                if (taskResult.contains("error") && taskResult.contains("Profile link invalid")) {
-                    changeLeadStatus(id, broken, "Broken");
-                    continue;
-                };
-                if (taskResult.contains("error") && taskResult.contains("To verify this member knows you, please enter their email to connect.")) {
-                    changeLeadStatus(id, broken, "Broken");
-                    continue;
-                };
-                if (taskResult.contains("error") && taskResult.contains("Task expired")) {
-                    changeLeadStatus(id, broken, "Broken");
-                    continue;
-                };
-                if (taskStatus.contains("failed") && taskResult.contains("Cookie is not valid")) {
-                    System.out.println("!!! Cookie is not valid !!!");
-                    throw new Exception("Cookie is not valid!");
-                };
-                if (taskResult.contains("error")) {
-                    changeLeadStatus(id, broken, "Broken");
-                    continue;
-                };
+
                 String taskResults;
                 if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
-                     taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
-                } else {
                     Thread.sleep(60000);
                      taskResult = String.valueOf(new JSONObject( taskInfo ).get("results"));
-                     if (taskResult.contains("null"))                     Thread.sleep(60000);
-                     if (taskStatus.contains("processing"))                     Thread.sleep(60000);
-                     if (taskResult.contains("Proxy connection ended before receiving CONNECT response")) continue;
-                     if (taskResult.contains("Cookie is not valid")) {
-                         System.out.println("Cookie is not valid");
-                         throw new Exception("Cookie is not valid!");
-                     };
-
-
-                    taskInfo = String.valueOf(new JSONObject( taskInfo ));
-
-                    if (taskResult.contains("error") && taskResult.contains("Invitation already sent")) {
-                        changeLeadStatusAttemptToContacted(id);
-                        continue;
+                     //if (taskResult.contains("null"))                     Thread.sleep(60000);
+                     //if (taskStatus.contains("processing"))                     Thread.sleep(60000);
+                     //if (taskResult.contains("Proxy connection ended before receiving CONNECT response")) continue;
+                    if (taskResult.contains("Cookie is not valid")) {
+                        System.out.println("Cookie is not valid");
+                        throw new Exception("Cookie is not valid!");
                     };
+                    taskInfo = String.valueOf(new JSONObject( taskInfo ));
                 }
 
                 try {
-                    Thread.sleep(50*1000);
-                    statusChecker.waitForStatus("finished", taskStatus);
-
+                  //  Thread.sleep(50*1000);
+                    //statusChecker.waitForStatus("finished", taskStatus);
+                    Thread.sleep(10*1000);
                     if (taskStatus.contains("processing")) statusChecker.waitForStatus("finished", taskStatus);
+                    if (taskStatus.contains("failed")) {
+                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONObject("results").getString("error"));
+                        System.out.println("Status is now 'failed'.");
+                        changeLeadStatus(id,broken, "broken");
 
+                        continue;
+                    };
                     if (taskInfo.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Status is now 'error'.");
-                        if (taskResult.contains("error") && taskResult.contains("Invalid url")) {
-                            changeLeadStatus(id, broken, "Broken");
-                            continue;
-                        };
-                        if (taskInfo.contains("Invitation already sent")) {
-                            if (leadsAddedCount == leadsRandomResult) break;
-                            leadsAddedCount = leadsRequestCount++;
-                            System.out.println("Leads added from " + linkedinperson + " account = " + leadsAddedCount);
-                            changeLeadStatusAttemptToContacted(id);
-                            continue;
-                        };
-                        if (taskInfo.contains("Profile already in connections")) {
-                            if (leadsAddedCount == leadsRandomResult) break;
-                            leadsAddedCount = leadsRequestCount++;
-                            System.out.println("Leads added from " + linkedinperson + " account = " + leadsAddedCount);
-                            changeLeadStatusAttemptToContacted(id);
-                            continue;
-                        };
+                        changeLeadStatus(id,broken, "broken");
                         continue;
                     };
                     if (taskStatus.contains("expired")) {
@@ -197,6 +133,7 @@ public class AddLeads extends Base {
                         continue;
                     };
                     System.out.println("Status is now 'finished'.");
+                    changeLeadStatusAttemptToContacted(id);
 
 
                 } catch (InterruptedException e) {
@@ -231,7 +168,7 @@ public class AddLeads extends Base {
         return new Object[][]{
 
 
-
+/*
                {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
@@ -339,7 +276,7 @@ public class AddLeads extends Base {
                         "SBZQP0FG",
                         "AQEDAUwPgGcC5KHZAAABjeWXQGgAAAGQuotxjU0AJnPA67zRBmxWTC8FhKcIK88XX08j0QdAq5jPoCwH1-RafIlwA5dTJr_Gyjcntv0RAdjl9EJ0jstEp6D1fR2y1rCIMeebp6Ec6Oaks8kjviNpqi3g",
                         "Boroday Anastasiya"
-                },
+                },*/
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
                         "206GLMC2",
@@ -383,6 +320,7 @@ public class AddLeads extends Base {
         changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, transitionsId);
         changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
         System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+        System.out.println(changeLeadStatusResponseJson);
         System.out.println("\n" );
         if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
             token = zohoCrmHelper.renewAccessToken();
