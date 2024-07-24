@@ -115,6 +115,13 @@ public class Message extends Base{
                                 Thread.sleep(1000*60);
                                 int impastoTaskId = (int) new JSONObject( response ).get("taskId");
                                 String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
+
+                                while (true){
+                                    Thread.sleep( 60 * 1000);
+                                    taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
+                                    if (taskInfo.contains("finished")) break;
+                                    if (taskInfo.contains("failed")) break;
+                                }
                                 String taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
 
                                 System.out.println("taskid = " + impastoTaskId);
@@ -188,13 +195,13 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-
+/*
                 {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
                         "AQEDAUqQcUgD6EWMAAABkMYKnpEAAAGQ6hcikU4Aiy3NU9_3Nzk5N3dVmWOwFQRegPTvU0TcLHaHej-UIZrZ9tVQknB9_REq00JtwdUeU3NCQyk1u5-k1NZMNCWO9_BC6qJ0VElyNxFrPmhYZT-krtrj",
                         "Andrei Gorbunkov"
-                },
+                },*/
 
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",

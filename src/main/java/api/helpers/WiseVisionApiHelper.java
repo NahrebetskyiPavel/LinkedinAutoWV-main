@@ -82,6 +82,22 @@ public class WiseVisionApiHelper {
         System.out.println(responseBody);
         return responseBody;
     }
+    @SneakyThrows
+    public String impastoGetTaskinfo(String profileId, String tasId){
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("text/plain");
+        RequestBody body = RequestBody.create(mediaType, "");
+        Request request = new Request.Builder()
+                .url("https://api.impasto.cpga.systems/api/task/"+tasId+"/info/"+profileId+"")
+                .method("POST", body)
+                .addHeader("Authorization", "b9cb85f7-3211-4e13-b45f-748cbbc71bc1")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseBody = response.body().string();
+        System.out.println(responseBody);
+        return responseBody;
+    }
 
 
     @Test
