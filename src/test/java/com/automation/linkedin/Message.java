@@ -25,6 +25,7 @@ public class Message extends Base{
     ZohoCrmHelper zoho = new ZohoCrmHelper();
     StatusChecker statusChecker = new StatusChecker();
     String chatLeadStatusid = "421659000006918053";
+
     private String  msg = "Good day to you.\n" +
             "\n" +
             "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
@@ -67,7 +68,7 @@ public class Message extends Base{
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
-            //System.out.println(responseBodyJsonObject);
+            System.out.println(responseBodyJsonObject);
             System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
