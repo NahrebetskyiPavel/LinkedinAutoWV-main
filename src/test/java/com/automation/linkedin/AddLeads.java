@@ -93,7 +93,10 @@ public class AddLeads extends Base {
                     if (taskStatus.contains("finished")) break;
                     if (taskStatus.contains("failed")) break;
                 }
-
+                if (taskInfo.contains("Cookie is not valid")) {
+                    System.out.println("Cookie is not valid");
+                    throw new Exception("Cookie is not valid!");
+                };
                 String taskResults;
                 if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
                     Thread.sleep(60000);
@@ -232,7 +235,7 @@ public class AddLeads extends Base {
                     {       "elias-danilov",
                             "elias.danilov@outlook.it",
                             "33222200Shin",
-                            "AQEDAUs6XDsDYjQtAAABkF7_KwkAAAGQ29gIpk0ABQ7evp1BZpiMKTZKcKrKbAEYErDqQV5qlsZE48O9gt9KtVtp-yiL2mba_0eu8s7XFwlLMchtv4UKpwO5U7orqayzpIIbSNdoU0ZIcUJpznR5U4vH",
+                            "AQEDAUs6XDsC8nqCAAABkNl6j9oAAAGQ_YcT2lYAQVvRwJOMH6JGzR12PFlnJscxKM8gQ2mIaEEXXmoOxTII44SQT0By7Qd3Ua5xnyD6Y24qgikGxWOldf5-kNhbkxxBi73903_xPiED8nzFua1rKr6J",
                             "Elias Danilov"
                     },
 
