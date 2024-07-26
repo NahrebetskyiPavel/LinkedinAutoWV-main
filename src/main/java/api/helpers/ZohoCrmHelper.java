@@ -6,12 +6,17 @@ import okhttp3.*;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import static utils.Utils.localDateIsBeforeGivenComparison;
 
 public class ZohoCrmHelper {
     public String responseBody;
+    Random random = new Random();
+    int low = 2000;
+    int high = 5000;
+    int randomResult = random.nextInt(high-low) + low;
     @SneakyThrows
     public JSONObject AddLeadToCRM(String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId){
         OkHttpClient client = new OkHttpClient().newBuilder()
@@ -115,6 +120,7 @@ public class ZohoCrmHelper {
 
     @SneakyThrows
     public String renewAccessToken(){
+        Thread.sleep(randomResult);
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
@@ -128,7 +134,13 @@ public class ZohoCrmHelper {
                 .method("POST", body)
                 .addHeader("Cookie", "_zcsr_tmp=e0dd0a91-84bb-4a94-9162-0f0aa453b633; d4bcc0a499=953809aceaa07cf41469153cac12ef23; iamcsr=e0dd0a91-84bb-4a94-9162-0f0aa453b633")
                 .build();
-        Response response = client.newCall(request).execute();
+        Response response;
+       try {
+            response = client.newCall(request).execute();
+       }catch (Exception e){
+           Thread.sleep(randomResult);
+           response = client.newCall(request).execute();
+       }
         String responseBody = response.body().string();
         JSONObject responseBodyJsonObject = new JSONObject(responseBody);
         return (String) responseBodyJsonObject.get("access_token");

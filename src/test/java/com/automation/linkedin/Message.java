@@ -69,6 +69,7 @@ public class Message extends Base{
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
             System.out.println(responseBodyJsonObject);
+            Thread.sleep(10000);
             System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
