@@ -270,13 +270,20 @@ public class AddLeads extends Base {
                         accountInfos.get(12).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Denis Bas"
-                },
+                },*
                 {
-                        accountInfos.get(13).get(0),
-                        accountInfos.get(13).get(1),
-                        accountInfos.get(13).get(2),
+                        "Art Stenko",
+                        "artstenko@gmail.com",
+                        "GOgoCyclone_11",
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         "Art Stenko"
+                },
+                {
+                        accountInfos.get(15).get(0),
+                        accountInfos.get(15).get(1),
+                        accountInfos.get(15).get(2),
+                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
+                        "Pavel  Nagrebetski"
                 },
 
              /*   //14
