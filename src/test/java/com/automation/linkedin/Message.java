@@ -43,6 +43,7 @@ public class Message extends Base{
         sendFolowUpMsg(linkedInAccount, token,  "Third automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Fourt automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Fifth automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "Six automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Seven automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Eight automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Nine automessage", profileId,  email,  password,  cookie );
@@ -82,6 +83,13 @@ public class Message extends Base{
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.isEmpty()) continue;
+                while (true){
+                    if (tasks.contains("{\"data\":[{")) break;
+                    tasks = zoho.getLeadTaskList(id, token);
+                    System.out.println(tasks);
+                    Thread.sleep(10*1000);
+
+                }
                 JSONObject tasksData = new JSONObject( tasks );
                 System.out.println(tasksData.getJSONArray("data"));
                 System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
@@ -170,7 +178,12 @@ public class Message extends Base{
                                     System.out.println("taskStatus " + taskStatus);
 
                                 }
-
+                                while (true){
+                                    Thread.sleep( 60 * 1000);
+                                    if (taskStatus.contains("finished")) break;
+                                    if (taskStatus.contains("failed")) break;
+                                    taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
+                                }
                                     System.out.println("taskStatus " + taskStatus);
                                 try {
                                     statusChecker.waitForStatus("finished", taskStatus, 60000);
