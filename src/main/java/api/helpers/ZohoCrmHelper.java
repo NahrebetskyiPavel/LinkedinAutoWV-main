@@ -442,7 +442,13 @@ if (tasksData.getJSONArray("data").length() >0){
                     .addHeader("Authorization", "Bearer " + token)
                     .addHeader("Content-Type", "application/json")
                     .build();
-            Response response = client.newCall(request).execute();
+            Response response;
+            try {
+                response = client.newCall(request).execute();
+            }catch (Exception e){
+                Thread.sleep(60*1000);
+                response = client.newCall(request).execute();
+            }
             String responseBody = response.body().string();
             System.out.println(responseBody);
             return responseBody;
