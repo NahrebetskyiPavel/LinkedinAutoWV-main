@@ -173,7 +173,7 @@ public class AddLeads extends Base {
                         accountInfos.get(0).get(1),
                         accountInfos.get(0).get(2),
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        accountInfos.get(0).get(3),
+                        accountInfos.get(0).get(0),
                 },
                 //2
                 {
@@ -181,7 +181,7 @@ public class AddLeads extends Base {
                         accountInfos.get(1).get(1),
                         accountInfos.get(1).get(2),
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
-                        accountInfos.get(1).get(3),
+                        accountInfos.get(1).get(0),
                 },
                 //3
                 {
@@ -189,7 +189,7 @@ public class AddLeads extends Base {
                         accountInfos.get(2).get(1),
                         accountInfos.get(2).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(2).get(3),
+                        accountInfos.get(2).get(0),
                 },
                 //4
                 {
@@ -197,7 +197,7 @@ public class AddLeads extends Base {
                         accountInfos.get(3).get(1),
                         accountInfos.get(3).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(3).get(3),
+                        accountInfos.get(3).get(0),
                 },
                 //5
                 {
@@ -205,7 +205,7 @@ public class AddLeads extends Base {
                         accountInfos.get(4).get(1),
                         accountInfos.get(4).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(4).get(3),
+                        accountInfos.get(4).get(0),
                 },
                 //6
                 {
@@ -213,7 +213,7 @@ public class AddLeads extends Base {
                         accountInfos.get(5).get(1),
                         accountInfos.get(5).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(5).get(3),
+                        accountInfos.get(5).get(0),
                 },
                 //7
                 {
@@ -221,7 +221,7 @@ public class AddLeads extends Base {
                         accountInfos.get(6).get(1),
                         accountInfos.get(6).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(6).get(3),
+                        accountInfos.get(6).get(0),
                 },
                 //8
                 {
@@ -229,7 +229,7 @@ public class AddLeads extends Base {
                         accountInfos.get(7).get(1),
                         accountInfos.get(7).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(7).get(3),
+                        accountInfos.get(7).get(0),
                 },
                 //9
                 {
@@ -237,7 +237,7 @@ public class AddLeads extends Base {
                         accountInfos.get(8).get(1),
                         accountInfos.get(8).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(8).get(3),
+                        accountInfos.get(8).get(0),
                 },
                 //10
                 {
@@ -245,7 +245,7 @@ public class AddLeads extends Base {
                         accountInfos.get(9).get(1),
                         accountInfos.get(9).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(9).get(3),
+                        accountInfos.get(9).get(0),
                 },
                 //11
                 {
@@ -253,7 +253,7 @@ public class AddLeads extends Base {
                         accountInfos.get(10).get(1),
                         accountInfos.get(10).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(10).get(3),
+                        accountInfos.get(10).get(0),
                 },
                 //12
                 {
@@ -261,7 +261,7 @@ public class AddLeads extends Base {
                         accountInfos.get(11).get(1),
                         accountInfos.get(11).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(11).get(3),
+                        accountInfos.get(11).get(0),
                 },
                 //13
                 {
@@ -269,7 +269,7 @@ public class AddLeads extends Base {
                         accountInfos.get(12).get(1),
                         accountInfos.get(12).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(12).get(3),
+                        accountInfos.get(12).get(0),
                 },
                 {
                         "Art Stenko",
@@ -283,21 +283,21 @@ public class AddLeads extends Base {
                         accountInfos.get(13).get(1),
                         accountInfos.get(13).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(13).get(3),
+                        accountInfos.get(13).get(0),
                 },
                 {
                         accountInfos.get(14).get(0),
                         accountInfos.get(14).get(1),
                         accountInfos.get(14).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(14).get(3),
+                        accountInfos.get(14).get(0),
                 },
                 {
                         accountInfos.get(15).get(0),
                         accountInfos.get(15).get(1),
                         accountInfos.get(15).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(15).get(3),
+                        accountInfos.get(15).get(0),
                 },
 
              /*   //14
