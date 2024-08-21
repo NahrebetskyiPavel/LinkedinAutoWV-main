@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import utils.StatusChecker;
 import utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -25,7 +26,10 @@ public class Message extends Base{
     ZohoCrmHelper zoho = new ZohoCrmHelper();
     StatusChecker statusChecker = new StatusChecker();
     String chatLeadStatusid = "421659000006918053";
-
+    int leadLow = 20;
+    int leadsHigh = 30;
+    int leadsRandomResult = random.nextInt(leadsHigh-leadLow) + leadLow;
+    ArrayList<String> accsMsgssent = new ArrayList<>();
     private String  msg = "Good day to you.\n" +
             "\n" +
             "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
@@ -63,7 +67,7 @@ public class Message extends Base{
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName, String profileId, String email, String password, String cookie ){
         System.out.println("START " + taskName);
-
+        int msgsSent = 0;
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.contains("INVALID_TOKEN")) {
@@ -88,6 +92,11 @@ public class Message extends Base{
                 System.out.println(fullName);
                 System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
+                if (tasks.contains("INVALID_TOKEN")) {
+                    token = zoho.renewAccessToken();
+                    tasks = zoho.getLeadTaskList(id, token);
+
+                }
                 if (tasks.isEmpty()) continue;
                 while (true){
                     if (tasks.contains("{\"data\":[{")) break;
@@ -123,11 +132,18 @@ public class Message extends Base{
                         System.out.println("descriptionEqualsNull= " + descriptionEqualsNull);
 
                         if (subject.equals(taskName) && status.equals("Not Started")  && localDateIsBeforeGivenComparison(duedate) ){
-
+                            for (String acc : accsMsgssent) {
+                                if(acc.matches(fullName)){
+                                    break;
+                                }
+                            }
                             System.out.println("subject " + subject);
                             System.out.println("equals " +subject.equals(taskName));
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
+                            accsMsgssent.add(fullName);
+                            msgsSent += msgsSent;
+                            if (msgsSent == leadsRandomResult )      break;
                             {
 
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
@@ -183,11 +199,18 @@ public class Message extends Base{
                             }
                         }
                         if ( subject.equals(taskName) && status.equals("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
-
+                            for (String acc : accsMsgssent) {
+                                if(acc.matches(fullName)){
+                                    break;
+                                }
+                            }
                             System.out.println("subject " + subject);
                             System.out.println("equals " +subject.equals(taskName));
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
+                            accsMsgssent.add(fullName);
+                            msgsSent += msgsSent;
+                            if (msgsSent == leadsRandomResult )      break;
                             {
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
                                 System.out.println(msg);
@@ -238,25 +261,20 @@ public class Message extends Base{
 
 
 
-                {       "andrei-gorbunkov-a34b4a2aa",
+/*                {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
                         "AQEDAUqQcUgD6EWMAAABkMYKnpEAAAGQ6hcikU4Aiy3NU9_3Nzk5N3dVmWOwFQRegPTvU0TcLHaHej-UIZrZ9tVQknB9_REq00JtwdUeU3NCQyk1u5-k1NZMNCWO9_BC6qJ0VElyNxFrPmhYZT-krtrj",
                         "Andrei Gorbunkov"
-                },
+                },*/
 
-                {       "paul-bereza",
+  /*              {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
                         "AQEFAREBAAAAAA9y_ngAAAGPTWyIZQAAAY9xerrsTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkMwRzBrTkJ0UnhBdGNPak1TMFlRSS9uZXNWNHdJN0krWUM4REl3RE1hUW9RXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2Mjg0OSwzMDMyMjU2NjUpXnVybjpsaTptZW1iZXI6MTI2NjM4OTU1Mqtahj54xFZSxnrvy1Fhjo_T5CKqWfcLzzEpATi94tKyJSkHYCbgDxcQJJBeH2a8gJu17Nee6uDtPtfo_xlPThNbQRG8NrY1MvzU75pvL6Rvd7fsGhGb9M58udN77XZ1qFysniogLshJfVj7ldODM6ZXSGdf68Gml-blsKo3mCQX9GbJCdGFEc0IjGUj57r7S4gaOng",
                         "Paul Bereza"
                 },
-                {       "alessio-vacenko-b506612b3",
-                        "alessio.Vacenko@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUthqywCOthiAAABj00h33QAAAGPvkp4OE4ASeyim2hF4oGJkCfAbCkjDWmIdJfwVO3XyI1HeaM_0-kmXSiiMnwHo7xnp6urbl5O3VczT6kuWjuBlXHiAKh7-TSsVSn6Vrc2y521ONn_sVF2klqU",
-                        "Alessio Vacenko"
-                },
+            */
                 {       "margit-matthes",
                         "margit.Matthes@outlook.de",
                         "33222200Shin",
