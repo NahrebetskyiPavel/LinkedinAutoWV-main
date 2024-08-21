@@ -273,11 +273,6 @@ public class Message extends Base{
                         "kni2012@ukr.net",
                         "33222200s",
                 },
-                {
-                        "Art Stenko",
-                        "artstenko@gmail.com",
-                        "GOgoCyclone_11",
-                },
 
 
 
