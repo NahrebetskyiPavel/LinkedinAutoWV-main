@@ -79,9 +79,9 @@ public class Message extends Base{
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
-            System.out.println(responseBodyJsonObject);
+            //System.out.println(responseBodyJsonObject);
             Thread.sleep(10000);
-            System.out.println(responseBodyJsonObject.getJSONArray("data").length());
+            //System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
                 String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
@@ -101,7 +101,7 @@ public class Message extends Base{
                 while (true){
                     if (tasks.contains("{\"data\":[{")) break;
                     tasks = zoho.getLeadTaskList(id, token);
-                    System.out.println(tasks);
+                    //System.out.println(tasks);
                     if (tasks.contains("INVALID_TOKEN")) {
                         token = zoho.renewAccessToken();
                         tasks = zoho.getLeadTaskList(id, token);
@@ -112,8 +112,8 @@ public class Message extends Base{
 
                 }
                 JSONObject tasksData = new JSONObject( tasks );
-                System.out.println(tasksData.getJSONArray("data"));
-                System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
+                //System.out.println(tasksData.getJSONArray("data"));
+                //System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
                 if (tasksData.getJSONArray("data").length() >0){
                     for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
                         System.out.println("==================================================================");
@@ -251,7 +251,11 @@ public class Message extends Base{
                 System.out.println("====================================================================");
                 System.out.println("\n");
             }
+            if (msgsSent == leadsRandomResult )      break;
+            if (msgsSent == leadsRandomResult )      return;
+
         }
+        if (msgsSent == leadsRandomResult )      return;
 
     }
 
@@ -261,20 +265,19 @@ public class Message extends Base{
 
 
 
-/*                {       "andrei-gorbunkov-a34b4a2aa",
+                {       "andrei-gorbunkov-a34b4a2aa",
                         "andreiGorbunkov@outlook.de",
                         "33222200Shin",
                         "AQEDAUqQcUgD6EWMAAABkMYKnpEAAAGQ6hcikU4Aiy3NU9_3Nzk5N3dVmWOwFQRegPTvU0TcLHaHej-UIZrZ9tVQknB9_REq00JtwdUeU3NCQyk1u5-k1NZMNCWO9_BC6qJ0VElyNxFrPmhYZT-krtrj",
                         "Andrei Gorbunkov"
-                },*/
+                },
 
-  /*              {       "paul-bereza",
+                {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
                         "AQEFAREBAAAAAA9y_ngAAAGPTWyIZQAAAY9xerrsTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkMwRzBrTkJ0UnhBdGNPak1TMFlRSS9uZXNWNHdJN0krWUM4REl3RE1hUW9RXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2Mjg0OSwzMDMyMjU2NjUpXnVybjpsaTptZW1iZXI6MTI2NjM4OTU1Mqtahj54xFZSxnrvy1Fhjo_T5CKqWfcLzzEpATi94tKyJSkHYCbgDxcQJJBeH2a8gJu17Nee6uDtPtfo_xlPThNbQRG8NrY1MvzU75pvL6Rvd7fsGhGb9M58udN77XZ1qFysniogLshJfVj7ldODM6ZXSGdf68Gml-blsKo3mCQX9GbJCdGFEc0IjGUj57r7S4gaOng",
                         "Paul Bereza"
                 },
-            */
                 {       "margit-matthes",
                         "margit.Matthes@outlook.de",
                         "33222200Shin",
