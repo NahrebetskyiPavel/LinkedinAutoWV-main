@@ -35,6 +35,7 @@ public class Message extends Base{
             "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
             "\n" +
             "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n";
+    int msgsSent = 0;
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
@@ -44,21 +45,35 @@ public class Message extends Base{
 
 
         sendFolowUpMsg(linkedInAccount, token,  "Second automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token,  "Third automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Fourt automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Fifth automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Six automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Seven automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Eight automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Nine automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Ten automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "FollowUp first automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "FollowUp second automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "FollowUp third automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "FollowUp forth automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "FollowUp fifth automessage", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage", profileId,  email,  password,  cookie );
-
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Meeting automessage", profileId,  email,  password,  cookie );
 
     }
@@ -67,7 +82,6 @@ public class Message extends Base{
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName, String profileId, String email, String password, String cookie ){
         System.out.println("START " + taskName);
-        int msgsSent = 0;
         for (int n = 0; n < 100; n++) {
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.contains("INVALID_TOKEN")) {
@@ -141,9 +155,8 @@ public class Message extends Base{
                             System.out.println("equals " +subject.equals(taskName));
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
-                            accsMsgssent.add(fullName);
                             msgsSent += msgsSent;
-                            if (msgsSent == leadsRandomResult )      break;
+                            accsMsgssent.add(fullName);
                             {
 
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
@@ -208,9 +221,9 @@ public class Message extends Base{
                             System.out.println("equals " +subject.equals(taskName));
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
-                            accsMsgssent.add(fullName);
                             msgsSent += msgsSent;
-                            if (msgsSent == leadsRandomResult )      break;
+
+                            accsMsgssent.add(fullName);
                             {
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
                                 System.out.println(msg);
@@ -251,11 +264,9 @@ public class Message extends Base{
                 System.out.println("====================================================================");
                 System.out.println("\n");
             }
-            if (msgsSent == leadsRandomResult )      break;
-            if (msgsSent == leadsRandomResult )      return;
+
 
         }
-        if (msgsSent == leadsRandomResult )      return;
 
     }
 
@@ -265,20 +276,9 @@ public class Message extends Base{
 
 
 
- /*              {       "andrei-gorbunkov-a34b4a2aa",
-                        "andreiGorbunkov@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUqQcUgD6EWMAAABkMYKnpEAAAGQ6hcikU4Aiy3NU9_3Nzk5N3dVmWOwFQRegPTvU0TcLHaHej-UIZrZ9tVQknB9_REq00JtwdUeU3NCQyk1u5-k1NZMNCWO9_BC6qJ0VElyNxFrPmhYZT-krtrj",
-                            "Andrei Gorbunkov"
-                },*/
 
-                {       "paul-bereza",
-                        "paul.bereza02@outlook.de",
-                        "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZHVy4gRTgAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MsH8WVPYQz_1f9-1fevzwkhZEcyXlwpmV8-LAJM2wJuLs_SWc_1sdqprwuReemOGezJe4UGCpU83qndW98oT01KvKrq_WlnTGhklNvNNhMv2iTK9lMyUf17moR_3nL44BPDpt_7oMJVZh5PGXfu5G5liK09rLBtqXN1f2ZrO5CwMLg5JIaZwn4Ks7lewasVeGmmSI08",
-                        "Paul Bereza"
-                },
-          /*      {       "margit-matthes",
+
+                {       "margit-matthes",
                         "margit.Matthes@outlook.de",
                         "33222200Shin",
                         "AQEDAUuampkDA9uSAAABjzNCPogAAAGQ_ZBZflYAcQGZY44l8e-DfVuOMdaqf7pEPd716QnZUeq9kIz3xpoNYRZBKeuPQYaFP6Kh0OUPKe8JBzAwv75HlZAHU91YIzWOdrhUiiB2fW_p0DnIgjP69SY1",
@@ -353,7 +353,7 @@ public class Message extends Base{
                         "33222200Shin",
                         "AQEDAUtiZkQEzpptAAABjYItJMIAAAGQupELhk0ApRFD-1Hgo_-4tATx2KxiW0Ckh1_aOHjf1GX1XMSCcNLd_HQbgLydDywC2zLCZQfpTztsCPonqT_Q8MDEcO_2K3taSnfpPvgzWmL_Xedrdm36Fxh0",
                         "Daniele Tsvetkov"
-                },*/
+                },
         };
     }
 }
