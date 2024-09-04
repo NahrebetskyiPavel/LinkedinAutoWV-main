@@ -279,7 +279,13 @@ public String getLeadList(String token,  String status, String linkedInAccount, 
             .addHeader("Authorization", "Bearer " + token)
             .addHeader("Cookie", "5ad188d5f9=8e60be8f0c2215e209caa87ee5dc6c13; JSESSIONID=D11A65ED733CBC7495262D328D0AD072; _zcsr_tmp=ff76b4d3-87d6-4b5e-aa5c-1e4308899658; crmcsr=ff76b4d3-87d6-4b5e-aa5c-1e4308899658")
             .build();
-    Response response = client.newCall(request).execute();
+    Response response;
+    try {
+        response = client.newCall(request).execute();
+    }catch (Exception e){
+        Thread.sleep(20000);
+        response = client.newCall(request).execute();
+    }
     String responseBody = response.body().string();
 
     return responseBody;
