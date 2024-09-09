@@ -174,12 +174,6 @@ public class AddLeads extends Base {
         return new Object[][]{
 
 
-                {       "andrei-gorbunkov-a34b4a2aa",
-                        "andreiGorbunkov@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUqQcUgD6EWMAAABkMYKnpEAAAGQ6hcikU4Aiy3NU9_3Nzk5N3dVmWOwFQRegPTvU0TcLHaHej-UIZrZ9tVQknB9_REq00JtwdUeU3NCQyk1u5-k1NZMNCWO9_BC6qJ0VElyNxFrPmhYZT-krtrj",
-                        "Andrei Gorbunkov"
-                },
 
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
@@ -187,37 +181,13 @@ public class AddLeads extends Base {
                         "AQEFAREBAAAAAA9y_ngAAAGPTWyIZQAAAY9xerrsTQAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDbnRYRkMwRzBrTkJ0UnhBdGNPak1TMFlRSS9uZXNWNHdJN0krWUM4REl3RE1hUW9RXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjIxMjU2Mjg0OSwzMDMyMjU2NjUpXnVybjpsaTptZW1iZXI6MTI2NjM4OTU1Mqtahj54xFZSxnrvy1Fhjo_T5CKqWfcLzzEpATi94tKyJSkHYCbgDxcQJJBeH2a8gJu17Nee6uDtPtfo_xlPThNbQRG8NrY1MvzU75pvL6Rvd7fsGhGb9M58udN77XZ1qFysniogLshJfVj7ldODM6ZXSGdf68Gml-blsKo3mCQX9GbJCdGFEc0IjGUj57r7S4gaOng",
                         "Paul Bereza"
                 },
-                {       "alessio-vacenko-b506612b3",
-                        "alessio.Vacenko@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUthqywCOthiAAABj00h33QAAAGPvkp4OE4ASeyim2hF4oGJkCfAbCkjDWmIdJfwVO3XyI1HeaM_0-kmXSiiMnwHo7xnp6urbl5O3VczT6kuWjuBlXHiAKh7-TSsVSn6Vrc2y521ONn_sVF2klqU",
-                        "Alessio Vacenko"
-                },
                 {       "margit-matthes",
                         "margit.Matthes@outlook.de",
                         "33222200Shin",
                         "AQEDAUuampkDA9uSAAABjzNCPogAAAGQ_ZBZflYAcQGZY44l8e-DfVuOMdaqf7pEPd716QnZUeq9kIz3xpoNYRZBKeuPQYaFP6Kh0OUPKe8JBzAwv75HlZAHU91YIzWOdrhUiiB2fW_p0DnIgjP69SY1",
                         "Margit Matthes"
                 },
-                {       "dmitriy-timashov",
-                        "timashov.dmitriy@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUsszhwD-UTVAAABjzNJL1kAAAGRDOUsJU0A0dHWH0ecrAt2NTgB9FfL2OBPYc-VDpHVur76mm9_p6eHDI3iq9V-6j3i53tKbqGD7fs7r4AthVsnA-TsV7WD6glc4Lla-QIp4VYWW2VMw97SEOoP",
-                        "Dmitriy Timashov"
-                },
-                {       "matthew-martiz-6335072b6",
-                        "mMartiz11@outlook.it",
-                        "metmar11mmjy",
-                        "AQEDAUvkzscEuod7AAABjcxZHVEAAAGPM0jgWU0AxNq9k7vcTnaST2Y01G-gU50hTFao_KHUxDpMO4OkxBjTDSjb2Mt1lbEXESZCcCoYA9Pd0qUZmLLUFDt-Eeh2HHGvi5izLQvjtJbOcQh7J1J7ZZOI",
-                        "Matthew Martinez"
-                },
 
-                {       "sergio-cheban-7806b82b3",
-                        "sergio.Cheban@outlook.it",
-                        "33222200Shin",
-                        "AQEFAHUBAAAAAA90iAcAAAGPTYrONQAAAZETuAm0TgAAGHVybjpsaTptZW1iZXI6MTI2NDgwNzI0OCXFwy2KaYdoU6Nu0dSgYoJxWO3bRmNhD7hdyBRvXt660aUM5RbH_YpMCXc2ZLhXPFh3-EQomPxP7UlhJIS-cJFPG4iZXyMamW-UjsYlQGaYo2cfp5G611QuXIR9srmOIuSmvjSKxdv1txI040hJDLwdSrcg8kwlzdbfzGEPZDM41WNrfBehocebDF0fxbe3L8azC_0",
-                        "Sergio Cheban"
-                },
 
                 {       "petr-2",
                         "petr.degtyarev@outlook.de",
