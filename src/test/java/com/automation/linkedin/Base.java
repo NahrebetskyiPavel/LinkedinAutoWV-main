@@ -22,7 +22,7 @@ public class Base {
         if (isRemote){
             Configuration.driverManagerEnabled = false;
             Configuration.pageLoadTimeout = 120000;
-            Configuration.remote = "http://34.116.244.211:4444/wd/hub";
+            Configuration.remote = "http://34.116.248.169:4444/wd/hub";
             ChromeOptions options = new ChromeOptions();
             //options.setCapability("browserVersion", "114.0");
             options.setCapability("selenoid:options", new HashMap<String, Object>() {{
