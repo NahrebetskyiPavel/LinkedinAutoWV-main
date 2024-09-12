@@ -201,14 +201,14 @@ public class AddLeads extends Base {
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsDIqmqAAABkceg7asAAAGR661xq1YAKQW80SpFrprJd5EREAkOyJyXhBvwI7HQUdilQI5Ui5_i9KzpIiK5-NnRy8lHpcOoCEe4KcRE7BhirM7RoIhxmKSFCyLT5FCHc6oP2jI9eZJQvYBs",
+                        "AQEDAUs6XDsDvh5WAAABkeXTilMAAAGSCeAOU04ALy3kN-XSd7bx6jw7usMTtj7pd56P2UR7eOEyasA-l15hS1M3l7dBJEer9ke2cQz0sxxBJoqyJk7pfM4wdJ-cnT0uQmTygbHt_TdGsX6Na7mTMhs3",
                         "Elias Danilov"
                 },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
                         "cTsH3KhU",
-                        "AQEDAUxQ7yQFGO2dAAABkdXDWnsAAAGR-c_ee00ACqbdZLHqQQoPPMpDhINR7-hxM8djRzEhP3mymPqHglsoPpYNq7WLPOCy3d9BWhy3ZzaL_BkdmvHX3BhXxFzVAzR8AohY3xwMu5LGckCbpaPZ0dpC",
+                        "AQEDAUxQ7yQAsqSsAAABkeXUgJAAAAGSCeEEkE4AOeGjEeJwKZPs2Yhyh_5icPXZ0AW8gPu6b_N1m5PDR7euIvHlpqT0_hNMwgd6ndLIILqI0daoDMsddQ0ZIdIeL1DijTbaoC7ATG4Je6NbNu3-vC4d",
                         "Mykhaylenko Stefania"
                 },
 
@@ -234,27 +234,17 @@ public class AddLeads extends Base {
                         "Max Mikhaylov"
                 },
 
-
-
-
-
-                {       "anastasiya-boroday-8874362b7",
-                        "boroday.anastasiya@outlook.de",
-                        "SBZQP0FG",
-                        "AQEDAUwPgGcC5KHZAAABjeWXQGgAAAGQuotxjU0AJnPA67zRBmxWTC8FhKcIK88XX08j0QdAq5jPoCwH1-RafIlwA5dTJr_Gyjcntv0RAdjl9EJ0jstEp6D1fR2y1rCIMeebp6Ec6Oaks8kjviNpqi3g",
-                        "Boroday Anastasiya"
-                },
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
                         "206GLMC2",
-                        "AQEFAREBAAAAABBl9t0AAAGPfE7YuwAAAZC6kOdFTgAAtHVybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDa2JDbVR5QmFlTWFxZGhBdE9lRlJGQ09Ja1JKc3pROW1SRjY4ZG9tQkVRRERJUWwzXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjM0MTIxMzkzOCwzMjg3NzIyMzEpXnVybjpsaTptZW1iZXI6MTI4MDAxMjQyNBoDBY08vb3502vD4Lj1B4RgmmkK9v0IEWkf_IjnAtvJqOfXzBNNs9vcA8ZklQxTdPNHdwmvFOJtaoTqBK38dvgyvHQacDip21M7eXyIjBtLGsCmWr_PCKUW4xEYLnJG8Dayg7-oVljVDkJ3KBp8X3MVfha5PgpBrMhdlxW-ZLQ11--220ZXBT6eQ9OMTxTMD4IADG4",
+                        "AQEFAHUBAAAAABBl9t0AAAGPfE7YuwAAAZIFUyztTQAAGHVybjpsaTptZW1iZXI6MTI4MDAxMjQyNIw_zJSyXQaqYm87bAibaWY_M_FQ4Bg-5CUL28zN8lUQPFyF00v6V0cuP6t9kbmFpAjCLTAH9-mmoyuJdjF-4ZN9KPSENSAvqnXKVAvNEpuf7jYbSUgbI1QkZnFA3YZZCO_nBcUNMFI03E40Z1KKhRvNDXxl69iMe4fmMX4k5TXUtuQlYywOVR0Hs5mov5-mATwL9h0",
                         "Yushko Patrick"
                 },
 
                 {       "daniele-tsvetkov",
                         "daniele.tsvetkov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGQupELhk0ApRFD-1Hgo_-4tATx2KxiW0Ckh1_aOHjf1GX1XMSCcNLd_HQbgLydDywC2zLCZQfpTztsCPonqT_Q8MDEcO_2K3taSnfpPvgzWmL_Xedrdm36Fxh0",
+                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGSBVPmX00AjaXdGCNn6BzkFn_qrrP3mksFR2txJvskesqCAkCkgELfnKUw5Va5KTOkVBEx131CuhyZp0u6VRTk1z-8e_qSjlflYaeENa6JLKJaH9k-R3OrLPlF",
                         "Daniele Tsvetkov"
                 },
         };
