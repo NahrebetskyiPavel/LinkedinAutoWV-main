@@ -291,6 +291,31 @@ public String getLeadList(String token,  String status, String linkedInAccount, 
     return responseBody;
 }
 @SneakyThrows
+public String getLeadList(String token){
+    OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
+            .build();
+    MediaType mediaType = MediaType.parse("text/plain");
+    RequestBody body = RequestBody.create(mediaType, "");
+    Request request = new Request.Builder()
+            .url("https://crm.zoho.eu/crm/v2.2/Analytics/421659000025260268/Components/421659000025260277/actions/drill_down?" +
+                    "criteria=%7B%22comparator%22%3A%22equal%22%2C%22value%22%3A%22421659000019191552%22%2C%22field%22%3A%7B%22" +
+                    "api_name%22%3A%22LinkedIn_person%22%7D%7D&next_set_number=1&max_size=100")
+            .method("GET", null)
+            .addHeader("Authorization", "Bearer " + token)
+            .addHeader("Cookie", "JSESSIONID=476C1821B7D02B893423C4F10D748AD0; _zcsr_tmp=02c9a14e-d551-4ced-811c-9e96c5738594; crmcsr=02c9a14e-d551-4ced-811c-9e96c5738594; zalb_5ad188d5f9=ebc89d7b53f8d8afd8509f57eacaea35; zalb_ef0d5f6723=4005cb88a5a3d66ead1720c7a00e53cc")
+            .build();
+    Response response;
+    try {
+        response = client.newCall(request).execute();
+    }catch (Exception e){
+        Thread.sleep(20000);
+        response = client.newCall(request).execute();
+    }
+    String responseBody = response.body().string();
+
+    return responseBody;
+}
+@SneakyThrows
 public String getLeadList(String token, int page, String leadStatus, String linkedInPerson, String pickList2){
     OkHttpClient client = new OkHttpClient().newBuilder().connectTimeout(120, TimeUnit.SECONDS)
             .build();
@@ -475,5 +500,38 @@ if (tasksData.getJSONArray("data").length() >0){
         String token = this.renewAccessToken();
       //  System.out.println(this.changeTaskStatus(token, "421659000010770042","Closed"));
         System.out.println(token);
+    }
+    @Test
+    public void     getToken2(){
+        String token = this.renewAccessToken();
+      //  System.out.println(this.changeTaskStatus(token, "421659000010770042","Closed"));
+        System.out.println(token);
+        JSONObject responseBodyJsonObject = new JSONObject( getLeadList(token)  );
+
+        System.out.println(
+                responseBodyJsonObject
+                        .getJSONObject("drilldown_data_map")
+                        .getJSONObject("data_map")
+                        .getJSONObject("T")
+                        .getJSONArray("rows")
+                        .getJSONObject(0)
+                        .getJSONArray("cells")
+                        .getJSONObject(0)
+                        .getString("value")
+
+
+        );
+    }
+    @Test
+    public void     getToken3(){
+        String token = this.renewAccessToken();
+      //  System.out.println(this.changeTaskStatus(token, "421659000010770042","Closed"));
+        System.out.println(token);
+
+        JSONObject responseBodyJsonObjectLeadInfo = new JSONObject(getLeadInfoById(token,"421659000020519738") );
+
+        String leadPage = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Website");
+
+        System.out.println(leadPage);
     }
 }

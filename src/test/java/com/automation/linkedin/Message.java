@@ -83,10 +83,10 @@ public class Message extends Base{
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName, String profileId, String email, String password, String cookie ){
         System.out.println("START " + taskName);
         for (int n = 0; n < 1000; n++) {
-            String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
+            String data =  zoho.getLeadList(token);
             if (data.contains("INVALID_TOKEN")) {
                 token = zoho.renewAccessToken();
-                data = zoho.getLeadList(token, "Contacted", linkedinAccount, n);
+                data = zoho.getLeadList(token);
 
             }
 
@@ -96,10 +96,19 @@ public class Message extends Base{
             //System.out.println(responseBodyJsonObject);
             Thread.sleep(10000);
             //System.out.println(responseBodyJsonObject.getJSONArray("data").length());
-            for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
-                String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
-                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
-                String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
+            for (int i = 0; i < responseBodyJsonObject.getJSONObject("drilldown_data_map").getJSONObject("data_map").length(); i++) {
+                String id = responseBodyJsonObject.getJSONObject("drilldown_data_map")
+                        .getJSONObject("data_map")
+                        .getJSONObject("T")
+                        .getJSONArray("rows")
+                        .getJSONObject(0)
+                        .getJSONArray("cells")
+                        .getJSONObject(0)
+                        .getString("value");
+                JSONObject responseBodyJsonObjectLeadInfo = new JSONObject( zoho.getLeadInfoById(token,id) );
+
+                String leadPage = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Website");
+                String fullName = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Full_Name");;
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
                 System.out.println(id);
@@ -276,12 +285,12 @@ public class Message extends Base{
 
 
 
-                {       "paul-bereza",
+           /*     {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
                         "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZH516JITQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MrgmxeadesHM3nKCxrsUsEY7oE2YNlEjDfKcRC4i0jdJYv-0CrELcWvwvgl9Hh_a-UD3BztRMFXG1L-T27TKo8wdUft7g5Rp9vRBKL8EpeN7XvfJL9trBE0Lmp5EWDf6VOBX2WPUshBn-0VfCxKzHXg_8-XsjxcgwJbEGisHf6F8LtRJP1pWyHm0_3_XD2ubXhq_AIM",
                         "Paul Bereza"
-                },
+                },*/
                 {       "margit-matthes",
                         "margit.Matthes@outlook.de",
                         "33222200Shin",
@@ -289,7 +298,7 @@ public class Message extends Base{
                         "Margit Matthes"
                 },
 
-
+/*
                 {       "petr-2",
                         "petr.degtyarev@outlook.de",
                         "33222200Shin",
@@ -347,7 +356,7 @@ public class Message extends Base{
                         "33222200Shin",
                         "AQEDAUtiZkQEzpptAAABjYItJMIAAAGSBVPmX00AjaXdGCNn6BzkFn_qrrP3mksFR2txJvskesqCAkCkgELfnKUw5Va5KTOkVBEx131CuhyZp0u6VRTk1z-8e_qSjlflYaeENa6JLKJaH9k-R3OrLPlF",
                         "Daniele Tsvetkov"
-                },
+                },*/
         };
     }
 }
