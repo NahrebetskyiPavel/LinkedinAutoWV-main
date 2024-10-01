@@ -168,13 +168,13 @@ public class AddLeads extends Base {
         }
         return new Object[][]{
                 //1
-                {
+     /*           {
                         accountInfos.get(0).get(0),
                         accountInfos.get(0).get(1),
                         accountInfos.get(0).get(2),
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         accountInfos.get(0).get(0),
-                },
+                },*/
                 //2
                 {
                         accountInfos.get(1).get(0),
@@ -184,13 +184,13 @@ public class AddLeads extends Base {
                         accountInfos.get(1).get(0),
                 },
                 //3
-                {
+      /*          {
                         accountInfos.get(2).get(0),
                         accountInfos.get(2).get(1),
                         accountInfos.get(2).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         accountInfos.get(2).get(0),
-                },
+                },*/
                 //4
                 {
                         accountInfos.get(3).get(0),
@@ -272,13 +272,6 @@ public class AddLeads extends Base {
                         accountInfos.get(12).get(0),
                 },
                 {
-                        "Art Stenko",
-                        "artstenko@gmail.com",
-                        "GOgoCyclone_11",
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Art Stenko"
-                },
-                {
                         accountInfos.get(13).get(0),
                         accountInfos.get(13).get(1),
                         accountInfos.get(13).get(2),
@@ -299,29 +292,6 @@ public class AddLeads extends Base {
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         accountInfos.get(15).get(0),
                 },
-
-             /*   //14
-                {
-                        accountInfos.get(13).get(0),
-                        accountInfos.get(13).get(1),
-                        accountInfos.get(13).get(2),
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Demetrios Mikhaylov"
-                },
-
-                {
-                        accountInfos.get(14).get(0),
-                        accountInfos.get(14).get(1),
-                        accountInfos.get(14).get(2),
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Nikita K."
-                },    {
-                        accountInfos.get(15).get(0),
-                        accountInfos.get(15).get(1),
-                        accountInfos.get(15).get(2),
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        "Nikita K."
-                },*/
 
 
 
