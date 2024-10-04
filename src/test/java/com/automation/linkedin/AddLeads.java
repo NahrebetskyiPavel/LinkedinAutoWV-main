@@ -174,6 +174,7 @@ public class AddLeads extends Base {
         return new Object[][]{
 
 
+
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
@@ -225,6 +226,68 @@ public class AddLeads extends Base {
                         "AQEDAUtiZkQEzpptAAABjYItJMIAAAGSZfpK6k0Al67Mz7b7jmM9u4FWm6M86kLQXN3qOmjuXHFL5kwL4nmvymFcMgyI_cZCyqk1Eq0Yfyfdrn516hF_A1zQH48tYI2suw5PzolYy7SMU9KYF_jV_OOp",
                         "Daniele Tsvetkov"
                 },
+
+
+                {       "alex-kychyn",
+                        "kychyn.alex@outlook.it",
+                        "33222200Shin",
+                        "AQEFAHUBAAAAABAq9fUAAAGRIjMvzwAAAZJXosDwTgAAGHVybjpsaTptZW1iZXI6MTI2NTU4NjI2OYBDDVuNxs7gIY07RMmtpKkz75MnvGTF3LwM6nvMWX-3_lvXvX-XVwHBrPjJ3a-pvN5qA0aNM2rbKFismFnYhnwKHZ2ZmKtDW8Iklofc711iML-VSn7ciDJjv4pz4JGhGlPyrjlKAz4pBdQQ-394UWbx2G8XAnyav_9PE12dJoHrZN80xwoMV8o1os5QM4H7l-l2158",
+                        "Kychyn Alex"
+                },
+*
+
+                {       "miyana-emelianenko",
+                        "emelianenko.miyana@outlook.de",
+                        "CcDZPmv7",
+                        "AQEDAUxZNjwAZkXFAAABj3bhQFAAAAGSWAT2gU0AQ4UVw_vtvGV1nkmw7AhF6iJ162bHbdSQDbbZ8URAS5M8LDME7AkvgBKZnIQ0hCExYhobzcmok__EQ7sYkyxVJONtXcI-Lz4RSkp1yBCpFa30uCsx",
+                        "Emelianenko Miyana"
+                },
+
+                {       "fidel-salyenko-8183a92b3",
+                        "fidel.Salyenkooo1962@outlook.it",
+                        "33222200Shin",
+                        "AQEDAUtXv1QFgKDNAAABjYINrOwAAAGSV6DNp00APOMjqKWazaVEby9F7GuyG7H1cqW1ooZhMDcaURSLLhQp0RzSKGMZKHhA8OnSMIY5YWL3CN9NYR0m7MwmG0f26TKOzxzwMzMLiHJGY2RuFyXFFSy6",
+                        "Fidel Salyenko"
+                },
+
+                {       "michael-krusciov",
+                        "michael.krusciov@outlook.de",
+                        "cTsH3KhU",
+                        "AQEDAUwy4cUF84KUAAABkleNDrMAAAGSe5mSs1YAHhd65fXcQTNNfl652iE7etF1UlPZ3AKKE3xOhcttytUL87noJsRaIRz_Ec-rVStVen51EaJkZjfqXlxVb6-F2tK0pykFxWcjY8BqXSfDIsYMYx8f",
+                        "Michael Krusciov"
+                },
+
+
+                {       "michael-zhmorshchuk-3161302b2",
+                        "zhmorshchuk.michael@outlook.de",
+                        "33222200Shin",
+                        "AQEDAUsgIMIDmVD3AAABkTQUZv8AAAGSZf0DvE0AGB4hAwWCKA7L6ynUMHK_FQs62Af8F0AVxptP5PZjIr7O2OcsykkgTNcGIAF8j4jgql0ixptIGkjRI3ZVEDznBNrTq5szUfKuDgQICHMZz-h4PpMM",
+                        "Zhmorshchuk Michael"
+                },
+
+
+                {       "kenan-strelbytsky-364ba22b8",
+                        "strelbytsky.kenan@outlook.de",
+                        "ygm9ijzZ",
+                        "AQEDAUxZvXwBvIgNAAABj3xBliYAAAGSZf14s00Aj7F88vitr59DxVQ_H3rYmpkh7nF5usbMBb6CM-lo19a7CZXqZjm1LE5A_PSh4J6v9hsHOysVuONSUojiSMSoHNCKWGQXagpJgQzv_4O6BDbj_QfQ",
+                        "Strelbytsky Kenan"
+                },
+
+
+                {       "alex-kychyn",
+                        "kychyn.alex@outlook.it",
+                        "33222200Shin",
+                        "AQEFAHUBAAAAABAq9fUAAAGRIjMvzwAAAZJXosDwTgAAGHVybjpsaTptZW1iZXI6MTI2NTU4NjI2OYBDDVuNxs7gIY07RMmtpKkz75MnvGTF3LwM6nvMWX-3_lvXvX-XVwHBrPjJ3a-pvN5qA0aNM2rbKFismFnYhnwKHZ2ZmKtDW8Iklofc711iML-VSn7ciDJjv4pz4JGhGlPyrjlKAz4pBdQQ-394UWbx2G8XAnyav_9PE12dJoHrZN80xwoMV8o1os5QM4H7l-l2158",
+                        "Kychyn Alex"
+                },
+
+                {       "miyana-emelianenko",
+                        "emelianenko.miyana@outlook.de",
+                        "CcDZPmv7",
+                        "AQEDAUxZNjwAZkXFAAABj3bhQFAAAAGSWAT2gU0AQ4UVw_vtvGV1nkmw7AhF6iJ162bHbdSQDbbZ8URAS5M8LDME7AkvgBKZnIQ0hCExYhobzcmok__EQ7sYkyxVJONtXcI-Lz4RSkp1yBCpFa30uCsx",
+                        "Emelianenko Miyana"
+                },
+
         };
     }
 
