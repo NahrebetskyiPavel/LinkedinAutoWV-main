@@ -152,7 +152,7 @@ public class Message extends Base{
                                 }
                             }
                             System.out.println("subject " + subject);
-                            System.out.println("equals " +subject.equals(taskName));
+                            System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
                             msgsSent += msgsSent;
@@ -191,7 +191,7 @@ public class Message extends Base{
                                 System.out.println("taskid = " + impastoTaskId);
                                 String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                 System.out.println("taskStatus " + taskStatus);
-                                if (taskStatus.equals("new")) {
+                                if (taskStatus.contains("new")) {
                                     Thread.sleep(30000);
                                     taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                     System.out.println("taskStatus " + taskStatus);
@@ -211,14 +211,14 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         }
-                        if ( subject.equals(taskName) && status.equals("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
+                        if ( subject.contains(taskName) && status.contains("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
                             for (String acc : accsMsgssent) {
                                 if(acc.matches(fullName)){
                                     break;
                                 }
                             }
                             System.out.println("subject " + subject);
-                            System.out.println("equals " +subject.equals(taskName));
+                            System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
                             System.out.println("sent msg!!!");
                             msgsSent += msgsSent;
@@ -233,7 +233,7 @@ public class Message extends Base{
                                 int impastoTaskId = (int) new JSONObject( response ).get("taskId");
                                 System.out.println("taskid = " + impastoTaskId);
                                 String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
-                                if (taskStatus.equals("new")) {
+                                if (taskStatus.contains("new")) {
                                     Thread.sleep(30000);
                                     taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                     System.out.println("taskStatus " + taskStatus);
