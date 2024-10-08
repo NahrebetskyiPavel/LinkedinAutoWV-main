@@ -181,14 +181,9 @@ public class Message extends Base{
                                 } catch (Exception e){
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
-                                    if ((String.valueOf(new JSONObject( taskInfo ).getJSONArray("results")+"").contains("Cookie is not valid"))) throw new Exception("Cookie is not valid");
-                                    else if (taskInfo.contains("Request failed with status code 590")) {
-                                        throw new Exception("Request failed with status code 590");
-
-                                    }else {
-                                        throw new Exception(e);
-                                    }
-
+                                    if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
+                                    else if (taskInfo.contains("Request failed with status code 590")) {throw new Exception("Request failed with status code 590");
+                                    }else { throw new Exception(e); }
                                 }
 
                                 System.out.println("taskid = " + impastoTaskId);
@@ -341,6 +336,7 @@ public class Message extends Base{
                         "Emelianenko Miyana"
                 },
 
+
                 {       "fidel-salyenko-8183a92b3",
                         "fidel.Salyenkooo1962@outlook.it",
                         "33222200Shin",
@@ -373,12 +369,7 @@ public class Message extends Base{
 
 
 
-                {       "miyana-emelianenko",
-                        "emelianenko.miyana@outlook.de",
-                        "CcDZPmv7",
-                        "AQEDAUxZNjwAZkXFAAABj3bhQFAAAAGSfA_45k0AcUX_bAux95m756HmwN4awvumZN5titR4mJEcfzgIGfrmSUGUxxodDMxaCnZgddCc_4fc6JNYFR1zDCMA42VfhT7O_b4jWlvUo7Xq2x1gOlGP_Uid",
-                        "Emelianenko Miyana"
-                },
+
         };
     }
 }
