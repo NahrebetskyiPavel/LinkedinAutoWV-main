@@ -172,6 +172,7 @@ public class Message extends Base{
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if (taskInfo.contains("finished")) break;
                                     if (taskInfo.contains("failed")) break;
+                                    System.out.println(taskInfo);
                                 }
                                 String taskResults ;
                                 try {
@@ -181,9 +182,11 @@ public class Message extends Base{
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if ((String.valueOf(new JSONObject( taskInfo ).getJSONArray("results")+"").contains("Cookie is not valid"))) throw new Exception("Cookie is not valid");
-                                    else  {
-                                        throw new Exception(e);
+                                    else if (taskInfo.contains("Request failed with status code 590")) {
+                                        throw new Exception("Request failed with status code 590");
 
+                                    }else {
+                                        throw new Exception(e);
                                     }
 
                                 }
@@ -276,6 +279,7 @@ public class Message extends Base{
 
 
 
+
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
@@ -288,21 +292,21 @@ public class Message extends Base{
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsBmGroAAABkh9htIUAAAGScUK0VFYAiXEckJH2_AWGNuougsbwxE6a8_wIV233ZjJ8wSNWVU4UycjmMxDQ6DPJQ3mU3dM2XphYdEniE1TQlgioI6y90U1mnibqPYSUVtajeEC3B857x8jG",
+                        "AQEDAUs6XDsDTna2AAABkmcdUxsAAAGSiynXG1YAQZ8RuPjJB9rtujZ9bscvnci6DVZhBN9OCSq-KNUSbs1LWLvIqyD7RtGPOf-NNN_xzh9-875Zan2fAlqK6qg731LrgLpiIFEX6XuZtpJEBnKeJz9t",
                         "Elias Danilov"
                 },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
                         "cTsH3KhU",
-                        "AQEDAUxQ7yQC6PE_AAABklYraWcAAAGSejftZ00ALnZK_q1t4wsugt-ShEMv0MokIMDUu6kARJE2tqjnebepE-EtFZ5vBMNJdN7dkUYxSfMNRKx1_RXbS7BmQUqyyok5fystsu_sgosIsBvWm4DRLi9E",
+                        "AQEDAUxQ7yQC3WmHAAABkmY8Om8AAAGSiki-b00ActPt1oc1VCaxa4rjhUT8PFYD6RQgqEW5NdM06GJj4_AuRUFk8kuehvIZogz6t57lmSR9AzPPVM7gkVXjocFvXhCjXZdDt7YKal1J1mOWhWtX6Zid",
                         "Mykhaylenko Stefania"
                 },
 
                 {       "den-vaviron",
                         "denVavir00@outlook.de",
                         "33222200Shin",
-                        "AQEDAUpubFMFCUCvAAABjP1fQdMAAAGSWAXqB00AQjnJ76-7ZRPsHaXwTKEAr9arpU3dbfo75jEv_8uxAMPkA7fzR0PnqAAfWslJWxnzdC-wPWsV9LATEAW0Xn5yYSkq5tt5rta_cTP5SzMxSiEgxA_S",
+                        "AQEDAUpubFMFCUCvAAABjP1fQdMAAAGSfA_8DE0AnZeA7m5pUCCSc00VyGY3dqXBirHDa5HXFDIUjdig0sdqyEqRtKZsQtnfcjmbDB58wMHS3uHVaEHP0T6hxFlzV-3868RnKT9KqKYvnnYya_zaRDmm",
                         "Den Vaviron"
                 },
 
@@ -310,22 +314,70 @@ public class Message extends Base{
                 {       "max-mikhaylov",
                         "max.Mikhaylov@outlook.de",
                         "33222200Shin",
-                        "AQEDAUtQFBQCjJC7AAABjp8_IKQAAAGSWAV9EE0AqZ8aA6NXTjnzopjEk-6RAHYarurRryUBPwgA_1VSTOLTuH10QOR4AyiMEhdKSby_WImQZKuTUPgIVVxPAsBUM-1mI5H1EJPXXLdyQFj7dYO54lRC",
+                        "AQEDAUtQFBQCjJC7AAABjp8_IKQAAAGSfA_4Jk0ALptb50ypM8w9vm4kI3vNGuU_jQzT7RhBU0kvZSlj8c3pRzlwqVGD70umAHxExqKQlr_PkyiT8SU564g-0BjvZd9AWbnZHbRY2LPs8YoTSfKSulJk",
                         "Max Mikhaylov"
                 },
 
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
                         "206GLMC2",
-                        "AQEFAHUBAAAAABBl9t0AAAGPfE7YuwAAAZJl-qvgVgAAGHVybjpsaTptZW1iZXI6MTI4MDAxMjQyNJGhqrGAw0s-VABnEas4z3_d7E7iUoihe4KC5vripjAlG7xljWADvr3hflDc7vYgfidAug0wkMLkBbnQPWneZ2zMEhxGiMz5asYjyKFVbYclxv-15jUg8vRIm55acrrkbjH66U1zPn1iQ-moQxwe45pAyR2xmK1dIYSJXyXYSBy-a5eos-B7BCV-MORD_QUs9mSx72Y",
+                        "AQEFAHUBAAAAABBl9t0AAAGPfE7YuwAAAZKKB79JTgAAGHVybjpsaTptZW1iZXI6MTI4MDAxMjQyNCkImZePKBQ_wsgIfQWUSS0i6-dmUGCWTHTk9knhrciGs3m02ZJRFeH-yFBI0TCyHMX5Kd8EPiHgBntFKAhretAjvkccDcc8ygEzCHuxRi0ZPGGzGcZOSLlZN-3pq6L99DGZNdps7hvn5kW1HqfbKbIlI-rEU5bi2o8fboIgbmCz1bPljvmACEwrIX3kU2cNmKWDRt0",
                         "Yushko Patrick"
                 },
 
                 {       "daniele-tsvetkov",
                         "daniele.tsvetkov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGSZfpK6k0Al67Mz7b7jmM9u4FWm6M86kLQXN3qOmjuXHFL5kwL4nmvymFcMgyI_cZCyqk1Eq0Yfyfdrn516hF_A1zQH48tYI2suw5PzolYy7SMU9KYF_jV_OOp",
+                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGSigdqoE0AXvavHfjpr35J7Ncy9oEmlKpEz-K2MwJfaNqhtNxtQCdk9YWFkTIPRA_fwnwXbgrd6xM2FYW5iFsyKfTA5O_T7Z9M-JuJadMsZ8a_lEd_3k-HxK5P",
                         "Daniele Tsvetkov"
+                },
+
+
+
+                {       "miyana-emelianenko",
+                        "emelianenko.miyana@outlook.de",
+                        "CcDZPmv7",
+                        "AQEDAUxZNjwAZkXFAAABj3bhQFAAAAGSfA_45k0AcUX_bAux95m756HmwN4awvumZN5titR4mJEcfzgIGfrmSUGUxxodDMxaCnZgddCc_4fc6JNYFR1zDCMA42VfhT7O_b4jWlvUo7Xq2x1gOlGP_Uid",
+                        "Emelianenko Miyana"
+                },
+
+                {       "fidel-salyenko-8183a92b3",
+                        "fidel.Salyenkooo1962@outlook.it",
+                        "33222200Shin",
+                        "AQEDAUtXv1QFgKDNAAABjYINrOwAAAGSe6mwBk0AvkCEMAw8ut9IAFe4uGHktJwhemlh6fn5-Xf84DoHPQmLV6tapcXldABJPGS4MxJz2L-UX05-MOVIPJXHToDJNsIgx7c9pOTacl19FfCTT1Et7prO",
+                        "Fidel Salyenko"
+                },
+
+                {       "michael-krusciov",
+                        "michael.krusciov@outlook.de",
+                        "cTsH3KhU",
+                        "AQEDAUwy4cUF84KUAAABkleNDrMAAAGSe5mSs1YAHhd65fXcQTNNfl652iE7etF1UlPZ3AKKE3xOhcttytUL87noJsRaIRz_Ec-rVStVen51EaJkZjfqXlxVb6-F2tK0pykFxWcjY8BqXSfDIsYMYx8f",
+                        "Michael Krusciov"
+                },
+
+
+                {       "michael-zhmorshchuk-3161302b2",
+                        "zhmorshchuk.michael@outlook.de",
+                        "33222200Shin",
+                        "AQEDAUsgIMIDmVD3AAABkTQUZv8AAAGSjt6EoU0AV2dCQldBkYHaNYTBVXuhnEhimF-2mdUXitJuX7y4KSTuleT7KK62teqN0ntBlDO6Mf2juliqKmJ4Wy6GgTWe10Jaa9eEUp3AVXHHP1zf_6MOIZqj",
+                        "Zhmorshchuk Michael"
+                },
+
+
+                {       "kenan-strelbytsky-364ba22b8",
+                        "strelbytsky.kenan@outlook.de",
+                        "ygm9ijzZ",
+                        "AQEDAUxZvXwBvIgNAAABj3xBliYAAAGSigrIwU0AcgYVfHaTonyE1HaLyc5y0kx5MKcWw2YbYqyCdFQbs5Di068bge4ojQloWC5XLUBq3a1ymp0Nbbad12hE1JhivoPhwxuBXboJYb-S9K2DxVQ4iApa",
+                        "Strelbytsky Kenan"
+                },
+
+
+
+                {       "miyana-emelianenko",
+                        "emelianenko.miyana@outlook.de",
+                        "CcDZPmv7",
+                        "AQEDAUxZNjwAZkXFAAABj3bhQFAAAAGSfA_45k0AcUX_bAux95m756HmwN4awvumZN5titR4mJEcfzgIGfrmSUGUxxodDMxaCnZgddCc_4fc6JNYFR1zDCMA42VfhT7O_b4jWlvUo7Xq2x1gOlGP_Uid",
+                        "Emelianenko Miyana"
                 },
         };
     }
