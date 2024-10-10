@@ -184,7 +184,8 @@ public class PersonPage {
 
 
         Thread.sleep(10000);
-        if (msgParagraphs.last().text().length()>0){
+        if ($x("//div[contains(@aria-labelledby,'modal-upsell-header')]").is(visible)) return false ;
+        if (msgParagraphs.first().text().length()>0){
         for (SelenideElement msgParagraph:msgParagraphs
              ) {
             msgParagraph.clear();

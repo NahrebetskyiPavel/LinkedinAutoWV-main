@@ -70,8 +70,11 @@ public class Message extends Base{
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName){
         System.out.println("START " + taskName);
-
+        int msgsSentCounter = 0;
+        System.out.println("msgsSentCounter =" + msgsSentCounter);
+        if (msgsSentCounter == 30) return;
         for (int n = 0; n < 100; n++) {
+            if (msgsSentCounter == 30) break;
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
@@ -85,9 +88,9 @@ public class Message extends Base{
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
-                //System.out.println(id);
-                //System.out.println(fullName);
-                //System.out.println(leadPage);
+                System.out.println(id);
+                System.out.println(fullName);
+                System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.isEmpty()) continue;
                 JSONObject tasksData = new JSONObject( tasks );
@@ -105,11 +108,10 @@ public class Message extends Base{
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
-
-                        //System.out.println(taskId);
-                        //System.out.println(status);
-                        //System.out.println(subject);
-                        if (status.equals("Not Started")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                        System.out.println(taskId);
+                        System.out.println(status);
+                        System.out.println(subject);
+                        if (status.contains("Not Started")  &&  subject.contains(taskName) && localDateIsBeforeGivenComparison(duedate)){
                             System.out.println(taskId);
                             System.out.println(status);
                             System.out.println(subject);
@@ -134,7 +136,11 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
-                            if (description.equals("null")) {
+
+                            msgsSentCounter += msgsSentCounter;
+                            System.out.println("msgsSentCounter =" + msgsSentCounter);
+
+                            if (description.contains("null")) {
                                 if (accMsgSeconded.contains(fullName)){continue;}
                                 accMsgSeconded.add(fullName);
                                 msgResult = new PersonPage().sentMsg("Lets go to meeting");
@@ -149,7 +155,7 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         };
-                        if (status.equals("In Progress")  &&  subject.equals(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.contains("In Progress")  &&  subject.contains(taskName) && localDateIsBeforeGivenComparison(duedate)){
                             System.out.println(taskId);
                             System.out.println(status);
                             System.out.println(subject);
@@ -169,7 +175,11 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!");
-                            if (description.equals("null")) {
+
+                            msgsSentCounter += msgsSentCounter;
+                            System.out.println("msgsSentCounter =" + msgsSentCounter);
+
+                            if (description.contains("null")) {
                                 msgResult = new PersonPage().sentMsg("Hello how are you doing");
                                 if (!msgResult) continue;
                                 zoho.changeTaskStatus(token, taskId,"Closed");
@@ -207,19 +217,7 @@ public class Message extends Base{
                         "asd321qq",
 
                 },
-                //3
-                //4
-                {       "Anastasiia Vozniak",
-                        "vozniakanastasia52@gmail.com",
-                        "asd2424qq",
 
-                },
-                //5
-                {       "Roksolana Trofimchuk",
-                        "roksolanatrofim@gmail.com ",
-                        "89fcmTT88V",
-
-                },
                 //6
                 {       "Anastasiia Kuntii",
                         "anastasiiakuntii@gmail.com",
@@ -243,33 +241,19 @@ public class Message extends Base{
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
                 },
-                //10
-                {       "Oleg Valter",
-                        "ovalter@outlook.co.nz",
-                        "Shmee2023",
 
-                },
                 //11
-                {       "Pavel Nagrebetski",
-                        "pavelnagrebetski@gmail.com",
-                        "Asd321qq",
 
-                },
-                //12
                 {       "Michael Salo",
                         "michael.salo1995@gmail.com",
                         "newman1996",
 
                 },
                 //13
-                {       "Denis Bas",
-                        "basdenisphytontm@gmail.com",
-                        "asd321qq",
 
-                },
                 //14
                 {
-                        "Nikita K.",
+                        "Nikita K",
                         "kni2012@ukr.net",
                         "33222200s",
                 }
