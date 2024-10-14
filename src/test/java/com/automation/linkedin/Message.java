@@ -287,14 +287,14 @@ public class Message extends Base{
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsDTna2AAABkmcdUxsAAAGSiynXG1YAQZ8RuPjJB9rtujZ9bscvnci6DVZhBN9OCSq-KNUSbs1LWLvIqyD7RtGPOf-NNN_xzh9-875Zan2fAlqK6qg731LrgLpiIFEX6XuZtpJEBnKeJz9t",
+                        "AQEDAUs6XDsF401IAAABknvqn9gAAAGSn_cj2FYAq6wrwlVvPYWoCegSNTvkgkvV-fAMCCISfoioA9LNseNsyb43PFKT7RmGEeA6eJs_LyYO5jvXA2T3JnJyr1eZbvvaCPaaI_VrrHcpyX6NZq_ZxXwN",
                         "Elias Danilov"
                 },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
                         "cTsH3KhU",
-                        "AQEDAUxQ7yQFeDJ8AAABknU5x2gAAAGSmUZLaE4AzooC_CrpC7EIj8BxhtBVzzNfQ_1EJ36bJyg8HfCnpnBxmeETpqzh4VbZU14vmKtOIr5EAFmzzot3t9OsQlzoPFCj9-IPMvq3pIV4T1GISAN8t-wG",
+                        "AQEDAUxQ7yQDaKNCAAABkopZyocAAAGSrmZOh1YAjRwF2do4L6RB2TF_7qEepKR5s1dCxD3ahWLX72dzAwr7lob-CGNtz439ESyykwu22SBOwXoKVhD4orEoWDuWgeSQ4czKdGqWs4JrlXsyDMq_Q3UI",
                         "Mykhaylenko Stefania"
                 },
 
@@ -335,15 +335,6 @@ public class Message extends Base{
                         "AQEDAUxZNjwAZkXFAAABj3bhQFAAAAGSfA_45k0AcUX_bAux95m756HmwN4awvumZN5titR4mJEcfzgIGfrmSUGUxxodDMxaCnZgddCc_4fc6JNYFR1zDCMA42VfhT7O_b4jWlvUo7Xq2x1gOlGP_Uid",
                         "Emelianenko Miyana"
                 },
-
-
-                {       "fidel-salyenko-8183a92b3",
-                        "fidel.Salyenkooo1962@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUtXv1QFgKDNAAABjYINrOwAAAGSe6mwBk0AvkCEMAw8ut9IAFe4uGHktJwhemlh6fn5-Xf84DoHPQmLV6tapcXldABJPGS4MxJz2L-UX05-MOVIPJXHToDJNsIgx7c9pOTacl19FfCTT1Et7prO",
-                        "Fidel Salyenko"
-                },
-
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
