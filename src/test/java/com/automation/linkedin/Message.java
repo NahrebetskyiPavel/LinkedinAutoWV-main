@@ -29,6 +29,7 @@ public class Message extends Base{
     Boolean msgResult;
     String chatLeadStatusid = "421659000006918053";
     int msgsSentCounter = 0;
+    int msgsSentCounterMax = 3;
 
     private String  msg = "Good day to you.\n" +
             "\n" +
@@ -40,12 +41,14 @@ public class Message extends Base{
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
     public void senddMsg(String linkedInAccount,  String email, String password){
+        msgsSentCounter = 0;
 
         setupBrowser(true, linkedInAccount);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
         Thread.sleep(10000);
+        if ($x("//iframe[@id='captcha-internal']").is(visible)) throw new Exception("captcha");
         String  token = zoho.renewAccessToken();
         System.out.println("=======================");
         System.out.println("START: " +  linkedInAccount);
@@ -76,18 +79,19 @@ public class Message extends Base{
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName){
         System.out.println("START " + taskName);
         System.out.println("msgsSentCounter =" + msgsSentCounter);
-        if (msgsSentCounter > 2) {
+        if (msgsSentCounter > msgsSentCounterMax) {
             if (taskName.contains("Final automessage")) msgsSentCounter= 0;
             return;
         };
         for (int n = 0; n < 100; n++) {
-            if (msgsSentCounter > 2) break;
+            if (msgsSentCounter > msgsSentCounterMax) break;
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
             //System.out.println(responseBodyJsonObject);
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
+                if (msgsSentCounter > msgsSentCounterMax) break;
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
                 if (responseBodyJsonObject.getJSONArray("data").getJSONObject(i).get("Website") == null) continue;
                 if (responseBodyJsonObject.getJSONArray("data").getJSONObject(i).get("Website") == "null") continue;
@@ -135,6 +139,10 @@ public class Message extends Base{
                                 }
                             }
                             if ($x("//h2[contains(text(),'This page doesn’t exist')]").is(visible)) continue;
+                            if ($x("//h2[contains(text(),'Something went wrong')]").is(visible)) continue;
+                            if ($x("//h1[contains(text(),'your account is temporarily restricted')]").is(visible)) {
+                                throw new Exception("your account is temporarily restricted");
+                            };
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -143,7 +151,7 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
-                            if (msgsSentCounter>2) break;
+                            if (msgsSentCounter > msgsSentCounterMax) break;
                             msgsSentCounter = msgsSentCounter+1;
                             System.out.println("msgsSentCounter =" + msgsSentCounter);
 
@@ -166,6 +174,7 @@ public class Message extends Base{
                             System.out.println(taskId);
                             System.out.println(status);
                             System.out.println(subject);
+                            if (msgsSentCounter > msgsSentCounterMax) break;
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
@@ -174,17 +183,11 @@ public class Message extends Base{
                             if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
                             if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
                             if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
+                            if (!new PersonPage().msgBtn.is(interactable)) continue;
 
-                          try {
-                              new PersonPage().msgBtn.click();
-                              Thread.sleep(2000);
-                          }catch (Exception e){
-                              if (!new PersonPage().msgBtn.is(visible)) return;
-                              else {
-                                  msgsSentCounter = 0;
-                                  throw new Exception(e);
-                              }
-                          }
+                            new PersonPage().msgBtn.click();
+                            Thread.sleep(5000);
+
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
                                 // zoho.changeLeadStatus(id, token, chatLeadStatusid);
@@ -192,7 +195,7 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!");
-                            if (msgsSentCounter>2) break;
+                            if (msgsSentCounter > msgsSentCounterMax) break;
 
                             msgsSentCounter = msgsSentCounter+1;
                             System.out.println("msgsSentCounter =" + msgsSentCounter);
@@ -224,13 +227,13 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
               //1
-   /*             {       "Aleksandra Sternenko",
+                {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
 
-                },*/
+                },
                 //2
-      /*          {       "Natalia Marcun",
+                {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "asd321qq",
 
@@ -241,7 +244,7 @@ public class Message extends Base{
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
 
-                },*/
+                },
                 //7
                 {       "Marian Reshetun",
                         "reshetunmaryanwv@gmail.com",
