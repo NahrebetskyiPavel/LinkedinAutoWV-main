@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.interactable;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static utils.Utils.localDateIsBeforeGivenComparison;
 
@@ -27,6 +28,8 @@ public class Message extends Base{
 
     Boolean msgResult;
     String chatLeadStatusid = "421659000006918053";
+    int msgsSentCounter = 0;
+
     private String  msg = "Good day to you.\n" +
             "\n" +
             "Quick question - have you thought about modernizing the software you are using? It might be a right decision to start the new year with new IT solutions to scale your business. WiseVision will be happy to help you with that. You can check our portfolio and see for yourself that we are the right choice for a technical vendor: https://drive.google.com/file/d/1W6Tiv-zN_D7DsCapvhHo1PGssDmjTTQN/view?usp=share_link\n" +
@@ -37,6 +40,7 @@ public class Message extends Base{
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
     public void senddMsg(String linkedInAccount,  String email, String password){
+
         setupBrowser(true, linkedInAccount);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
@@ -63,6 +67,7 @@ public class Message extends Base{
         sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage");
 
         sendFolowUpMsg(linkedInAccount, token, "Meeting automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Final automessage");
 
     }
 
@@ -70,11 +75,13 @@ public class Message extends Base{
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName){
         System.out.println("START " + taskName);
-        int msgsSentCounter = 0;
         System.out.println("msgsSentCounter =" + msgsSentCounter);
-        if (msgsSentCounter == 30) return;
+        if (msgsSentCounter > 2) {
+            if (taskName.contains("Final automessage")) msgsSentCounter= 0;
+            return;
+        };
         for (int n = 0; n < 100; n++) {
-            if (msgsSentCounter == 30) break;
+            if (msgsSentCounter > 2) break;
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.isEmpty()) break;
             System.out.println("||==================================================================||");
@@ -127,7 +134,7 @@ public class Message extends Base{
                                     }
                                 }
                             }
-
+                            if ($x("//h2[contains(text(),'This page doesn’t exist')]").is(visible)) continue;
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -136,8 +143,8 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!!");
-
-                            msgsSentCounter += msgsSentCounter;
+                            if (msgsSentCounter>2) break;
+                            msgsSentCounter = msgsSentCounter+1;
                             System.out.println("msgsSentCounter =" + msgsSentCounter);
 
                             if (description.contains("null")) {
@@ -167,7 +174,17 @@ public class Message extends Base{
                             if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
                             if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
                             if (new PersonPage().closeBtn.is(interactable)) new PersonPage().closeBtn.click();
-                            new PersonPage().msgBtn.click();
+
+                          try {
+                              new PersonPage().msgBtn.click();
+                              Thread.sleep(2000);
+                          }catch (Exception e){
+                              if (!new PersonPage().msgBtn.is(visible)) return;
+                              else {
+                                  msgsSentCounter = 0;
+                                  throw new Exception(e);
+                              }
+                          }
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
                                 // zoho.changeLeadStatus(id, token, chatLeadStatusid);
@@ -175,8 +192,9 @@ public class Message extends Base{
                             }
                             if ( $("h2[id='upsell-modal-header']").is(Condition.visible)) continue;
                             System.out.println("sent msg!!");
+                            if (msgsSentCounter>2) break;
 
-                            msgsSentCounter += msgsSentCounter;
+                            msgsSentCounter = msgsSentCounter+1;
                             System.out.println("msgsSentCounter =" + msgsSentCounter);
 
                             if (description.contains("null")) {
@@ -206,13 +224,13 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
               //1
-                {       "Aleksandra Sternenko",
+   /*             {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
 
-                },
+                },*/
                 //2
-                {       "Natalia Marcun",
+      /*          {       "Natalia Marcun",
                         "natalia.marcoon@gmail.com ",
                         "asd321qq",
 
@@ -223,19 +241,14 @@ public class Message extends Base{
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
 
-                },
+                },*/
                 //7
                 {       "Marian Reshetun",
                         "reshetunmaryanwv@gmail.com",
                         "33222200Shin",
 
                 },
-                //8
-                {       "Barakhoyev Musa",
-                        "barakhoyev.musa@outlook.it",
-                        "33222200Shin",
 
-                },
                 //9
                 {       "Maria Deyneka",
                         "deynekamariawv@gmail.com",
