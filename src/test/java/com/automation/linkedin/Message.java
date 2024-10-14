@@ -29,7 +29,7 @@ public class Message extends Base{
     Boolean msgResult;
     String chatLeadStatusid = "421659000006918053";
     int msgsSentCounter = 0;
-    int msgsSentCounterMax = 3;
+    int msgsSentCounterMax = 30;
 
     private String  msg = "Good day to you.\n" +
             "\n" +
@@ -260,12 +260,7 @@ public class Message extends Base{
 
                 //11
 
-                {       "Michael Salo",
-                        "michael.salo1995@gmail.com",
-                        "newman1996",
 
-                },
-                //13
 
                 //14
                 {
