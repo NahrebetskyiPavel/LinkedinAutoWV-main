@@ -126,7 +126,7 @@ public class AddLeads {
                 {       "Nikita ",
                         "kni2012@ukr.net",
                         "33222200s",
-                },
+                }ё
         };
     }
 }
