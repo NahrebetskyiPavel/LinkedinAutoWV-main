@@ -142,6 +142,11 @@ public class ChangeLead {
                         "33222200Shin",
                 },
 
+                {       "Anastasiia Vozniak",
+                        "vozniakanastasia52@gmail.com",
+                        "asd2424qq",
+                },
+
                 {
                         "Nikita K",
                         "kni2012@ukr.net",
