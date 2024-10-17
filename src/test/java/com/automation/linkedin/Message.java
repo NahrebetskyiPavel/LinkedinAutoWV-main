@@ -274,7 +274,6 @@ public class Message extends Base{
 
 
 
-
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
@@ -287,7 +286,7 @@ public class Message extends Base{
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsF401IAAABknvqn9gAAAGSn_cj2FYAq6wrwlVvPYWoCegSNTvkgkvV-fAMCCISfoioA9LNseNsyb43PFKT7RmGEeA6eJs_LyYO5jvXA2T3JnJyr1eZbvvaCPaaI_VrrHcpyX6NZq_ZxXwN",
+                        "AQEDAUs6XDsAQUISAAABkpCWoT4AAAGStKMlPk4Az-OpQheSV0gMA6CS_y0IvVZwPtgmkD8epCwXkxLOxDjykiod6RneE8jL3xKAtVvb8PQS6LclUcdZFzUishn3LJxM5Wnhd2IKwRDpXMGd5dvRLy40",
                         "Elias Danilov"
                 },
 
@@ -327,20 +326,12 @@ public class Message extends Base{
                         "Daniele Tsvetkov"
                 },
 
-
-                {       "miyana-emelianenko",
-                        "emelianenko.miyana@outlook.de",
-                        "CcDZPmv7",
-                        "AQEDAUxZNjwAZkXFAAABj3bhQFAAAAGSfA_45k0AcUX_bAux95m756HmwN4awvumZN5titR4mJEcfzgIGfrmSUGUxxodDMxaCnZgddCc_4fc6JNYFR1zDCMA42VfhT7O_b4jWlvUo7Xq2x1gOlGP_Uid",
-                        "Emelianenko Miyana"
-                },
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUF84KUAAABkleNDrMAAAGSe5mSs1YAHhd65fXcQTNNfl652iE7etF1UlPZ3AKKE3xOhcttytUL87noJsRaIRz_Ec-rVStVen51EaJkZjfqXlxVb6-F2tK0pykFxWcjY8BqXSfDIsYMYx8f",
+                        "AQEDAUwy4cUFlrcZAAABkooGJoQAAAGSrhKqhE0As94EPe1YU5RRsVgWIEQkpNmziej7Jk9xqajz10nrIXUyanph0wCbHQG7QJrxLobL_AQ3drjDyrb1L2VhUANH_lyinIv2mx4ZolwYfUKBWj7t6lyA",
                         "Michael Krusciov"
                 },
-
 
                 {       "michael-zhmorshchuk-3161302b2",
                         "zhmorshchuk.michael@outlook.de",
