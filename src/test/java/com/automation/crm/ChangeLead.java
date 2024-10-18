@@ -133,10 +133,7 @@ public class ChangeLead {
                         "natalia.marcoon@gmail.com ",
                         "asd321qq",
                 },
-                {       "Anastasiia Kuntii",
-                        "anastasiiakuntii@gmail.com",
-                        "33222200Shin",
-                },
+
                 {       "Marian Reshetun",
                         "reshetunmaryanwv@gmail.com",
                         "33222200Shin",
