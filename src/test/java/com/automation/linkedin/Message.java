@@ -128,6 +128,8 @@ public class Message extends Base{
                             System.out.println(subject);
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
+                            if ($x("//h2[contains(text(),'This page doesn’t exis')]").is(visible)) continue;
+                            Thread.sleep(10000);
                             //if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             //if (pendingBtn.last().is(Condition.visible)) continue;
                             if (closeBtns.size()>0){
@@ -177,6 +179,8 @@ public class Message extends Base{
                             if (msgsSentCounter > msgsSentCounterMax) break;
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
+                            if ($x("//h2[contains(text(),'This page doesn’t exis')]").is(visible)) continue;
+
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             //if (!$x("//main//span[contains(text(),'Pending')]").is(Condition.visible)) continue;
                             //if (!new PersonPage().msgBtn.is(Condition.visible)) continue;
