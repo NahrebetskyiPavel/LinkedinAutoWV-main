@@ -14,8 +14,7 @@ import utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static utils.Utils.localDateIsBeforeGivenComparison;
 
@@ -78,7 +77,7 @@ public class Message extends Base{
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName){
         System.out.println("START " + taskName);
-        System.out.println("msgsSentCounter =" + msgsSentCounter);
+        System.out.println("msgsSentCounter from " + linkedinAccount + "= " + msgsSentCounter);
         if (msgsSentCounter > msgsSentCounterMax) {
             if (taskName.contains("Final automessage")) msgsSentCounter= 0;
             return;
@@ -128,7 +127,7 @@ public class Message extends Base{
                             System.out.println(subject);
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
-                            if ($x("//h2[contains(text(),'This page doesn’t exis')]").is(visible)) continue;
+                            if ($x("//h2[contains(text(),'This page doesn’t exis')]").exists()) continue;
                             Thread.sleep(10000);
                             //if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             //if (pendingBtn.last().is(Condition.visible)) continue;
@@ -145,6 +144,12 @@ public class Message extends Base{
                             if ($x("//h1[contains(text(),'your account is temporarily restricted')]").is(visible)) {
                                 throw new Exception("your account is temporarily restricted");
                             };
+                            if ($x("//header[@class='not-found__header not-found__container']").is(visible)) {
+                                System.out.println(leadPage + " This page doesn’t exis");
+
+                                continue;
+                            };
+
                             new PersonPage().msgBtn.click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
@@ -155,7 +160,7 @@ public class Message extends Base{
                             System.out.println("sent msg!!!");
                             if (msgsSentCounter > msgsSentCounterMax) break;
                             msgsSentCounter = msgsSentCounter+1;
-                            System.out.println("msgsSentCounter =" + msgsSentCounter);
+                            System.out.println("msgsSentCounter from " + linkedinAccount + "= " + msgsSentCounter);
 
                             if (description.contains("null")) {
                                 if (accMsgSeconded.contains(fullName)){continue;}
@@ -179,7 +184,7 @@ public class Message extends Base{
                             if (msgsSentCounter > msgsSentCounterMax) break;
                             Selenide.open(leadPage);
                             Thread.sleep(10000);
-                            if ($x("//h2[contains(text(),'This page doesn’t exis')]").is(visible)) continue;
+                            if ($x("//h2[contains(text(),'This page doesn’t exis')]").exists()) continue;
 
                             if (WebDriverRunner.getWebDriver().getCurrentUrl().contains("404")) continue;
                             //if (!$x("//main//span[contains(text(),'Pending')]").is(Condition.visible)) continue;
@@ -202,7 +207,7 @@ public class Message extends Base{
                             if (msgsSentCounter > msgsSentCounterMax) break;
 
                             msgsSentCounter = msgsSentCounter+1;
-                            System.out.println("msgsSentCounter =" + msgsSentCounter);
+                            System.out.println("msgsSentCounter from " + linkedinAccount + "= " + msgsSentCounter);
 
                             if (description.contains("null")) {
                                 msgResult = new PersonPage().sentMsg("Hello how are you doing");
@@ -276,9 +281,6 @@ public class Message extends Base{
                         "ekompanets02@gmail.com",
                         "35ulurev",
                 },
-
-
-
 
         };
     }
