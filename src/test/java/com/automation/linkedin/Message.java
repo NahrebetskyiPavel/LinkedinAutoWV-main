@@ -239,12 +239,6 @@ public class Message extends Base{
 
                 },
 
-                //6
-                {       "Anastasiia Kuntii",
-                        "anastasiiakuntii@gmail.com",
-                        "33222200Shin",
-
-                },
                 //7
                 {       "Marian Reshetun",
                         "reshetunmaryanwv@gmail.com",
