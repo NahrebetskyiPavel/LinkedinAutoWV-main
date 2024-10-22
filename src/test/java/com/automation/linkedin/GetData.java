@@ -108,8 +108,8 @@ public class GetData extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
                 {       "Scraper",
-                        "anastasiiakuntii@gmail.com",
-                        "33222200Shin",
+                        "",
+                        ,
                 },
         };
     }
