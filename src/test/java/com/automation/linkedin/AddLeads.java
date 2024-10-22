@@ -191,12 +191,6 @@ public class AddLeads extends Base {
                         "Elias Danilov"
                 },
 
-                {       "stefania-mykhaylenko",
-                        "mykhaylenko.stefania@outlook.fr",
-                        "cTsH3KhU",
-                        "AQEDAUxQ7yQDs4ZkAAABkq415WoAAAGS0kJpalYASqGg0SgEvljQrIOKfRvCQRRVXs9tEjVOHixQfFl8MSIUbRqSZGLaBz1-pHsQDS9t-PiJxD7uH7LCheTpIvRxqYgfk9t5_RoOt_5nUEscJopTuMBD",
-                        "Mykhaylenko Stefania"
-                },
 
                 {       "den-vaviron",
                         "denVavir00@outlook.de",
