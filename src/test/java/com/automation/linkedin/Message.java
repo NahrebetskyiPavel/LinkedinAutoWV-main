@@ -36,13 +36,13 @@ public class Message extends Base{
             "\n" +
             "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n";
     int msgsSent = 0;
+    ArrayList<Integer> taskIdList = new ArrayList<>();
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
     public void senddMsg(String profileId, String email, String password, String cookie, String linkedInAccount ){
 
         String  token = zoho.renewAccessToken();
-
 
         sendFolowUpMsg(linkedInAccount, token,  "Second automessage", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
@@ -182,8 +182,9 @@ public class Message extends Base{
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
-                                    else if (taskInfo.contains("Request failed with status code 590")) {throw new Exception("Request failed with status code 590");
-                                    }else { throw new Exception(e); }
+                                    else if (taskInfo.contains("Request failed with status code 590")) {Thread.sleep(1000*60*10); continue;}
+                                    else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
+                                    else { throw new Exception(taskInfo); }
                                 }
 
                                 System.out.println("taskid = " + impastoTaskId);
@@ -229,7 +230,13 @@ public class Message extends Base{
                                 System.out.println("response " + response);
                                 Thread.sleep(1000*60);
                                 int impastoTaskId = (int) new JSONObject( response ).get("taskId");
+
                                 System.out.println("taskid = " + impastoTaskId);
+                                taskIdList.add(impastoTaskId);
+                                for (int task:taskIdList
+                                     ) {
+                                    System.out.println(task);
+                                }
                                 String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                 if (taskStatus.contains("new")) {
                                     Thread.sleep(30000);
@@ -244,6 +251,7 @@ public class Message extends Base{
                                     taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                 }
                                     System.out.println("taskStatus " + taskStatus);
+                                if      ( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId).contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
                                 try {
                                     statusChecker.waitForStatus("finished", taskStatus, 60000);
                                     System.out.println("Status is now 'finished'.");
@@ -284,21 +292,19 @@ public class Message extends Base{
                 },
 
 
-
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsCN-rPAAABkqAf4KwAAAGSxCxkrE0AkE0xs3A_hkz9WpWDhYQ_Z-mxbLs8snaZpZRGjuciqIAdYqhWWuT99aWEi-klQYmS7L7cvx50oz6pX0bYJtJFR8241MJCMC86UPRHT8R4tHyWkGoP",
+                        "AQEDAUs6XDsEW32jAAABkrmLDooAAAGS3ZeSik0AKA7KJzO21gOFHa7Da3kChYDo58G7qyfnHpWUz19bvn-CXvu7m4257mmxWVZaArKILVcOM4vi7doqTHQnmg6INHpzFu6SfkJHW4dWJ0BW6lVOhf5q",
                         "Elias Danilov"
                 },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
                         "cTsH3KhU",
-                        "AQEDAUxQ7yQDs4ZkAAABkq415WoAAAGS0kJpalYASqGg0SgEvljQrIOKfRvCQRRVXs9tEjVOHixQfFl8MSIUbRqSZGLaBz1-pHsQDS9t-PiJxD7uH7LCheTpIvRxqYgfk9t5_RoOt_5nUEscJopTuMBD",
+                        "AQEDAUxQ7yQEzEOwAAABkrkmEUkAAAGS3TKVSVYAnbeLyzhoV2qIntcL6Q4GJfxVWy0kU93l3jYyEpnlhX4XwKRiC46DA7zo9XkoP17PNIM7adLtwi4YTwyYueOLmpbb0QvQnqo3ukIxSy5rfzvTGJ0p",
                         "Mykhaylenko Stefania"
                 },
-
                 {       "den-vaviron",
                         "denVavir00@outlook.de",
                         "33222200Shin",
@@ -327,12 +333,6 @@ public class Message extends Base{
                         "Michael Krusciov"
                 },
 
-                {       "michael-zhmorshchuk-3161302b2",
-                        "zhmorshchuk.michael@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUsgIMIDmVD3AAABkTQUZv8AAAGSjt6EoU0AV2dCQldBkYHaNYTBVXuhnEhimF-2mdUXitJuX7y4KSTuleT7KK62teqN0ntBlDO6Mf2juliqKmJ4Wy6GgTWe10Jaa9eEUp3AVXHHP1zf_6MOIZqj",
-                        "Zhmorshchuk Michael"
-                },
 
 
                 {       "kenan-strelbytsky-364ba22b8",
