@@ -112,71 +112,51 @@ while (true){
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZJrHPFmTgAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MmPdIWQ_rYxSbUskA00ccuc4z22iLxS-DaOZi1BasZ1xpanENw1kxjqll7jjjMvxF4OkBMpOKn4UqQjD-TvaFp-4e0OWq0X6l0gfFic2AOw56efsfRQuGFI95O0ZWtrpPi6W-jI21rbodkCxIiNAp1LBj4tOnfQmpv5Uflxk0p_aDoESUjIEY8P8v17cP6ERz1sM1wI",
+                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZMAqYavTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MsYltKWYUEZFxw9AfILq0Z4E9w7CrRJqmgQoghXasKUll-fouMGn4H89REVuhDBtiIeV8iowzTn1Zqh2zLq3v3wBcYDAE8CScmV3AzfzQD4W1sum6x-21zk0jEJJ5ssgABMB9IcchHvWPRELG6zagWUcmIqS_eeYF6cPe21DyA5Wd4PvTPzU0GaoPnYdub1ublV3mpQ",
                         "Paul Bereza"
                 },
-
 
 
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsCN-rPAAABkqAf4KwAAAGSxCxkrE0AkE0xs3A_hkz9WpWDhYQ_Z-mxbLs8snaZpZRGjuciqIAdYqhWWuT99aWEi-klQYmS7L7cvx50oz6pX0bYJtJFR8241MJCMC86UPRHT8R4tHyWkGoP",
+                        "AQEDAUs6XDsBkXOgAAABkudWeYcAAAGTC2L9h1YAMWkbMN-251oAAUJDbkvpy7i-k8HiiDQdEzSXcFswMXtcguXZOWk3ZWP_VkXdYEnAADRJM0-gFqA-qsrWs7dLE3DylbbkqWn3w7xZc-0gBbsxTVs5",
                         "Elias Danilov"
                 },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
                         "cTsH3KhU",
-                        "AQEDAUxQ7yQDs4ZkAAABkq415WoAAAGS0kJpalYASqGg0SgEvljQrIOKfRvCQRRVXs9tEjVOHixQfFl8MSIUbRqSZGLaBz1-pHsQDS9t-PiJxD7uH7LCheTpIvRxqYgfk9t5_RoOt_5nUEscJopTuMBD",
+                        "AQEDAUxQ7yQD6PoNAAABktzBdVMAAAGTAM35U00AU9DXOwRpBurKTBBOZYsgQjRI-LcxvbG04GIHKN_1HbK0A-jkGWUApjiPW5nK-BOQlHkCxvxVtLyJlYTcviHdhNPOEH8Z0z29SyPnWkdehLrT8esI",
                         "Mykhaylenko Stefania"
                 },
-
                 {       "den-vaviron",
                         "denVavir00@outlook.de",
                         "33222200Shin",
-                        "AQEDAUpubFMFCUCvAAABjP1fQdMAAAGSfA_8DE0AnZeA7m5pUCCSc00VyGY3dqXBirHDa5HXFDIUjdig0sdqyEqRtKZsQtnfcjmbDB58wMHS3uHVaEHP0T6hxFlzV-3868RnKT9KqKYvnnYya_zaRDmm",
+                        "AQEDAUpubFMFCUCvAAABjP1fQdMAAAGTG3jnOk0AlIwcfJkVGOuETWHyx1R2548qFwDPimHv783A_IculdEstaBQD4_WZI7TzP5Wr5vsjfyYT0HDyfDl0sJw_s5QE4mwkC7LFKIdWQSaNoXsGxVDfbSF",
                         "Den Vaviron"
                 },
 
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
                         "206GLMC2",
-                        "AQEFAHUBAAAAABBl9t0AAAGPfE7YuwAAAZKKB79JTgAAGHVybjpsaTptZW1iZXI6MTI4MDAxMjQyNCkImZePKBQ_wsgIfQWUSS0i6-dmUGCWTHTk9knhrciGs3m02ZJRFeH-yFBI0TCyHMX5Kd8EPiHgBntFKAhretAjvkccDcc8ygEzCHuxRi0ZPGGzGcZOSLlZN-3pq6L99DGZNdps7hvn5kW1HqfbKbIlI-rEU5bi2o8fboIgbmCz1bPljvmACEwrIX3kU2cNmKWDRt0",
+                        "AQEFAHUBAAAAABBl9t0AAAGPfE7YuwAAAZMaRBSVVgAAGHVybjpsaTptZW1iZXI6MTI4MDAxMjQyNMyB0U3N4EXZoT7jRSgrh2ZsRQhw3dIPIjxxs7HK2bI8jIXKrSaNXE-7GhbppvBOQSO2mokFi0nLkNu11TQ3PPReQB8-2boUF0iWaZ7L3W1dFU9X07glDGQPpLsaMRPWQju-eZbs2y2zeE1w8P2PvROcYJDwbJXaXTTxwbFor9oT7iUhsfAU30z5UF7qX0VUHdnorZw",
                         "Yushko Patrick"
                 },
 
                 {       "daniele-tsvetkov",
                         "daniele.tsvetkov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGSigdqoE0AXvavHfjpr35J7Ncy9oEmlKpEz-K2MwJfaNqhtNxtQCdk9YWFkTIPRA_fwnwXbgrd6xM2FYW5iFsyKfTA5O_T7Z9M-JuJadMsZ8a_lEd_3k-HxK5P",
+                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGTGkMj1U0ANqMaAUhhe5JbhbT3ijdyc4v_4SRskGVnFTwCtKAhzkpj3VyapsTg4TKp3T5PHg_nN1KKDV2CcuIa7s6Wf9yY-YO8q_z4rJvA0RlrHTDDYsOjnFeS",
                         "Daniele Tsvetkov"
                 },
 
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUBp1D1AAABkq4FEnoAAAGS0hGWek0AR7AkOZjq0GIjXY77o25jcOdJ1goOuTduBNSs1FsF4vYBJ994b-6rU-FIHHhyszMVsOETl1TEUaIb_Ck4fYAs4NaAsgBRQS5nxhEXpHwigORjxUE1",
+                        "AQEDAUwy4cUAgBihAAABktJafzcAAAGTGuXVhk0AcBFgtpmREyJ1y72boQlMY_misnaQbU4aXGAaIF_vJQm9Kz1tSgYgwe5UAjgNDubChw00ym-nS5OEEo38bNI-NZ_DqERju2Pv0MqItsJkJloXVtcp",
                         "Michael Krusciov"
-                },
-
-                {       "michael-zhmorshchuk-3161302b2",
-                        "zhmorshchuk.michael@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUsgIMIDmVD3AAABkTQUZv8AAAGSjt6EoU0AV2dCQldBkYHaNYTBVXuhnEhimF-2mdUXitJuX7y4KSTuleT7KK62teqN0ntBlDO6Mf2juliqKmJ4Wy6GgTWe10Jaa9eEUp3AVXHHP1zf_6MOIZqj",
-                        "Zhmorshchuk Michael"
-                },
-
-
-                {       "kenan-strelbytsky-364ba22b8",
-                        "strelbytsky.kenan@outlook.de",
-                        "ygm9ijzZ",
-                        "AQEDAUxZvXwBvIgNAAABj3xBliYAAAGSigrIwU0AcgYVfHaTonyE1HaLyc5y0kx5MKcWw2YbYqyCdFQbs5Di068bge4ojQloWC5XLUBq3a1ymp0Nbbad12hE1JhivoPhwxuBXboJYb-S9K2DxVQ4iApa",
-                        "Strelbytsky Kenan"
-                },
-
-
-
+                }
 
         };
     }
