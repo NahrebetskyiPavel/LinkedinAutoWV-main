@@ -37,6 +37,9 @@ public class Message extends Base{
             "We can schedule a quick call if you’re interested. Just let me know when you have free time.\n";
     int msgsSent = 0;
     ArrayList<Integer> taskIdList = new ArrayList<>();
+    int msgsSentCounter = 0;
+    int msgsSentCounterMax = 30;
+
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
@@ -75,6 +78,7 @@ public class Message extends Base{
         sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Meeting automessage", profileId,  email,  password,  cookie );
+        sendFolowUpMsg(linkedInAccount, token, "Final automessage", profileId,  email,  password,  cookie );
 
     }
 
@@ -82,6 +86,24 @@ public class Message extends Base{
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName, String profileId, String email, String password, String cookie ){
         System.out.println("START " + taskName);
+        if (msgsSentCounter > msgsSentCounterMax) {
+            if (taskName.contains("Final automessage")) msgsSentCounter = 0;
+            System.out.println("fina msgsSentCounter = " + msgsSentCounter);
+
+            return;
+        };
+        if (taskName.contains("Second automessage")) {
+            msgsSentCounter = 0;
+            System.out.println("msgsSentCounter = " + msgsSentCounter);
+            return;
+        };
+        if (taskName.contains("Final automessage")) {
+            msgsSentCounter = 0;
+            System.out.println("fina msgsSentCounter = " + msgsSentCounter);
+            return;
+        };
+
+
         for (int n = 0; n < 1000; n++) {
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.contains("INVALID_TOKEN")) {
@@ -154,8 +176,13 @@ public class Message extends Base{
                             System.out.println("subject " + subject);
                             System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
+                            if (msgsSentCounter > msgsSentCounterMax) break;
+
                             System.out.println("sent msg!!!");
-                            msgsSent += msgsSent;
+                            System.out.println("msgsSent= " + msgsSentCounter);
+                            msgsSent = msgsSent + 1;
+                            msgsSentCounter = msgsSentCounter+1;
+
                             accsMsgssent.add(fullName);
                             {
 
@@ -178,13 +205,17 @@ public class Message extends Base{
                                 try {
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
+
                                 } catch (Exception e){
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
                                     else if (taskInfo.contains("Request failed with status code 590")) {Thread.sleep(1000*60*10); continue;}
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
-                                    else { throw new Exception(taskInfo); }
+                                    else { throw new Exception(
+                                            taskInfo + "\n\n\n\n" +
+                                            String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0)) +
+                                            "\n\n\n\n" + e); }
                                 }
 
                                 System.out.println("taskid = " + impastoTaskId);
@@ -219,8 +250,13 @@ public class Message extends Base{
                             System.out.println("subject " + subject);
                             System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
+                            if (msgsSentCounter > msgsSentCounterMax) break;
+
                             System.out.println("sent msg!!!");
+                            System.out.println("msgsSent= " + msgsSent);
+
                             msgsSent += msgsSent;
+                            msgsSentCounter = msgsSentCounter+1;
 
                             accsMsgssent.add(fullName);
                             {
@@ -281,13 +317,10 @@ public class Message extends Base{
         return new Object[][]{
 
 
-
-
-
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZJrHPFmTgAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MmPdIWQ_rYxSbUskA00ccuc4z22iLxS-DaOZi1BasZ1xpanENw1kxjqll7jjjMvxF4OkBMpOKn4UqQjD-TvaFp-4e0OWq0X6l0gfFic2AOw56efsfRQuGFI95O0ZWtrpPi6W-jI21rbodkCxIiNAp1LBj4tOnfQmpv5Uflxk0p_aDoESUjIEY8P8v17cP6ERz1sM1wI",
+                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZMAqYavTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MsYltKWYUEZFxw9AfILq0Z4E9w7CrRJqmgQoghXasKUll-fouMGn4H89REVuhDBtiIeV8iowzTn1Zqh2zLq3v3wBcYDAE8CScmV3AzfzQD4W1sum6x-21zk0jEJJ5ssgABMB9IcchHvWPRELG6zagWUcmIqS_eeYF6cPe21DyA5Wd4PvTPzU0GaoPnYdub1ublV3mpQ",
                         "Paul Bereza"
                 },
 
@@ -295,53 +328,43 @@ public class Message extends Base{
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsEW32jAAABkrmLDooAAAGS3ZeSik0AKA7KJzO21gOFHa7Da3kChYDo58G7qyfnHpWUz19bvn-CXvu7m4257mmxWVZaArKILVcOM4vi7doqTHQnmg6INHpzFu6SfkJHW4dWJ0BW6lVOhf5q",
+                        "AQEDAUs6XDsBkXOgAAABkudWeYcAAAGTC2L9h1YAMWkbMN-251oAAUJDbkvpy7i-k8HiiDQdEzSXcFswMXtcguXZOWk3ZWP_VkXdYEnAADRJM0-gFqA-qsrWs7dLE3DylbbkqWn3w7xZc-0gBbsxTVs5",
                         "Elias Danilov"
                 },
 
                 {       "stefania-mykhaylenko",
                         "mykhaylenko.stefania@outlook.fr",
                         "cTsH3KhU",
-                        "AQEDAUxQ7yQEzEOwAAABkrkmEUkAAAGS3TKVSVYAnbeLyzhoV2qIntcL6Q4GJfxVWy0kU93l3jYyEpnlhX4XwKRiC46DA7zo9XkoP17PNIM7adLtwi4YTwyYueOLmpbb0QvQnqo3ukIxSy5rfzvTGJ0p",
+                        "AQEDAUxQ7yQD6PoNAAABktzBdVMAAAGTAM35U00AU9DXOwRpBurKTBBOZYsgQjRI-LcxvbG04GIHKN_1HbK0A-jkGWUApjiPW5nK-BOQlHkCxvxVtLyJlYTcviHdhNPOEH8Z0z29SyPnWkdehLrT8esI",
                         "Mykhaylenko Stefania"
                 },
                 {       "den-vaviron",
                         "denVavir00@outlook.de",
                         "33222200Shin",
-                        "AQEDAUpubFMFCUCvAAABjP1fQdMAAAGSfA_8DE0AnZeA7m5pUCCSc00VyGY3dqXBirHDa5HXFDIUjdig0sdqyEqRtKZsQtnfcjmbDB58wMHS3uHVaEHP0T6hxFlzV-3868RnKT9KqKYvnnYya_zaRDmm",
+                        "AQEDAUpubFMFCUCvAAABjP1fQdMAAAGTG3jnOk0AlIwcfJkVGOuETWHyx1R2548qFwDPimHv783A_IculdEstaBQD4_WZI7TzP5Wr5vsjfyYT0HDyfDl0sJw_s5QE4mwkC7LFKIdWQSaNoXsGxVDfbSF",
                         "Den Vaviron"
                 },
 
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
                         "206GLMC2",
-                        "AQEFAHUBAAAAABBl9t0AAAGPfE7YuwAAAZKKB79JTgAAGHVybjpsaTptZW1iZXI6MTI4MDAxMjQyNCkImZePKBQ_wsgIfQWUSS0i6-dmUGCWTHTk9knhrciGs3m02ZJRFeH-yFBI0TCyHMX5Kd8EPiHgBntFKAhretAjvkccDcc8ygEzCHuxRi0ZPGGzGcZOSLlZN-3pq6L99DGZNdps7hvn5kW1HqfbKbIlI-rEU5bi2o8fboIgbmCz1bPljvmACEwrIX3kU2cNmKWDRt0",
+                        "AQEFAHUBAAAAABBl9t0AAAGPfE7YuwAAAZMaRBSVVgAAGHVybjpsaTptZW1iZXI6MTI4MDAxMjQyNMyB0U3N4EXZoT7jRSgrh2ZsRQhw3dIPIjxxs7HK2bI8jIXKrSaNXE-7GhbppvBOQSO2mokFi0nLkNu11TQ3PPReQB8-2boUF0iWaZ7L3W1dFU9X07glDGQPpLsaMRPWQju-eZbs2y2zeE1w8P2PvROcYJDwbJXaXTTxwbFor9oT7iUhsfAU30z5UF7qX0VUHdnorZw",
                         "Yushko Patrick"
                 },
 
                 {       "daniele-tsvetkov",
                         "daniele.tsvetkov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGSigdqoE0AXvavHfjpr35J7Ncy9oEmlKpEz-K2MwJfaNqhtNxtQCdk9YWFkTIPRA_fwnwXbgrd6xM2FYW5iFsyKfTA5O_T7Z9M-JuJadMsZ8a_lEd_3k-HxK5P",
+                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGTGkMj1U0ANqMaAUhhe5JbhbT3ijdyc4v_4SRskGVnFTwCtKAhzkpj3VyapsTg4TKp3T5PHg_nN1KKDV2CcuIa7s6Wf9yY-YO8q_z4rJvA0RlrHTDDYsOjnFeS",
                         "Daniele Tsvetkov"
                 },
 
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUBp1D1AAABkq4FEnoAAAGS0hGWek0AR7AkOZjq0GIjXY77o25jcOdJ1goOuTduBNSs1FsF4vYBJ994b-6rU-FIHHhyszMVsOETl1TEUaIb_Ck4fYAs4NaAsgBRQS5nxhEXpHwigORjxUE1",
+                        "AQEDAUwy4cUAgBihAAABktJafzcAAAGTGuXVhk0AcBFgtpmREyJ1y72boQlMY_misnaQbU4aXGAaIF_vJQm9Kz1tSgYgwe5UAjgNDubChw00ym-nS5OEEo38bNI-NZ_DqERju2Pv0MqItsJkJloXVtcp",
                         "Michael Krusciov"
-                },
-
-
-
-                {       "kenan-strelbytsky-364ba22b8",
-                        "strelbytsky.kenan@outlook.de",
-                        "ygm9ijzZ",
-                        "AQEDAUxZvXwBvIgNAAABj3xBliYAAAGSigrIwU0AcgYVfHaTonyE1HaLyc5y0kx5MKcWw2YbYqyCdFQbs5Di068bge4ojQloWC5XLUBq3a1ymp0Nbbad12hE1JhivoPhwxuBXboJYb-S9K2DxVQ4iApa",
-                        "Strelbytsky Kenan"
-                },
-
+                }
 
 
 
