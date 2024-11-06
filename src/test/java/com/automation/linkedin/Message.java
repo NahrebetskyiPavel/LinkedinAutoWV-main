@@ -211,7 +211,7 @@ public class Message extends Base{
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
-                                    else if (taskInfo.contains("Request failed with status code 590")) {Thread.sleep(1000*60*10); continue;}
+                                    else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
                                     else { throw new Exception(
                                             taskInfo + "\n\n\n\n" +
