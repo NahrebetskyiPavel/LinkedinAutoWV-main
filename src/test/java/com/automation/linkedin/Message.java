@@ -86,17 +86,18 @@ public class Message extends Base{
     @SneakyThrows
     public void sendFolowUpMsg(String linkedinAccount, String token, String taskName, String profileId, String email, String password, String cookie ){
         System.out.println("START " + taskName);
+        if (taskName.contains("Second automessage")) {
+            msgsSentCounter = 0;
+            System.out.println("msgsSentCounter = " + msgsSentCounter);
+            return;
+        };
         if (msgsSentCounter > msgsSentCounterMax) {
             if (taskName.contains("Final automessage")) msgsSentCounter = 0;
             System.out.println("fina msgsSentCounter = " + msgsSentCounter);
 
             return;
         };
-        if (taskName.contains("Second automessage")) {
-            msgsSentCounter = 0;
-            System.out.println("msgsSentCounter = " + msgsSentCounter);
-            return;
-        };
+
         if (taskName.contains("Final automessage")) {
             msgsSentCounter = 0;
             System.out.println("fina msgsSentCounter = " + msgsSentCounter);
