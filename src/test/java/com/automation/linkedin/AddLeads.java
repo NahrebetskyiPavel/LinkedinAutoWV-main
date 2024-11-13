@@ -199,12 +199,7 @@ public class AddLeads extends Base {
                         "AQEDAUxQ7yQAEl3PAAABkwFEUkQAAAGTJVDWRE0AXVJ0mNaamH_zz3Y3tDi8-KSJ-KQ-GETO-jtTaEslght7oqnLGuAXx8Nc_-thjd4XW2rn6lw29GwQ5rHnXva7ppJH3uVrTfmz6oqtdea1WO0RVx0l",
                         "Mykhaylenko Stefania"
                 },
-                {       "den-vaviron",
-                        "denVavir00@outlook.de",
-                        "33222200Shin",
-                        "AQEDAUpubFMFCUCvAAABjP1fQdMAAAGTG3jnOk0AlIwcfJkVGOuETWHyx1R2548qFwDPimHv783A_IculdEstaBQD4_WZI7TzP5Wr5vsjfyYT0HDyfDl0sJw_s5QE4mwkC7LFKIdWQSaNoXsGxVDfbSF",
-                        "Den Vaviron"
-                },
+
 
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
