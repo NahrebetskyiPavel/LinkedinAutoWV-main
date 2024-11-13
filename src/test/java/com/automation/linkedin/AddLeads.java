@@ -122,13 +122,17 @@ public class AddLeads extends Base {
                     if (taskStatus.contains("failed")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONObject("results").getString("error"));
                         System.out.println("Status is now 'failed'.");
-                        changeLeadStatus(id,broken, "broken");
-
                         continue;
                     };
                     if (taskInfo.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Status is now 'error'.");
+                        continue;
+                    };
+                    if (taskInfo.contains("Invalid url")) {
+                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        System.out.println("Status is now 'error'.");
+                        System.out.println("Invalid url.");
                         changeLeadStatus(id,broken, "broken");
                         continue;
                     };
