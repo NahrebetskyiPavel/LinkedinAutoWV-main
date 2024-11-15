@@ -240,14 +240,6 @@ public class AddLeads extends Base {
                         accountInfos.get(8).get(0),
                 },
                 //10
-                {
-                        accountInfos.get(9).get(0),
-                        accountInfos.get(9).get(1),
-                        accountInfos.get(9).get(2),
-                        "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
-                        accountInfos.get(9).get(0),
-                },
-                //11
 
 
 
