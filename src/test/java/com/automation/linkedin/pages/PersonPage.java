@@ -14,8 +14,8 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PersonPage {
-    public SelenideElement moreBtn = $(By.xpath("//main[contains(@class,'scaffold-layout__main')]//span[contains(text(),'More')]"));
-    public SelenideElement addBtn = $x("//main[contains(@class,'scaffold-layout__main')]//span[text()='Connect']");
+    public SelenideElement moreBtn = $x("//section[contains(@class,'artdeco-card')]//button[@aria-label='More actions']");
+    public SelenideElement addBtn = $x("//section[contains(@class,'artdeco-card')]//span[text()='Connect']");
     public SelenideElement getCannotAddLeadPopUpClose = $("#artdeco-toasts li-icon[type='cancel-icon']");
     public SelenideElement cannotAddLeadPopUp = $("#artdeco-toasts [role='alert']");
     public SelenideElement limitAlertHeader = $x("//H2[@id='ip-fuse-limit-alert__header']");
