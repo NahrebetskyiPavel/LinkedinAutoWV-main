@@ -30,7 +30,7 @@ public class PersonPage {
     public SelenideElement inMailMessege= $x("//div[@aria-label='Messaging']//div[@aria-label='Write a message…']");
     public SelenideElement inMailMessegeBtnSubmit= $x("//div[@aria-label='Messaging']//button[@type='submit']");
     public SelenideElement errorMsg= $x("//div[@data-test-artdeco-toast-item-type='error']//p//span");
-    public SelenideElement msgBtn= $x("//main[contains(@class,'scaffold-layout__main')]//span[text()='Message']");
+    public ElementsCollection msgBtns= $$x("//span[@class='artdeco-button__text'][normalize-space()='Message']");
     public SelenideElement closeBtn = $x("//div[contains(@class,'msg-overlay-bubble-header__controls')]//*[contains(@href,'#close-small')]");
     public ElementsCollection closeBtns = $$x("//div[contains(@aria-label,'Messaging')]//div[contains(@class,'msg-overlay-bubble-header__controls')]/button[3]");
     private int count = 0;

@@ -150,7 +150,7 @@ public class Message extends Base{
                                 continue;
                             };
 
-                            new PersonPage().msgBtn.click();
+                            new PersonPage().msgBtns.get(1).click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
                                 // zoho.changeLeadStatus(id, token, chatLeadStatusid);
@@ -206,7 +206,7 @@ public class Message extends Base{
                                 continue;
                             };
 
-                            new PersonPage().msgBtn.click();
+                            new PersonPage().msgBtns.get(1).click();
                             List<String> msgs = $$x("//ul[contains(@class,'msg-s-message-list-content')]//li//a[contains(@class,'app-aware-link')]/span").texts();
                             if (!Utils.areAllElementsEqual(msgs) && !msg.isEmpty()){
                                 // zoho.changeLeadStatus(id, token, chatLeadStatusid);
