@@ -415,7 +415,11 @@ if (tasksData.getJSONArray("data").length() >0){
 
         @SneakyThrows
         public String changeTaskStatus(String token, String taskID, String status) {
-            OkHttpClient client = new OkHttpClient();
+            OkHttpClient client = new OkHttpClient().newBuilder()
+                    .connectTimeout(60, TimeUnit.SECONDS)
+                    .writeTimeout(60, TimeUnit.SECONDS)
+                    .readTimeout(60, TimeUnit.SECONDS)
+                    .build();
             MediaType mediaType = MediaType.parse("application/json");
 
             // Define the task data to update the status to "Closed"
