@@ -166,6 +166,8 @@ if ($("button[aria-label='Dismiss people you may know recommendations']").is(vis
                     Thread.sleep(randomResult);
                 }
                 if (this.errorMsg.exists()) return false;
+                if ($x("//main//span[contains(text(),'Pending')]").exists()) return true;
+if (!addPeoplePopupPage.sendRequestBtnWithoutNote.is(visible))return true;
                 if (addPeoplePopupPage.sendRequestBtn.is(visible)){addPeoplePopupPage.sendRequestBtn.shouldBe(interactable).click();}
                 else addPeoplePopupPage.sendRequestBtnWithoutNote.shouldBe(visible,Duration.ofSeconds(40)).click();
                 if (limitAlertHeader.exists()){
