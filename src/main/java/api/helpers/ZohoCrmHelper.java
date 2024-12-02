@@ -6,6 +6,8 @@ import okhttp3.*;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class ZohoCrmHelper {
     public String responseBody;
     @SneakyThrows
@@ -151,6 +153,9 @@ public class ZohoCrmHelper {
     @SneakyThrows
     public String directChangeLeadStatus(String leadId, String token, String statusName){
         OkHttpClient client = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "{\"data\":[{\"Lead_Status\":\""+statusName+"\"}],\"formruleValue\":{\"mandatoryInputNeededElem\":[],\"lrMandatoryElem\":[],\"LayoutRuleHiddenElem\":[]}}");
