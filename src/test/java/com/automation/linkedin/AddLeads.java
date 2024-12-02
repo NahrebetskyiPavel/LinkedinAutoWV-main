@@ -168,13 +168,13 @@ public class AddLeads extends Base {
         }
         return new Object[][]{
                 //1
-                {
+/*                {
                         accountInfos.get(0).get(0),
                         accountInfos.get(0).get(1),
                         accountInfos.get(0).get(2),
                         "Hello there. I stumbled across your account accidentally and was impressed with your expertise. Would you mind accepting this invite so we could talk some more?",
                         accountInfos.get(0).get(0),
-                },
+                },*/
                 //2
                 {
                         accountInfos.get(1).get(0),
@@ -184,13 +184,13 @@ public class AddLeads extends Base {
                         accountInfos.get(1).get(0),
                 },
                 //3
-                {
+/*                {
                         accountInfos.get(2).get(0),
                         accountInfos.get(2).get(1),
                         accountInfos.get(2).get(2),
                         "Hi. I stumbled upon your account and noticed that you have expertise in my area of interest. I was wondering if you would mind having a chat about the real estate market in the US, its challenges and opportunities ;)",
                         accountInfos.get(2).get(0),
-                },
+                },*/
                 //4
                 {
                         accountInfos.get(3).get(0),

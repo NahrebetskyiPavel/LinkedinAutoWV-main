@@ -135,6 +135,9 @@ public class ZohoCrmHelper {
     @SneakyThrows
     public String changeLeadStatus(String leadId, String token, String transition_id){
         OkHttpClient client = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "\n{\n    \"blueprint\": [\n       {\n            \"transition_id\": \"" + transition_id + "\"\n        }\n    ]\n}\n");
@@ -274,6 +277,9 @@ public String getLeadList(String token, int page, String leadStatus, String link
 @SneakyThrows
 public String getLeadList(String token, int page, String leadStatus, String linkedInPerson){
     OkHttpClient client = new OkHttpClient().newBuilder()
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
             .build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = RequestBody.create(mediaType, "");
