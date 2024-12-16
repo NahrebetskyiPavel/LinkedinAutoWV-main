@@ -119,14 +119,14 @@ public class AddLeads extends Base {
                     //statusChecker.waitForStatus("finished", taskStatus);
                     Thread.sleep(10*1000);
 
-                    if (taskStatus.contains("Invitation already sent")) {
+                    if (taskInfo.contains("Invitation already sent")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Invitation already sent'.");
                         changeLeadStatusAttemptToContacted(id);
 
                         continue;
                     };
-                    if (taskStatus.contains("Invitation already sent")) {
+                    if (taskInfo.contains("Profile already in connections")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Profile already in connections");
                         changeLeadStatusAttemptToContacted(id);
