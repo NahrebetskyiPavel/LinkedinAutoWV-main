@@ -126,6 +126,13 @@ public class AddLeads extends Base {
 
                         continue;
                     };
+                    if (taskStatus.contains("Invitation already sent")) {
+                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        System.out.println("Profile already in connections");
+                        changeLeadStatusAttemptToContacted(id);
+
+                        continue;
+                    };
                     if (taskStatus.contains("processing")) statusChecker.waitForStatus("finished", taskStatus);
                     if (taskStatus.contains("failed")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONObject("results").getString("error"));
