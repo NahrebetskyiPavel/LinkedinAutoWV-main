@@ -16,13 +16,14 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
 import static utils.Utils.localDateIsBeforeGivenComparison;
 
 public class Message extends Base{
     SignInPage signInPage = new SignInPage();
     MessagingPage messagingPage = new MessagingPage();
     ZohoCrmHelper zoho = new ZohoCrmHelper();
-    private ElementsCollection closeBtns = $$x("//div[contains(@class,'msg-overlay-bubble-header__controls')]//*[contains(@href,'#close-small')]");
+    private ElementsCollection  closeBtns = $$x("//div[contains(@class,'msg-overlay-bubble-header__controls')]//*[contains(@href,'#close-small')]");
     private ElementsCollection pendingBtn = $$x("//button[contains(@aria-label,'Pending')]//span[normalize-space()='Pending']");
 
     Boolean msgResult;
@@ -42,7 +43,7 @@ public class Message extends Base{
     public void senddMsg(String linkedInAccount,  String email, String password){
         msgsSentCounter = 0;
 
-        setupBrowser(true, linkedInAccount);
+        setupBrowser(false, linkedInAccount);
         openLinkedInLoginPage();
         signInPage.signIn(randomResult, email, password);
         WebDriverRunner.getWebDriver().manage().window().maximize();
@@ -53,7 +54,7 @@ public class Message extends Base{
         System.out.println("START: " +  linkedInAccount);
 
         System.out.println("=======================");
-        sendFolowUpMsg(linkedInAccount, token, "Second automessage");
+/*        sendFolowUpMsg(linkedInAccount, token, "Second automessage");
         sendFolowUpMsg(linkedInAccount, token, "Third automessage");
         sendFolowUpMsg(linkedInAccount, token, "Fourt automessage");
         sendFolowUpMsg(linkedInAccount, token, "Fifth automessage");
@@ -69,7 +70,8 @@ public class Message extends Base{
         sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage");
 
         sendFolowUpMsg(linkedInAccount, token, "Meeting automessage");
-        sendFolowUpMsg(linkedInAccount, token, "Final automessage");
+        sendFolowUpMsg(linkedInAccount, token, "Final automessage");*/
+        sendFolowUpMsg(linkedInAccount, token, "autoHappy New Year2025");
 
     }
 
@@ -249,7 +251,7 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-              //1
+            /*  //1
                 {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
@@ -294,7 +296,7 @@ public class Message extends Base{
                         "Nikita K",
                         "kni2012@ukr.net",
                         "33222200s",
-                },
+                },*/
                 {
                         "lina Kompanets",
                         "ekompanets02@gmail.com",
