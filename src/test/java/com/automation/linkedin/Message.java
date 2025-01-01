@@ -29,7 +29,7 @@ public class Message extends Base{
     Boolean msgResult;
     String chatLeadStatusid = "421659000006918053";
     int msgsSentCounter = 0;
-    int msgsSentCounterMax = 30;
+    int msgsSentCounterMax = 200;
 
     private String  msg = "Good day to you.\n" +
             "\n" +
@@ -71,7 +71,7 @@ public class Message extends Base{
 
         sendFolowUpMsg(linkedInAccount, token, "Meeting automessage");
         sendFolowUpMsg(linkedInAccount, token, "Final automessage");*/
-        sendFolowUpMsg(linkedInAccount, token, "autoHappy New Year2025");
+        sendFolowUpMsg(linkedInAccount, token, "autoHappy New Year20253");
 
     }
 
@@ -123,7 +123,7 @@ public class Message extends Base{
                         System.out.println(taskId);
                         System.out.println(status);
                         System.out.println(subject);
-                        if (status.contains("Not Started")  &&  subject.contains(taskName) && localDateIsBeforeGivenComparison(duedate)){
+                        if (status.contains("Not Started")  &&  subject.contains(taskName) /*&& localDateIsBeforeGivenComparison(duedate)*/){
                             System.out.println(taskId);
                             System.out.println(status);
                             System.out.println(subject);
@@ -251,7 +251,7 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
-            /*  //1
+              //1
                 {       "Aleksandra Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
@@ -296,7 +296,7 @@ public class Message extends Base{
                         "Nikita K",
                         "kni2012@ukr.net",
                         "33222200s",
-                },*/
+                },
                 {
                         "lina Kompanets",
                         "ekompanets02@gmail.com",
