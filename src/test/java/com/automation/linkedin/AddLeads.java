@@ -161,7 +161,7 @@ public class AddLeads extends Base {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("write EPROTO proxy err'.");
 
-                        continue;
+                        break;
                     };
 
                     System.out.println("Status is now 'finished'.");
