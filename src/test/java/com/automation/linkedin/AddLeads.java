@@ -157,6 +157,12 @@ public class AddLeads extends Base {
 
                         continue;
                     };
+                    if (taskStatus.contains("write EPROTO")) {
+                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        System.out.println("write EPROTO proxy err'.");
+
+                        continue;
+                    };
 
                     System.out.println("Status is now 'finished'.");
                     changeLeadStatusAttemptToContacted(id);
