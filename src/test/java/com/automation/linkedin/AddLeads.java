@@ -76,7 +76,8 @@ public class AddLeads extends Base {
             if (String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(i).get("Website")).contains("null")) continue;
             String originalUrl = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
 
-            String personRef = originalUrl.replaceAll("http://.*?linkedin", "http://www.linkedin");
+            String personRef = originalUrl.replaceAll("http://.*?linkedin", "http://www.linkedin")
+                                            .replaceAll("//", "");
 
             //System.out.println("personRef: " + personRef);
             //System.out.println("id: " + id);
@@ -93,6 +94,11 @@ public class AddLeads extends Base {
                     Thread.sleep( 60 * 1000);
                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
                     taskStatus = new JSONObject( taskInfo ).getString("status");
+                    if (taskStatus.contains("expired")) {
+                        System.out.println("Status is now 'expired'.");
+
+                        throw new Exception("Status is now 'expired");
+                    };
                     if (taskStatus.contains("finished")) break;
                     if (taskStatus.contains("failed")) break;
                 }
@@ -126,6 +132,10 @@ public class AddLeads extends Base {
 
                         continue;
                     };
+                    if (taskInfo.contains("write EPROTO")) {
+                        System.out.println("write EPROTO proxy error");
+                        throw new Exception("write EPROTO proxy error");
+                    };
                     if (taskInfo.contains("Profile already in connections")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Profile already in connections");
@@ -151,12 +161,7 @@ public class AddLeads extends Base {
                         changeLeadStatus(id,broken, "broken");
                         continue;
                     };
-                    if (taskStatus.contains("expired")) {
-                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
-                        System.out.println("Status is now 'expired'.");
 
-                        continue;
-                    };
                     if (taskStatus.contains("write EPROTO")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("write EPROTO proxy err'.");
