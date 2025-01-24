@@ -77,7 +77,9 @@ public class AddLeads extends Base {
             String originalUrl = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
 
             String personRef = originalUrl.replaceAll("http://.*?linkedin", "http://www.linkedin")
-                                            .replaceAll("//", "");
+                                            .replaceAll("//", "")
+                                            .replaceAll("//", "")
+                                            .replaceAll("https:", "https://");
 
             //System.out.println("personRef: " + personRef);
             //System.out.println("id: " + id);
