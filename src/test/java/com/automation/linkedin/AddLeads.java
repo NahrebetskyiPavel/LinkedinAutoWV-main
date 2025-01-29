@@ -265,12 +265,12 @@ public class AddLeads extends Base {
                         "AQEDAR1-TWgCdaXbAAABlGmXZtsAAAGUjaPq200ANB_Ka-m2kerGHMufTimi96GJQqix1PhIG4UbsQO18B4Fx_BvCg6QYDwRf9t7z5r8HT7TLjo-SzkvuQefyC2E1uMaTLJMEb55CHzjrMVPyq2AnQCQ|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuOTQuMCJ9",
                         "Art Stenko"
                 },
-           /*     {       "lina Kompanets",
+                {       "lina Kompanets",
                         "ekompanets02@gmail.com",
                         "35ulurev",
                         "",
                         "lina Kompanets"
-                },*/
+                },
                 {       "Nikita-K",
                         "kni2012@ukr.net",
                         "33222200s",
