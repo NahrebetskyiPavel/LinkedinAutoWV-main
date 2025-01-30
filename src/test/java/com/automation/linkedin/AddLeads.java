@@ -104,6 +104,20 @@ public class AddLeads extends Base {
                     if (taskStatus.contains("finished")) break;
                     if (taskStatus.contains("failed")) break;
                 }
+                if (taskInfo.contains("Invalid url")) {
+                    System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                    System.out.println("Status is now 'error'.");
+                    System.out.println("Invalid url.");
+                    changeLeadStatus(id,broken, "broken");
+                    continue;
+                };
+                if (taskInfo.contains("Profile link invalid")) {
+                    System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                    System.out.println("Status is now 'error'.");
+                    System.out.println("Profile link invalid.");
+                    changeLeadStatus(id,broken, "broken");
+                    continue;
+                };
                 if (taskInfo.contains("Cookie is not valid")) {
                     System.out.println("Cookie is not valid");
                     throw new Exception("Cookie is not valid!");
@@ -154,6 +168,13 @@ public class AddLeads extends Base {
                     if (taskInfo.contains("error")) {
                         System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                         System.out.println("Status is now 'error'.");
+                        continue;
+                    };
+                    if (taskInfo.contains("Invalid url")) {
+                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                        System.out.println("Status is now 'error'.");
+                        System.out.println("Invalid url.");
+                        changeLeadStatus(id,broken, "broken");
                         continue;
                     };
                     if (taskInfo.contains("Invalid url")) {
