@@ -1,20 +1,21 @@
 package com.automation.linkedin;
 
-import api.helpers.WiseVisionApiHelper;
 import api.helpers.ZohoCrmHelper;
 import com.automation.linkedin.pages.PersonPage;
 import com.automation.linkedin.pages.login.SignInPage;
 import com.automation.linkedin.pages.messaging.MessagingPage;
 import com.automation.linkedin.pages.search.SearchPeoplePage;
+import com.codeborne.selenide.*;
 import lombok.SneakyThrows;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 
 import org.testng.annotations.Test;
-import utils.StatusChecker;
 
 import java.util.Random;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 
 public class AddLeads extends Base {
     SignInPage signInPage = new SignInPage();
@@ -22,241 +23,225 @@ public class AddLeads extends Base {
     PersonPage personPage = new PersonPage();
     MessagingPage messagingPage = new MessagingPage();
     ZohoCrmHelper zohoCrmHelper = new ZohoCrmHelper();
-    WiseVisionApiHelper wiseVisionApiHelper = new WiseVisionApiHelper();
-    StatusChecker statusChecker = new StatusChecker();
-    String attemptedToContact = "421659000010541270";
-    String attemptedToContact1 = "421659000001302365";
-    String broken = "421659000017740001";
     Random random = new Random();
     int low = 2000;
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
-    int leadLow = 20;
-    int leadsHigh = 30;
-    int leadsRandomResult = random.nextInt(leadsHigh-leadLow) + leadLow;
-
-    String token = zohoCrmHelper.renewAccessToken();
-    int totalLeadsAddedCount = 0;
 
     @SneakyThrows
-    @Test(description = "add leads from CRM", dataProvider = "dataProviderPeopleSearch")
-    public void addLeads(String profileId, String email, String password,  String cookie, String linkedinperson){
-        int leadsRequestCount = 1;
-        for (int j = 0; j < 10; j++) {
-        Thread.sleep(randomResult);
-        String data = zohoCrmHelper.getLeadList( token, j,  "Waiting",  linkedinperson);
-        if (data.contains("INVALID_TOKEN")){
-            String token = zohoCrmHelper.renewAccessToken();
-            data = zohoCrmHelper.getLeadList( token, j,  "Waiting",  linkedinperson);
-        }
-        int leadsAddedCount = 0;
-
-        if (data.isEmpty()) {
-            //System.out.println("Skip" + linkedinperson);
-            wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Skip " + linkedinperson + "because data isEmpty");
-
-            return;
-        };
-
+    @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleSearch", alwaysRun = true )
+    public void addLeads(String name, String clientName, String email, String password, String searchLink, String msg, String pickList, String leadCompany, String leadCompanyId, boolean premium){
         System.out.println("-------------------------------------------------------\n" +
-                "START: "+linkedinperson+"\n" +
+                "START: "+name+"\n" +
                 "-------------------------------------------------------");
-        Thread.sleep(1000*20);
+        setupBrowser(true, name);
+        Thread.sleep(randomResult*3);
+        openLinkedInLoginPage();
+        signInPage.signIn(randomResult, email, password);
+        Selenide.open(searchLink);
         Thread.sleep(randomResult);
-
-        // System.out.println(new JSONObject( data ).getJSONArray("data").length());
-        //System.out.println(new JSONObject( data ).getJSONArray("data").getJSONObject(50).getString("Website"));
-        //System.out.println("data: " + data);
-        for (int i = 0; i < new JSONObject( data ).getJSONArray("data").length(); i++)
-        {
+        WebDriverRunner.getWebDriver().manage().window().maximize();
+        String token = zohoCrmHelper.renewAccessToken();
+        for (int i = 0; i < 5; i++) {
             Thread.sleep(randomResult);
+            for (SelenideElement person:searchPeoplePage.PersonPages
+            ) {
+                Thread.sleep(200);
+                String personRef = person.getAttribute("href");
+                if (person.text().contains("LinkedIn Member")) continue;
 
-            Thread.sleep(200);
-            String id = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("id");
-            if (String.valueOf(new JSONObject( data ).getJSONArray("data").getJSONObject(i).get("Website")).contains("null")) continue;
-            String originalUrl = new JSONObject( data ).getJSONArray("data").getJSONObject(i).getString("Website");
+                String[] personNamearr = person.find(By.cssSelector("span")).text().split("\\s");
+                String personName = personNamearr[0] + " " + personNamearr[1];
+                Thread.sleep(randomResult);
+                Selenide.executeJavaScript("window.scrollTo(2000, document.body.scrollHeight)");
 
-            String personRef = originalUrl.replaceAll("http://.*?linkedin", "http://www.linkedin");
-
-            //System.out.println("personRef: " + personRef);
-            //System.out.println("id: " + id);
-            Thread.sleep(randomResult);
-                //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount + "\n");
-                //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + linkedinperson + " "+ leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
-            {
-              String response =  wiseVisionApiHelper.impastoAddToFriends(profileId, email, password, cookie, personRef);
-              int taskId = (int) new JSONObject( response ).get("taskId");
-              String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
-              String taskStatus = new JSONObject( taskInfo ).getString("status");
-              String taskResult = String.valueOf(new JSONObject( taskInfo ));
-                while (true){
-                    Thread.sleep( 60 * 1000);
-                    taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, taskId);
-                    taskStatus = new JSONObject( taskInfo ).getString("status");
-                    if (taskStatus.contains("finished")) break;
-                    if (taskStatus.contains("failed")) break;
-                }
-                if (taskInfo.contains("Cookie is not valid")) {
-                    System.out.println("Cookie is not valid");
-                    throw new Exception("Cookie is not valid!");
-                };
-                String taskResults;
-                if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
-                    Thread.sleep(60000);
-                     taskResult = String.valueOf(new JSONObject( taskInfo ).get("results"));
-                     //if (taskResult.contains("null"))                     Thread.sleep(60000);
-                     //if (taskStatus.contains("processing"))                     Thread.sleep(60000);
-                     //if (taskResult.contains("Proxy connection ended before receiving CONNECT response")) continue;
-                    if (taskResult.contains("Cookie is not valid")) {
-                        System.out.println("Cookie is not valid");
-                        throw new Exception("Cookie is not valid!");
-                    };
-                    taskInfo = String.valueOf(new JSONObject( taskInfo ));
-                }
-
-                try {
-                  //  Thread.sleep(50*1000);
-                    //statusChecker.waitForStatus("finished", taskStatus);
-                    Thread.sleep(10*1000);
-                    if (taskStatus.contains("processing")) statusChecker.waitForStatus("finished", taskStatus);
-                    if (taskStatus.contains("failed")) {
-                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONObject("results").getString("error"));
-                        System.out.println("Status is now 'failed'.");
-                        continue;
-                    };
-                    if (taskInfo.contains("error")) {
-                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
-                        System.out.println("Status is now 'error'.");
-                        continue;
-                    };
-                    if (taskInfo.contains("Invalid url")) {
-                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
-                        System.out.println("Status is now 'error'.");
-                        System.out.println("Invalid url.");
-                        changeLeadStatus(id,broken, "broken");
-                        continue;
-                    };
-                    if (taskStatus.contains("expired")) {
-                        System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
-                        System.out.println("Status is now 'expired'.");
-
-                        continue;
-                    };
-                    System.out.println("Status is now 'finished'.");
-                    changeLeadStatusAttemptToContacted(id);
-
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                changeLeadStatusAttemptToContacted(id);
+            Selenide.executeJavaScript("window.open(\'" + personRef + "\')");
+                Thread.sleep(randomResult*3);
+            Selenide.switchTo().window(1);
+                Thread.sleep(randomResult);
+                closeMsgPopups();
+                personPage.addLead(msg.replace("NAME", personNamearr[0]), premium);
+               String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
+               if (response.contains("INVALID_TOKEN")) {
+                   token = zohoCrmHelper.renewAccessToken();
+                   zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, name);
+               }
+                Selenide.closeWindow();
+                switchTo().window(0);
+                //if (zohoCrmHelper.responseBody.contains("DUPLICATE_DATA")){break;}
             }
-
-            leadsAddedCount = leadsRequestCount++;
-            System.out.println("Leads added from " + linkedinperson + " account = " + leadsAddedCount);
-            //wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Leads added from " + name + "account = " + leadsAddedCount);
-            if (leadsAddedCount==leadsRandomResult) {
-                totalLeadsAddedCount = totalLeadsAddedCount + leadsAddedCount;
-
-                wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Finish \n"  + "account = " + linkedinperson  + leadsAddedCount + " leadsAdded = " + leadsAddedCount + "\n");
-                wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","TOTAL = " + totalLeadsAddedCount + "\n");
-
-                break;
-            };
-
-        }
-            if (leadsAddedCount==leadsRandomResult) {
-                wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","\nTOTAL = " + totalLeadsAddedCount + "\n");
-                break;
-            };
+            Thread.sleep(randomResult);
+            searchPeoplePage.previousPageBtn.shouldBe(visible).click();
+            Thread.sleep(randomResult);
         }
     }
 
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
-
+        String clientName = "";
+        String leadCompanyGamblingId ="421659000005125089";
+        String leadCompanyAmsterdamId ="421659000005261283";
+        String leadCompanyAustraliaId ="421659000005261273";
+        String leadCompanyName ="Gambling LinkedIn";
         return new Object[][]{
+                {       "Анастасия ",
+                        clientName,
+                        "vozniakanastasia52@gmail.com",
+                        "zdHXF5bf",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%2290010409%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=8Ms&titleFreeText=CEO",
+                        "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with him and talk about your business development and possible cooperation between our companies",
+                        "Pavlo",
+                        "Sweden (LinkedIn)",
+                        "421659000004662167",
+                        false
+                },
+                {       "Маша ",
+                        clientName,
+                        "deynekamariawv@gmail.com",
+                        "3N2wbnsw",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=EPb&titleFreeText=ceo",
+                        "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
+                        "Yurij",
+                        "Saudi Arabia",
+                        "421659000006238011",
+                        false
+                },
+                {       "Михайло",
+                        clientName,
+                        "michael.salo1995@gmail.com",
+                        "newman1996",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=5fq&titleFreeText=co-founder",
+                        "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
+                        "Yurij",
+                        "Saudi Arabia",
+                        "421659000006238011",
+                        false
+                },
+                {       "Наталья",
+                        clientName,
+                        "natalia.marcoon@gmail.com ",
+                        "asd321qq",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=1fm&titleFreeText=Owner",
+                        "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with him and talk about your business development and possible cooperation between our companies",
+                        "Valeriia",
+                        "Sweden (LinkedIn)",
+                        "421659000004662167",
+                        false
+                },
+                {       "Александра",
+                        clientName,
+                        "alexandra.sternenko@gmail.com",
+                        "asd321qq",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=45A&titleFreeText=founder",
+                        "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
+                        "Yurij",
+                        "Saudi Arabia",
+                        "421659000006238011",
+                        false
+                },
 
+                {       "Марьян",
+                        clientName,
+                        "reshetunmaryanwv@gmail.com",
+                        "rSbnGaRS",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22104853962%22%2C%22100907646%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=~2(&titleFreeText=cto",
+                        "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with him and talk about your business development and possible cooperation between our companies",
+                        "Alex",
+                        "Sweden (LinkedIn)",
+                        "421659000004662167",
+                        false
+                },
+                {       "Настя ",
+                        clientName,
+                        "anastasiiakuntii@gmail.com",
+                        "nastya4141",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22101452733%22%5D&industry=%5B%2296%22%2C%221594%22%2C%2211%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=70&sid=i0b&titleFreeText=Founder",
+                        "Hi. I came across your account and found that we have some common interests. Would you like to chat a little about the Australian market and some new tendencies and opportunities within it? ;)\n",
+                        "Alex",
+                        "Australia Outstaff",
+                        "421659000006238006",
+                        false
+                },
+                {       "Денис ",
+                        clientName,
+                        "basdenisphytontm@gmail.com",
+                        "asd321qq",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=40&sid=L_B&titleFreeText=Director%20of%20Human%20Resources",
+                        "Hi. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? ",
+                        "Valeriia",
+                        "Saudi Arabia",
+                        "421659000006238011",
+                        false
+                },
+                {       "Nikita ",
+                        clientName,
+                        "kni2012@ukr.net",
+                        "33222200s",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%2C%2290010409%22%5D&industry=%5B%2296%22%2C%224%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=30&sid=vto&titleFreeText=CTO",
+                        "Hi, there. I happened upon your account and was really impressed with your work. I will be in Stockholm between 19 and 24 of September. I was wondering if you would like to have a cup of coffee with me and talk about your business development and possible cooperation between our companies :)",
+                        "Valeriia",
+                        "Munich",
+                        "421659000006238021",
+                        true
+                },
 
-                {       "paul-bereza",
-                        "paul.bereza02@outlook.de",
+/* ==================================================================================================================================================================== */
+/*                {       "Софія",
+                        clientName,
+                        "sofi.podlesna@gmail.com",
+                        "7riuwotu949",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100459316%22%5D&origin=FACETED_SEARCH&page=85&sid=B%2Cg&titleFreeText=president",
+                        "Hi, NAME. I came across your account and was impressed with your expertise. Would you mind having a quick chat about the Saudi Arabian market and the opportunities professional web development offers to businesses overall and your company in particular? \n",
+                        "Alex",
+                        "Saudi Arabia",
+                        "421659000006238011"
+                },
+                {       "Test",
+                        clientName,
+                        "wisevision1985@gmail.com",
                         "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZMAqYavTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MsYltKWYUEZFxw9AfILq0Z4E9w7CrRJqmgQoghXasKUll-fouMGn4H89REVuhDBtiIeV8iowzTn1Zqh2zLq3v3wBcYDAE8CScmV3AzfzQD4W1sum6x-21zk0jEJJ5ssgABMB9IcchHvWPRELG6zagWUcmIqS_eeYF6cPe21DyA5Wd4PvTPzU0GaoPnYdub1ublV3mpQ",
-                        "Paul Bereza"
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=100&sid=Ng9",
+                        "Hi, I want expand my contact, thx for accepting",
+                        "Pavlo",
+                        "Test",
+                        "421659000007355929"
                 },
-
-
-                {       "elias-danilov",
-                        "elias.danilov@outlook.it",
+                {       "Test",
+                        clientName,
+                        "wisevision1986@gmail.com",
                         "33222200Shin",
-                        "AQEDAUs6XDsF6NxyAAABkytdjlgAAAGT-UNuKFYATBut5ZZnbR82JrQdRKaPaXFOvK_HVeRHmueTSbREq0Xtr-iAgxLZIl3bMSp_3ZWmxignExa8iZVJfLqDLP8Dbi6-zwsEi5FN9aHJe_cY5O8FIjBy",                        "Elias Danilov"
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=90&sid=Ng9",
+                        "Hi, I want expand my contact, thx for accepting",
+                        "Pavlo",
+                        "Test",
+                        "421659000007355929"
+                },
+<==============================================================================================================================================================>
+
+               {       "Роксолана ",
+                        clientName,
+                        "roksolanatrofim@gmail.com ",
+                        "89fcmTT88V",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22100907646%22%2C%22104853962%22%5D&origin=FACETED_SEARCH&page=60&sid=Nw9&titleFreeText=founder",
+                        "Hi, there. I happened upon your account and was really impressed with your work. Our CEO will be in Stockholm between 19 and 24 of September. He was wondering if you would like to have a cup of coffee with him and talk about your business development and possible cooperation between our companies",
+                        "Alex",
+                        "Sweden (LinkedIn)",
+                        "421659000004662167"
+                },
+               {       "Максим",
+                        clientName,
+                        "kotokmaksym@gmail.com",
+                        "r4E3w2q1",
+                        "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D&network=%5B%22O%22%5D&origin=FACETED_SEARCH&page=10&sid=a5e&titleFreeText=Dealer%20General%20Manager",
+                        "Hi, my name is Maks. I am VP of engineering at software company Wise Vision. We help dealership companies improve business metrics via modern IT solutions.\n" +
+                                "Will be appreciated a lot for accepting this invite.",
+                        "Yurij",
+                        "Automotive Apollo",
+                        "421659000005684017",
+                        false
                 },
 
-                {       "stefania-mykhaylenko",
-                        "mykhaylenko.stefania@outlook.fr",
-                        "cTsH3KhU",
-                        "AQEDAUxQ7yQAEl3PAAABkwFEUkQAAAGTJVDWRE0AXVJ0mNaamH_zz3Y3tDi8-KSJ-KQ-GETO-jtTaEslght7oqnLGuAXx8Nc_-thjd4XW2rn6lw29GwQ5rHnXva7ppJH3uVrTfmz6oqtdea1WO0RVx0l",
-                        "Mykhaylenko Stefania"
-                },
-
-
-                {       "patrick-yushko-b2080b2b8",
-                        "yushko.patrick@outlook.it",
-                        "206GLMC2",
-                        "AQEFAHUBAAAAABBl9t0AAAGPfE7YuwAAAZMaRBSVVgAAGHVybjpsaTptZW1iZXI6MTI4MDAxMjQyNMyB0U3N4EXZoT7jRSgrh2ZsRQhw3dIPIjxxs7HK2bI8jIXKrSaNXE-7GhbppvBOQSO2mokFi0nLkNu11TQ3PPReQB8-2boUF0iWaZ7L3W1dFU9X07glDGQPpLsaMRPWQju-eZbs2y2zeE1w8P2PvROcYJDwbJXaXTTxwbFor9oT7iUhsfAU30z5UF7qX0VUHdnorZw",
-                        "Yushko Patrick"
-                },
-
-                {       "daniele-tsvetkov",
-                        "daniele.tsvetkov@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGTGkMj1U0ANqMaAUhhe5JbhbT3ijdyc4v_4SRskGVnFTwCtKAhzkpj3VyapsTg4TKp3T5PHg_nN1KKDV2CcuIa7s6Wf9yY-YO8q_z4rJvA0RlrHTDDYsOjnFeS",
-                        "Daniele Tsvetkov"
-                },
-
-                {       "michael-krusciov",
-                        "michael.krusciov@outlook.de",
-                        "cTsH3KhU",
-                        "AQEDAUwy4cUBsAnPAAABk97M270AAAGUAtlfvU0A0hAgRax7EQj5rVJrY0UuWBlY92z21tNcwcsrBwl7OB4kltr0jRZtAAKKvgHAe39-JTxzTu-LFj0SnqmFW96bOJiGQduF3d2ECvJRGlJh2KMj-ySt",
-                        "Michael Krusciov"
-                }
-        };
-    }
-
-
-    public void changeLeadStatusAttemptToContacted(String id){
-        String changeLeadStatusResponse;
-        JSONObject changeLeadStatusResponseJson;
-        changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact1);
-        changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-        if (changeLeadStatusResponseJson.getString("code").equals("INVALID_DATA")) {
-            changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, attemptedToContact);
-            changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-        }
-        System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
-        System.out.println("\n" );
-        if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
-            token = zohoCrmHelper.renewAccessToken();
-            zohoCrmHelper.changeLeadStatus(id, token, "421659000001302365");
-        }
-        if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
-            System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,"Attempted to Contact") );
-        };
-    }
-    public void changeLeadStatus(String id, String transitionsId, String transitionsStatus){
-        String changeLeadStatusResponse;
-        JSONObject changeLeadStatusResponseJson;
-        changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(id, token, transitionsId);
-        changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-        System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
-        System.out.println(changeLeadStatusResponseJson);
-        System.out.println("\n" );
-        if (changeLeadStatusResponse.contains("INVALID_TOKEN")) {
-            token = zohoCrmHelper.renewAccessToken();
-            zohoCrmHelper.changeLeadStatus(id, token, transitionsId);
-        }
-        if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
-            System.out.println("Try direct change:\n" + zohoCrmHelper.directChangeLeadStatus(id, token,transitionsStatus) );
+               */
         };
     }
 }

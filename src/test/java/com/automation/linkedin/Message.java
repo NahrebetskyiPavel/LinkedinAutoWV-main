@@ -213,6 +213,7 @@ public class Message extends Base{
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
                                     else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
+                                    else if (taskInfo.contains("write EPROTO")) { throw new Exception("write EPROTO proxy err");}
                                     else { throw new Exception(
                                             taskInfo + "\n\n\n\n" +
                                             String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0)) +
@@ -318,9 +319,6 @@ public class Message extends Base{
         return new Object[][]{
 
 
-
-
-
                 {       "paul-bereza",
                         "paul.bereza02@outlook.de",
                         "33222200Shin",
@@ -379,12 +377,12 @@ public class Message extends Base{
                         "AQEDAR1-TWgCdaXbAAABlGmXZtsAAAGUjaPq200ANB_Ka-m2kerGHMufTimi96GJQqix1PhIG4UbsQO18B4Fx_BvCg6QYDwRf9t7z5r8HT7TLjo-SzkvuQefyC2E1uMaTLJMEb55CHzjrMVPyq2AnQCQ|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuOTQuMCJ9",
                         "Art Stenko"
                 },
-                {       "lina Kompanets",
-                        "ekompanets02@gmail.com",
-                        "35ulurev",
-                        "",
-                        "lina Kompanets"
-                },
+                 {       "lina Kompanets",
+                         "ekompanets02@gmail.com",
+                         "35ulurev",
+                         "",
+                         "lina Kompanets"
+                 },
                 {       "Nikita-K",
                         "kni2012@ukr.net",
                         "33222200s",
@@ -421,6 +419,7 @@ public class Message extends Base{
                         "AQEDATxvso0AsoGrAAABlGmcpMYAAAGUjakoxk0At3rdIcYwg58nfPB100bIp55gaun_CLHbmRhw-J9lsRGXjBUy8peYKS15_zVsmeIbGpBPQzmETdRZntEpa4d7CQxIDcAy5Cn7m0nPv-__V08N5W8L|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuODIuMTgxIn0=",
                         "Aleksandra Sternenko "
                 }
+
 
         };
     }
