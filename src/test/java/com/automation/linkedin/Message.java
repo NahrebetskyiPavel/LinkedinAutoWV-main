@@ -371,12 +371,12 @@ public class Message extends Base{
                         "AQEDATp4HzoBa6O7AAABlGlxPOgAAAGUjX3A6E0AwNpK6n3p3Ulp5DO-BwvtTrsYEBYy9LxAD6xohwUCfLQO52TrKY4CuGewUPx04ho-yh9X6s0CZ_L_uBtMC0MvER8xlAxfO5ENZX--bzIUQuvtufWI|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuMjYuNjkifQ==",
                         "Anastasiia Vozniak"
                 },
-                {       "Art-Stenko",
+  /*              {       "Art-Stenko",
                         "artstenko@gmail.com",
                         "GOgoCyclone_11",
                         "AQEDAR1-TWgCdaXbAAABlGmXZtsAAAGUjaPq200ANB_Ka-m2kerGHMufTimi96GJQqix1PhIG4UbsQO18B4Fx_BvCg6QYDwRf9t7z5r8HT7TLjo-SzkvuQefyC2E1uMaTLJMEb55CHzjrMVPyq2AnQCQ|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuOTQuMCJ9",
                         "Art Stenko"
-                },
+                },*/
                 {       "lina Kompanets",
                         "ekompanets02@gmail.com",
                         "35ulurev",
