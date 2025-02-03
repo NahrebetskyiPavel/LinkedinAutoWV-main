@@ -119,16 +119,11 @@ while (true){
                 {       "elias-danilov",
                         "elias.danilov@outlook.it",
                         "33222200Shin",
-                        "AQEDAUs6XDsBm0ZiAAABlLHEAU0AAAGU1dCFTU4AmJNLdMyqQkjC8aL0p0RuDPeIs1mIN-8ibFeUBETyfqgBIh5vcgRZEC3CT-vwFMsx_O5WI5f-w-kMNJggNqET8rvZYadcTN6Mqpr3Y7Kziw0xU12O|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMzcuMjAxLjE5NC4xNCJ9",
+                        "AQEDAUs6XDsEzvVMAAABlLvAw8MAAAGU381Hw1YAz82wKEtvWuTUxEIBELzWDzeqv765RvxIT9AcKCZaanABDvLu_nGNS_RvxdKq2iCexYJ1vI4WTeEaLkxFFUZYi9OAa4pM9lELLPcFEuiK0an3umwA|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTc2LjE5OC4yMDIuNjgifQ==",
                         "Elias Danilov"
                 },
 
-                {       "stefania-mykhaylenko",
-                        "mykhaylenko.stefania@outlook.fr",
-                        "cTsH3KhU",
-                        "AQEDAUxQ7yQFPqqQAAABlLdioOYAAAGU228k5lYAkxeM0zX7iffXvUyHtDQgPdzM9S7zUQhQH82TFWZ-deOSh1RvTfeBgOBDYufpVRgEFoyiP3oRwcHR-a-ybjARnhqudbbLQ25kbZRPewvOlLPidNw7|eyJsYW5ndWFnZXMiOlsiZnItRlIiLCJmciIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJmci1GUiIsInRpbWVab25lIjoiRXVyb3BlL1BhcmlzIiwiaXAiOiIxOTQuNjEuOS4xMCJ9",
-                        "Mykhaylenko Stefania"
-                },
+
 
 
                 {       "patrick-yushko-b2080b2b8",
@@ -138,17 +133,11 @@ while (true){
                         "Yushko Patrick"
                 },
 
-                {       "daniele-tsvetkov",
-                        "daniele.tsvetkov@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUtiZkQEzpptAAABjYItJMIAAAGTGkMj1U0ANqMaAUhhe5JbhbT3ijdyc4v_4SRskGVnFTwCtKAhzkpj3VyapsTg4TKp3T5PHg_nN1KKDV2CcuIa7s6Wf9yY-YO8q_z4rJvA0RlrHTDDYsOjnFeS",
-                        "Daniele Tsvetkov"
-                },
 
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUBsAnPAAABk97M270AAAGUAtlfvU0A0hAgRax7EQj5rVJrY0UuWBlY92z21tNcwcsrBwl7OB4kltr0jRZtAAKKvgHAe39-JTxzTu-LFj0SnqmFW96bOJiGQduF3d2ECvJRGlJh2KMj-ySt",
+                        "AQEDAUwy4cUEuE2GAAABlLu3nmEAAAGU38QiYU4ALxpavswDoqvLzASGnxb37bVixZysOgSlls6gDzxhdPDVN1RQvqxKupczM-O7zzgvoRLCNhqG0qB1Sfl9F-YHdJXSS3mnnSxY3Vbm2G8RrBTjZWYB|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMzcuMjAxLjE5OS4yMSJ9",
                         "Michael Krusciov"
                 },
 
@@ -163,7 +152,7 @@ while (true){
                 {       "Art-Stenko",
                         "artstenko@gmail.com",
                         "GOgoCyclone_11",
-                        "AQEDAR1-TWgCdaXbAAABlGmXZtsAAAGUjaPq200ANB_Ka-m2kerGHMufTimi96GJQqix1PhIG4UbsQO18B4Fx_BvCg6QYDwRf9t7z5r8HT7TLjo-SzkvuQefyC2E1uMaTLJMEb55CHzjrMVPyq2AnQCQ|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuOTQuMCJ9",
+                        "AQEDAR1-TWgCdaXbAAABlGmXZtsAAAGU71o8iU0AX2vCEj5S0ms2kzRxYBRPWlb-BlkleFw59RilRgTGUZKEKeA3LHcXC5v2PEGQ4htj0m20Zgs8vTv6FxAjj6ZwLwCao7rehPhPpbiaXZbxwkBFGHGs|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Art Stenko"
                 },
                 {       "lina Kompanets",
