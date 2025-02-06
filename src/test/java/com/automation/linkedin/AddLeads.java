@@ -45,9 +45,13 @@ public class AddLeads extends Base {
         for (int j = 0; j < 10; j++) {
         Thread.sleep(randomResult);
         String data = zohoCrmHelper.getLeadList( token, j,  "Waiting",  linkedinperson);
+      //      System.out.println("data:\n" + data);
         if (data.contains("INVALID_TOKEN")){
             String token = zohoCrmHelper.renewAccessToken();
             data = zohoCrmHelper.getLeadList( token, j,  "Waiting",  linkedinperson);
+        }
+        if (data.length()<=1){
+            throw new Exception("NO LEADS FOUND");
         }
         int leadsAddedCount = 0;
 
@@ -110,6 +114,12 @@ public class AddLeads extends Base {
                     System.out.println("Invalid url.");
                     changeLeadStatus(id,broken, "broken");
                     continue;
+                };
+                if (taskInfo.contains("ERR_TUNNEL_CONNECTION_FAILED")) {
+
+                    System.out.println("Status is now 'error'.");
+                    System.out.println("ERR_TUNNEL_CONNECTION_FAILED");
+                   throw new Exception("ERR_TUNNEL_CONNECTION_FAILED");
                 };
                 if (taskInfo.contains("Profile link invalid")) {
                     System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
@@ -238,19 +248,19 @@ public class AddLeads extends Base {
                         "johan.heinlein@outlook.de",
                         "eGdFPRgS",
                         "AQEDAUxEX5oApf6pAAABjglKvk4AAAGU37pv3E0Aj86fZrt57nf9dDQ9L2ycAOFb1RU57UHtsDbugqCEgQI9RWHVyVFlgLNiv9OrCA8Ljw3_6SwfcVDdvLa4sBTiEznok-P7bnKgFpD9l5u9N5ilTHF_|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMzcuMjAxLjE5OS4yMSJ9",
-                        "Johan Heinlein "
+                        "Johan Heinlein"
                 },
                 {       "Artemio-Chumakov",
                         "artemio.chumakov1981@outlook.it",
                         "33222200Shin",
                         "AQEDAUtCHbcD5C-bAAABkcaWbF4AAAGU37dZ7E0AvbdmKlhCZSBkmNh-AjzXAruOXXZvwJkbpduIywU_XK8rQ9OA7HvxFIWRKos9zQdvCNqVWfhMTSR_HsNJoGlt2gECiowvI-wx55iz52P1Qvy4Z0Tz|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6bnVsbH0=",
-                        "Artemio Chumakov "
+                        "Artemio Chumakov"
                 },
                 {       "Noah-Siefert",
                         "noah.Siefert@outlook.de",
                         "6puw6PcA",
                         "AQEDAU0MXAYEEa3HAAABjns3XfkAAAGU38FK100AWFeTUKKQLsJane3MytybwJfoki3Nk1d7A_p0XLB7hG3FK4LG13_rD5g2_Umazqi0wyRkC7spfC_dF4UxZXtGKF50ZwhCtCspK0BtdPSrkU_5r7_s|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTc2LjE5OC4yMDIuNjgifQ==",
-                        "Noah Siefert "
+                        "Noah Siefert"
                 },
 
                 {       "paul-bereza",
@@ -259,15 +269,6 @@ public class AddLeads extends Base {
                         "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZMAqYavTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MsYltKWYUEZFxw9AfILq0Z4E9w7CrRJqmgQoghXasKUll-fouMGn4H89REVuhDBtiIeV8iowzTn1Zqh2zLq3v3wBcYDAE8CScmV3AzfzQD4W1sum6x-21zk0jEJJ5ssgABMB9IcchHvWPRELG6zagWUcmIqS_eeYF6cPe21DyA5Wd4PvTPzU0GaoPnYdub1ublV3mpQ",
                         "Paul Bereza"
                 },
-
-
-                {       "elias-danilov",
-                        "elias.danilov@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUs6XDsFJkWaAAABlNtCliQAAAGU_08aJFYAED0goSdxHkt5clxmTKxRbVA58G-c6pK2H25mdeNuHlQz1JkXrI9bTCamWtCt2FC2zlLk148dPjjXPY3AoJTqMkNMWsANv06Rm8DiMCujwgRUR9ms|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiODkuMjQ1LjE4MC4xNzUifQ==",
-                        "Elias Danilov"
-                },
-
 
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
