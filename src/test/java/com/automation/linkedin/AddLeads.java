@@ -83,7 +83,8 @@ public class AddLeads extends Base {
             String personRef = originalUrl.replaceAll("http://.*?linkedin", "http://www.linkedin")
                                             .replaceAll("//", "")
                                             .replaceAll("//", "")
-                                            .replaceAll("https:", "https://");
+                                            .replaceAll("https:", "https://")
+                                            .replaceAll("http:", "http://");
 
             //System.out.println("personRef: " + personRef);
             //System.out.println("id: " + id);
@@ -109,7 +110,7 @@ public class AddLeads extends Base {
                     if (taskStatus.contains("failed")) break;
                 }
                 if (taskInfo.contains("Invalid url")) {
-                    System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                    //System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                     System.out.println("Status is now 'error'.");
                     System.out.println("Invalid url.");
                     changeLeadStatus(id,broken, "broken");
@@ -240,7 +241,7 @@ public class AddLeads extends Base {
                 {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
-                        "AQEDAUsJgSoFbLBZAAABjVURgPoAAAGU1o-n_k0ABohk8pZ3HSDzXpMA7jO6sqVR_2e-cTlAn259GwIz9PxOcS_Yse0hz2MrX96sKD4h3mQZnGu0Xn8-Obl4n2jLexvn1mVZl-7tTqLPUtumsTYSkTrK|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjkzLjE0NC40Ny4xNjEifQ==",
+                        "AQEDAUsJgSoDMNUUAAABlPo02jUAAAGVHkFeNU4ACTgIRxqVx6nOcg_sUrpJLP9ZFLAD6GgIhB9GilYWyNrHs8m_MFiqQLjASO7uont-ZQq6kFSzZT-K5aJDKMDSIWCuUU9peLOZqW4u3Ntgk-zaEKPr|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjgwLjExNi4xNjguMjAyIn0=",
                         "Evgeny Gazitov"
                 },
 

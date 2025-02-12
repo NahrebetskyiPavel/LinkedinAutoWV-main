@@ -6,6 +6,8 @@ import okhttp3.*;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class ZohoCrmHelper {
     public String responseBody;
     @SneakyThrows
@@ -268,7 +270,10 @@ public String getLeadList(String token, int page, String leadStatus, String link
 }
 @SneakyThrows
 public String getLeadList(String token, int page, String leadStatus, String linkedInPerson){
-    OkHttpClient client = new OkHttpClient().newBuilder()
+    OkHttpClient client =new OkHttpClient().newBuilder()
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
             .build();
     MediaType mediaType = MediaType.parse("text/plain");
     RequestBody body = RequestBody.create(mediaType, "");
