@@ -263,13 +263,6 @@ public class AddLeads extends Base {
                         "Noah Siefert"
                 },
 
-                {       "paul-bereza",
-                        "paul.bereza02@outlook.de",
-                        "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZMAqYavTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MsYltKWYUEZFxw9AfILq0Z4E9w7CrRJqmgQoghXasKUll-fouMGn4H89REVuhDBtiIeV8iowzTn1Zqh2zLq3v3wBcYDAE8CScmV3AzfzQD4W1sum6x-21zk0jEJJ5ssgABMB9IcchHvWPRELG6zagWUcmIqS_eeYF6cPe21DyA5Wd4PvTPzU0GaoPnYdub1ublV3mpQ",
-                        "Paul Bereza"
-                },
-
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
                         "206GLMC2",
