@@ -122,6 +122,12 @@ public class AddLeads extends Base {
                     System.out.println("ERR_TUNNEL_CONNECTION_FAILED");
                    throw new Exception("ERR_TUNNEL_CONNECTION_FAILED");
                 };
+                if (taskInfo.contains("status code 594")) {
+
+                    System.out.println("status code 594");
+                    System.out.println("status code 594");
+                   throw new Exception("status code 594");
+                };
                 if (taskInfo.contains("Profile link invalid")) {
                     System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                     System.out.println("Status is now 'error'.");
