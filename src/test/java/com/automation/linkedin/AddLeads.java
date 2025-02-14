@@ -31,8 +31,8 @@ public class AddLeads extends Base {
     int low = 2000;
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
-    int leadLow = 1;
-    int leadsHigh = 2;
+    int leadLow = 5;
+    int leadsHigh = 10;
     int leadsRandomResult = random.nextInt(leadsHigh-leadLow) + leadLow;
 
     String token = zohoCrmHelper.renewAccessToken();
