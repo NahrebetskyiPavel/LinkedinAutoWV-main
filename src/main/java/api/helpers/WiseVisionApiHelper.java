@@ -59,6 +59,9 @@ public class WiseVisionApiHelper {
     @SneakyThrows
     public String impastoAddToFriends(String profileId, String email, String password, String cookie, String spreadsheetUrl){
         OkHttpClient client = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "{\n    " +

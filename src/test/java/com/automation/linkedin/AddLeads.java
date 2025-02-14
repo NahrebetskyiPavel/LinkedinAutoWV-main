@@ -31,8 +31,8 @@ public class AddLeads extends Base {
     int low = 2000;
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
-    int leadLow = 20;
-    int leadsHigh = 30;
+    int leadLow = 1;
+    int leadsHigh = 2;
     int leadsRandomResult = random.nextInt(leadsHigh-leadLow) + leadLow;
 
     String token = zohoCrmHelper.renewAccessToken();
@@ -109,6 +109,13 @@ public class AddLeads extends Base {
                     if (taskStatus.contains("finished")) break;
                     if (taskStatus.contains("failed")) break;
                 }
+                if (taskInfo.contains("To verify this member knows you, please enter their email to connect. You can also include a personal note")) {
+                    //System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                    System.out.println("Status is now 'error'.");
+                    System.out.println("email required.");
+                    changeLeadStatus(id,broken, "broken");
+                    continue;
+                };
                 if (taskInfo.contains("Invalid url")) {
                     //System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                     System.out.println("Status is now 'error'.");
@@ -121,6 +128,12 @@ public class AddLeads extends Base {
                     System.out.println("Status is now 'error'.");
                     System.out.println("ERR_TUNNEL_CONNECTION_FAILED");
                    throw new Exception("ERR_TUNNEL_CONNECTION_FAILED");
+                };
+                if (taskInfo.contains("ERR_SSL_PROTOCOL_ERROR")) {
+
+                    System.out.println("Status is now 'error'.");
+                    System.out.println("ERR_SSL_PROTOCOL_ERROR");
+                   throw new Exception("ERR_SSL_PROTOCOL_ERROR");
                 };
                 if (taskInfo.contains("status code 594")) {
 
@@ -247,7 +260,7 @@ public class AddLeads extends Base {
                 {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
-                        "AQEDAUsJgSoDMNUUAAABlPo02jUAAAGVHkFeNU4ACTgIRxqVx6nOcg_sUrpJLP9ZFLAD6GgIhB9GilYWyNrHs8m_MFiqQLjASO7uont-ZQq6kFSzZT-K5aJDKMDSIWCuUU9peLOZqW4u3Ntgk-zaEKPr|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjgwLjExNi4xNjguMjAyIn0=",
+                        "AQEDAUsJgSoCFXg4AAABlQQoivMAAAGVKDUO804AWK4HQv04G891zaKyGyCCscG3XlQyyL94k4iCOnjP45pVxgvY8jAARJn8a3RIzY34zIT7mhgtFVP6q8cc9WHWqlH0St5uYf6O0fmqGlT57u6y9Qvv|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjEwMS41Ny40Ny4yMTIifQ==",
                         "Evgeny Gazitov"
                 },
 
@@ -263,12 +276,6 @@ public class AddLeads extends Base {
                         "AQEDAUtCHbcD5C-bAAABkcaWbF4AAAGU37dZ7E0AvbdmKlhCZSBkmNh-AjzXAruOXXZvwJkbpduIywU_XK8rQ9OA7HvxFIWRKos9zQdvCNqVWfhMTSR_HsNJoGlt2gECiowvI-wx55iz52P1Qvy4Z0Tz|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6bnVsbH0=",
                         "Artemio Chumakov"
                 },
-                {       "Noah-Siefert",
-                        "noah.Siefert@outlook.de",
-                        "6puw6PcA",
-                        "AQEDAU0MXAYEEa3HAAABjns3XfkAAAGU38FK100AWFeTUKKQLsJane3MytybwJfoki3Nk1d7A_p0XLB7hG3FK4LG13_rD5g2_Umazqi0wyRkC7spfC_dF4UxZXtGKF50ZwhCtCspK0BtdPSrkU_5r7_s|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTc2LjE5OC4yMDIuNjgifQ==",
-                        "Noah Siefert"
-                },
 
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
@@ -281,7 +288,7 @@ public class AddLeads extends Base {
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUDlmt7AAABlOCKsBkAAAGVBJc0GU0Aj8lj12QjpvzI8_iVYTMH3sQe4wUhVZzdZWZsEU9W5CPcvPErh7U2H7IU9IapG6RKij3ITOP6eHWpLIAp_6VpNrGMw-AXV4PLmM5QxyeVHNZcFAfX|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE4NC4yMDIuMzIifQ==",
+                        "AQEDAUwy4cUFWyFQAAABlQQwovQAAAGVKD0m9E4ABnDPEN2Nd2gR3GBlg3r0YJkh5ikJcs78TTz-6Vk0yLiLeNfzzYzekhKpYsRPxMbVps-TwZXDJcrcUa-RW_fLWZ_JOGHmAGzOoPi6kwh5T90nWrT5|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE4My4xNzkuMzMifQ==",
                         "Michael Krusciov"
                 },
 
