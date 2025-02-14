@@ -152,6 +152,10 @@ public class AddLeads extends Base {
                     System.out.println("Cookie is not valid");
                     throw new Exception("Cookie is not valid!");
                 };
+                if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) {
+                    System.out.println("Navigation timeout of 30000 ms exceeded");
+                    throw new Exception("Navigation timeout of 30000 ms exceeded");
+                };
                 String taskResults;
                 if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
                     Thread.sleep(60000);
