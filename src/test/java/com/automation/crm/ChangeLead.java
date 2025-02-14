@@ -107,11 +107,10 @@ while (true){
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
 
-
                 {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
-                        "AQEDAUsJgSoFbLBZAAABjVURgPoAAAGU1o-n_k0ABohk8pZ3HSDzXpMA7jO6sqVR_2e-cTlAn259GwIz9PxOcS_Yse0hz2MrX96sKD4h3mQZnGu0Xn8-Obl4n2jLexvn1mVZl-7tTqLPUtumsTYSkTrK|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjkzLjE0NC40Ny4xNjEifQ==",
+                        "AQEDAUsJgSoCFXg4AAABlQQoivMAAAGVKDUO804AWK4HQv04G891zaKyGyCCscG3XlQyyL94k4iCOnjP45pVxgvY8jAARJn8a3RIzY34zIT7mhgtFVP6q8cc9WHWqlH0St5uYf6O0fmqGlT57u6y9Qvv|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjEwMS41Ny40Ny4yMTIifQ==",
                         "Evgeny Gazitov"
                 },
 
@@ -119,36 +118,14 @@ while (true){
                         "johan.heinlein@outlook.de",
                         "eGdFPRgS",
                         "AQEDAUxEX5oApf6pAAABjglKvk4AAAGU37pv3E0Aj86fZrt57nf9dDQ9L2ycAOFb1RU57UHtsDbugqCEgQI9RWHVyVFlgLNiv9OrCA8Ljw3_6SwfcVDdvLa4sBTiEznok-P7bnKgFpD9l5u9N5ilTHF_|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMzcuMjAxLjE5OS4yMSJ9",
-                        "Johan Heinlein "
+                        "Johan Heinlein"
                 },
                 {       "Artemio-Chumakov",
                         "artemio.chumakov1981@outlook.it",
                         "33222200Shin",
                         "AQEDAUtCHbcD5C-bAAABkcaWbF4AAAGU37dZ7E0AvbdmKlhCZSBkmNh-AjzXAruOXXZvwJkbpduIywU_XK8rQ9OA7HvxFIWRKos9zQdvCNqVWfhMTSR_HsNJoGlt2gECiowvI-wx55iz52P1Qvy4Z0Tz|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6bnVsbH0=",
-                        "Artemio Chumakov "
+                        "Artemio Chumakov"
                 },
-                {       "Noah-Siefert",
-                        "noah.Siefert@outlook.de",
-                        "6puw6PcA",
-                        "AQEDAU0MXAYEEa3HAAABjns3XfkAAAGU38FK100AWFeTUKKQLsJane3MytybwJfoki3Nk1d7A_p0XLB7hG3FK4LG13_rD5g2_Umazqi0wyRkC7spfC_dF4UxZXtGKF50ZwhCtCspK0BtdPSrkU_5r7_s|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTc2LjE5OC4yMDIuNjgifQ==",
-                        "Noah Siefert "
-                },
-
-                {       "paul-bereza",
-                        "paul.bereza02@outlook.de",
-                        "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZMAqYavTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MsYltKWYUEZFxw9AfILq0Z4E9w7CrRJqmgQoghXasKUll-fouMGn4H89REVuhDBtiIeV8iowzTn1Zqh2zLq3v3wBcYDAE8CScmV3AzfzQD4W1sum6x-21zk0jEJJ5ssgABMB9IcchHvWPRELG6zagWUcmIqS_eeYF6cPe21DyA5Wd4PvTPzU0GaoPnYdub1ublV3mpQ",
-                        "Paul Bereza"
-                },
-
-
-                {       "elias-danilov",
-                        "elias.danilov@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUs6XDsFJkWaAAABlNtCliQAAAGU_08aJFYAED0goSdxHkt5clxmTKxRbVA58G-c6pK2H25mdeNuHlQz1JkXrI9bTCamWtCt2FC2zlLk148dPjjXPY3AoJTqMkNMWsANv06Rm8DiMCujwgRUR9ms|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiODkuMjQ1LjE4MC4xNzUifQ==",
-                        "Elias Danilov"
-                },
-
 
                 {       "patrick-yushko-b2080b2b8",
                         "yushko.patrick@outlook.it",
@@ -161,7 +138,7 @@ while (true){
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUEuE2GAAABlLu3nmEAAAGU38QiYU4ALxpavswDoqvLzASGnxb37bVixZysOgSlls6gDzxhdPDVN1RQvqxKupczM-O7zzgvoRLCNhqG0qB1Sfl9F-YHdJXSS3mnnSxY3Vbm2G8RrBTjZWYB|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMzcuMjAxLjE5OS4yMSJ9",
+                        "AQEDAUwy4cUFWyFQAAABlQQwovQAAAGVKD0m9E4ABnDPEN2Nd2gR3GBlg3r0YJkh5ikJcs78TTz-6Vk0yLiLeNfzzYzekhKpYsRPxMbVps-TwZXDJcrcUa-RW_fLWZ_JOGHmAGzOoPi6kwh5T90nWrT5|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE4My4xNzkuMzMifQ==",
                         "Michael Krusciov"
                 },
 
@@ -206,20 +183,21 @@ while (true){
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
                         "AQEDASosSSoEwgrNAAABlGmRGiUAAAGUjZ2eJU0AhC51KbwrLYzi4wa2ytQxdxJv4VpDm3awy0TQZEatEjsuQgmEZI5rzK1ANRo6I-kuNg72s-33zhWTr5kS4quQwdpXozxkrjzKyNkESDnlF0vDuas4|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuMjguNTEifQ==",
-                        "Anastasiia Kuntii "
+                        "Anastasiia Kuntii"
                 },
                 {       "Natalia-Marcun",
                         "natalia.marcoon@gmail.com",
                         "asd321qq",
                         "AQEDATxzPCcDSaa2AAABlGmTliAAAAGUjaAaIE4AWy01oPscxLvE1AGPoHL1b-BM9xTko4B66dc5mgq9BXLfVA3_PgVtwp5_zNEEtAKpvant2d58dlQWprhSe1W83oGvH82--WTubb20UvdZPxeONqCd|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuNjUuMTk0In0=",
-                        "Natalia Marcun "
+                        "Natalia Marcun"
                 },
                 {       "Aleksandra-Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
                         "AQEDATxvso0AsoGrAAABlGmcpMYAAAGUjakoxk0At3rdIcYwg58nfPB100bIp55gaun_CLHbmRhw-J9lsRGXjBUy8peYKS15_zVsmeIbGpBPQzmETdRZntEpa4d7CQxIDcAy5Cn7m0nPv-__V08N5W8L|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuODIuMTgxIn0=",
-                        "Aleksandra Sternenko "
+                        "Aleksandra Sternenko"
                 }
+
         };
     }
 }
