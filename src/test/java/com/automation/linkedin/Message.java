@@ -49,6 +49,8 @@ public class Message extends Base{
 
         sendFolowUpMsg(linkedInAccount, token,  "Second automessage", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
+        sendFolowUpMsg(linkedInAccount, token,  "automessage from Art Stenko", profileId,  email,  password,  cookie );
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token,  "Third automessage", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "Fourt automessage", profileId,  email,  password,  cookie );
