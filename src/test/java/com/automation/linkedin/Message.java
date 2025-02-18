@@ -91,6 +91,9 @@ public class Message extends Base{
             System.out.println("msgsSentCounter = " + msgsSentCounter);
             return;
         };
+        if (taskName.contains("Second automessage") && profileId.contains("Art-Stenko")) {
+            return;
+        };
         if (msgsSentCounter > msgsSentCounterMax) {
             if (taskName.contains("Final automessage")) msgsSentCounter = 0;
             System.out.println("fina msgsSentCounter = " + msgsSentCounter);
