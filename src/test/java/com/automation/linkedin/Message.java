@@ -93,14 +93,14 @@ public class Message extends Base{
 
         if (msgsSentCounter > msgsSentCounterMax) {
             if (taskName.contains("Final automessage")) msgsSentCounter = 0;
-            System.out.println("fina msgsSentCounter = " + msgsSentCounter);
+            //System.out.println("fina msgsSentCounter = " + msgsSentCounter);
 
             return;
         };
 
         if (taskName.contains("Final automessage")) {
             msgsSentCounter = 0;
-            System.out.println("fina msgsSentCounter = " + msgsSentCounter);
+           // System.out.println("fina msgsSentCounter = " + msgsSentCounter);
             return;
         };
 
@@ -125,9 +125,9 @@ public class Message extends Base{
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
-                System.out.println(id);
-                System.out.println(fullName);
-                System.out.println(leadPage);
+                //System.out.println(id);
+                //System.out.println(fullName);
+                //System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.contains("INVALID_TOKEN")) {
                     token = zoho.renewAccessToken();
@@ -160,13 +160,13 @@ public class Message extends Base{
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
 
-                        System.out.println(taskId);
-                        System.out.println(status);
-                        System.out.println(subject);
+                        //System.out.println(taskId);
+                        //System.out.println(status);
+                        //System.out.println(subject);
                         boolean subjectequalstaskName = subject.contains(taskName);
-                        System.out.println("subjectequalstaskName= " + subjectequalstaskName);
+                        //System.out.println("subjectequalstaskName= " + subjectequalstaskName);
                         boolean descriptionEqualsNull = description.contains("null");
-                        System.out.println("descriptionEqualsNull= " + descriptionEqualsNull);
+                        //System.out.println("descriptionEqualsNull= " + descriptionEqualsNull);
 
                         if (subject.contains(taskName + " from " + linkedinAccount) && status.contains("Not Started")  && localDateIsBeforeGivenComparison(duedate) ){
                             for (String acc : accsMsgssent) {
@@ -174,8 +174,8 @@ public class Message extends Base{
                                     break;
                                 }
                             }
-                            System.out.println("subject " + subject);
-                            System.out.println("equals " +subject.contains(taskName));
+                            //System.out.println("subject " + subject);
+                            //System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
                             if (msgsSentCounter > msgsSentCounterMax) break;
 
@@ -188,9 +188,9 @@ public class Message extends Base{
                             {
 
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
-                                System.out.println(msg);
+                                //System.out.println(msg);
                                 String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
-                                System.out.println("response " + response);
+                                //System.out.println("response " + response);
                                 Thread.sleep(1000*60);
                                 int impastoTaskId = (int) new JSONObject( response ).get("taskId");
                                 String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
@@ -250,8 +250,8 @@ public class Message extends Base{
                                     break;
                                 }
                             }
-                            System.out.println("subject " + subject);
-                            System.out.println("equals " +subject.contains(taskName));
+                           // System.out.println("subject " + subject);
+                           // System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
                             if (msgsSentCounter > msgsSentCounterMax) break;
 
@@ -264,9 +264,9 @@ public class Message extends Base{
                             accsMsgssent.add(fullName);
                             {
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
-                                System.out.println(msg);
+                               // System.out.println(msg);
                                 String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
-                                System.out.println("response " + response);
+                               // System.out.println("response " + response);
                                 Thread.sleep(1000*60);
                                 int impastoTaskId = (int) new JSONObject( response ).get("taskId");
 
@@ -274,7 +274,7 @@ public class Message extends Base{
                                 taskIdList.add(impastoTaskId);
                                 for (int task:taskIdList
                                      ) {
-                                    System.out.println(task);
+                               //     System.out.println(task);
                                 }
                                 String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                 if (taskStatus.contains("new")) {
@@ -319,7 +319,7 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
-                {       "Evgeny-Gazitov",
+               {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
                         "AQEDAUsJgSoEfrj6AAABlQS5XXgAAAGVKMXheE4AVK5N4z_QrnqMAB7Ff56K9Jwl3R0IT_qR1Zg1RGoqRnWdm3rlhPLbUZ12tKNnvrfZSiImFVV0so6IyFLchaW85L6R6F-cuptx7FtU_SKLxnEpOSXG|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjEwMS41Ny40Ny4yMTIifQ==",
@@ -372,13 +372,13 @@ public class Message extends Base{
                         "35ulurev",
                         "AQEDASj3SfwEGLIvAAABlGmC3Y4AAAGU70nIQk0Ai4A6U01EkeKnuSgP56RlxVoG-olHOnD8HPJtTuBozbjz6UZCSih9CDJB8pukeO7YCWMq24saiShfxJkZyoo_ZtfaW5TZm_l29SXGTBWvz5JSGdgZ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "lina Kompanets"
-                },/*
+                },
                 {       "Nikita-K",
                         "kni2012@ukr.net",
                         "33222200s",
                         "AQEDASE8mKgD8e3SAAABlGmER_UAAAGUjZDL9VYAMzZSaOOCF1F8PcfZQznfhQYTQutnyrKzLmQzv-g0CmX1Nu-ZlsnpsXHketfREZe-Bl_GFzC5dVXFk1iw8Gw5iD5EDxhi5DmPxWTxZCI58QmHNpm8|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuNjkuMzMifQ==",
                         "Nikita K"
-                },*/
+                },
                 {       "Maria-Deyneka",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
