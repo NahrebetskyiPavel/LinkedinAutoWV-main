@@ -38,7 +38,7 @@ public class Message extends Base{
     int msgsSent = 0;
     ArrayList<Integer> taskIdList = new ArrayList<>();
     int msgsSentCounter = 0;
-    int msgsSentCounterMax = 30;
+    int msgsSentCounterMax = 1;
 
 
     @SneakyThrows
@@ -46,10 +46,8 @@ public class Message extends Base{
     public void senddMsg(String profileId, String email, String password, String cookie, String linkedInAccount ){
 
         String  token = zoho.renewAccessToken();
-
+        System.out.println("Acc " + profileId);
         sendFolowUpMsg(linkedInAccount, token,  "Second automessage", profileId,  email,  password,  cookie );
-        if (msgsSent == leadsRandomResult )      return;
-        sendFolowUpMsg(linkedInAccount, token,  "automessage from Art Stenko", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token,  "Third automessage", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
@@ -79,7 +77,7 @@ public class Message extends Base{
         if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token, "FollowUp six automessage", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
-        sendFolowUpMsg(linkedInAccount, token, "Meeting automessage", profileId,  email,  password,  cookie );
+       // sendFolowUpMsg(linkedInAccount, token, "Meeting automessage", profileId,  email,  password,  cookie );
         sendFolowUpMsg(linkedInAccount, token, "Final automessage", profileId,  email,  password,  cookie );
 
     }
@@ -93,17 +91,10 @@ public class Message extends Base{
 
         if (msgsSentCounter > msgsSentCounterMax) {
             if (taskName.contains("Final automessage")) msgsSentCounter = 0;
-            //System.out.println("fina msgsSentCounter = " + msgsSentCounter);
+           System.out.println("fina msgsSentCounter = " + msgsSentCounter);
 
             return;
         };
-
-        if (taskName.contains("Final automessage")) {
-            msgsSentCounter = 0;
-           // System.out.println("fina msgsSentCounter = " + msgsSentCounter);
-            return;
-        };
-
 
         for (int n = 0; n < 1000; n++) {
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
@@ -114,9 +105,9 @@ public class Message extends Base{
             }
 
             if (data.isEmpty()) break;
-            System.out.println("||==================================================================||");
+            //System.out.println("||==================================================================||");
             JSONObject responseBodyJsonObject = new JSONObject( data );
-            //System.out.println(responseBodyJsonObject);
+           // System.out.println(responseBodyJsonObject);
             Thread.sleep(10000);
             //System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
@@ -125,9 +116,9 @@ public class Message extends Base{
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
-                //System.out.println(id);
-                //System.out.println(fullName);
-                //System.out.println(leadPage);
+                System.out.println(id);
+                System.out.println(fullName);
+                System.out.println(leadPage);
                 String tasks = zoho.getLeadTaskList(id, token);
                 if (tasks.contains("INVALID_TOKEN")) {
                     token = zoho.renewAccessToken();
@@ -150,23 +141,24 @@ public class Message extends Base{
                 }
                 JSONObject tasksData = new JSONObject( tasks );
                 //System.out.println(tasksData.getJSONArray("data"));
-                //System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
+               // System.out.println("tasksData length:"+tasksData.getJSONArray("data").length());
                 if (tasksData.getJSONArray("data").length() >0){
                     for (int j = 0; j < tasksData.getJSONArray("data").length(); j++) {
-                        System.out.println("==================================================================");
+                        //System.out.println("==================================================================");
                         String status = tasksData.getJSONArray("data").getJSONObject(j).getString("Status");
                         String subject = tasksData.getJSONArray("data").getJSONObject(j).getString("Subject");
                         String taskId = tasksData.getJSONArray("data").getJSONObject(j).getString("id");
                         String description = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Description"));
                         String duedate = String.valueOf(tasksData.getJSONArray("data").getJSONObject(j).get("Due_Date"));
 
-                        //System.out.println(taskId);
-                        //System.out.println(status);
-                        //System.out.println(subject);
+                        System.out.println(taskId);
+                        System.out.println(status);
+                        System.out.println(subject);
+                        System.out.println("duedate: " + duedate);
                         boolean subjectequalstaskName = subject.contains(taskName);
-                        //System.out.println("subjectequalstaskName= " + subjectequalstaskName);
+                        System.out.println("subjectequalstaskName= " + subjectequalstaskName);
                         boolean descriptionEqualsNull = description.contains("null");
-                        //System.out.println("descriptionEqualsNull= " + descriptionEqualsNull);
+                        System.out.println("descriptionEqualsNull= " + descriptionEqualsNull);
 
                         if (subject.contains(taskName + " from " + linkedinAccount) && status.contains("Not Started")  && localDateIsBeforeGivenComparison(duedate) ){
                             for (String acc : accsMsgssent) {
@@ -174,8 +166,8 @@ public class Message extends Base{
                                     break;
                                 }
                             }
-                            //System.out.println("subject " + subject);
-                            //System.out.println("equals " +subject.contains(taskName));
+                            System.out.println("subject " + subject);
+                            System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
                             if (msgsSentCounter > msgsSentCounterMax) break;
 
@@ -188,9 +180,9 @@ public class Message extends Base{
                             {
 
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
-                                //System.out.println(msg);
+                                System.out.println(msg);
                                 String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
-                                //System.out.println("response " + response);
+                                System.out.println("response " + response);
                                 Thread.sleep(1000*60);
                                 int impastoTaskId = (int) new JSONObject( response ).get("taskId");
                                 String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
@@ -244,29 +236,28 @@ public class Message extends Base{
                             }
                         }
                         //Fourt automessageArt Stenko
-                        if ( subject.contains(taskName + " from " + linkedinAccount) && status.contains("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
+                        if (subject.contains(taskName + " from " + linkedinAccount) && status.contains("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
                             for (String acc : accsMsgssent) {
                                 if(acc.matches(fullName)){
                                     break;
                                 }
                             }
-                           // System.out.println("subject " + subject);
-                           // System.out.println("equals " +subject.contains(taskName));
+                            System.out.println("subject " + subject);
+                            System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
                             if (msgsSentCounter > msgsSentCounterMax) break;
-
                             System.out.println("sent msg!!!");
-                            System.out.println("msgsSent= " + msgsSent);
 
+                            System.out.println("msgsSent= " + msgsSent);
                             msgsSent += msgsSent;
                             msgsSentCounter = msgsSentCounter+1;
 
                             accsMsgssent.add(fullName);
                             {
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
-                               // System.out.println(msg);
+                             System.out.println(msg);
                                 String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
-                               // System.out.println("response " + response);
+                         System.out.println("response " + response);
                                 Thread.sleep(1000*60);
                                 int impastoTaskId = (int) new JSONObject( response ).get("taskId");
 
@@ -274,7 +265,7 @@ public class Message extends Base{
                                 taskIdList.add(impastoTaskId);
                                 for (int task:taskIdList
                                      ) {
-                               //     System.out.println(task);
+                          System.out.println(task);
                                 }
                                 String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                 if (taskStatus.contains("new")) {
@@ -304,10 +295,6 @@ public class Message extends Base{
                     }
                 }
 
-                System.out.println();
-                System.out.println("\n");
-                System.out.println("====================================================================");
-                System.out.println("\n");
             }
 
 
@@ -322,7 +309,7 @@ public class Message extends Base{
                {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
-                        "AQEDAUsJgSoEfrj6AAABlQS5XXgAAAGVKMXheE4AVK5N4z_QrnqMAB7Ff56K9Jwl3R0IT_qR1Zg1RGoqRnWdm3rlhPLbUZ12tKNnvrfZSiImFVV0so6IyFLchaW85L6R6F-cuptx7FtU_SKLxnEpOSXG|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjEwMS41Ny40Ny4yMTIifQ==",
+                        "AQEDAUsJgSoFeocMAAABlUGRGp8AAAGVZZ2en04AShAfPV7OrhLqLGXm3IHnJ16KSbkQDmhA95TaZtF2gqh1gqS7j3fAhAUSGgmWvgtz7Y7znwYWQ8sxZPMa5py52Pc1yplzaJrkju08nYqy6kp0pFvT",
                         "Evgeny Gazitov"
                 },
 
@@ -350,7 +337,7 @@ public class Message extends Base{
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUFMJW_AAABlT12p1sAAAGVYYMrW00AlrcYFVtwLXZMRHdnGResxyg3-hQzRtox1FFTiRzAi7BJNRJ0xdOFwzBi-e1yo2fTllXp2bSQ6mzxwb65EAXglt8w0h5DmyV7YHcVTb2d6BOnMqA2|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE3OS4xNTMuNjEifQ==",
+                        "AQEDAUwy4cUCq_RvAAABlUGT970AAAGVZaB7vU0ARQqJ278Ongy7C9yo3mPbkM01DjI5pI4pxouRmwBUBWhyZAhsVgCRR2IFJyWLKC_lvUweonHREOz7Tod9RqYBU2YAb90DAJjAICMQoA5rXjDdyNOP|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE4My4xNzkuMTM2In0=",
                         "Michael Krusciov"
                 },
 
