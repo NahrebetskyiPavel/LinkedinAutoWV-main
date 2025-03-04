@@ -160,7 +160,7 @@ public class Message extends Base{
                         boolean descriptionEqualsNull = description.contains("null");
                         System.out.println("descriptionEqualsNull= " + descriptionEqualsNull);
 
-                        if (subject.contains(taskName + " from " + linkedinAccount) && status.contains("Not Started")  && localDateIsBeforeGivenComparison(duedate) ){
+                        if (subject.contains(taskName/* + " from " + linkedinAccount*/) && status.contains("Not Started")  && localDateIsBeforeGivenComparison(duedate) ){
                             for (String acc : accsMsgssent) {
                                 if(acc.matches(fullName)){
                                     break;
@@ -236,7 +236,7 @@ public class Message extends Base{
                             }
                         }
                         //Fourt automessageArt Stenko
-                        if (subject.contains(taskName + " from " + linkedinAccount) && status.contains("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
+                        if (subject.contains(taskName/* + " from " + linkedinAccount*/) && status.contains("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
                             for (String acc : accsMsgssent) {
                                 if(acc.matches(fullName)){
                                     break;
