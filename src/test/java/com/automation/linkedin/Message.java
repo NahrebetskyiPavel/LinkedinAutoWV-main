@@ -171,7 +171,7 @@ public class Message extends Base{
                             Thread.sleep(10000);
                             if (msgsSentCounter > msgsSentCounterMax) break;
 
-                            System.out.println("sent msg!!!");
+                            System.out.println("sent msg from " + linkedinAccount);
                             System.out.println("msgsSent= " + msgsSentCounter);
                             msgsSent = msgsSent + 1;
                             msgsSentCounter = msgsSentCounter+1;
@@ -246,7 +246,7 @@ public class Message extends Base{
                             System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
                             if (msgsSentCounter > msgsSentCounterMax) break;
-                            System.out.println("sent msg!!!");
+                            System.out.println("sent msg from " + linkedinAccount);
 
                             System.out.println("msgsSent= " + msgsSent);
                             msgsSent += msgsSent;
@@ -306,6 +306,9 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
+
+
+
                 {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
@@ -337,7 +340,7 @@ public class Message extends Base{
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUCq_RvAAABlUGT970AAAGVZaB7vU0ARQqJ278Ongy7C9yo3mPbkM01DjI5pI4pxouRmwBUBWhyZAhsVgCRR2IFJyWLKC_lvUweonHREOz7Tod9RqYBU2YAb90DAJjAICMQoA5rXjDdyNOP|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE3OS4xNTMuMTY3In0=",
+                        "AQEDAUwy4cUCWcAcAAABlWrGc6MAAAGVjtL3o1YAsh2pfZ99ny09S33CvkBvKGnlSwAc3cuT5KXFi2Lh8WC6_WDiqNQ66DkIBxjbI7tf5uDuW4osaWzPQ2VxB4D9HImYGFEOLXFYo_CnAxab_Qwbumqj|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE3OS4xNTMuMTY3In0=",
                         "Michael Krusciov"
                 },
 
