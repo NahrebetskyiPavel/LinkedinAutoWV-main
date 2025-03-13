@@ -150,6 +150,8 @@ public class AddLeads extends Base {
                 };
                 if (taskInfo.contains("Cookie is not valid")) {
                     System.out.println("Cookie is not valid");
+                    wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Cookie is not valid " + linkedinperson + "");
+
                     throw new Exception("Cookie is not valid!");
                 };
                 if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) {
