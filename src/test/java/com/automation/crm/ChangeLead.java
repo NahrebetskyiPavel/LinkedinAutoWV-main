@@ -106,12 +106,10 @@ while (true){
     @DataProvider(name = "dataProviderPeopleAddToCRM", parallel=false)
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
-
-
                 {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
-                        "AQEDAUsJgSoFeocMAAABlUGRGp8AAAGVZZ2en04AShAfPV7OrhLqLGXm3IHnJ16KSbkQDmhA95TaZtF2gqh1gqS7j3fAhAUSGgmWvgtz7Y7znwYWQ8sxZPMa5py52Pc1yplzaJrkju08nYqy6kp0pFvT|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjEzMC4yNS4xMTYuMjEwIn0=",
+                        "AQEDAUsJgSoACPECAAABlX91PhYAAAGVo4HCFlYARxppAFEu2z2PuxjuXYBO7OBLatNyhy84r3VkAanlhTBQyIvD4vbvLbIG1mhiiw7EpTXvuy0eNGNU9nGxGP-_rQqEi5lbfoQQper6afSjzZeQEfIQ|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6Ijk1LjI0MC4yMDYuMTk0In0=",
                         "Evgeny Gazitov"
                 },
 
@@ -139,7 +137,7 @@ while (true){
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUCq_RvAAABlUGT970AAAGVZaB7vU0ARQqJ278Ongy7C9yo3mPbkM01DjI5pI4pxouRmwBUBWhyZAhsVgCRR2IFJyWLKC_lvUweonHREOz7Tod9RqYBU2YAb90DAJjAICMQoA5rXjDdyNOP|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE3OS4xNTMuMTY3In0=",
+                        "AQEDAUwy4cUDY3T1AAABlX9lJx8AAAGVo3GrH00AKYznEfusBysjPG529_HO2FaM1rf2Ua3DKqRXYTGS-ToJDCCXB2uqjFMIjTqjO_iHygqxb3sjwA0RSj6E8wO7GDTSGmEBWVrxyvbUPry7PJKavlV0|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE4My4xNzkuNiJ9",
                         "Michael Krusciov"
                 },
 
