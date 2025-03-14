@@ -385,17 +385,12 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
-                {       "Marian-Reshetun",
-                        "reshetunmaryanwv@gmail.com",
-                        "33222200Shin",
-                        "AQEDATpm9GsDKEL5AAABlGmOfpAAAAGU_02FZE0ALTKPrP2OgK7G6YxUJw3HzHzxtFy65g0LZreuBTXCZ_7dufkRTICalYOnUuAkHioX3kupbIyjpHnuLlB2ML8h7MX7BLxvoRhl7K9IOQ5bmWjI2z6H|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
-                        "Marian Reshetun"
-                },
+
 
                 {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
-                        "AQEDAUsJgSoACPECAAABlX91PhYAAAGVo4HCFlYARxppAFEu2z2PuxjuXYBO7OBLatNyhy84r3VkAanlhTBQyIvD4vbvLbIG1mhiiw7EpTXvuy0eNGNU9nGxGP-_rQqEi5lbfoQQper6afSjzZeQEfIQ|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6Ijk1LjI0MC4yMDYuMTk0In0=",
+                        "AQEDAUsJgSoAC1l8AAABlZRqM5EAAAGVuHa3kU4AygXdRwA21P6p3EiTnEMFsVNmSSUVDiGJZ5nLS6coGdopDQPLqVA-mTKmgM6CKC74NyHISKeIKmR5CcuBvU1Nt5rMHWaY21AEdYWoMZVW9vEZ8ybu|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjkzLjcxLjY1LjExNiJ9",
                         "Evgeny Gazitov"
                 },
 
@@ -423,7 +418,7 @@ public class Message extends Base{
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUDY3T1AAABlX9lJx8AAAGVo3GrH00AKYznEfusBysjPG529_HO2FaM1rf2Ua3DKqRXYTGS-ToJDCCXB2uqjFMIjTqjO_iHygqxb3sjwA0RSj6E8wO7GDTSGmEBWVrxyvbUPry7PJKavlV0|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE4My4xNzkuNiJ9",
+                        "AQEDAUwy4cUDGdTqAAABlZRq6nIAAAGVuHduck4Aq9VwpW9HFtzimuKz_fRbUlh-GzDaXSWA94rW2NvQhm_FRlVrEclDfyQgoArFaet-NPhtCyNhbTkDVGka8gaWcFzdZ8hdkCjKVkdyduFkdfUCH8zU|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE4NC4yMDIuMTQzIn0=",
                         "Michael Krusciov"
                 },
 
