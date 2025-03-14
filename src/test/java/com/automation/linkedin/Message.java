@@ -235,8 +235,86 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         }
+                        if (subject.contains(taskName/* + " from " + linkedinAccount*/) && status.contains("In Progress")  && localDateIsBeforeGivenComparison(duedate) ){
+                            for (String acc : accsMsgssent) {
+                                if(acc.matches(fullName)){
+                                    break;
+                                }
+                            }
+                            System.out.println("subject " + subject);
+                            System.out.println("equals " +subject.contains(taskName));
+                            Thread.sleep(10000);
+                            if (msgsSentCounter > msgsSentCounterMax) break;
+
+                            System.out.println("sent msg from " + linkedinAccount);
+                            System.out.println("msgsSent= " + msgsSentCounter);
+                            msgsSent = msgsSent + 1;
+                            msgsSentCounter = msgsSentCounter+1;
+
+                            accsMsgssent.add(fullName);
+                            {
+
+                                String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
+                                System.out.println(msg);
+                                String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
+                                System.out.println("response " + response);
+                                Thread.sleep(1000*60);
+                                int impastoTaskId = (int) new JSONObject( response ).get("taskId");
+                                String taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
+
+                                while (true){
+                                    Thread.sleep( 60 * 1000);
+                                    taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
+                                    if (taskInfo.contains("finished")) break;
+                                    if (taskInfo.contains("failed")) break;
+                                    System.out.println(taskInfo);
+                                }
+                                String taskResults ;
+                                try {
+                                    taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
+                                    taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
+
+                                } catch (Exception e){
+                                    Thread.sleep(60*1000);
+                                    taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
+                                    if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
+                                    else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
+                                    else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
+                                    else if (taskInfo.contains("write EPROTO")) { throw new Exception("write EPROTO proxy err");}
+                                    else { throw new Exception(
+                                            taskInfo + "\n\n\n\n" +
+                                            String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0)) +
+                                            "\n\n\n\n" + e); }
+                                }
+
+                                System.out.println("taskid = " + impastoTaskId);
+                                String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
+                                System.out.println("taskStatus " + taskStatus);
+                                if (taskStatus.contains("new")) {
+                                    Thread.sleep(30000);
+                                    taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
+                                    System.out.println("taskStatus " + taskStatus);
+
+                                }
+                                if (taskResults.contains("error") && taskResults.contains("Invalid url")) continue;
+
+                                try {
+                                    statusChecker.waitForStatus("finished", taskStatus, 60000);
+
+
+                                    System.out.println("Status is now 'finished'.");
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
+                                zoho.changeTaskStatus(token, taskId,"Closed");
+                            }
+                        }
                         //Fourt automessageArt Stenko
-                        if (subject.contains(taskName/* + " from " + linkedinAccount*/) && status.contains("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
+/*
+                        if (subject.contains(taskName*/
+/* + " from " + linkedinAccount*//*
+) && status.contains("In Progress")  && localDateIsBeforeGivenComparison(duedate) ) {
                             for (String acc : accsMsgssent) {
                                 if(acc.matches(fullName)){
                                     break;
@@ -292,6 +370,7 @@ public class Message extends Base{
                                 zoho.changeTaskStatus(token, taskId,"Closed");
                             }
                         }
+*/
                     }
                 }
 
@@ -306,7 +385,12 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
-
+                {       "Marian-Reshetun",
+                        "reshetunmaryanwv@gmail.com",
+                        "33222200Shin",
+                        "AQEDATpm9GsDKEL5AAABlGmOfpAAAAGU_02FZE0ALTKPrP2OgK7G6YxUJw3HzHzxtFy65g0LZreuBTXCZ_7dufkRTICalYOnUuAkHioX3kupbIyjpHnuLlB2ML8h7MX7BLxvoRhl7K9IOQ5bmWjI2z6H|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "Marian Reshetun"
+                },
 
                 {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
