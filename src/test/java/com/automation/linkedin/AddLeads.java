@@ -32,7 +32,7 @@ public class AddLeads extends Base {
     int high = 5000;
     int randomResult = random.nextInt(high-low) + low;
     int leadLow = 5;
-    int leadsHigh = 10;
+    int leadsHigh = 20;
     int leadsRandomResult = random.nextInt(leadsHigh-leadLow) + leadLow;
 
     String token = zohoCrmHelper.renewAccessToken();
@@ -150,6 +150,8 @@ public class AddLeads extends Base {
                 };
                 if (taskInfo.contains("Cookie is not valid")) {
                     System.out.println("Cookie is not valid");
+                    wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Cookie is not valid " + linkedinperson + "");
+
                     throw new Exception("Cookie is not valid!");
                 };
                 if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) {
