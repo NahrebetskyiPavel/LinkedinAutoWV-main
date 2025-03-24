@@ -385,12 +385,10 @@ public class Message extends Base{
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
 
-
-
                 {       "Evgeny-Gazitov",
                         "evgeny.gazitov8753@outlook.it",
                         "33222200Shin",
-                        "AQEDAUsJgSoAC1l8AAABlZRqM5EAAAGVuHa3kU4AygXdRwA21P6p3EiTnEMFsVNmSSUVDiGJZ5nLS6coGdopDQPLqVA-mTKmgM6CKC74NyHISKeIKmR5CcuBvU1Nt5rMHWaY21AEdYWoMZVW9vEZ8ybu|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6IjkzLjM5LjEyNi4yNTQifQ==",
+                        "AQEDAUsJgSoAC1l8AAABlZRqM5EAAAGV51qW_k4AhxHHKNlIwcRduFtrw9an341_H2kjfeNREyUQhjMJEbedQ2VMvA6dqhP4ROqV3eQ4GYDy9nI9duy5ec919DlUCPZi5BfZLTdsLje02oTMq82x8RFE|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6Ijk1LjIzNi4xMzQuMjE1In0=",
                         "Evgeny Gazitov"
                 },
 
@@ -418,7 +416,7 @@ public class Message extends Base{
                 {       "michael-krusciov",
                         "michael.krusciov@outlook.de",
                         "cTsH3KhU",
-                        "AQEDAUwy4cUDh3YUAAABlaNtuLIAAAGVx3o8slYApB-IzCwyDd5b1NWBWIpBfcxfkNrZBKYoRuxznBAajUpY3jopnSg0A5Emncm3NNl5v2IDmfYOHgpb-Ok6CRH616l1P1w2SQ5UKBepPcZLUAM_FtbE|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE3MS45OC43NCJ9",
+                        "AQEDAUwy4cUDh3YUAAABlaNtuLIAAAGVx3o8slYApB-IzCwyDd5b1NWBWIpBfcxfkNrZBKYoRuxznBAajUpY3jopnSg0A5Emncm3NNl5v2IDmfYOHgpb-Ok6CRH616l1P1w2SQ5UKBepPcZLUAM_FtbE|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg1LjE3OS4xNTMuMTc5In0=",
                         "Michael Krusciov"
                 },
 
@@ -428,13 +426,15 @@ public class Message extends Base{
                         "asd2424qq",
                         "AQEDATp4HzoBa6O7AAABlGlxPOgAAAGUjX3A6E0AwNpK6n3p3Ulp5DO-BwvtTrsYEBYy9LxAD6xohwUCfLQO52TrKY4CuGewUPx04ho-yh9X6s0CZ_L_uBtMC0MvER8xlAxfO5ENZX--bzIUQuvtufWI|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuMjYuNjkifQ==",
                         "Anastasiia Vozniak"
-                },/*
+                },
+                /*
                 {       "Art-Stenko",
                         "artstenko@gmail.com",
                         "GOgoCyclone_11",
                         "AQEDAR1-TWgCdaXbAAABlGmXZtsAAAGU71o8iU0AX2vCEj5S0ms2kzRxYBRPWlb-BlkleFw59RilRgTGUZKEKeA3LHcXC5v2PEGQ4htj0m20Zgs8vTv6FxAjj6ZwLwCao7rehPhPpbiaXZbxwkBFGHGs|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Art Stenko"
-                },*/
+                },
+                */
                 {       "lina-Kompanets",
                         "ekompanets02@gmail.com",
                         "35ulurev",
@@ -476,13 +476,6 @@ public class Message extends Base{
                         "asd321qq",
                         "AQEDATxvso0AsoGrAAABlGmcpMYAAAGUjakoxk0At3rdIcYwg58nfPB100bIp55gaun_CLHbmRhw-J9lsRGXjBUy8peYKS15_zVsmeIbGpBPQzmETdRZntEpa4d7CQxIDcAy5Cn7m0nPv-__V08N5W8L|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuODIuMTgxIn0=",
                         "Aleksandra Sternenko"
-                },
-
-                {       "Matthew-Martinez",
-                        "mMartiz11@outlook.it",
-                        "metmar11mmjy",
-                        "AQEDAUvkzscEuod7AAABjcxZHVEAAAGVZaJUXk0AZtEe_NDTtXzWjNSIhGHwaK6uxLrfIID9n94Trrah5UBV8qZbnsjj0uRerARQuFR5AHFRd3uAGQFE5uMGzGZIzZNmYbG90TRwHOjFjCHsFnQDGI4f|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6Ijg0LjMzLjI1MS4xNzgifQ==",
-                        "Matthew Martinez"
                 }
         };
     }
