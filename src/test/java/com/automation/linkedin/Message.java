@@ -112,7 +112,14 @@ public class Message extends Base{
             //System.out.println(responseBodyJsonObject.getJSONArray("data").length());
             for (int i = 0; i < responseBodyJsonObject.getJSONArray("data").length(); i++) {
                 String id = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("id");
-                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+//                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                String leadPage;
+                try {
+                     leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                }catch (Exception e){
+                    System.out.println("JSONException occurred for index " + id + ". Skipping this entry.");
+                    continue;
+                }
                 String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
@@ -427,7 +434,7 @@ public class Message extends Base{
                         "AQEDATp4HzoBa6O7AAABlGlxPOgAAAGUjX3A6E0AwNpK6n3p3Ulp5DO-BwvtTrsYEBYy9LxAD6xohwUCfLQO52TrKY4CuGewUPx04ho-yh9X6s0CZ_L_uBtMC0MvER8xlAxfO5ENZX--bzIUQuvtufWI|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuMjYuNjkifQ==",
                         "Anastasiia Vozniak"
                 },
-                /*
+             /*
                 {       "Art-Stenko",
                         "artstenko@gmail.com",
                         "GOgoCyclone_11",
@@ -462,7 +469,7 @@ public class Message extends Base{
                 {       "Anastasiia-Kuntii",
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
-                        "AQEDASosSSoEwgrNAAABlGmRGiUAAAGUjZ2eJU0AhC51KbwrLYzi4wa2ytQxdxJv4VpDm3awy0TQZEatEjsuQgmEZI5rzK1ANRo6I-kuNg72s-33zhWTr5kS4quQwdpXozxkrjzKyNkESDnlF0vDuas4|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuMjguNTEifQ==",
+                        "AQEDASosSSoEwgrNAAABlGmRGiUAAAGUjZ2eJU0AhC51KbwrLYziцй4wa2ytQxdxJv4VpDm3awy0TQZEatEjsuQgmEZI5rzK1ANRo6I-kuNg72s-33zhWTr5kS4quQwdpXozxkrjzKyNkESDnlF0vDuas4|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuMjguNTEifQ==",
                         "Anastasiia Kuntii"
                 },
                 {       "Natalia-Marcun",
