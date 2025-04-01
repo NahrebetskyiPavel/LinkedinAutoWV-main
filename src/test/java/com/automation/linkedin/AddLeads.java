@@ -51,7 +51,7 @@ public class AddLeads extends Base {
             data = zohoCrmHelper.getLeadList( token, j,  "Waiting",  linkedinperson);
         }
         if (data.length()<=1){
-            throw new Exception("NO LEADS FOUND");
+            throw new Exception("NO LEADS FOUND" + linkedinperson);
         }
         int leadsAddedCount = 0;
 
