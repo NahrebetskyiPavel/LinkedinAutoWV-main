@@ -295,6 +295,7 @@ public class Message extends Base{
                                 }
 
                                 System.out.println("taskid = " + impastoTaskId);
+                                System.out.println("acc = " + linkedinAccount);
                                 String taskStatus = new JSONObject( wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId) ).getString("status");
                                 System.out.println("taskStatus " + taskStatus);
                                 if (taskStatus.contains("new")) {
