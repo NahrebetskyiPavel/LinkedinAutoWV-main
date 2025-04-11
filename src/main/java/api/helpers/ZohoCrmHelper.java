@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import org.testng.annotations.Test;
 import utils.StatusChecker;
 
+import java.util.concurrent.TimeUnit;
+
 public class ZohoCrmHelper {
     public String responseBody;
     @SneakyThrows
@@ -177,7 +179,10 @@ public class ZohoCrmHelper {
     }
     @SneakyThrows
     public String getLeadInfoByFullName(String token, String fullName){
-        OkHttpClient client = new OkHttpClient().newBuilder()
+        OkHttpClient client =new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
