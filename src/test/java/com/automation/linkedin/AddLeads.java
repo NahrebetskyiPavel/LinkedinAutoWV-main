@@ -270,15 +270,6 @@ public class AddLeads extends Base {
                             "Johan Heinlein"
                     },
 
-
-                {       "michael-krusciov",
-                        "michael.krusciov@outlook.de",
-                        "cTsH3KhU",
-                        "AQEDAUwy4cUEcMOnAAABliC8x7sAAAGWRMlLu00AXwcS45WQL3ZfIivaG4mlHPwgDyTxaDB5y4gnDTfjtV7xI0KjPWZoT-DvFKYEnnHNAm_BHBjYJdsNuZ6O5IDIB-3evqWlV5Ho7arzkOvOJ-Am6_4x|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiODAuMTcxLjcxLjU2In0=",
-                        "Michael Krusciov"
-                },
-
-
                 {       "Anastasiia-Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "asd2424qq",
@@ -348,12 +339,6 @@ public class AddLeads extends Base {
                         "Danylo Lytvyn"
                 },
 
-                {       "Elias-Danilov",
-                        "elias.danilov@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUs6XDsBwPRAAAABliEF98EAAAGWRRJ7wVYAziEeLnDBA_RFsGZvT2UEtgBBEHQ-vF0zZW82VAwHzpfjYcc4a5zohVgdtCdC65JuJDqcGJ3LS4OjccpYIUNnD6Zup_5iMqg1U0iuymYg9Bl5rsKU|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTU2LjIyOC4xNzUuNDIifQ==",
-                        "Elias Danilov"
-                },
 
                 {       "Paul-Bereza",
                         "paul.bereza02@outlook.de",
