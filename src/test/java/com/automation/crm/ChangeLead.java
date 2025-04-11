@@ -62,7 +62,14 @@ while (true){
 
         for (int i = 0; i < numberOfProfiles; i++)
         {
-            String data = String.valueOf(new JSONObject( connectionsList ).getJSONArray("results").get(i));
+            String data;
+            try {
+                data = String.valueOf(new JSONObject( connectionsList ).getJSONArray("results").get(i));
+            } catch (Exception e){
+                if ((e +"").contains("JSONArray") &&  (e +"").contains("not found") );
+                System.out.println("JSONArray" + i +"not found");
+                break;
+            }
             String personName = String.valueOf(new JSONObject( data ).getString("fullName"));
             //String personRef = String.valueOf(new JSONObject( data ).getString("personRef"));
             System.out.println(personName);
