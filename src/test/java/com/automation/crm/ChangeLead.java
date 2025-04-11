@@ -113,16 +113,6 @@ while (true){
                         "AQEDAUxEX5oApf6pAAABjglKvk4AAAGWOHzjDk0AkWLFqwKXjTsbaL1I3cBy8Wd7uxDsLreC9e04z6nEk_Zex_5fPbBCeJ3UfNqI_nWTNbxjJ3sHLgGoj-lzl2kJXLiLfsxEuwPYp_Tu0NC_Bewd85hV|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiNS4xNDYuMjQ4LjM0In0=",
                         "Johan Heinlein"
                 },
-
-
-                {       "michael-krusciov",
-                        "michael.krusciov@outlook.de",
-                        "cTsH3KhU",
-                        "AQEDAUwy4cUAyIOUAAABlhR0caAAAAGWOID1oE4AXTJHGIi6UHsZsUL9TCnDmRupEbJCF-DtUXeludMf8kgpHU8GcUAsRdanVMK7tgCrXZtW0jkrz6474y7tGysABAYxvqEvFnRWKEJzvn3gtxoWR2jD|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiODAuMTM1LjIwNS4xODQifQ==",
-                        "Michael Krusciov"
-                },
-
-
                 {       "Anastasiia-Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "asd2424qq",
@@ -190,15 +180,6 @@ while (true){
                         "1171534Oli35Wisew",
                         "AQEDATP_TCAAuywlAAABldbcruUAAAGV-uky5U0AkM0fAZ1ACH_RNZBXhZfRda3UIsoXgC6uBBNnKaUq5-_x_s9QU73z7DnspGpAfdYX3IrLk0Lpc6NdoYBWuqNi8bKHBLM9lxQSBuy-gMbiAb2IB29C|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Danylo Lytvyn"
-                },
-
-
-
-                {       "Elias-Danilov",
-                        "elias.danilov@outlook.it",
-                        "33222200Shin",
-                        "AQEDAUs6XDsDA2qQAAABlhR4snAAAAGWOIU2cFYAHlbaxl-CBGvKz_IUE-l8TWp7wr6pRdpSrHZg0qEXL_3tbP86RFx19Ye2kXPVrBL2bgD3mbDmMLn7O2A4VWILLhqmaKVp9qQDQ0dBq6JrGZKf5wi4|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiOTMuMTMxLjE0Ni4xMDYifQ==",
-                        "Elias Danilov"
                 },
 
                 {       "Paul-Bereza",
