@@ -47,6 +47,7 @@ public class Message extends Base{
 
         String  token = zoho.renewAccessToken();
         System.out.println("Acc " + profileId);
+        if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token,  "Second automessage", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token,  "Third automessage", profileId,  email,  password,  cookie );
