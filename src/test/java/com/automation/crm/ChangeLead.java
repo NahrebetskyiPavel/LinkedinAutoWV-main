@@ -84,6 +84,8 @@ while (true){
                 if (leadInfoResponseBody.length() > 0 && leadInfoResponseBody.contains("data")) {
                     JSONObject responseBodyJsonObjectLeadInfo = new JSONObject(leadInfoResponseBody);
                     String leadId = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("id");
+                    String personRef = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Website");
+
                     System.out.println(leadId);
                     System.out.println(personName);
                     if (responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Lead_Status").equals("Attempted to Contact"))
@@ -96,13 +98,21 @@ while (true){
                         System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
                     };
                     }
-//else {
-//                       // String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname
-//                        String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, linkedinperson);
-//                        if (response.contains("INVALID_TOKEN")) {
-//                            token = zohoCrmHelper.renewAccessToken();
-//                        }
-//                    }
+else {
+                        System.out.println("ADD LEAD " + personRef + "to " + linkedinperson);
+                       // String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname
+                        String response = zohoCrmHelper.AddLeadToCRM(personName, token, "Pavlo", personRef, "Attempted to Contact", "Update", "421659000040922027", linkedinperson);
+                        if (response.contains("INVALID_TOKEN")) {
+                            token = zohoCrmHelper.renewAccessToken();
+                        }
+                                String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(leadId, token, Contacted);
+                                JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
+                                System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
+                                System.out.println("\n" );
+                                if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
+                                    System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
+                        };
+                    }
                 }
             Thread.sleep(randomResult);
         }
