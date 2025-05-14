@@ -117,7 +117,9 @@ public class Message extends Base{
 //                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
                 String leadPage;
                 try {
-                     leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website").replaceFirst("//$", "");;
+                     leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website")
+                             .replaceFirst("//$", "")
+                             .replaceFirst("///$", "");;
                 }catch (Exception e){
                     System.out.println("JSONException occurred for index " + id + ". Skipping this entry.");
                     continue;
@@ -189,6 +191,7 @@ public class Message extends Base{
                             {
 
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
+                                System.out.println("leadPage" + leadPage);
                                 System.out.println(msg);
                                 String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
                                 System.out.println("response " + response);
@@ -266,6 +269,7 @@ public class Message extends Base{
                             {
 
                                 String msg = description.replace("NAME",leadName).replace("\n","\\n").replace("\r","");
+                                System.out.println("leadPage: "+leadPage);
                                 System.out.println(msg);
                                 String response = wiseVisionApiHelper.sentMsgImpasto(profileId, email, password, cookie, leadPage, msg);
                                 System.out.println("response " + response);
