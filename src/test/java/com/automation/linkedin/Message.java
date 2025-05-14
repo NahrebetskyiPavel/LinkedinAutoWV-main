@@ -117,7 +117,7 @@ public class Message extends Base{
 //                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
                 String leadPage;
                 try {
-                     leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
+                     leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website").replaceFirst("//$", "");;
                 }catch (Exception e){
                     System.out.println("JSONException occurred for index " + id + ". Skipping this entry.");
                     continue;
@@ -203,15 +203,17 @@ public class Message extends Base{
                                     if (taskInfo.contains("failed")) break;
                                     System.out.println(taskInfo);
                                 }
-                                String taskResults ;
+                                String taskResults = "";
                                 try {
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
+                                    if      ( taskResults.contains("error") ) throw new Exception(taskResults + "\n" + linkedinAccount);
 
                                 } catch (Exception e){
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
+                                    if      ( taskResults.contains("error") ) throw new Exception(taskResults + "\n" + linkedinAccount);
                                     else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
                                     else if (taskInfo.contains("write EPROTO")) { throw new Exception("write EPROTO proxy err");}
