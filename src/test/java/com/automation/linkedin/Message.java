@@ -117,9 +117,7 @@ public class Message extends Base{
 //                String leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
                 String leadPage;
                 try {
-                     leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website")
-                             .replaceFirst("//$", "")
-                             .replaceFirst("///$", "");;
+                     leadPage = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Website");
                 }catch (Exception e){
                     System.out.println("JSONException occurred for index " + id + ". Skipping this entry.");
                     continue;
@@ -400,6 +398,7 @@ public class Message extends Base{
     @DataProvider(name = "dataProviderPeopleSearch", parallel=true)
     public static Object[][] dataProviderPeopleSearch() {
         return new Object[][]{
+/*
 
                 {       "Johan-Heinlein",
                         "johan.heinlein@outlook.de",
@@ -407,6 +406,7 @@ public class Message extends Base{
                         "AQEDAUxEX5oClGSZAAABlqRwr-QAAAGWyH0z5E0AXqUVg3i_xGUGHfkK0521QgvnRT3oGDKSMjzCJj7WtNcFtZLzXvtO1iSWVYZeijqfm8HQAoM35AbLaxh8ZqniHsPPrte8YtkkgtXT5XfPBbp_q4YO|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTU2LjIyOC4xNzEuMjUifQ==",
                         "Johan Heinlein"
                 },
+*/
 
                 {       "Anastasiia-Vozniak",
                         "vozniakanastasia52@gmail.com",

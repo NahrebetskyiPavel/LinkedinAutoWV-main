@@ -48,7 +48,7 @@ public class WiseVisionApiHelper {
                 "\"password\": \""+password+"\",\n        " +
                 "\"cookie\": \""+cookie+"\",\n        " +
                 "\"messages\": [\n            {\n                " +
-                "\"spreadsheetUrl\": \""+spreadsheetUrl+"/\",\n                " +
+                "\"spreadsheetUrl\": \""+spreadsheetUrl+"\",\n                " +
                 "\"message\": \""+message+"\"\n            " +
                 "}\n        ]\n    },\n    " +
                 "\"meta\": {\n      \"languages\":[\"ua-UA\",\"ua\"],\n      \"language\":\"ua-UA\",\n      \"timeZone\":\"Europe/Kiev\",\n      \"ip\":\"145.224.120.77\"\n    },\n    " +
