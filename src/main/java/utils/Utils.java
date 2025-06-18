@@ -49,7 +49,7 @@ public class Utils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         // Parse the given date and the current date
-        LocalDate givenDate = LocalDate.parse(givendate, formatter);
+        LocalDate givenDate = LocalDate.parse("2025-06-18", formatter);
         LocalDate currentDate = LocalDate.now(); // Current date
 
         // Compare the dates

@@ -8,11 +8,11 @@ import com.automation.linkedin.pages.messaging.MessagingPage;
 import com.codeborne.selenide.*;
 import lombok.SneakyThrows;
 import org.json.JSONObject;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import utils.StatusChecker;
 import utils.Utils;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +38,14 @@ public class Message extends Base{
     int msgsSent = 0;
     ArrayList<Integer> taskIdList = new ArrayList<>();
     int msgsSentCounter = 0;
-    int msgsSentCounterMax = 20;
+    int msgsSentCounterMax = 30;
 
+    @BeforeMethod
+    void clearCount(Method method){
+        if (method.getName().equals("sendFolowUpMsg")){
+            msgsSentCounter = 0;
+        }
+}
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
@@ -47,6 +53,7 @@ public class Message extends Base{
 
         String  token = zoho.renewAccessToken();
         System.out.println("Acc " + profileId);
+        sendFolowUpMsg(linkedInAccount, token,  "autoDailyOne1", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
         sendFolowUpMsg(linkedInAccount, token,  "Second automessage", profileId,  email,  password,  cookie );
         if (msgsSent == leadsRandomResult )      return;
@@ -91,14 +98,12 @@ public class Message extends Base{
 
 
         if (msgsSentCounter > msgsSentCounterMax) {
-            if (taskName.contains("Final automessage")) msgsSentCounter = 0;
-           System.out.println("fina msgsSentCounter = " + msgsSentCounter);
+            throw new Exception("msg limit" + linkedinAccount);
 
-            return;
         };
 
         for (int n = 0; n < 1000; n++) {
-            if (msgsSentCounterMax > leadsRandomResult) break;
+            if (msgsSentCounterMax > leadsRandomResult) throw new Exception("msg limit" + linkedinAccount);;
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.contains("INVALID_TOKEN")) {
                 token = zoho.renewAccessToken();
@@ -178,7 +183,7 @@ public class Message extends Base{
                             System.out.println("subject " + subject);
                             System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
-                            if (msgsSentCounter > msgsSentCounterMax) break;
+                            if (msgsSentCounter > msgsSentCounterMax) throw new Exception("msg limit" + linkedinAccount);;
 
                             System.out.println("sent msg from " + linkedinAccount);
                             System.out.println("msgsSent= " + msgsSentCounter);
@@ -214,6 +219,7 @@ public class Message extends Base{
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
+                                    if      ( taskResults.contains("Page did not loaded completely") ) continue;
                                     if      ( taskResults.contains("error") ) throw new Exception(taskResults + "\n" + linkedinAccount);
                                     else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
@@ -256,7 +262,7 @@ public class Message extends Base{
                             System.out.println("subject " + subject);
                             System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
-                            if (msgsSentCounter > msgsSentCounterMax) break;
+                            if (msgsSentCounter > msgsSentCounterMax) throw new Exception("msg limit" + linkedinAccount);;
 
                             System.out.println("sent msg from " + linkedinAccount);
                             System.out.println("msgsSent= " + msgsSentCounter);
