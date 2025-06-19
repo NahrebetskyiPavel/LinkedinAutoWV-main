@@ -103,7 +103,7 @@ public class Message extends Base{
         };
 
         for (int n = 0; n < 1000; n++) {
-            if (msgsSentCounterMax > leadsRandomResult) throw new Exception("msg limit" + linkedinAccount);;
+            if (msgsSentCounterMax < leadsRandomResult) throw new Exception("msg limit" + linkedinAccount);;
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.contains("INVALID_TOKEN")) {
                 token = zoho.renewAccessToken();
