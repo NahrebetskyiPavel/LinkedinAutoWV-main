@@ -38,7 +38,7 @@ public class Message extends Base{
     int msgsSent = 0;
     ArrayList<Integer> taskIdList = new ArrayList<>();
     int msgsSentCounter = 0;
-    int msgsSentCounterMax = 30;
+    int msgsSentCounterMax = 2;
 
     @BeforeMethod
     void clearCount(Method method){
@@ -98,12 +98,16 @@ public class Message extends Base{
 
 
         if (msgsSentCounter > msgsSentCounterMax) {
+            msgsSentCounter = 0;
             throw new Exception("msg limit" + linkedinAccount);
 
         };
 
         for (int n = 0; n < 1000; n++) {
-            if (msgsSentCounterMax < leadsRandomResult) throw new Exception("msg limit" + linkedinAccount);;
+            if (msgsSentCounter > msgsSentCounterMax) {
+                msgsSentCounter = 0;
+                throw new Exception("msg limit" + linkedinAccount);
+            };
             String data =  zoho.getLeadList(token, "Contacted", linkedinAccount, n);
             if (data.contains("INVALID_TOKEN")) {
                 token = zoho.renewAccessToken();
@@ -183,7 +187,10 @@ public class Message extends Base{
                             System.out.println("subject " + subject);
                             System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
-                            if (msgsSentCounter > msgsSentCounterMax) throw new Exception("msg limit" + linkedinAccount);;
+                            if (msgsSentCounter > msgsSentCounterMax) {
+                                msgsSentCounter = 0;
+                                throw new Exception("msg limit" + linkedinAccount);
+                            };
 
                             System.out.println("sent msg from " + linkedinAccount);
                             System.out.println("msgsSent= " + msgsSentCounter);
@@ -262,7 +269,10 @@ public class Message extends Base{
                             System.out.println("subject " + subject);
                             System.out.println("equals " +subject.contains(taskName));
                             Thread.sleep(10000);
-                            if (msgsSentCounter > msgsSentCounterMax) throw new Exception("msg limit" + linkedinAccount);;
+                            if (msgsSentCounter > msgsSentCounterMax) {
+                                msgsSentCounter = 0;
+                                throw new Exception("msg limit" + linkedinAccount);
+                            };
 
                             System.out.println("sent msg from " + linkedinAccount);
                             System.out.println("msgsSent= " + msgsSentCounter);
@@ -432,12 +442,6 @@ public class Message extends Base{
                         "AQEDASj3SfwEGLIvAAABlGmC3Y4AAAGU70nIQk0Ai4A6U01EkeKnuSgP56RlxVoG-olHOnD8HPJtTuBozbjz6UZCSih9CDJB8pukeO7YCWMq24saiShfxJkZyoo_ZtfaW5TZm_l29SXGTBWvz5JSGdgZ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "lina Kompanets"
                 },
-                {       "Nikita-K",
-                        "kni2012@ukr.net",
-                        "33222200s",
-                        "AQEDASE8mKgD8e3SAAABlGmER_UAAAGUjZDL9VYAMzZSaOOCF1F8PcfZQznfhQYTQutnyrKzLmQzv-g0CmX1Nu-ZlsnpsXHketfREZe-Bl_GFzC5dVXFk1iw8Gw5iD5EDxhi5DmPxWTxZCI58QmHNpm8|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuNjkuMzMifQ==",
-                        "Nikita K"
-                },
                 {       "Maria-Deyneka",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
@@ -488,6 +492,12 @@ public class Message extends Base{
                         "33222200Shin",
                         "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZY4hjnfTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MldgT_VDJlMqzZAXoJlii7NJ4B0SaFwlaCgY_XXbysHLR0KsQZ7COc8Jckrao00CzAadQOO4ELdVvjloNnhU37q8DXpzcDSbVF3q15_492x-auJV7PIkwpSR7TQvpmaVWEoE7vCUJ3fwtzIWW9-7rzlXBkBBYkulglDvFpMtDS1AHIYA0dybHUfPlrJSl5tp-k51WkY|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiODcuMTY5LjkyLjI5In0=",
                         "Paul Bereza"
+                },
+                {       "Nikita-K",
+                        "kni2012@ukr.net",
+                        "33222200s",
+                        "AQEDASE8mKgD8e3SAAABlGmER_UAAAGUjZDL9VYAMzZSaOOCF1F8PcfZQznfhQYTQutnyrKzLmQzv-g0CmX1Nu-ZlsnpsXHketfREZe-Bl_GFzC5dVXFk1iw8Gw5iD5EDxhi5DmPxWTxZCI58QmHNpm8|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuNjkuMzMifQ==",
+                        "Nikita K"
                 }
 
         };
