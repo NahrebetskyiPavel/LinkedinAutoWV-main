@@ -487,12 +487,7 @@ public class Message extends Base{
                         "Danylo Lytvyn"
                 },
 
-                {       "Paul-Bereza",
-                        "paul.bereza02@outlook.de",
-                        "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZY4hjnfTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MldgT_VDJlMqzZAXoJlii7NJ4B0SaFwlaCgY_XXbysHLR0KsQZ7COc8Jckrao00CzAadQOO4ELdVvjloNnhU37q8DXpzcDSbVF3q15_492x-auJV7PIkwpSR7TQvpmaVWEoE7vCUJ3fwtzIWW9-7rzlXBkBBYkulglDvFpMtDS1AHIYA0dybHUfPlrJSl5tp-k51WkY|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiODcuMTY5LjkyLjI5In0=",
-                        "Paul Bereza"
-                },
+
                 {       "Nikita-K",
                         "kni2012@ukr.net",
                         "33222200s",
