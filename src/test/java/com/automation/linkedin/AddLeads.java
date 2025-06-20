@@ -266,14 +266,14 @@ public class AddLeads extends Base {
                     {       "Johan-Heinlein",
                             "johan.heinlein@outlook.de",
                             "eGdFPRgS",
-                            "AQEDAUxEX5oApf6pAAABjglKvk4AAAGWOHzjDk0AkWLFqwKXjTsbaL1I3cBy8Wd7uxDsLreC9e04z6nEk_Zex_5fPbBCeJ3UfNqI_nWTNbxjJ3sHLgGoj-lzl2kJXLiLfsxEuwPYp_Tu0NC_Bewd85hV|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiNS4xNDYuMjQ4LjM0In0=",
+                            "AQEDAUxEX5oClGSZAAABlqRwr-QAAAGXESa3dU0AA3cv5E3ZFYPAz4k2FSrRskc3lpXwGWqfZvsscf9XO1GJH7yXenv2FCwL9IB3D1JBnb0i_EfoOatkd5U0PsIWAPzvYXT0guF9FWqJOsne1jjG-6-o|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTkxLjEwMS4xNTcuMTMxIn0=",
                             "Johan Heinlein"
                     },
 
                 {       "Anastasiia-Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "asd2424qq",
-                        "AQEDATp4HzoBa6O7AAABlGlxPOgAAAGUjX3A6E0AwNpK6n3p3Ulp5DO-BwvtTrsYEBYy9LxAD6xohwUCfLQO52TrKY4CuGewUPx04ho-yh9X6s0CZ_L_uBtMC0MvER8xlAxfO5ENZX--bzIUQuvtufWI|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuMjYuNjkifQ==",
+                        "AQEDATP_TCAAuywlAAABldbcruUAAAGW91LbgU0Aj8OgYVw1acVnP1cBc4bkiCTTilviZA0IvMrOceuiuTgRxLPh0ZZr0P_jcxO_lE4lj30e6LgaZoHqctEYlyh2OAp669uZvOJFn7JI5rviMAb_4zFj|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Anastasiia Vozniak"
                 },
                 {       "Art-Stenko",
@@ -328,17 +328,12 @@ public class AddLeads extends Base {
                 {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
-                        "AQEDATP_TCAAuywlAAABldbcruUAAAGW00lYmU0AvqLfNcvVhwebp2rjehqyTdcJXR6pNQn74It4L2FwWtrQGgBeohbrjAIj5nCfjdnOkqUIwon1Xaua4XbCHif5ODGZhcxXHCgm7sfADR8DREKfPoDU|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "AQEDATP_TCAAuywlAAABldbcruUAAAGXsScUFk0AOc7inBUneOcbMGoBD8W00yoN_anzd0g-zqmqSrS2sJBs5yB1aWk9RlgCgm1rD04cWaqlxAp_uV2ZP1L1AyNzg5GvvDkI1FKkLLaUV1HEUxgw39G5|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Danylo Lytvyn"
                 },
 
 
-                {       "Paul-Bereza",
-                        "paul.bereza02@outlook.de",
-                        "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZY4hjnfTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MldgT_VDJlMqzZAXoJlii7NJ4B0SaFwlaCgY_XXbysHLR0KsQZ7COc8Jckrao00CzAadQOO4ELdVvjloNnhU37q8DXpzcDSbVF3q15_492x-auJV7PIkwpSR7TQvpmaVWEoE7vCUJ3fwtzIWW9-7rzlXBkBBYkulglDvFpMtDS1AHIYA0dybHUfPlrJSl5tp-k51WkY|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiODcuMTY5LjkyLjI5In0=",
-                        "Paul Bereza"
-                }
+
         };
     }
 
