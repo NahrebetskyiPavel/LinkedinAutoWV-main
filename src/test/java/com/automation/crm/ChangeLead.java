@@ -138,7 +138,7 @@ else {
                 {       "Johan-Heinlein",
                         "johan.heinlein@outlook.de",
                         "eGdFPRgS",
-                        "AQEDAUxEX5oApf6pAAABjglKvk4AAAGWOHzjDk0AkWLFqwKXjTsbaL1I3cBy8Wd7uxDsLreC9e04z6nEk_Zex_5fPbBCeJ3UfNqI_nWTNbxjJ3sHLgGoj-lzl2kJXLiLfsxEuwPYp_Tu0NC_Bewd85hV|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiNS4xNDYuMjQ4LjM0In0=",
+                        "AQEDAUxEX5oClGSZAAABlqRwr-QAAAGXESa3dU0AA3cv5E3ZFYPAz4k2FSrRskc3lpXwGWqfZvsscf9XO1GJH7yXenv2FCwL9IB3D1JBnb0i_EfoOatkd5U0PsIWAPzvYXT0guF9FWqJOsne1jjG-6-o|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTkxLjEwMS4xNTcuMTMxIn0=",
                         "Johan Heinlein"
                 },
                 {       "Anastasiia-Vozniak",
@@ -201,15 +201,8 @@ else {
                 {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
-                        "AQEDATP_TCAAuywlAAABldbcruUAAAGV-uky5U0AkM0fAZ1ACH_RNZBXhZfRda3UIsoXgC6uBBNnKaUq5-_x_s9QU73z7DnspGpAfdYX3IrLk0Lpc6NdoYBWuqNi8bKHBLM9lxQSBuy-gMbiAb2IB29C|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "AQEDATP_TCAAuywlAAABldbcruUAAAGXsScUFk0AOc7inBUneOcbMGoBD8W00yoN_anzd0g-zqmqSrS2sJBs5yB1aWk9RlgCgm1rD04cWaqlxAp_uV2ZP1L1AyNzg5GvvDkI1FKkLLaUV1HEUxgw39G5|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Danylo Lytvyn"
-                },
-
-                {       "Paul-Bereza",
-                        "paul.bereza02@outlook.de",
-                        "33222200Shin",
-                        "AQEFAHUBAAAAAA9y_ngAAAGQEc-OggAAAZY4hjnfTQAAGHVybjpsaTptZW1iZXI6MTI2NjM4OTU1MldgT_VDJlMqzZAXoJlii7NJ4B0SaFwlaCgY_XXbysHLR0KsQZ7COc8Jckrao00CzAadQOO4ELdVvjloNnhU37q8DXpzcDSbVF3q15_492x-auJV7PIkwpSR7TQvpmaVWEoE7vCUJ3fwtzIWW9-7rzlXBkBBYkulglDvFpMtDS1AHIYA0dybHUfPlrJSl5tp-k51WkY|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiODcuMTY5LjkyLjI5In0=",
-                        "Paul Bereza"
                 }
 
         };
