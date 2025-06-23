@@ -231,6 +231,7 @@ public class Message extends Base{
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
                                     if      ( taskResults.contains("Page did not loaded completely") ) continue;
                                     if      ( taskResults.contains("Profile entity URN not found") ) continue;
+                                    if      ( taskResults.contains("end of central directory record signature not found") ) continue;
                                     if      ( taskResults.contains("error") ) {
                                         msgsSentCounter = 0;
                                         throw new Exception(taskResults + "\n" + linkedinAccount);
