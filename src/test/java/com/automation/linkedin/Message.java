@@ -220,14 +220,20 @@ public class Message extends Base{
                                 try {
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     taskResults = String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0));
-                                    if      ( taskResults.contains("error") ) throw new Exception(taskResults + "\n" + linkedinAccount);
+                                    if      ( taskResults.contains("error") ) {
+                                        msgsSentCounter = 0;
+                                        throw new Exception(taskResults + "\n" + linkedinAccount);
+                                    }
 
                                 } catch (Exception e){
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
                                     if      ( taskResults.contains("Page did not loaded completely") ) continue;
-                                    if      ( taskResults.contains("error") ) throw new Exception(taskResults + "\n" + linkedinAccount);
+                                    if      ( taskResults.contains("error") ) {
+                                        msgsSentCounter = 0;
+                                        throw new Exception(taskResults + "\n" + linkedinAccount);
+                                    }
                                     else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
                                     else if (taskInfo.contains("write EPROTO")) { throw new Exception("write EPROTO proxy err");}
