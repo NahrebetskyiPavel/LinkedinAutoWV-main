@@ -188,7 +188,7 @@ public class Message extends Base{
                             };
 
                             System.out.println("sent msg from " + linkedinAccount);
-                            System.out.println("msgsSent= " + msgsSentCounter);
+                            System.out.println("msgsSent= "+ linkedinAccount + " " + msgsSentCounter);
                             msgsSent = msgsSent + 1;
                             msgsSentCounter = msgsSentCounter+1;
 
@@ -287,7 +287,7 @@ public class Message extends Base{
                             };
 
                             System.out.println("sent msg from " + linkedinAccount);
-                            System.out.println("msgsSent= " + msgsSentCounter);
+                            System.out.println("msgsSent= "+ linkedinAccount + " " + msgsSentCounter);
                             msgsSent = msgsSent + 1;
                             msgsSentCounter = msgsSentCounter+1;
 
