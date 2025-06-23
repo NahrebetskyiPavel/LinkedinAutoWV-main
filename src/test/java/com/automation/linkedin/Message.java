@@ -40,12 +40,7 @@ public class Message extends Base{
     int msgsSentCounter = 0;
     int msgsSentCounterMax = 30;
 
-    @BeforeMethod
-    void clearCount(Method method){
-        if (method.getName().equals("sendFolowUpMsg")){
-            msgsSentCounter = 0;
-        }
-}
+
 
     @SneakyThrows
     @Test(description = "send FollowUp Msg", dataProvider = "dataProviderPeopleSearch", priority = 1)
@@ -232,13 +227,13 @@ public class Message extends Base{
                                     if      ( taskResults.contains("Page did not loaded completely") ) continue;
                                     if      ( taskResults.contains("Profile entity URN not found") ) continue;
                                     if      ( taskResults.contains("end of central directory record signature not found") ) continue;
+                                    else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
+                                    else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
+                                    else if (taskInfo.contains("write EPROTO")) { throw new Exception("write EPROTO proxy err");}
                                     if      ( taskResults.contains("error") ) {
                                         msgsSentCounter = 0;
                                         throw new Exception(taskResults + "\n" + linkedinAccount);
                                     }
-                                    else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
-                                    else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
-                                    else if (taskInfo.contains("write EPROTO")) { throw new Exception("write EPROTO proxy err");}
                                     else { throw new Exception(
                                             taskInfo + "\n\n\n\n" +
                                             String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0)) +
