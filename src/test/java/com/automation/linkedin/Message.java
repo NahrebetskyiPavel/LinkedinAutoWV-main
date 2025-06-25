@@ -224,9 +224,9 @@ public class Message extends Base{
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
-                                    if      ( taskResults.contains("Page did not loaded completely") ) continue;
-                                    if      ( taskResults.contains("Profile entity URN not found") ) continue;
-                                    if      ( taskResults.contains("end of central directory record signature not found") ) continue;
+                                    if      ( taskInfo.contains("Page did not loaded completely") ) continue;
+                                    if      ( taskInfo.contains("Profile entity URN not found") ) continue;
+                                    if      ( taskInfo.contains("end of central directory record signature not found") ) continue;
                                     else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
                                     else if (taskInfo.contains("write EPROTO")) {
