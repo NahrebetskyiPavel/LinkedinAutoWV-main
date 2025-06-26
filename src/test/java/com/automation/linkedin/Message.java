@@ -223,7 +223,7 @@ public class Message extends Base{
                                 } catch (Exception e){
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
-                                    if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid");
+                                    if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid "  +linkedinAccount);
                                     if      ( taskInfo.contains("Page did not loaded completely") ) continue;
                                     if      ( taskInfo.contains("Profile entity URN not found") ) continue;
                                     if      ( taskInfo.contains("Сould not open the messenger") ) continue;
@@ -232,7 +232,7 @@ public class Message extends Base{
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
                                     else if (taskInfo.contains("write EPROTO")) {
                                         msgsSentCounter = 0;
-                                        throw new Exception("write EPROTO proxy err");
+                                        throw new Exception("write EPROTO proxy err "  +linkedinAccount);
                                     }
                                     else if (taskInfo.contains("is currently locked")) {
                                         msgsSentCounter = 0;
