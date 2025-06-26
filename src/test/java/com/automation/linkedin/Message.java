@@ -234,6 +234,10 @@ public class Message extends Base{
                                         msgsSentCounter = 0;
                                         throw new Exception("write EPROTO proxy err");
                                     }
+                                    else if (taskInfo.contains("is currently locked")) {
+                                        msgsSentCounter = 0;
+                                        throw new Exception("Profile" +linkedinAccount+ " is currently locked");
+                                    }
                                     else if (taskInfo.contains("Profile Johan-Heinlein is currently locked")) {
                                         msgsSentCounter = 0;
                                         throw new Exception("Profile "+linkedinAccount+" is currently locked");
@@ -246,7 +250,7 @@ public class Message extends Base{
                                         msgsSentCounter = 0;
                                         throw new Exception(
                                             taskInfo + "\n\n\n\n" +
-                                            String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0)) +
+                                            String.valueOf(new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0)) + " "+  linkedinAccount+
                                             "\n\n\n\n" + e); }
                                 }
 
