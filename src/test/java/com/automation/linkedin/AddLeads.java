@@ -156,7 +156,7 @@ public class AddLeads extends Base {
                 };
                 if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) {
                     System.out.println("Navigation timeout of 30000 ms exceeded");
-                    throw new Exception("Navigation timeout of 30000 ms exceeded");
+                    throw new Exception("Navigation timeout of 30000 ms exceeded " + linkedinperson);
                 };
                 String taskResults;
                 if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
