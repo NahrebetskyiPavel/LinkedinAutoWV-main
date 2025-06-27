@@ -228,6 +228,7 @@ public class Message extends Base{
                                     if      ( taskInfo.contains("Profile entity URN not found") ) continue;
                                     if      ( taskInfo.contains("Сould not open the messenger") ) continue;
                                     if      ( taskInfo.contains("end of central directory record signature not found") ) continue;
+                                    if      ( taskInfo.contains("Can not send message to profile. Send message button is not found") ) continue;
                                     else if (taskInfo.contains("Request failed with status code 59")) {Thread.sleep(1000*60*10); continue;}
                                     else if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) { continue;}
                                     else if (taskInfo.contains("write EPROTO")) {
