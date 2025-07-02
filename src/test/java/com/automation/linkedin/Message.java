@@ -126,7 +126,7 @@ public class Message extends Base{
                     System.out.println("JSONException occurred for index " + id + ". Skipping this entry.");
                     continue;
                 }
-                String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name");
+                String fullName = responseBodyJsonObject.getJSONArray("data").getJSONObject(i).getString("Full_Name").replace("?","");
                 String[] fullNameArr = fullName.split(" ");
                 String leadName = fullNameArr[0];
                 System.out.println(id);
