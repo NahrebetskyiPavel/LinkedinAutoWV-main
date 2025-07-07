@@ -263,13 +263,6 @@ public class AddLeads extends Base {
 
         return new Object[][]{
 
-                    {       "Johan-Heinlein",
-                            "johan.heinlein@outlook.de",
-                            "eGdFPRgS",
-                            "AQEDAUxEX5oClGSZAAABlqRwr-QAAAGXESa3dU0AA3cv5E3ZFYPAz4k2FSrRskc3lpXwGWqfZvsscf9XO1GJH7yXenv2FCwL9IB3D1JBnb0i_EfoOatkd5U0PsIWAPzvYXT0guF9FWqJOsne1jjG-6-o|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTkxLjEwMS4xNTcuMTMxIn0=",
-                            "Johan Heinlein"
-                    },
-
                 {       "Anastasiia-Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "asd2424qq",
