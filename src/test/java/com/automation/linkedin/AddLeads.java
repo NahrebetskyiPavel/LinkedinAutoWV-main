@@ -317,7 +317,12 @@ public class AddLeads extends Base {
                         "AQEDATxvso0AsoGrAAABlGmcpMYAAAGUjakoxk0At3rdIcYwg58nfPB100bIp55gaun_CLHbmRhw-J9lsRGXjBUy8peYKS15_zVsmeIbGpBPQzmETdRZntEpa4d7CQxIDcAy5Cn7m0nPv-__V08N5W8L|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuODIuMTgxIn0=",
                         "Aleksandra Sternenko"
                 },
-
+                {       "Oksana-Dovhan",
+                        "wisevision.office@gmail.com",
+                        "33222200Shin",
+                        "AQEDAUAUTMkEs1LVAAABmDc1ZWIAAAGYW0HpYk0AlH2UqwO74wBOuB9tLdbJN5fb2co3E4Kae_5tofOEspzM4miib5HlDRlgtpnn8dRgsYp_H2x-OR73I6dFdIbyFF8Uo0s1OsCkI0lMok7KC3Y1bxUS|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "Oksana Dovhan"
+                },
                 {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
