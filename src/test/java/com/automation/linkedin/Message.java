@@ -38,7 +38,7 @@ public class Message extends Base{
     int msgsSent = 0;
     ArrayList<Integer> taskIdList = new ArrayList<>();
     int msgsSentCounter = 0;
-    int msgsSentCounterMax = 30;
+    int msgsSentCounterMax = 1;
 
 
 
@@ -226,6 +226,8 @@ public class Message extends Base{
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid "  +linkedinAccount);
                                     if      ( taskInfo.contains("Page did not loaded completely") ) continue;
                                     if      ( taskInfo.contains("Profile entity URN not found") ) continue;
+                                    if      ( taskInfo.contains("404 page not found") ) continue;
+                                    if      ( taskInfo.contains("socket hang up") ) continue;
                                     if      ( taskInfo.contains("Сould not open the messenger") ) continue;
                                     if      ( taskInfo.contains("end of central directory record signature not found") ) continue;
                                     if      ( taskInfo.contains("Can not send message to profile. Send message button is not found") ) continue;
