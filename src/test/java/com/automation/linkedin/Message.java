@@ -494,6 +494,12 @@ public class Message extends Base{
                         "AQEDATP_TCAAuywlAAABldbcruUAAAGXsScUFk0AOc7inBUneOcbMGoBD8W00yoN_anzd0g-zqmqSrS2sJBs5yB1aWk9RlgCgm1rD04cWaqlxAp_uV2ZP1L1AyNzg5GvvDkI1FKkLLaUV1HEUxgw39G5|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Danylo Lytvyn"
                 },
+                {       "Oksana-Dovhan",
+                        "wisevision.office@gmail.com",
+                        "33222200Shin",
+                        "AQEDAUAUTMkEs1LVAAABmDc1ZWIAAAGYW0HpYk0AlH2UqwO74wBOuB9tLdbJN5fb2co3E4Kae_5tofOEspzM4miib5HlDRlgtpnn8dRgsYp_H2x-OR73I6dFdIbyFF8Uo0s1OsCkI0lMok7KC3Y1bxUS|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "Oksana Dovhan"
+                },
 
 
                 {       "Nikita-K",
