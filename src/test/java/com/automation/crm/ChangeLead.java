@@ -175,7 +175,12 @@ while (true){
                         "AQEDAUvkzscEuod7AAABjcxZHVEAAAGWOIjoBU0AZywRYltKivTCz0g31QT6CunLKRUsQh_Zvlw_rmKNQhJm6_jKWNOzK763nFrcUabB7qTTizMwuWkgDstzYPHuXmF4TxlMG-xQSJ9RF1n3QZ9h2Wha|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6Ijk1LjIzMy4yMDMuMjEzIn0=",
                         "Matthew Martinez"
                 },
-
+                {       "Oksana-Dovhan",
+                        "wisevision.office@gmail.com",
+                        "33222200Shin",
+                        "AQEDAUAUTMkEs1LVAAABmDc1ZWIAAAGYW0HpYk0AlH2UqwO74wBOuB9tLdbJN5fb2co3E4Kae_5tofOEspzM4miib5HlDRlgtpnn8dRgsYp_H2x-OR73I6dFdIbyFF8Uo0s1OsCkI0lMok7KC3Y1bxUS|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "Oksana Dovhan"
+                },
                 {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
