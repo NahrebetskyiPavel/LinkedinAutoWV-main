@@ -38,7 +38,7 @@ public class Message extends Base{
     int msgsSent = 0;
     ArrayList<Integer> taskIdList = new ArrayList<>();
     int msgsSentCounter = 0;
-    int msgsSentCounterMax = 1;
+    int msgsSentCounterMax = 30;
 
 
 
