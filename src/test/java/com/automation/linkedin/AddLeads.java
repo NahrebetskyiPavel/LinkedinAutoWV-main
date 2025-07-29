@@ -149,14 +149,14 @@ public class AddLeads extends Base {
                     continue;
                 };
                 if (taskInfo.contains("Cookie is not valid")) {
-                    System.out.println("Cookie is not valid");
+                    System.out.println("Cookie is not valid " + linkedinperson);
                     wiseVisionApiHelper.SendMsgToTelegram("5990565707", "6895594171:AAGlEWr1ogP5Kkd4q5BumdKG6_nCRVSbMg0","Cookie is not valid " + linkedinperson + "");
 
-                    throw new Exception("Cookie is not valid!");
+                    throw new Exception("Cookie is not valid! " + linkedinperson);
                 };
                 if (taskInfo.contains("Navigation timeout of 30000 ms exceeded")) {
                     System.out.println("Navigation timeout of 30000 ms exceeded");
-                    throw new Exception("Navigation timeout of 30000 ms exceeded");
+                    throw new Exception("Navigation timeout of 30000 ms exceeded " + linkedinperson);
                 };
                 String taskResults;
                 if (new JSONObject( taskInfo ).get("results") instanceof JSONArray) {
@@ -167,7 +167,7 @@ public class AddLeads extends Base {
                      //if (taskResult.contains("Proxy connection ended before receiving CONNECT response")) continue;
                     if (taskResult.contains("Cookie is not valid")) {
                         System.out.println("Cookie is not valid");
-                        throw new Exception("Cookie is not valid!");
+                        throw new Exception("Cookie is not valid! " + linkedinperson);
                     };
                     taskInfo = String.valueOf(new JSONObject( taskInfo ));
                 }
@@ -263,17 +263,10 @@ public class AddLeads extends Base {
 
         return new Object[][]{
 
-                    {       "Johan-Heinlein",
-                            "johan.heinlein@outlook.de",
-                            "eGdFPRgS",
-                            "AQEDAUxEX5oClGSZAAABlqRwr-QAAAGXESa3dU0AA3cv5E3ZFYPAz4k2FSrRskc3lpXwGWqfZvsscf9XO1GJH7yXenv2FCwL9IB3D1JBnb0i_EfoOatkd5U0PsIWAPzvYXT0guF9FWqJOsne1jjG-6-o|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTkxLjEwMS4xNTcuMTMxIn0=",
-                            "Johan Heinlein"
-                    },
-
                 {       "Anastasiia-Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "asd2424qq",
-                        "AQEDATP_TCAAuywlAAABldbcruUAAAGW91LbgU0Aj8OgYVw1acVnP1cBc4bkiCTTilviZA0IvMrOceuiuTgRxLPh0ZZr0P_jcxO_lE4lj30e6LgaZoHqctEYlyh2OAp669uZvOJFn7JI5rviMAb_4zFj|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "AQEDATp4HzoBa6O7AAABlGlxPOgAAAGXxiOnBU0AJ0osFi0_Z8Et8wqNSx_O3jpJMt38dGLM6vqLRsph8GXD5Hjg5Ewe7fwXetwDercRs3xF1JV24IbLoRAUL9xnRO_fIH-TI35k3WrRM8Ha2Sp30Ffk|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Anastasiia Vozniak"
                 },
                 {       "Art-Stenko",
@@ -291,7 +284,7 @@ public class AddLeads extends Base {
                 {       "Nikita-K",
                         "kni2012@ukr.net",
                         "33222200s",
-                        "AQEDASE8mKgD8e3SAAABlGmER_UAAAGUjZDL9VYAMzZSaOOCF1F8PcfZQznfhQYTQutnyrKzLmQzv-g0CmX1Nu-ZlsnpsXHketfREZe-Bl_GFzC5dVXFk1iw8Gw5iD5EDxhi5DmPxWTxZCI58QmHNpm8|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuNjkuMzMifQ==",
+                        "AQEDASE8mKgD_WLlAAABl6b5ZbgAAAGXywXpuE0ANZJ8yYDf3kXpfRUEaRSJ-HcvNvl0pIcxixvVjPPs6osjxb9S_xk3UZ0KRqqdJ8QLZ9vHrvCjJj2oWTrEtbeNsMTj6ithIM8qN603E9KF7xUzeEAk|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Nikita K"
                 },
                 {       "Maria-Deyneka",
@@ -324,7 +317,12 @@ public class AddLeads extends Base {
                         "AQEDATxvso0AsoGrAAABlGmcpMYAAAGUjakoxk0At3rdIcYwg58nfPB100bIp55gaun_CLHbmRhw-J9lsRGXjBUy8peYKS15_zVsmeIbGpBPQzmETdRZntEpa4d7CQxIDcAy5Cn7m0nPv-__V08N5W8L|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuODIuMTgxIn0=",
                         "Aleksandra Sternenko"
                 },
-
+                {       "Oksana-Dovhan",
+                        "wisevision.office@gmail.com",
+                        "33222200Shin",
+                        "AQEDAUAUTMkEs1LVAAABmDc1ZWIAAAGYW0HpYk0AlH2UqwO74wBOuB9tLdbJN5fb2co3E4Kae_5tofOEspzM4miib5HlDRlgtpnn8dRgsYp_H2x-OR73I6dFdIbyFF8Uo0s1OsCkI0lMok7KC3Y1bxUS|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "Oksana Dovhan"
+                },
                 {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
