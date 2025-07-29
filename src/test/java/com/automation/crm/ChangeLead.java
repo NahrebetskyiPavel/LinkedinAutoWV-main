@@ -34,7 +34,7 @@ public class ChangeLead {
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleAddToCRM")
     public void addLeadsToCRM(String profileId, String email, String password, String cookie, String linkedinperson){
-        int numberOfProfiles = 10000;
+        int numberOfProfiles = 50;
         String token = zohoCrmHelper.renewAccessToken();
         System.out.println("Start");
         System.out.println("profileId " + profileId);
@@ -71,7 +71,6 @@ while (true){
                 break;
             }
             String personName = String.valueOf(new JSONObject( data ).getString("fullName"));
-            String personURL = String.valueOf(new JSONObject( data ).getString("profileUrl"));
             //String personRef = String.valueOf(new JSONObject( data ).getString("personRef"));
             System.out.println(personName);
             Thread.sleep(randomResult);
@@ -85,13 +84,6 @@ while (true){
                 if (leadInfoResponseBody.length() > 0 && leadInfoResponseBody.contains("data")) {
                     JSONObject responseBodyJsonObjectLeadInfo = new JSONObject(leadInfoResponseBody);
                     String leadId = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("id");
-                    String personRef;
-                   try {
-                        personRef = responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Website");
-                   } catch (Exception e){
-                       continue;
-                   }
-
                     System.out.println(leadId);
                     System.out.println(personName);
                     if (responseBodyJsonObjectLeadInfo.getJSONArray("data").getJSONObject(0).getString("Lead_Status").equals("Attempted to Contact"))
@@ -104,26 +96,13 @@ while (true){
                         System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
                     };
                     }
-else {
-                        System.out.println("ADD LEAD " + personRef + "to " + linkedinperson);
-                       // String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname
-                        String response = zohoCrmHelper.AddLeadToCRM(personName, token, "Pavlo", personRef, "Attempted to Contact", "Update", "421659000040922027", linkedinperson);
-                        if (response.contains("INVALID_TOKEN")) {
-                            token = zohoCrmHelper.renewAccessToken();
-                        }
-                                String changeLeadStatusResponse = zohoCrmHelper.changeLeadStatus(leadId, token, Contacted);
-                                JSONObject changeLeadStatusResponseJson = new JSONObject(changeLeadStatusResponse);;
-                                System.out.println("code: " + changeLeadStatusResponseJson.getString("code") );
-                                System.out.println("\n" );
-                                if (changeLeadStatusResponseJson.getString("code").equals("RECORD_NOT_IN_PROCESS")) {
-                                    System.out.println("Try direct change:\n" + zohoCrmHelper.changeLeadStatus(leadId, token) );
-                        };
-                    }
-                }else {
-                    System.out.println("ADD LEAD " + personURL + "to " + linkedinperson);
-                    // String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname
-                    String response = zohoCrmHelper.AddLeadToCRM(personName, token, "Pavlo", personURL, "Attempted to Contact", "Update", "421659000040922027", linkedinperson);
-
+//else {
+//                       // String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname
+//                        String response = zohoCrmHelper.AddLeadToCRM(personName, token, pickList, personRef, "Attempted to Contact", leadCompany, leadCompanyId, linkedinperson);
+//                        if (response.contains("INVALID_TOKEN")) {
+//                            token = zohoCrmHelper.renewAccessToken();
+//                        }
+//                    }
                 }
             Thread.sleep(randomResult);
         }
@@ -135,12 +114,6 @@ else {
     public static Object[][] dataProviderPeopleAddToCRM() {
         return new Object[][]{
 
-                {       "Johan-Heinlein",
-                        "johan.heinlein@outlook.de",
-                        "eGdFPRgS",
-                        "AQEDAUxEX5oClGSZAAABlqRwr-QAAAGXESa3dU0AA3cv5E3ZFYPAz4k2FSrRskc3lpXwGWqfZvsscf9XO1GJH7yXenv2FCwL9IB3D1JBnb0i_EfoOatkd5U0PsIWAPzvYXT0guF9FWqJOsne1jjG-6-o|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTkxLjEwMS4xNTcuMTMxIn0=",
-                        "Johan Heinlein"
-                },
                 {       "Anastasiia-Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "asd2424qq",
@@ -159,7 +132,12 @@ else {
                         "AQEDASj3SfwEGLIvAAABlGmC3Y4AAAGU70nIQk0Ai4A6U01EkeKnuSgP56RlxVoG-olHOnD8HPJtTuBozbjz6UZCSih9CDJB8pukeO7YCWMq24saiShfxJkZyoo_ZtfaW5TZm_l29SXGTBWvz5JSGdgZ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "lina Kompanets"
                 },
-
+                {       "Nikita-K",
+                        "kni2012@ukr.net",
+                        "33222200s",
+                        "AQEDASE8mKgD_WLlAAABl6b5ZbgAAAGXywXpuE0ANZJ8yYDf3kXpfRUEaRSJ-HcvNvl0pIcxixvVjPPs6osjxb9S_xk3UZ0KRqqdJ8QLZ9vHrvCjJj2oWTrEtbeNsMTj6ithIM8qN603E9KF7xUzeEAk|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "Nikita K"
+                },
                 {       "Maria-Deyneka",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
@@ -197,7 +175,12 @@ else {
                         "AQEDAUvkzscEuod7AAABjcxZHVEAAAGWOIjoBU0AZywRYltKivTCz0g31QT6CunLKRUsQh_Zvlw_rmKNQhJm6_jKWNOzK763nFrcUabB7qTTizMwuWkgDstzYPHuXmF4TxlMG-xQSJ9RF1n3QZ9h2Wha|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6Ijk1LjIzMy4yMDMuMjEzIn0=",
                         "Matthew Martinez"
                 },
-
+                {       "Oksana-Dovhan",
+                        "wisevision.office@gmail.com",
+                        "33222200Shin",
+                        "AQEDAUAUTMkEs1LVAAABmDc1ZWIAAAGYW0HpYk0AlH2UqwO74wBOuB9tLdbJN5fb2co3E4Kae_5tofOEspzM4miib5HlDRlgtpnn8dRgsYp_H2x-OR73I6dFdIbyFF8Uo0s1OsCkI0lMok7KC3Y1bxUS|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "Oksana Dovhan"
+                },
                 {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
