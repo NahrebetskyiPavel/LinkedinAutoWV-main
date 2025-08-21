@@ -132,11 +132,6 @@ while (true){
                         "AQEDASj3SfwEGLIvAAABlGmC3Y4AAAGU70nIQk0Ai4A6U01EkeKnuSgP56RlxVoG-olHOnD8HPJtTuBozbjz6UZCSih9CDJB8pukeO7YCWMq24saiShfxJkZyoo_ZtfaW5TZm_l29SXGTBWvz5JSGdgZ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "lina Kompanets"
                 },
-                {       "Nikita-K",
-                        "kni2012@ukr.net",
-                        "33222200s",
-                        "AQEFAHQBAAAAABaVI1cAAAGXpvlluAAAAZh5_xgdTgAAF3VybjpsaTptZW1iZXI6NTU3NjE5MzY4NzaKh4x7AWz29T-hnPdkRfmTRKL-4re_ezvssfq6bXTqVsAIi8_vCIq-JgcpuGx4HcH9gDdPBju2L0OpkY2H3ELL78H_dawKYmZ6UVUquNXjAzf1U_i-jBE2jzsvXGKz-xCFX-aG-kRjJMm6ud2X_Jm24UyLACOx4DAsPvlZmAphJCxKIzJAiNCTMb27_XD3uYJfWQ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",                        "Nikita K"
-                },
                 {       "Maria-Deyneka",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
@@ -185,7 +180,12 @@ while (true){
                         "1171534Oli35Wisew",
                         "AQEDATP_TCAAuywlAAABldbcruUAAAGXsScUFk0AOc7inBUneOcbMGoBD8W00yoN_anzd0g-zqmqSrS2sJBs5yB1aWk9RlgCgm1rD04cWaqlxAp_uV2ZP1L1AyNzg5GvvDkI1FKkLLaUV1HEUxgw39G5|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Danylo Lytvyn"
-                }
+                }/*,
+                {       "Nikita-K",
+                        "kni2012@ukr.net",
+                        "33222200s",
+                        "AQEFAHQBAAAAABaVI1cAAAGXpvlluAAAAZh5_xgdTgAAF3VybjpsaTptZW1iZXI6NTU3NjE5MzY4NzaKh4x7AWz29T-hnPdkRfmTRKL-4re_ezvssfq6bXTqVsAIi8_vCIq-JgcpuGx4HcH9gDdPBju2L0OpkY2H3ELL78H_dawKYmZ6UVUquNXjAzf1U_i-jBE2jzsvXGKz-xCFX-aG-kRjJMm6ud2X_Jm24UyLACOx4DAsPvlZmAphJCxKIzJAiNCTMb27_XD3uYJfWQ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",                        "Nikita K"
+                }*/
 
         };
     }
