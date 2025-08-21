@@ -281,12 +281,12 @@ public class AddLeads extends Base {
                         "AQEDASj3SfwEGLIvAAABlGmC3Y4AAAGU70nIQk0Ai4A6U01EkeKnuSgP56RlxVoG-olHOnD8HPJtTuBozbjz6UZCSih9CDJB8pukeO7YCWMq24saiShfxJkZyoo_ZtfaW5TZm_l29SXGTBWvz5JSGdgZ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "lina Kompanets"
                 },
-                {       "Nikita-K",
+             /*   {       "Nikita-K",
                         "kni2012@ukr.net",
                         "33222200s",
                         "AQEDASE8mKgD_WLlAAABl6b5ZbgAAAGXywXpuE0ANZJ8yYDf3kXpfRUEaRSJ-HcvNvl0pIcxixvVjPPs6osjxb9S_xk3UZ0KRqqdJ8QLZ9vHrvCjJj2oWTrEtbeNsMTj6ithIM8qN603E9KF7xUzeEAk|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
                         "Nikita K"
-                },
+                },*/
                 {       "Maria-Deyneka",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
