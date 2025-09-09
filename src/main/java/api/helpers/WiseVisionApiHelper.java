@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class WiseVisionApiHelper {
+    String AuthorizationToken = "415cb6b7-c13a-412d-886c-273e88fba6a5";
     @SneakyThrows
     public String getUnprocessedLinks(){
         OkHttpClient client = new OkHttpClient().newBuilder()
@@ -80,9 +81,9 @@ public class WiseVisionApiHelper {
                 "\"ip\":\"145.224.120.77\"\n    },\n    " +
                 "\"callback\": \"https://test.com\"\n}");
         Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/impasto.script.auto_connect")
+                .url("https://api-dev.impasto.cpga.systems/api/impasto.script.auto_connect")
                 .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
+                .addHeader("Authorization", AuthorizationToken)
                 .addHeader("Content-Type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -110,9 +111,9 @@ public class WiseVisionApiHelper {
                 "\"callback\": \"https://test.com\"\n" +
                 "}");
         Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/impasto.script.auto_connect")
+                .url("https://api-dev.impasto.cpga.systems/api/impasto.script.auto_connect")
                 .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
+                .addHeader("Authorization", AuthorizationToken)
                 .addHeader("Content-Type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -131,9 +132,9 @@ public class WiseVisionApiHelper {
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
         Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/task/"+tasId+"/info/"+profileId+"")
+                .url("https://api-dev.impasto.cpga.systems/api/task/"+tasId+"/info/"+profileId+"")
                 .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
+                .addHeader("Authorization", AuthorizationToken)
                 .build();
         Response response;
 try {
