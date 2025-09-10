@@ -34,7 +34,7 @@ public class ChangeLead {
     @SneakyThrows
     @Test(description = "add leads from search page", dataProvider = "dataProviderPeopleAddToCRM")
     public void addLeadsToCRM(String profileId, String email, String password, String cookie, String linkedinperson){
-        int numberOfProfiles = 50;
+        int numberOfProfiles = 200;
         String token = zohoCrmHelper.renewAccessToken();
         System.out.println("Start");
         System.out.println("profileId " + profileId);
