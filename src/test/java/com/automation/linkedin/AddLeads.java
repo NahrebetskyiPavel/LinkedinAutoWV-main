@@ -109,6 +109,20 @@ public class AddLeads extends Base {
                     if (taskStatus.contains("finished")) break;
                     if (taskStatus.contains("failed")) break;
                 }
+                if (taskInfo.contains("LinkedIn requires the person's email to confirm you know them before you can connect")) {
+                    //System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                    System.out.println("Status is now 'error'.");
+                    System.out.println("email required.");
+                    changeLeadStatus(id,broken, "broken");
+                    continue;
+                };
+                if (taskInfo.contains("Free personalized invitations are no longer available")) {
+                    //System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
+                    System.out.println("Status is now 'error'.");
+                    System.out.println("email required.");
+                    changeLeadStatus(id,broken, "broken");
+                    continue;
+                };
                 if (taskInfo.contains("To verify this member knows you, please enter their email to connect. You can also include a personal note")) {
                     //System.out.println("ERROR: " + new JSONObject( taskInfo ).getJSONArray("results").getJSONObject(0).getString("error"));
                     System.out.println("Status is now 'error'.");
