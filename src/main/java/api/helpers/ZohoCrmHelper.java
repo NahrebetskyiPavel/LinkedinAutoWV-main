@@ -11,55 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 public class ZohoCrmHelper {
     public String responseBody;
-    @SneakyThrows
-    public JSONObject AddLeadToCRM(String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId){
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
-        MediaType mediaType = MediaType.parse("text/plain;charset=UTF-8");
-        RequestBody body = RequestBody.create(mediaType, "{\n    " +
-                "\"data\": [\n        " +
-                "{\n            " +
-                "\"Owner\": {\n                " +
-                "\"id\": \"421659000000609236\",\n                " +
-                "\"full_name\": \"Anastasiia Kuntii\"\n            },\n            " +
-                "\"Lead_Status\": \""+leadStatus+"\",\n            " +
-                "\"Email_Opt_Out\": false,\n            " +
-                "\"Lead_Source\": \"Sales navigator\",\n            " +
-                "\"Industry\": \"-None-\",\n            \"TechStack\": \"-None-\",\n            " +
-                "\"Leadscompany\": \"-None-\",\n            " +
-                "\"Pick_List_2\": \""+pickList+"\",\n            " +
-                "\"OlyaPick\": \"-None-\",\n            " +
-                "\"Rating\": \"-None-\",\n            " +
-                "\"Company\": \"Test\",\n            " +
-                "\"Last_Name\": \""+Last_Name+"\",\n            " +
-                "\"LinkedIn_person\": \"-None-\",\n            " +
-                "\"Website\": \""+LinkedInLink+"/\",\n            " +
-                "\"LeadTestCompany\": " +
-                "{\n                " +
-                "\"id\": \""+leadCompanyId+"\",\n                " +
-                "\"name\": \""+leadCompany+"\"\n            " +
-                "}\n        }\n    ],\n    " +
-                "\"skip_mandatory\": false\n}");
-        Request request = new Request.Builder()
-                .url("https://crm.zoho.eu/crm/v2/Leads")
-                .method("POST", body)
-                .addHeader("X-CRM-ORG", "20080256708")
-                .addHeader("sec-ch-ua", "\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"")
-                .addHeader("X-ZCSRF-TOKEN", "crmcsrfparam=663491d1093474ddbc431314984d718b41e6226cc6c2d80a722b8851700d5e5af060d0a3684867deafd86dc2f2a3dcff1b4d25397c386aa0096106749d699a2e")
-                .addHeader("Content-Type", "text/plain;charset=UTF-8")
-                .addHeader("sec-ch-ua-mobile", "?0")
-                .addHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36")
-                .addHeader("sec-ch-ua-platform", "\"macOS\"")
-                .addHeader("Accept", "*/*")
-                .addHeader("host", "crm.zoho.eu")
-                .addHeader("Authorization", "Bearer " + token)
-                .addHeader("Cookie", "5ad188d5f9=6dfb6a24a3f5a5d1fd2626c85de190c3; _zcsr_tmp=9e1a5efd-1a1b-4fb5-8601-38f6f471d50e; crmcsr=9e1a5efd-1a1b-4fb5-8601-38f6f471d50e")
-                .build();
-        Response response = client.newCall(request).execute();
-        responseBody = response.body().string();
-        JSONObject responseBodyJsonObject = new JSONObject(responseBody);
-        return responseBodyJsonObject;
-    }
 
     @SneakyThrows
     public String AddLeadToCRM(String Last_Name, String token, String pickList, String LinkedInLink, String leadStatus, String leadCompany, String leadCompanyId, String accountname){
@@ -204,9 +155,9 @@ public class ZohoCrmHelper {
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
         Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/task/"+taskId+"/info/"+profileId+"")
+                .url("https://api-dev.impasto.cpga.systems/api/task/"+taskId+"/info/"+profileId+"")
                 .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
+                .addHeader("Authorization", "415cb6b7-c13a-412d-886c-273e88fba6a5")
                 .build();
         Response response = client.newCall(request).execute();
         String responseBody = response.body().string();
@@ -214,55 +165,27 @@ public class ZohoCrmHelper {
         return responseBody;
     }
 
-    @SneakyThrows
-    public String getConnectionsList(String profileId, String email, String password, String cookie, String sortBy, String numberOfProfiles){
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n    " +
-                "\"profileId\": \""+profileId+"\",\n    " +
-                "\"data\": {\n        " +
-                "\"email\": \""+email+"\",\n        " +
-                "\"password\": \""+password+"\",\n        " +
-                "\"cookie\": \""+cookie+"\",\n" +
-                "\"sortBy\": \""+sortBy+"\",\n        " +
-                "\"numberOfProfiles\": "+numberOfProfiles+",\n        " +
-                "\"onlyRetrieveProfilesAfterDate\": true,\n        " +
-                "\"dateAfter\": \"02-03-2024\"\n    " +
-                "},\n    " +
-                "\"meta\": {\n\n    },\n    \"callback\": \"https://test.com\"\n}");
-        Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/impasto.script.connection_export")
-                .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
-                .addHeader("Content-Type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        String responseBody = response.body().string();
 
-        return responseBody;
-    }
     @SneakyThrows
     public String getConnectionsList(String profileId, String email, String password, String cookie, String sortBy, int numberOfProfiles){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n    " +
-                "\"profileId\": \""+profileId+"\",\n    " +
-                "\"data\": {\n        " +
-                "\"email\": \""+email+"\",\n        " +
-                "\"password\": \""+password+"\",\n        " +
-                "\"cookie\": \""+cookie+"\",\n" +
-                "\"sortBy\": \""+sortBy+"\",\n        " +
-                "\"numberOfProfiles\": "+numberOfProfiles+",\n        " +
-                "\"onlyRetrieveProfilesAfterDate\": true,\n        " +
-                "\"dateAfter\": \"02-03-2024\"\n    " +
-                "},\n    " +
-                "\"meta\": {\n\n    },\n    \"callback\": \"https://test.com\"\n}");
+
+        RequestBody body = RequestBody.create(mediaType, "{\n  " +
+                "\"profileId\": \""+profileId+"\",\n  " +
+                "\"data\": {\n    " +
+                "\"sortBy\": \""+sortBy+"\",\n    " +
+                "\"numberOfProfiles\": "+numberOfProfiles+",\n    " +
+                "\"onlyRetrieveProfilesAfterDate\": true,\n    " +
+                "\"dateAfter\": \"02-03-2025\"\n  },\n  " +
+                "\"meta\": {\n\n  },\n  " +
+                "\"callback\": \"https://test.com\"\n}\n");
+
         Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/impasto.script.connection_export")
+                .url("https://api-dev.impasto.cpga.systems/api/impasto.script.connection_export")
                 .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
+                .addHeader("Authorization", "415cb6b7-c13a-412d-886c-273e88fba6a5")
                 .addHeader("Content-Type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -280,17 +203,10 @@ public class ZohoCrmHelper {
 
         System.out.println(leadInfoResponseBody);*/
 
-        String connectionsListTask = getConnectionsList("maryana-nikolayenko", "nikolayenko.maryana@outlook.de", "33222200Shin","AQEDAUwXjXUEIGu5AAABjepsA3kAAAGOqQA4JU0AzNcS_1QgrITl8veER7O_l56aNg9ujszf2XbmB2Mw6Kx2fFl8azF0opPeG7dC7DSGuQ4NbYz7X3haGOyA8BqHLXtxeljElBZaD90Fuc1JOS5pWmSx", "Recently added", 50);
-        String connectionsListTaskId = String.valueOf(new JSONObject( connectionsListTask ).get("taskId"));
-        System.out.println(connectionsListTaskId);
-        Thread.sleep(1000*60);
-        String connectionsList = getTaskInfo(connectionsListTaskId, "andrei-gorbunkov-a34b4a2aa");
-        new StatusChecker().waitForStatus("finished", String.valueOf(new JSONObject( connectionsList ).get("status")) );
+
+        String connectionsList = getTaskInfo("1156", "Oksana-Dovhan");
         System.out.println(connectionsList);
-        System.out.println( new JSONObject( connectionsList ).getJSONArray("results") );
-        String data = String.valueOf(new JSONObject( connectionsList ).getJSONArray("results").get(0));
-        String name = String.valueOf(new JSONObject( data ).getString("fullName"));
-        System.out.println(name);
+
     }
 
 }

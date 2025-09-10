@@ -50,11 +50,11 @@ public class ChangeLead {
         System.out.println(connectionsListTaskId);
         Thread.sleep(1000*60);
         String connectionsList = zohoCrmHelper.getTaskInfo(connectionsListTaskId, profileId);
-
+        System.out.println(connectionsList);
 while (true){
-    if ((String.valueOf(new JSONObject( connectionsList ).get("status")+"").contains("finished"))) break;
-    if ((String.valueOf(new JSONObject( connectionsList ).get("status")+"").contains("failed"))) break;
-    connectionsList = zohoCrmHelper.getTaskInfo(connectionsListTaskId, profileId);
+    if (String.valueOf(new JSONObject( connectionsList ).get("status")).contains("finished")) break;
+    if (String.valueOf(new JSONObject( connectionsList ).get("status")).contains("failed")) break;
+    //connectionsList = zohoCrmHelper.getTaskInfo(connectionsListTaskId, profileId);
     Thread.sleep(20*1000);
 }
 
@@ -117,74 +117,74 @@ while (true){
                 {       "Anastasiia-Vozniak",
                         "vozniakanastasia52@gmail.com",
                         "asd2424qq",
-                        "AQEDATp4HzoBa6O7AAABlGlxPOgAAAGUjX3A6E0AwNpK6n3p3Ulp5DO-BwvtTrsYEBYy9LxAD6xohwUCfLQO52TrKY4CuGewUPx04ho-yh9X6s0CZ_L_uBtMC0MvER8xlAxfO5ENZX--bzIUQuvtufWI|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuMjYuNjkifQ==",
+                        "",
                         "Anastasiia Vozniak"
                 },
                 {       "Art-Stenko",
                         "artstenko@gmail.com",
                         "GOgoCyclone_11",
-                        "AQEDAR1-TWgCdaXbAAABlGmXZtsAAAGU71o8iU0AX2vCEj5S0ms2kzRxYBRPWlb-BlkleFw59RilRgTGUZKEKeA3LHcXC5v2PEGQ4htj0m20Zgs8vTv6FxAjj6ZwLwCao7rehPhPpbiaXZbxwkBFGHGs|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "",
                         "Art Stenko"
                 },
                 {       "lina-Kompanets",
                         "ekompanets02@gmail.com",
                         "35ulurev",
-                        "AQEDASj3SfwEGLIvAAABlGmC3Y4AAAGU70nIQk0Ai4A6U01EkeKnuSgP56RlxVoG-olHOnD8HPJtTuBozbjz6UZCSih9CDJB8pukeO7YCWMq24saiShfxJkZyoo_ZtfaW5TZm_l29SXGTBWvz5JSGdgZ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "",
                         "lina Kompanets"
                 },
                 {       "Maria-Deyneka",
                         "deynekamariawv@gmail.com",
                         "3N2wbnsw",
-                        "AQEDATpgt8MFzfWtAAABlGmMmFwAAAGUjZkcXE0AvlevlyzCIVWISv_-5GXi67C29LB7IMZOc9D-uWJDSDvBtN_p16tzzEquHGNEL-C4ct8uXrUwfsbpeY4tDJ2IqPq83BQfohaEMNtZrSAr8KWxPqlw|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE3OC4xMzYuMzcuMjE5In0=",
+                        "",
                         "Maria Deyneka"
                 },
                 {       "Marian-Reshetun",
                         "reshetunmaryanwv@gmail.com",
                         "33222200Shin",
-                        "AQEDATpm9GsDKEL5AAABlGmOfpAAAAGU_02FZE0ALTKPrP2OgK7G6YxUJw3HzHzxtFy65g0LZreuBTXCZ_7dufkRTICalYOnUuAkHioX3kupbIyjpHnuLlB2ML8h7MX7BLxvoRhl7K9IOQ5bmWjI2z6H|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "",
                         "Marian Reshetun"
                 },
                 {       "Anastasiia-Kuntii",
                         "anastasiiakuntii@gmail.com",
                         "33222200Shin",
-                        "AQEDASosSSoEwgrNAAABlGmRGiUAAAGWFJ_Oyk0AVf9s64tNXp9utdzLLtA4-RfY7IQGKOj1WaK53_a9RUWEukQPl5ikFxiNr4od_4czY7qH_8HLdSJokHhqNdo4vLZr3mjQcpFnA9LchRzOZyoB8t6F|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "",
                         "Anastasiia Kuntii"
                 },
                 {       "Natalia-Marcun",
                         "natalia.marcoon@gmail.com",
                         "asd321qq",
-                        "AQEDATxzPCcDSaa2AAABlGmTliAAAAGUjaAaIE4AWy01oPscxLvE1AGPoHL1b-BM9xTko4B66dc5mgq9BXLfVA3_PgVtwp5_zNEEtAKpvant2d58dlQWprhSe1W83oGvH82--WTubb20UvdZPxeONqCd|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuNjUuMTk0In0=",
+                        "",
                         "Natalia Marcun"
                 },
                 {       "Aleksandra-Sternenko",
                         "alexandra.sternenko@gmail.com",
                         "asd321qq",
-                        "AQEDATxvso0AsoGrAAABlGmcpMYAAAGUjakoxk0At3rdIcYwg58nfPB100bIp55gaun_CLHbmRhw-J9lsRGXjBUy8peYKS15_zVsmeIbGpBPQzmETdRZntEpa4d7CQxIDcAy5Cn7m0nPv-__V08N5W8L|eyJsYW5ndWFnZXMiOlsidWstVUEiLCJ1ayIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJ1ay1VQSIsInRpbWVab25lIjoiRXVyb3BlL0tpZXYiLCJpcCI6IjE4OC4xNjMuODIuMTgxIn0=",
+                        "",
                         "Aleksandra Sternenko"
                 },
 
                 {       "Matthew-Martinez",
                         "mMartiz11@outlook.it",
                         "metmar11mmjy",
-                        "AQEDAUvkzscEuod7AAABjcxZHVEAAAGWOIjoBU0AZywRYltKivTCz0g31QT6CunLKRUsQh_Zvlw_rmKNQhJm6_jKWNOzK763nFrcUabB7qTTizMwuWkgDstzYPHuXmF4TxlMG-xQSJ9RF1n3QZ9h2Wha|eyJsYW5ndWFnZXMiOlsiaXQtSVQiLCJpdCIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJpdC1JVCIsInRpbWVab25lIjoiRXVyb3BlL1JvbWUiLCJpcCI6Ijk1LjIzMy4yMDMuMjEzIn0=",
+                        "",
                         "Matthew Martinez"
                 },
                 {       "Oksana-Dovhan",
                         "wisevision.office@gmail.com",
                         "33222200Shin",
-                        "AQEDAUAUTMkEs1LVAAABmDc1ZWIAAAGYW0HpYk0AlH2UqwO74wBOuB9tLdbJN5fb2co3E4Kae_5tofOEspzM4miib5HlDRlgtpnn8dRgsYp_H2x-OR73I6dFdIbyFF8Uo0s1OsCkI0lMok7KC3Y1bxUS|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "",
                         "Oksana Dovhan"
                 },
                 {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
-                        "AQEDATP_TCAAuywlAAABldbcruUAAAGXsScUFk0AOc7inBUneOcbMGoBD8W00yoN_anzd0g-zqmqSrS2sJBs5yB1aWk9RlgCgm1rD04cWaqlxAp_uV2ZP1L1AyNzg5GvvDkI1FKkLLaUV1HEUxgw39G5|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",
+                        "",
                         "Danylo Lytvyn"
                 }/*,
                 {       "Nikita-K",
                         "kni2012@ukr.net",
                         "33222200s",
-                        "AQEFAHQBAAAAABaVI1cAAAGXpvlluAAAAZh5_xgdTgAAF3VybjpsaTptZW1iZXI6NTU3NjE5MzY4NzaKh4x7AWz29T-hnPdkRfmTRKL-4re_ezvssfq6bXTqVsAIi8_vCIq-JgcpuGx4HcH9gDdPBju2L0OpkY2H3ELL78H_dawKYmZ6UVUquNXjAzf1U_i-jBE2jzsvXGKz-xCFX-aG-kRjJMm6ud2X_Jm24UyLACOx4DAsPvlZmAphJCxKIzJAiNCTMb27_XD3uYJfWQ|eyJsYW5ndWFnZXMiOlsiZGUtREUiLCJkZSIsImVuLVVTIiwiZW4iXSwibGFuZ3VhZ2UiOiJkZS1ERSIsInRpbWVab25lIjoiRXVyb3BlL0JlcmxpbiIsImlwIjoiMTg4LjI0NS4xOTkuMjA1In0=",                        "Nikita K"
+                        ""
                 }*/
 
         };
