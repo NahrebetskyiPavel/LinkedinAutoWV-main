@@ -65,21 +65,16 @@ public class WiseVisionApiHelper {
                 .readTimeout(60, TimeUnit.SECONDS)
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n    " +
-                "\"profileId\": \""+profileId+"\",\n    " +
-                "\"data\": {\n        " +
-                "\"email\": \""+email+"\",\n        " +
-                "\"password\": \""+password+"\",\n        " +
-                "\"cookie\": \""+cookie+"\",\n        " +
-                "\"messages\": [\n\n            {\n                " +
-                "\"spreadsheetUrl\": \""+spreadsheetUrl+"/\"\n            }\n            \n        ]\n    },\n    " +
-                "\"meta\": " +
-                "{\n      " +
-                "\"languages\":[\"ua-UA\",\"ua\"],\n      " +
-                "\"language\":\"ua-UA\",\n      " +
-                "\"timeZone\":\"Europe/Kiev\",\n      " +
-                "\"ip\":\"145.224.120.77\"\n    },\n    " +
-                "\"callback\": \"https://test.com\"\n}");
+
+        RequestBody body = RequestBody.create(mediaType, "{\n  " +
+                "\"profileId\": \""+profileId+"\",\n  " +
+                "\"data\": {\n    " +
+                "\"messages\": [\n      {\n        " +
+                "\"spreadsheetUrl\": \""+spreadsheetUrl+"/\",\n        " +
+                "\"message\": \"Hello \"\n      }\n    ]\n  },\n  " +
+                "\"meta\": {\n  },\n  " +
+                "\"callback\": \"https://test.com\"\n}\n");
+
         Request request = new Request.Builder()
                 .url("https://api-dev.impasto.cpga.systems/api/impasto.script.auto_connect")
                 .method("POST", body)
@@ -97,19 +92,15 @@ public class WiseVisionApiHelper {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n    " +
-                "\"profileId\": \""+profileId+"\",\n    " +
-                "\"data\": {\n        " +
-                "\"email\": \""+email+"\",\n        " +
-                "\"password\": \""+password+"\",\n        " +
-                "\"cookie\": \""+cookie+"\",\n        " +
-                "\"messages\": [\n            {\n                " +
-                "\"spreadsheetUrl\": \""+spreadsheetUrl+"/\",\n                " +
-                "\"message\": \""+inviteMsg+"\"\n            " +
-                "}\n            \n        ]\n    },\n    " +
-                "\"meta\": {\n      \"languages\":[\"ua-UA\",\"ua\"],\n      \"language\":\"ua-UA\",\n      \"timeZone\":\"Europe/Kiev\",\n      \"ip\":\"145.224.120.77\"\n    },\n    " +
-                "\"callback\": \"https://test.com\"\n" +
-                "}");
+        RequestBody body = RequestBody.create(mediaType, "{\n  " +
+                "\"profileId\": \""+profileId+"\",\n  " +
+                "\"data\": {\n    " +
+                "\"messages\": [\n      {\n        " +
+                "\"spreadsheetUrl\": \""+spreadsheetUrl+"/\",\n        " +
+                "\"message\": \"Hello \"\n      }\n    ]\n  },\n  " +
+                "\"meta\": {\n  },\n  " +
+                "\"callback\": \"https://test.com\"\n}\n");
+
         Request request = new Request.Builder()
                 .url("https://api-dev.impasto.cpga.systems/api/impasto.script.auto_connect")
                 .method("POST", body)
