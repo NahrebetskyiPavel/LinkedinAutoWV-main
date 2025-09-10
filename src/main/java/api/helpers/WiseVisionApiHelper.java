@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 import okhttp3.*;
 import org.testng.annotations.Test;
 public class WiseVisionApiHelper {
+    String Authorization = "415cb6b7-c13a-412d-886c-273e88fba6a5";
     @SneakyThrows
     public String getUnprocessedLinks(){
         OkHttpClient client = new OkHttpClient().newBuilder()
@@ -41,23 +42,18 @@ public class WiseVisionApiHelper {
                 .build();
 
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n    " +
-                "\"profileId\": \""+profileId+"\",\n    " +
-                "\"data\": {\n        " +
-                "\"email\": \""+email+"\",\n        " +
-                "\"password\": \""+password+"\",\n        " +
-                "\"cookie\": \""+cookie+"\",\n        " +
-                "\"messages\": [\n            {\n                " +
-                "\"spreadsheetUrl\": \""+spreadsheetUrl+"\",\n                " +
-                "\"message\": \""+message+"\"\n            " +
-                "}\n        ]\n    },\n    " +
-                "\"meta\": {\n      \"languages\":[\"ua-UA\",\"ua\"],\n      \"language\":\"ua-UA\",\n      \"timeZone\":\"Europe/Kiev\",\n      \"ip\":\"145.224.120.77\"\n    },\n    " +
-                "\"callback\": \"https://test.com\"\n}"
-        );
+        RequestBody body = RequestBody.create(mediaType, "{\n  " +
+                "\"profileId\": \""+profileId+"\",\n  " +
+                "\"data\": {\n    " +
+                "\"messages\": [\n      {\n        " +
+                "\"spreadsheetUrl\": \""+spreadsheetUrl+"/\",\n        " +
+                "\"message\": \""+message+"\"\n      }\n    ]\n  },\n  " +
+                "\"meta\": {\n    \n  },\n  " +
+                "\"callback\": \"https://test.com\"\n}\n");
         Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/impasto.script.message_sender")
+                .url("https://api-dev.impasto.cpga.systems/api/impasto.script.message_sender")
                 .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
+                .addHeader("Authorization", Authorization)
                 .addHeader("Content-Type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -73,9 +69,9 @@ public class WiseVisionApiHelper {
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
         Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/task/"+tasId+"/info/"+profileId+"")
+                .url("https://api-dev.impasto.cpga.systems/api/task/"+tasId+"/info/"+profileId+"")
                 .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
+                .addHeader("Authorization", Authorization)
                 .build();
         Response response = client.newCall(request).execute();
         String responseBody = response.body().string();
@@ -89,9 +85,9 @@ public class WiseVisionApiHelper {
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, "");
         Request request = new Request.Builder()
-                .url("https://api.impasto.cpga.systems/api/task/"+tasId+"/info/"+profileId+"")
+                .url("https://api-dev.impasto.cpga.systems/api/task/"+tasId+"/info/"+profileId+"")
                 .method("POST", body)
-                .addHeader("Authorization", "b4b3a5bf-c499-4679-9799-c0988e5f3cbc")
+                .addHeader("Authorization", Authorization)
                 .build();
         Response response = client.newCall(request).execute();
         String responseBody = response.body().string();
