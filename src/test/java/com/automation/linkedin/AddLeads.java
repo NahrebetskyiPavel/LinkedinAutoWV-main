@@ -330,13 +330,13 @@ public class AddLeads extends Base {
                         "",
                         "Aleksandra Sternenko"
                 },
-                {       "Danylo-Lytvyn",
+      /*          {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
                         "",
                         "Danylo Lytvyn"
                 },
-
+*/
 
 
         };
