@@ -175,12 +175,13 @@ while (true){
                         "",
                         "Oksana Dovhan"
                 },
-                {       "Danylo-Lytvyn",
+         /*       {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
                         "",
                         "Danylo Lytvyn"
-                }/*,
+                }*/
+                /*,
                 {       "Nikita-K",
                         "kni2012@ukr.net",
                         "33222200s",
