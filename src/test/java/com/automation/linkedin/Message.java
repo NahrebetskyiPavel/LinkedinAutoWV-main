@@ -488,12 +488,12 @@ public class Message extends Base{
 
 
 
-                {       "Danylo-Lytvyn",
+          /*      {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
                         "",
                         "Danylo Lytvyn"
-                },
+                },*/
                 {       "Oksana-Dovhan",
                         "wisevision.office@gmail.com",
                         "33222200Shin",
