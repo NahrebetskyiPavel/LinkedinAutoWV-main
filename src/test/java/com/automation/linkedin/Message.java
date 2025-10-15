@@ -445,12 +445,7 @@ public class Message extends Base{
                         "",
                         "Anastasiia Vozniak"
                 },
-                {       "Art-Stenko",
-                        "artstenko@gmail.com",
-                        "GOgoCyclone_11",
-                        "",
-                        "Art Stenko"
-                },
+
                 {       "lina-Kompanets",
                         "ekompanets02@gmail.com",
                         "35ulurev",
