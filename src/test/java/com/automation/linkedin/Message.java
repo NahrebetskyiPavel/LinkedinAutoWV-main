@@ -226,6 +226,8 @@ public class Message extends Base{
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid "  +linkedinAccount);
                                     if      ( taskInfo.contains("Page did not loaded completely") ) continue;
                                     if      ( taskInfo.contains("Profile entity URN not found") ) continue;
+                                    if      ( taskInfo.contains("unexpected EOF") ) continue;
+                                    if      ( taskInfo.contains("Profile link invalid") ) continue;
                                     if      ( taskInfo.contains("404 page not found") ) continue;
                                     if      ( taskInfo.contains("socket hang up") ) continue;
                                     if      ( taskInfo.contains("Сould not open the messenger") ) continue;
@@ -443,12 +445,12 @@ public class Message extends Base{
                         "",
                         "Anastasiia Vozniak"
                 },
-      /*          {       "Art-Stenko",
+                {       "Art-Stenko",
                         "artstenko@gmail.com",
                         "GOgoCyclone_11",
                         "",
                         "Art Stenko"
-                },*/
+                },
                 {       "lina-Kompanets",
                         "ekompanets02@gmail.com",
                         "35ulurev",
@@ -488,12 +490,12 @@ public class Message extends Base{
 
 
 
-          /*      {       "Danylo-Lytvyn",
+                {       "Danylo-Lytvyn",
                         "wisevision.beast@gmail.com",
                         "1171534Oli35Wisew",
                         "",
                         "Danylo Lytvyn"
-                },*/
+                },
                 {       "Oksana-Dovhan",
                         "wisevision.office@gmail.com",
                         "33222200Shin",
