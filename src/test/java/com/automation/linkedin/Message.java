@@ -224,6 +224,7 @@ public class Message extends Base{
                                     Thread.sleep(60*1000);
                                     taskInfo = wiseVisionApiHelper.impastoGetTaskinfo(profileId, impastoTaskId);
                                     if      ( taskInfo .contains("Cookie is not valid") ) throw new Exception("Cookie is not valid "  +linkedinAccount);
+                                    if      ( taskInfo .contains("Not authenticated") ) throw new Exception("Not authenticated "  +linkedinAccount);
                                     if      ( taskInfo.contains("Page did not loaded completely") ) continue;
                                     if      ( taskInfo.contains("Profile entity URN not found") ) continue;
                                     if      ( taskInfo.contains("unexpected EOF") ) continue;
