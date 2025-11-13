@@ -330,13 +330,27 @@ public class AddLeads extends Base {
                         "",
                         "Aleksandra Sternenko"
                 },
-      /*          {       "Danylo-Lytvyn",
-                        "wisevision.beast@gmail.com",
-                        "1171534Oli35Wisew",
+                {       "Anastasiia-Mohylna",
+                        "nmogilna77@gmail.com",
+                        "ywZ9YRc-,!k6P*-",
                         "",
-                        "Danylo Lytvyn"
+                        "Anastasiia-Mohylna"
                 },
-*/
+                {       "Yura-Demchuk",
+                        "yura.demchukk@gmail.com",
+                        "&%2jt-68PqeJ5,S",
+                        "",
+                        "Yura-Demchuk"
+                },
+
+                /*          {       "Danylo-Lytvyn",
+                                  "wisevision.beast@gmail.com",
+                                  "1171534Oli35Wisew",
+                                  "",
+                                  "Danylo Lytvyn"
+                          },
+          */
+
 
 
         };
