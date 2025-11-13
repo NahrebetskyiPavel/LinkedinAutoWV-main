@@ -498,6 +498,18 @@ public class Message extends Base{
                         "",
                         "Oksana Dovhan"
                 },
+                {       "Anastasiia-Mohylna",
+                        "nmogilna77@gmail.com",
+                        "ywZ9YRc-,!k6P*-",
+                        "",
+                        "Anastasiia-Mohylna"
+                },
+                {       "Yura-Demchuk",
+                        "yura.demchukk@gmail.com",
+                        "&%2jt-68PqeJ5,S",
+                        "",
+                        "Yura-Demchuk"
+                },
 
 /*
                 {       "Nikita-K",
