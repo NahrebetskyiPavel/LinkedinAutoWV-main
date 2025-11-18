@@ -334,13 +334,13 @@ public class AddLeads extends Base {
                         "nmogilna77@gmail.com",
                         "ywZ9YRc-,!k6P*-",
                         "",
-                        "Anastasiia-Mohylna"
+                        "Anastasiia Mohylna RD"
                 },
                 {       "Yura-Demchuk",
                         "yura.demchukk@gmail.com",
                         "&%2jt-68PqeJ5,S",
                         "",
-                        "Yura-Demchuk"
+                        "Yura Demchuk RD"
                 },
 
                 /*          {       "Danylo-Lytvyn",
